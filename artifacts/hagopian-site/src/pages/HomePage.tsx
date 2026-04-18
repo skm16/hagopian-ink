@@ -405,22 +405,28 @@ export function Homepage() {
           CASE STUDIES
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-[#0a0a0a]">
-        <FadeIn className="pt-24 pb-12 text-center px-6">
-          <SectionLabel>Selected Work</SectionLabel>
-          <h2 className="text-5xl md:text-7xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
-        </FadeIn>
-
         <div>
           {CASE_STUDIES.map((cs, i) => (
             <FadeIn key={cs.id}>
-              <div className={`relative group overflow-hidden ${i % 2 === 0 ? 'bg-[#0a0a0a]' : 'bg-[#0f0f0f]'} border-t border-[#1a1a1a]`}>
+              <div className={`relative group overflow-hidden ${i % 2 === 0 ? 'bg-[#0a0a0a]' : 'bg-[#0f0f0f]'} ${i > 0 ? 'border-t border-[#1a1a1a]' : ''}`}>
                 {/* Full bleed image */}
-                <div className="relative w-full overflow-hidden" style={{ height: cs.style === 'container' ? 480 : 640 }}>
+                <div className="relative w-full overflow-hidden" style={{ height: cs.style === 'container' ? 480 : 680 }}>
                   <img src={cs.img} alt={cs.client}
                     className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.04] opacity-85 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent" />
+
+                  {/* Section headline baked into the top of the first case study */}
+                  {i === 0 && (
+                    <div className="absolute top-0 left-0 right-0 px-10 md:px-16 pt-14 md:pt-20 flex items-start justify-between">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-3" style={{ fontFamily: NAV_FONT }}>Selected Work</p>
+                        <h2 className="text-5xl md:text-7xl leading-none" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                {/* Content overlay */}
+
+                {/* Content overlay at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
@@ -433,7 +439,8 @@ export function Homepage() {
                     <p className="text-[#f5f0eb]/55 max-w-lg text-[15px] leading-relaxed">{cs.desc}</p>
                   </div>
                   <a href={cs.href} target="_blank" rel="noopener noreferrer"
-                    className="shrink-0 flex items-center gap-3 text-[11px] uppercase tracking-[0.14em] border-b border-[#f5f0eb]/30 pb-1.5 text-[#f5f0eb]/70 hover:text-[#f5f0eb] hover:border-[#f5f0eb] transition-all duration-300 self-end md:self-auto">
+                    className="shrink-0 flex items-center gap-3 text-[11px] uppercase tracking-[0.14em] border-b border-[#f5f0eb]/30 pb-1.5 text-[#f5f0eb]/70 hover:text-[#f5f0eb] hover:border-[#f5f0eb] transition-all duration-300 self-end md:self-auto"
+                    style={{ fontFamily: NAV_FONT }}>
                     View Case Study <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
