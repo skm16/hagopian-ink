@@ -18,7 +18,13 @@ const DD_BOLD_ITALIC = `${CDN.replace('wp-content/uploads', 'wp-content/themes/s
 const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 
 const STYLES = `
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap');
+@font-face {
+  font-family: 'Sackers Gothic Std';
+  src: url('${FONT_BASE_URL}/SackersGothicStd-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: 'Didonesque';
   src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold-webfont.woff2') format('woff2'),
@@ -56,8 +62,9 @@ const STYLES = `
 * { box-sizing: border-box; }
 `;
 
-const SERIF = "'Didonesque', 'Times New Roman', serif";
-const SANS  = "'Fira Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const SERIF  = "'Didonesque', 'Times New Roman', serif";
+const SANS   = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const NAV_FONT = "'Sackers Gothic Std', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /* ─── Data ────────────────────────────────────────────────── */
 
@@ -265,7 +272,8 @@ export function Homepage() {
           <img src={LOGO} alt="Hagopian Ink" className="h-7 w-auto brightness-0 invert" />
         </motion.a>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.1 }}
-          className="hidden md:flex gap-8 text-[10px] tracking-[0.18em] uppercase text-[#f5f0eb]/70">
+          className="hidden md:flex gap-8 text-[13px] tracking-[0.1em] uppercase text-[#f5f0eb]/70"
+          style={{ fontFamily: NAV_FONT }}>
           {[
             ['Expertise', 'https://hagopianink.com/expertise/'],
             ['Work',      'https://hagopianink.com/case-studies/'],
@@ -277,7 +285,8 @@ export function Homepage() {
           ))}
         </motion.div>
         <motion.a href="https://hagopianink.com/contact/" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
-          className="hidden lg:block text-[10px] tracking-[0.18em] uppercase border border-[#f5f0eb]/30 px-5 py-2.5 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300 text-[#f5f0eb]/70">
+          className="hidden lg:block text-[13px] tracking-[0.1em] uppercase border border-[#f5f0eb]/30 px-5 py-2.5 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300 text-[#f5f0eb]/70"
+          style={{ fontFamily: NAV_FONT }}>
           Get in Touch
         </motion.a>
       </nav>
