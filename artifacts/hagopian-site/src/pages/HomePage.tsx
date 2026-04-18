@@ -272,7 +272,7 @@ export function Homepage() {
           <img src={LOGO} alt="Hagopian Ink" className="h-7 w-auto brightness-0 invert" />
         </motion.a>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.1 }}
-          className="hidden md:flex gap-8 text-[13px] tracking-[0.1em] uppercase text-[#f5f0eb]/70"
+          className="hidden md:flex items-center gap-8 text-[13px] tracking-[0.1em] uppercase text-[#f5f0eb]/70"
           style={{ fontFamily: NAV_FONT }}>
           {[
             ['Expertise', 'https://hagopianink.com/expertise/'],
@@ -283,12 +283,11 @@ export function Homepage() {
           ].map(([label, url]) => (
             <a key={label} href={url} className="hover:text-[#f5f0eb] transition-colors duration-250">{label}</a>
           ))}
+          <a href="https://hagopianink.com/contact/"
+            className="text-[13px] tracking-[0.1em] uppercase border border-[#f5f0eb]/30 px-5 py-2.5 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300 text-[#f5f0eb]/70 ml-4">
+            Get in Touch
+          </a>
         </motion.div>
-        <motion.a href="https://hagopianink.com/contact/" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
-          className="hidden lg:block text-[13px] tracking-[0.1em] uppercase border border-[#f5f0eb]/30 px-5 py-2.5 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300 text-[#f5f0eb]/70"
-          style={{ fontFamily: NAV_FONT }}>
-          Get in Touch
-        </motion.a>
       </nav>
 
       {/* ═══════════════════════════════════════════════════════
