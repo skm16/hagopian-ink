@@ -18,6 +18,7 @@ const DD_BOLD_ITALIC = `${CDN.replace('wp-content/uploads', 'wp-content/themes/s
 const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 
 const STYLES = `
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&display=swap');
 @font-face {
   font-family: 'Didonesque';
   src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold-webfont.woff2') format('woff2'),
@@ -56,7 +57,7 @@ const STYLES = `
 `;
 
 const SERIF = "'Didonesque', 'Times New Roman', serif";
-const SANS  = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const SANS  = "'Fira Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /* ─── Data ────────────────────────────────────────────────── */
 
@@ -152,6 +153,7 @@ const SERVICES = [
     link: 'https://hagopianink.com/work/design-branding/',
     linkText: 'View brand development',
     img: `${CDN}/2018/08/Bitmap-1.png`,
+    icon: `${CDN}/2018/08/10-layers.png`,
   },
   {
     name: 'UX/UI Design',
@@ -161,6 +163,7 @@ const SERVICES = [
     link: 'https://hagopianink.com/work/ux-design/',
     linkText: 'View UX/UI design',
     img: `${CDN}/2018/08/1111.png`,
+    icon: `${CDN}/2022/08/ux_icon_drop2.png`,
   },
   {
     name: 'Email Marketing',
@@ -170,6 +173,7 @@ const SERVICES = [
     link: 'https://hagopianink.com/work/email/',
     linkText: 'View email marketing',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
+    icon: `${CDN}/2018/08/3-layers.png`,
   },
 ];
 
@@ -369,13 +373,19 @@ export function Homepage() {
                   <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4" style={{ color: svc.color }}>{svc.name}</p>
                   <h3 className="text-2xl md:text-3xl mb-5 leading-snug whitespace-pre-line" style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
                   <p className="text-[#0a0a0a]/65 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
-                  <div className="aspect-[4/3] overflow-hidden mb-8 bg-[#f1efef]">
-                    <img src={svc.img} alt={svc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
                   <a href={svc.link} target="_blank" rel="noopener noreferrer"
-                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/55 hover:text-[#0a0a0a] transition-colors border-b border-[#0a0a0a]/20 pb-1 self-start">
+                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/55 hover:text-[#0a0a0a] transition-colors border-b border-[#0a0a0a]/20 pb-1 self-start mb-8">
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
                   </a>
+                  {/* Card footer: image + ink drop icon */}
+                  <div className="relative">
+                    <div className="overflow-hidden bg-[#f1efef]">
+                      <img src={svc.img} alt={svc.name} className="w-full object-cover group-hover:scale-105 transition-transform duration-700" style={{ aspectRatio: '4/3' }} />
+                    </div>
+                    <div className="flex justify-center mt-4">
+                      <img src={svc.icon} alt="" className="h-16 w-auto object-contain opacity-70" />
+                    </div>
+                  </div>
                 </div>
               </FadeIn>
             ))}
