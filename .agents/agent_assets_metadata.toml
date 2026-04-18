@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "_iy9AS1M0K0xbjcdMuVO8"
+uri = "file://artifacts/mockup-sandbox/public/images/hagopian-hero-bg.png"
+type = "image"
+title = "dark inky black liquid texture"
+
+[[generated]]
+id = "am2tBDZ5Jpk7Vrj2ngQNW"
+uri = "file://artifacts/mockup-sandbox/public/images/hagopian-work-1.png"
+type = "image"
+title = "abstract cashmere texture"
+
+[[generated]]
+id = "v4iKllV-seGpf1YAAT8t6"
+uri = "file://artifacts/mockup-sandbox/public/images/hagopian-work-2.png"
+type = "image"
+title = "abstract digital mesh"
+
+[[generated]]
+id = "-yROo58fR-lJ-E7fQdLk1"
+uri = "file://artifacts/mockup-sandbox/public/images/hagopian-work-3.png"
+type = "image"
+title = "abstract medical science"
