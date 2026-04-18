@@ -329,25 +329,6 @@ export function Homepage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          STATS TICKER
-      ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#111111] border-y border-[#222222] py-12 overflow-hidden relative">
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#111111] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#111111] to-transparent z-10 pointer-events-none" />
-        <div className="flex w-max" style={{ animation: 'ticker 60s linear infinite' }}>
-          {[...STATS, ...STATS].map((s, i) => (
-            <div key={i} className="flex shrink-0 items-center border-r border-[#2a2a2a] px-12 md:px-16">
-              <span className="text-4xl md:text-5xl font-light mr-4" style={{ fontFamily: SERIF }}>{s.n}</span>
-              <div>
-                <div className="text-sm text-[#f5f0eb]/75">{s.label}</div>
-                <div className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/35 mt-0.5">{s.client}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════
           CLIENT LOGO TRAIN
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-[#0a0a0a] py-16 border-b border-[#191919] overflow-hidden relative">
@@ -361,7 +342,7 @@ export function Homepage() {
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
                 <img src={logo.src} alt={logo.alt}
-                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-35 hover:opacity-65 transition-opacity duration-300"
+                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             ))}
