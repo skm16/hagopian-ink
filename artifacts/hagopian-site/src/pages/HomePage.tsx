@@ -18,6 +18,7 @@ const DD_BOLD_ITALIC = `${CDN.replace('wp-content/uploads', 'wp-content/themes/s
 const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 
 const STYLES = `
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 @font-face {
   font-family: 'Sackers Gothic Std';
   src: url('${FONT_BASE_URL}/SackersGothicStd-Medium.otf') format('opentype');
@@ -63,7 +64,7 @@ const STYLES = `
 `;
 
 const SERIF  = "'Didonesque', 'Times New Roman', serif";
-const SANS   = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+const SANS   = "'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const NAV_FONT = "'Sackers Gothic Std', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /* ─── Data ────────────────────────────────────────────────── */
@@ -402,57 +403,62 @@ export function Homepage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          CASE STUDIES
+          CASE STUDIES — alternating image + floating card
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a]">
-        <div>
-          {CASE_STUDIES.map((cs, i) => (
-            <FadeIn key={cs.id}>
-              <div className={`relative group overflow-hidden ${i % 2 === 0 ? 'bg-[#0a0a0a]' : 'bg-[#0f0f0f]'} ${i > 0 ? 'border-t border-[#1a1a1a]' : ''}`}>
-                {/* Full bleed image */}
-                <div className="relative w-full overflow-hidden" style={{ height: cs.style === 'container' ? 480 : 680 }}>
-                  <img src={cs.img} alt={cs.client}
-                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.04] opacity-85 group-hover:opacity-100" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent" />
+      <section className="bg-[#f1efef]">
+        {/* Section label */}
+        <FadeIn className="pt-20 pb-4 px-10 md:px-16">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-px bg-[#0a0a0a]/30" />
+            <span className="text-[10px] uppercase tracking-[0.22em] text-[#0a0a0a]/45 font-medium" style={{ fontFamily: NAV_FONT }}>Selected Work</span>
+          </div>
+          <h2 className="text-5xl md:text-7xl mt-3 leading-none text-[#0a0a0a]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
+        </FadeIn>
 
-                  {/* Section headline baked into the top of the first case study */}
-                  {i === 0 && (
-                    <div className="absolute top-0 left-0 right-0 px-10 md:px-16 pt-14 md:pt-20 flex items-start justify-between">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-3" style={{ fontFamily: NAV_FONT }}>Selected Work</p>
-                        <h2 className="text-5xl md:text-7xl leading-none" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Content overlay at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/45">{String(i + 1).padStart(2, '0')}</span>
-                      <span className="w-10 h-px bg-[#f5f0eb]/25" />
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/55">{cs.category}</span>
-                    </div>
-                    <h3 className="text-4xl md:text-6xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.client}</h3>
-                    <p className="text-xl md:text-2xl font-light text-[#f5f0eb]/75 mb-2" style={{ fontFamily: SERIF }}>{cs.title}</p>
-                    <p className="text-[#f5f0eb]/55 max-w-lg text-[15px] leading-relaxed">{cs.desc}</p>
+        <div className="pb-8">
+          {CASE_STUDIES.map((cs, i) => {
+            const flip = i % 2 !== 0;
+            return (
+              <FadeIn key={cs.id} className="mt-12 md:mt-16 px-6 md:px-10">
+                <div className="relative group max-w-[1400px] mx-auto">
+                  {/* Image */}
+                  <div className="overflow-hidden w-full" style={{ height: 560 }}>
+                    <img
+                      src={cs.img} alt={cs.client}
+                      className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.03]"
+                    />
                   </div>
-                  <a href={cs.href} target="_blank" rel="noopener noreferrer"
-                    className="shrink-0 flex items-center gap-3 text-[11px] uppercase tracking-[0.14em] border-b border-[#f5f0eb]/30 pb-1.5 text-[#f5f0eb]/70 hover:text-[#f5f0eb] hover:border-[#f5f0eb] transition-all duration-300 self-end md:self-auto"
+
+                  {/* Case number — top corner, opposite side from card */}
+                  <div className={`absolute top-6 ${flip ? 'left-8' : 'right-8'} text-[11px] uppercase tracking-[0.22em] text-white/50 mix-blend-difference`}
                     style={{ fontFamily: NAV_FONT }}>
-                    View Case Study <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+
+                  {/* Floating white text card — overlaps bottom of image */}
+                  <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 bg-white px-10 py-9 w-full md:w-[38%] shadow-[0_4px_40px_rgba(0,0,0,0.10)]`}>
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-[#0a0a0a]/45 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
+                    <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#0a0a0a]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
+                    <p className="text-[14px] text-[#0a0a0a]/60 leading-relaxed mb-6" style={{ fontFamily: SANS }}>{cs.desc}</p>
+                    <a href={cs.href} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#0a0a0a]/55 hover:text-[#0a0a0a] border-b border-[#0a0a0a]/20 hover:border-[#0a0a0a] pb-1 transition-all duration-300"
+                      style={{ fontFamily: NAV_FONT }}>
+                      View Case Study <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+
+                {/* Spacer so next card doesn't collide with the floating card */}
+                <div className="h-28 md:h-32" />
+              </FadeIn>
+            );
+          })}
         </div>
 
-        <FadeIn className="py-16 text-center border-t border-[#1a1a1a]">
-          <BtnLight href="https://hagopianink.com/case-studies/">
+        <FadeIn className="py-16 text-center border-t border-[#e0ddd9]">
+          <Btn href="https://hagopianink.com/case-studies/">
             View All Case Studies <ArrowRight className="w-4 h-4" />
-          </BtnLight>
+          </Btn>
         </FadeIn>
       </section>
 
