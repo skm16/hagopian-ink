@@ -157,7 +157,7 @@ const SERVICES = [
     name: 'UX/UI Design',
     color: '#444456',
     title: 'Drive action with\nclear intention.',
-    desc: 'We place the consumer's needs first for beautiful, effortless online experiences. Your applications are covered from first click to checkout.',
+    desc: "We place the consumer's needs first for beautiful, effortless online experiences. Your applications are covered from first click to checkout.",
     link: 'https://hagopianink.com/work/ux-design/',
     linkText: 'View UX/UI design',
     img: `${CDN}/2018/08/1111.png`,
