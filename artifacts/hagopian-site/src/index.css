@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes ticker  { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #0a0a0a; }

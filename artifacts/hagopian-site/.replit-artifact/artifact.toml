@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/hagopian-site/"
+title = "Hagopian Ink Website"
+version = "1.0.0"
+id = "artifacts/hagopian-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/hagopian-site/" ]
+localPort = 24822
+
+[services.development]
+run = "pnpm --filter @workspace/hagopian-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hagopian-site", "run", "build" ]
+publicDir = "artifacts/hagopian-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24822"
+BASE_PATH = "/hagopian-site/"
