@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
-import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
+import { FadeIn, BtnLight } from '@/components/shared/ui';
 import { CDN, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
@@ -26,7 +26,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'UX/UI Design',
+    category: 'Website Design',
     title: 'E-commerce design mistakes that quietly kill conversions',
     excerpt: 'Small friction points compound fast. These are the patterns we see most often — and exactly how to fix them.',
     date: 'January 2025',
@@ -59,7 +59,15 @@ const POSTS = [
   },
 ];
 
+const TABS = ['View All', 'Branding', 'Email Marketing', 'Website Design', 'Nonprofit'];
+
 export function BlogPage() {
+  const [active, setActive] = useState('View All');
+
+  const filtered = active === 'View All'
+    ? POSTS
+    : POSTS.filter(p => p.category === active);
+
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -81,30 +89,56 @@ export function BlogPage() {
         </div>
       </section>
 
+      {/* ── CATEGORY TABS ─────────────────────────── */}
+      <section className="bg-[#f1efef] border-b border-[#0a0a0a]/8 sticky top-[72px] z-10">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
+            {TABS.map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActive(tab)}
+                className="relative shrink-0 px-5 py-5 text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer"
+                style={{
+                  fontFamily: NAV_FONT,
+                  color: active === tab ? '#0a0a0a' : 'rgba(10,10,10,0.38)',
+                }}>
+                {tab}
+                {active === tab && (
+                  <motion.span layoutId="tab-underline"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0a0a0a]"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }} />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── POSTS GRID ────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#0a0a0a] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {POSTS.map((post, i) => (
-              <FadeIn key={i} delay={i * 0.07}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+            {filtered.map((post, i) => (
+              <FadeIn key={`${active}-${i}`} delay={i * 0.06}>
                 <a href={post.href} target="_blank" rel="noopener noreferrer" className="group block">
-                  <div className="overflow-hidden mb-6 aspect-[4/3]">
+                  {/* 3:2 image — matches reference blog proportions */}
+                  <div className="overflow-hidden mb-6 aspect-[3/2]">
                     <img src={post.img} alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
                   </div>
-                  <p className="text-[9px] uppercase tracking-[0.2em] text-[#a57b83] mb-3" style={{ fontFamily: NAV_FONT }}>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-[#0a0a0a]/40 mb-3" style={{ fontFamily: NAV_FONT }}>
                     {post.category}
                   </p>
-                  <h3 className="text-xl leading-[1.2] mb-3 group-hover:opacity-70 transition-opacity duration-300"
+                  <h3 className="text-xl leading-[1.2] mb-3 group-hover:opacity-60 transition-opacity duration-300"
                     style={{ fontFamily: SERIF, fontWeight: 700 }}>
                     {post.title}
                   </h3>
-                  <p className="text-sm text-[#0a0a0a]/55 leading-relaxed mb-4">{post.excerpt}</p>
+                  <p className="text-sm text-[#0a0a0a]/55 leading-relaxed mb-5">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/35" style={{ fontFamily: NAV_FONT }}>
+                    <span className="text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/30" style={{ fontFamily: NAV_FONT }}>
                       {post.date}
                     </span>
-                    <span className="flex items-center gap-1 text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/50 group-hover:text-[#0a0a0a] transition-colors"
+                    <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/40 group-hover:text-[#0a0a0a] transition-colors"
                       style={{ fontFamily: NAV_FONT }}>
                       Read <ArrowRight className="w-3 h-3" />
                     </span>
@@ -113,6 +147,12 @@ export function BlogPage() {
               </FadeIn>
             ))}
           </div>
+
+          {filtered.length === 0 && (
+            <p className="text-center text-[#0a0a0a]/35 py-20 text-sm" style={{ fontFamily: NAV_FONT }}>
+              No posts in this category yet.
+            </p>
+          )}
         </div>
       </section>
 
