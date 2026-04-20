@@ -111,7 +111,7 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="https://hagopianink.com/work/design-branding/">
+            <BtnLight href="/work" external={false}>
               View Branding Work <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
@@ -152,7 +152,7 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="https://hagopianink.com/work/ux-design/">
+            <BtnLight href="/work" external={false}>
               View UX/UI Work <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
@@ -184,7 +184,7 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <Btn href="https://hagopianink.com/work/email/">
+            <Btn href="/work" external={false}>
               View Email Work <ArrowRight className="w-4 h-4" />
             </Btn>
           </FadeIn>
@@ -225,7 +225,7 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="https://hagopianink.com/expertise/">
+            <BtnLight href="/work" external={false}>
               Health + MedTech Work <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
@@ -282,7 +282,7 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="https://hagopianink.com/expertise/">
+            <BtnLight href="/work" external={false}>
               Nonprofit + Fundraising Work <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>

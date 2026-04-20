@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -67,7 +68,7 @@ const CATEGORIES = [
       { n: '180%',   label: 'increase in online donations' },
     ],
     img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: 'https://hagopianink.com/expertise/',
+    href: '/expertise',
     bg: '#0a0a0a',
     dark: true,
   },
@@ -151,11 +152,19 @@ export function WorkPage() {
                       </div>
                     </div>
 
-                    <a href={cat.href} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4"
-                      style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
-                      View Case Studies <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
+                    {cat.href.startsWith('/') ? (
+                      <Link href={cat.href}
+                        className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4 cursor-pointer"
+                        style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
+                        Explore Our Expertise <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    ) : (
+                      <a href={cat.href} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4"
+                        style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
+                        View Case Studies <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </FadeIn>
                 </div>
 
