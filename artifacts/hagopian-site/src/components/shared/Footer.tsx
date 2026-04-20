@@ -17,7 +17,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <img src={LOGO} alt="Hagopian Ink" className="h-7 w-auto brightness-0 invert opacity-80 mb-6" />
             <p className="text-[13px] text-[#f5f0eb]/45 leading-relaxed mb-6" style={{ fontFamily: SANS }}>
-              Boutique brand design and digital experiences. New York, NY.
+              Boutique brand design and digital experiences. Born in NYC, operating worldwide.
             </p>
             <div className="flex gap-3">
               {SOCIAL.map(({ icon: Icon, href, label }) => (
@@ -73,7 +73,7 @@ export function Footer() {
               <a href="tel:2123271445" className="block hover:text-[#f5f0eb] transition-colors">
                 212-327-1445
               </a>
-              <p>New York, NY</p>
+              <p>Born in NYC · Virtual Worldwide</p>
             </div>
           </div>
         </div>

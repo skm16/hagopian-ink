@@ -79,7 +79,7 @@ export function AboutPage() {
               Hagopian Ink was founded in 2002 with a simple but demanding belief: that thoughtful brand strategy and exceptional design could move people — and move business. Over two decades later, that conviction is unchanged.
             </p>
             <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-6">
-              We are a boutique creative studio headquartered in New York City, working with some of the world's most recognizable brands and the most ambitious organizations you have never heard of yet. Our clients include Fortune 50 companies, luxury fashion houses, medical device manufacturers, nonprofit fundraising organizations, and emerging DTC brands — and we treat every brief with the same level of care and strategic rigor.
+              We are a boutique creative studio born in New York City and now operating virtually around the globe, working with some of the world's most recognizable brands and the most ambitious organizations you have never heard of yet. Our clients include Fortune 50 companies, luxury fashion houses, medical device manufacturers, nonprofit fundraising organizations, and emerging DTC brands — and we treat every brief with the same level of care and strategic rigor.
             </p>
             <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
               As a woman-owned business, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.

@@ -74,7 +74,7 @@ export function ContactPage() {
                 <div className="w-10 h-10 border border-[#252525] flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 opacity-60" />
                 </div>
-                New York, NY
+                Born in NYC · Virtual Worldwide
               </div>
             </div>
             <div className="border-t border-[#191919] pt-10">
