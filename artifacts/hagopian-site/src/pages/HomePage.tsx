@@ -156,9 +156,9 @@ export function Homepage() {
             return (
               <FadeIn key={cs.id} className="mt-12 md:mt-16 px-6 md:px-10">
                 <div className="relative group max-w-[1400px] mx-auto">
-                  <div className="overflow-hidden w-full" style={{ height: 560 }}>
+                  <div className="overflow-hidden w-full">
                     <img src={cs.img} alt={cs.client}
-                      className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-[1.03]" />
+                      className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
                   </div>
                   <div className={`absolute top-6 ${flip ? 'left-8' : 'right-8'} text-[11px] uppercase tracking-[0.22em] text-white/60`}
                     style={{ fontFamily: NAV_FONT }}>
