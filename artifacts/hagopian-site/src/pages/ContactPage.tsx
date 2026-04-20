@@ -110,7 +110,7 @@ export function ContactPage() {
                         {field.label}{field.required && <span className="text-[#a57b83] ml-1">*</span>}
                       </label>
                       <input type={field.type} required={field.required}
-                        className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors"
+                        className="w-full bg-[#171717] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     </div>
                   ))}
@@ -118,7 +118,7 @@ export function ContactPage() {
                     <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       Service of Interest
                     </label>
-                    <select className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb]/80 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors appearance-none"
+                    <select className="w-full bg-[#171717] border border-[#3d3d3d] text-[#f5f0eb]/80 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors appearance-none"
                       style={{ fontFamily: SANS }}>
                       <option value="">Select a service...</option>
                       <option>Brand Identity + Strategy</option>
@@ -134,7 +134,7 @@ export function ContactPage() {
                       How Can We Help? <span className="text-[#a57b83]">*</span>
                     </label>
                     <textarea rows={4} required
-                      className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 resize-none transition-colors"
+                      className="w-full bg-[#171717] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 resize-none transition-colors"
                       placeholder="Tell us about your project..."
                       style={{ fontFamily: SANS }} />
                   </div>
