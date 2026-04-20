@@ -44,7 +44,7 @@ const POSTS = [
   {
     category: 'Branding',
     title: 'What it really means to be a woman-owned business in 2025',
-    excerpt: 'Beyond the certification — how being a WBE shapes the way we hire, pitch, partner, and design.',
+    excerpt: 'How being a woman-owned business shapes the way we hire, pitch, partner, and design.',
     date: 'November 2024',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
     href: 'https://hagopianink.com/blog/',

@@ -27,7 +27,7 @@ const VALUES = [
   },
   {
     title: 'Woman-Owned, Always',
-    desc: 'As a certified WBE, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
+    desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
   },
   {
     title: 'Small by Design',
@@ -82,7 +82,7 @@ export function AboutPage() {
               We are a boutique creative studio headquartered in New York City, working with some of the world's most recognizable brands and the most ambitious organizations you have never heard of yet. Our clients include Fortune 50 companies, luxury fashion houses, medical device manufacturers, nonprofit fundraising organizations, and emerging DTC brands — and we treat every brief with the same level of care and strategic rigor.
             </p>
             <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
-              As a certified Woman-Owned Business Enterprise, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.
+              As a woman-owned business, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.
             </p>
           </FadeIn>
         </div>
@@ -95,7 +95,7 @@ export function AboutPage() {
             { n: '2002',  label: 'Year founded' },
             { n: '100+',  label: 'Brands developed' },
             { n: '20+',   label: 'Years of partnerships' },
-            { n: 'WBE',   label: 'Woman-owned certified' },
+            { n: 'W/O',   label: 'Woman owned, creatively driven' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#0a0a0a]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

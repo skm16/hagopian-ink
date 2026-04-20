@@ -79,7 +79,7 @@ export function ContactPage() {
             </div>
             <div className="border-t border-[#191919] pt-10">
               <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/30 mb-4" style={{ fontFamily: NAV_FONT }}>
-                Woman-Owned Business · Certified WBE · Since 2002
+                Woman Owned · Creatively Driven · Since 2002
               </p>
             </div>
           </FadeIn>

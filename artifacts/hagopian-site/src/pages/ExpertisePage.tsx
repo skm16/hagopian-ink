@@ -108,7 +108,7 @@ export function ExpertisePage() {
               {[
                 { n: '100+', label: 'brands built' },
                 { n: '20+',  label: 'years of brand expertise' },
-                { n: 'WBE',  label: 'certified woman-owned' },
+                { n: 'W/O',  label: 'Woman owned, creatively driven' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
