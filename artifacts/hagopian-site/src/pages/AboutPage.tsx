@@ -59,8 +59,8 @@ export function AboutPage() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="leading-[0.9] mb-0"
             style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
-            We build brands<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>that move people.</span>
+            We help you make<br />
+            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>your mark.</span>
           </motion.h1>
         </div>
       </section>
