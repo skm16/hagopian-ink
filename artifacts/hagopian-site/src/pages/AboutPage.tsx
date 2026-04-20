@@ -100,7 +100,7 @@ export function AboutPage() {
               <img
                 src={PHOTO_CHRISTINA}
                 alt="Christina Hagopian, President & Creative Director"
-                className="w-48 md:w-56 aspect-square object-cover object-top grayscale"
+                className="w-48 md:w-56 aspect-square object-cover object-top"
               />
             </div>
 
