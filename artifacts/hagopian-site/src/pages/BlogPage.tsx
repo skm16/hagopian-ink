@@ -91,7 +91,7 @@ export function BlogPage() {
 
       {/* ── CATEGORY TABS ─────────────────────────── */}
       <section className="bg-[#f1efef] border-b border-[#0a0a0a]/8 sticky top-[72px] z-10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16">
           <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
             {TABS.map(tab => (
               <button
