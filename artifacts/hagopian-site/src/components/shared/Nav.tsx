@@ -159,25 +159,32 @@ export function Nav() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden">
-                    <div className="pb-4 pl-4 flex flex-col gap-0">
+                    <div className="mb-4 bg-[#111111] border border-[#252525]">
                       <Link href="/expertise" onClick={closeMobile}
-                        className="py-2.5 text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/40 border-b border-[#1a1a1a] mb-2">
+                        className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#1a1a1a] transition-colors border-b border-[#1e1e1e] text-[11px] uppercase tracking-[0.14em]"
+                        style={{ fontFamily: NAV_FONT }}>
                         All Expertise
                       </Link>
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-2 mb-1">Services</p>
-                      {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
-                        <Link key={path} href={path} onClick={closeMobile}
-                          className={`py-2.5 text-[13px] tracking-[0.08em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}>
-                          {label}
-                        </Link>
-                      ))}
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-3 mb-1">Industries</p>
-                      {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
-                        <Link key={path} href={path} onClick={closeMobile}
-                          className={`py-2.5 text-[13px] tracking-[0.08em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}>
-                          {label}
-                        </Link>
-                      ))}
+                      <div className="px-5 pt-4 pb-1">
+                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Services</p>
+                        {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
+                          <Link key={path} href={path} onClick={closeMobile}
+                            className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                            style={{ fontFamily: NAV_FONT }}>
+                            {label}
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="px-5 pt-3 pb-4 border-t border-[#1e1e1e] mt-1">
+                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
+                        {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
+                          <Link key={path} href={path} onClick={closeMobile}
+                            className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                            style={{ fontFamily: NAV_FONT }}>
+                            {label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 )}
