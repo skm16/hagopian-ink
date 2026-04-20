@@ -124,8 +124,7 @@ export function Homepage() {
                   <div className="relative">
                     <div className="overflow-hidden bg-[#f1efef]">
                       <img src={svc.img} alt={svc.name}
-                        className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        style={{ aspectRatio: '4/3' }} />
+                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="flex justify-center mt-4">
                       <img src={svc.icon} alt="" className="h-16 w-auto object-contain opacity-65" />
