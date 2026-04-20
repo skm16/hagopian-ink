@@ -43,7 +43,7 @@ export function AboutPage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/58 z-10" />
+        <div className="absolute inset-0 bg-[#060810]/38 z-10" />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
@@ -58,7 +58,7 @@ export function AboutPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="leading-[0.9] mb-0"
-            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}>
+            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.75rem, 9.25vw, 8.5rem)' }}>
             We build brands<br />
             <span style={{ fontStyle: 'italic', opacity: 0.55 }}>that endure.</span>
           </motion.h1>

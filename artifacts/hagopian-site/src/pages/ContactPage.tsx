@@ -18,7 +18,7 @@ export function ContactPage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/60 z-10" />
+        <div className="absolute inset-0 bg-[#060810]/38 z-10" />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
@@ -33,7 +33,7 @@ export function ContactPage() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="leading-[0.9]"
-            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.5rem, 8vw, 7.5rem)' }}>
+            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.75rem, 9.25vw, 8.5rem)' }}>
             Let's talk.
           </motion.h1>
         </div>
@@ -95,7 +95,7 @@ export function ContactPage() {
               </div>
             ) : (
               <>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/35 mb-8" style={{ fontFamily: NAV_FONT }}>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/65 mb-8" style={{ fontFamily: NAV_FONT }}>
                   Send us a message
                 </p>
                 <form className="space-y-5" onSubmit={e => { e.preventDefault(); setSubmitted(true); }}>
@@ -106,19 +106,19 @@ export function ContactPage() {
                     { label: 'Phone',                  placeholder: '212-555-0000',         type: 'tel',      required: false },
                   ].map((field, i) => (
                     <div key={i}>
-                      <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>
+                      <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                         {field.label}{field.required && <span className="text-[#a57b83] ml-1">*</span>}
                       </label>
                       <input type={field.type} required={field.required}
-                        className="w-full bg-[#0a0a0a] border border-[#252525] text-[#f5f0eb] placeholder-[#f5f0eb]/20 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/35 transition-colors"
+                        className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     </div>
                   ))}
                   <div>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>
+                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       Service of Interest
                     </label>
-                    <select className="w-full bg-[#0a0a0a] border border-[#252525] text-[#f5f0eb]/70 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/35 transition-colors appearance-none"
+                    <select className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb]/80 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 transition-colors appearance-none"
                       style={{ fontFamily: SANS }}>
                       <option value="">Select a service...</option>
                       <option>Brand Identity + Strategy</option>
@@ -130,11 +130,11 @@ export function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>
+                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       How Can We Help? <span className="text-[#a57b83]">*</span>
                     </label>
                     <textarea rows={4} required
-                      className="w-full bg-[#0a0a0a] border border-[#252525] text-[#f5f0eb] placeholder-[#f5f0eb]/20 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/35 resize-none transition-colors"
+                      className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 resize-none transition-colors"
                       placeholder="Tell us about your project..."
                       style={{ fontFamily: SANS }} />
                   </div>

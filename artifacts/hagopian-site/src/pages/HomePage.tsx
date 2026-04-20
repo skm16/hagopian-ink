@@ -79,7 +79,7 @@ export function Homepage() {
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-[#0a0a0a] py-16 border-b border-[#191919] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/35" style={{ fontFamily: NAV_FONT }}>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
             Trusted by world-class brands
           </p>
         </FadeIn>
@@ -307,7 +307,7 @@ export function Homepage() {
             </FadeIn>
 
             <FadeIn delay={0.25} className="bg-[#111111] border border-[#1e1e1e] p-10">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/35 mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/65 mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
               <div className="space-y-5">
                 {[
                   { label: 'Your Name',             placeholder: 'Jane Smith',           type: 'text' },
@@ -316,16 +316,16 @@ export function Homepage() {
                   { label: 'How can we help?',       placeholder: 'Tell us about your project...', type: 'textarea' },
                 ].map((field, i) => (
                   <div key={i}>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>
+                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       {field.label}
                     </label>
                     {field.type === 'textarea' ? (
                       <textarea rows={4}
-                        className="w-full bg-[#0a0a0a] border border-[#252525] text-[#f5f0eb] placeholder-[#f5f0eb]/20 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/35 resize-none"
+                        className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55 resize-none"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     ) : (
                       <input type={field.type}
-                        className="w-full bg-[#0a0a0a] border border-[#252525] text-[#f5f0eb] placeholder-[#f5f0eb]/20 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/35"
+                        className="w-full bg-[#0a0a0a] border border-[#3d3d3d] text-[#f5f0eb] placeholder-[#f5f0eb]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/55"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     )}
                   </div>
