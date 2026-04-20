@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link } from 'wouter';
+import { Instagram, Linkedin, Facebook } from 'lucide-react';
 import { LOGO, NAV_FONT, SANS } from '@/lib/brand';
+
+const SOCIAL = [
+  { icon: Instagram, href: 'https://www.instagram.com/hagopianink/', label: 'Instagram' },
+  { icon: Linkedin,  href: 'https://www.linkedin.com/company/hagopian-ink/', label: 'LinkedIn' },
+  { icon: Facebook,  href: 'https://www.facebook.com/hagopianink/', label: 'Facebook' },
+];
 
 export function Footer() {
   return (
@@ -12,12 +19,12 @@ export function Footer() {
             <p className="text-[13px] text-[#f5f0eb]/45 leading-relaxed mb-6" style={{ fontFamily: SANS }}>
               Boutique brand design and digital experiences. New York, NY.
             </p>
-            <div className="flex gap-4">
-              {['IG', 'LI', 'FB'].map(s => (
-                <a key={s} href="https://hagopianink.com"
-                  className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/35 hover:text-[#f5f0eb]/70 transition-colors border border-[#252525] w-8 h-8 flex items-center justify-center"
-                  style={{ fontFamily: NAV_FONT }}>
-                  {s}
+            <div className="flex gap-3">
+              {SOCIAL.map(({ icon: Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 border border-[#252525] flex items-center justify-center text-[#f5f0eb]/35 hover:text-[#f5f0eb]/70 hover:border-[#383838] transition-all duration-250">
+                  <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
@@ -43,21 +50,29 @@ export function Footer() {
           <div>
             <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-5" style={{ fontFamily: NAV_FONT }}>Company</p>
             <div className="space-y-3">
-              <a href="https://hagopianink.com/wbe-branding-agency/" target="_blank" rel="noopener noreferrer"
-                className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors" style={{ fontFamily: SANS }}>About</a>
-              <Link href="/work"
-                className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors cursor-pointer" style={{ fontFamily: SANS }}>Work</Link>
-              <a href="https://hagopianink.com/blog/" target="_blank" rel="noopener noreferrer"
-                className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors" style={{ fontFamily: SANS }}>Blog</a>
-              <a href="https://hagopianink.com/contact/" target="_blank" rel="noopener noreferrer"
-                className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors" style={{ fontFamily: SANS }}>Contact</a>
+              {[
+                ['About', '/about'],
+                ['Work', '/work'],
+                ['Blog', '/blog'],
+                ['Contact', '/contact'],
+              ].map(([label, path]) => (
+                <Link key={label} href={path}
+                  className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors cursor-pointer"
+                  style={{ fontFamily: SANS }}>
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-5" style={{ fontFamily: NAV_FONT }}>Contact</p>
             <div className="space-y-3 text-[13px] text-[#f5f0eb]/50" style={{ fontFamily: SANS }}>
-              <p>info@HagopianInk.com</p>
-              <p>212-327-1445</p>
+              <a href="mailto:info@HagopianInk.com" className="block hover:text-[#f5f0eb] transition-colors">
+                info@HagopianInk.com
+              </a>
+              <a href="tel:2123271445" className="block hover:text-[#f5f0eb] transition-colors">
+                212-327-1445
+              </a>
               <p>New York, NY</p>
             </div>
           </div>
