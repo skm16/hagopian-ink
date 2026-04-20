@@ -102,7 +102,7 @@ export function Homepage() {
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="text-center max-w-3xl mx-auto mb-20">
+          <FadeIn className="max-w-3xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
             <p className="text-lg md:text-xl text-[#0a0a0a]/70 leading-relaxed">
               As a trusted partner for brand identity, visual communication, web design, and digital experiences, we combine consumer insights with creativity for optimal results. Our emphasis is on producing thoughtful, conceptually driven work that comes from a clear understanding of our clients and their audience.
