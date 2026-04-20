@@ -8,6 +8,7 @@ export const VIDEO_EXPERTISE  = `${_BASE}videos/expertise.mp4`;
 export const VIDEO_WORK       = `${_BASE}videos/work.mp4`;
 export const VIDEO_BLOG       = `${_BASE}videos/blog.mp4`;
 export const VIDEO_POSTER      = 'https://hagopianink.com/wp-content/uploads/2022/09/contact_still.png';
+export const PHOTO_CHRISTINA  = `${_BASE}images/christina-hagopian.jpg`;
 export const VIDEO_BLOG_POSTER = 'https://hagopianink.com/wp-content/uploads/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg';
 export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 

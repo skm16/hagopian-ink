@@ -4,7 +4,7 @@ import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
-import { CDN, VIDEO_ABOUT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, CLIENT_LOGOS } from '@/lib/brand';
+import { CDN, VIDEO_ABOUT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, CLIENT_LOGOS, PHOTO_CHRISTINA } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -95,17 +95,13 @@ export function AboutPage() {
             <SectionLabel light>Leadership</SectionLabel>
           </FadeIn>
           <FadeIn className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-            {/* Photo placeholder — swap src for a real headshot */}
-            <div className="shrink-0 w-48 md:w-56 flex flex-col gap-4">
-              <div
-                className="w-48 md:w-56 aspect-square bg-[#1a1a1a] border border-[#252525] flex items-center justify-center"
-                style={{ fontFamily: SERIF }}>
-                <span className="text-5xl text-[#f5f0eb]/20 select-none" style={{ fontStyle: 'italic' }}>CH</span>
-              </div>
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-1" style={{ fontFamily: NAV_FONT }}>Photo</p>
-                <p className="text-[11px] text-[#f5f0eb]/25 leading-relaxed" style={{ fontFamily: NAV_FONT }}>Replace placeholder with headshot</p>
-              </div>
+            {/* Headshot */}
+            <div className="shrink-0">
+              <img
+                src={PHOTO_CHRISTINA}
+                alt="Christina Hagopian, President & Creative Director"
+                className="w-48 md:w-56 aspect-square object-cover object-top grayscale"
+              />
             </div>
 
             {/* Bio */}
