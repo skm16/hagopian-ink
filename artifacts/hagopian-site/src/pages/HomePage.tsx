@@ -29,7 +29,7 @@ export function Homepage() {
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex flex-col justify-center items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ scale: heroScale }}>
           {/* Cooler, deeper overlay to match real site — no warm tint */}
-          <div className="absolute inset-0 bg-[#060810]/68 z-10" />
+          <div className="absolute inset-0 bg-[#060810]/50 z-10" />
           <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
             className="w-full h-full object-cover">
             <source src={VIDEO_MP4} type="video/mp4" />
@@ -46,12 +46,12 @@ export function Homepage() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.45, ease }}
             className="leading-[0.88] mb-10 tracking-[-0.01em]"
-            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(4.5rem, 11vw, 10rem)' }}>
+            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3rem, 7.5vw, 7rem)' }}>
             Make your mark.
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
-            className="text-xl md:text-2xl font-light text-[#f5f0eb]/75 max-w-2xl mx-auto mb-12 leading-relaxed">
+            className="text-base md:text-lg font-light text-[#f5f0eb]/70 max-w-xl mx-auto mb-12 leading-relaxed">
             Brand design and digital experiences that help innovative organizations grow.
           </motion.p>
 
