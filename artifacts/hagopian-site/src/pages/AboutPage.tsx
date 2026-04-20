@@ -113,7 +113,7 @@ export function AboutPage() {
                 President &amp; Creative Director
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                Christina founded Hagopian Ink in 2002 with a conviction that thoughtful brand strategy and exceptional creative could genuinely move people — and move business. More than two decades on, that conviction shapes every brief the studio takes.
+                Christina founded Hagopian Ink in 2002 with a clear belief that thoughtful brand strategy and exceptional creative could genuinely move people — and move business. More than two decades on, that belief shapes every brief the studio takes.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
                 As President and Creative Director, she leads every client engagement directly — bringing a rare combination of strategic clarity and hands-on creative direction to organizations ranging from Fortune 50 companies to mission-driven nonprofits and emerging luxury brands.
