@@ -118,7 +118,7 @@ export function AboutPage() {
             {VALUES.map((v, i) => (
               <FadeIn key={i} delay={i * 0.07} className="border-t border-[#252525] pt-8">
                 <h3 className="text-xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{v.title}</h3>
-                <p className="text-[14px] text-[#f5f0eb]/50 leading-relaxed">{v.desc}</p>
+                <p className="text-[14px] text-[#f5f0eb]/70 leading-relaxed">{v.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -126,17 +126,21 @@ export function AboutPage() {
       </section>
 
       {/* ── CLIENT LOGOS ──────────────────────────── */}
-      <section className="bg-[#111111] py-24 px-8 md:px-16 border-t border-[#191919]">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-12 text-center">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/35" style={{ fontFamily: NAV_FONT }}>
-              Brands We Have Served
-            </p>
-          </FadeIn>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {CLIENT_LOGOS.slice(0, 16).map((l, i) => (
-              <img key={i} src={l.src} alt={l.alt}
-                className="h-6 w-auto object-contain brightness-0 invert opacity-30 hover:opacity-60 transition-opacity duration-300" />
+      <section className="bg-[#0a0a0a] py-16 border-t border-[#191919] overflow-hidden relative">
+        <FadeIn className="text-center mb-10">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
+            Brands We Have Served
+          </p>
+        </FadeIn>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+          <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
+              <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
+                <img src={logo.src} alt={logo.alt}
+                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
+              </div>
             ))}
           </div>
         </div>
