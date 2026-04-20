@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -61,6 +62,40 @@ export function ExpertisePage() {
         </div>
       </section>
 
+      {/* ── SUB-PAGE NAV GRID ─────────────────────── */}
+      <section className="bg-[#0a0a0a] py-16 md:py-20 px-6 md:px-12 border-b border-[#191919]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-10">
+            <SectionLabel light>Explore Our Specialties</SectionLabel>
+          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1e1e1e]">
+            {[
+              { label: 'Brand Identity',        sub: 'Services',   path: '/expertise/brand-identity',        desc: 'Logo, mark development, naming strategy & visual identity systems.' },
+              { label: 'Website Design',         sub: 'Services',   path: '/expertise/ux-ui-design',          desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
+              { label: 'Email Marketing',        sub: 'Services',   path: '/expertise/email-marketing',       desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
+              { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
+              { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.07}>
+                <Link href={item.path}
+                  className="group flex flex-col justify-between bg-[#0f0f0f] hover:bg-[#161616] transition-colors duration-300 p-8 h-full cursor-pointer">
+                  <div>
+                    <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/30 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
+                    <h3 className="text-xl mb-3 leading-snug group-hover:text-white transition-colors" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.label}</h3>
+                    <p className="text-[13px] text-[#f5f0eb]/50 leading-relaxed">{item.desc}</p>
+                  </div>
+                  <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/30 group-hover:text-[#f5f0eb]/70 transition-colors" style={{ fontFamily: NAV_FONT }}>
+                    Explore <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+            {/* spacer for grid alignment on last row */}
+            <div className="hidden lg:block bg-[#0f0f0f]" />
+          </div>
+        </div>
+      </section>
+
       {/* ── DISCIPLINES GRID ──────────────────────── */}
       <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
@@ -79,11 +114,11 @@ export function ExpertisePage() {
             {DISCIPLINES.map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}
                 className="group border-r border-b border-[#d8d5d1] p-9 hover:bg-white transition-colors duration-300 cursor-pointer">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#a57b83] mb-6 group-hover:scale-150 transition-transform duration-300" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#444456] mb-6 group-hover:scale-150 transition-transform duration-300" />
                 <h3 className="text-xl mb-4 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.title}</h3>
                 <p className="text-[#0a0a0a]/60 text-[14px] leading-relaxed mb-6">{item.desc}</p>
                 <a href={item.link} target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/40 group-hover:text-[#a57b83] transition-colors"
+                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/40 group-hover:text-[#444456] transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
                   Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </a>
