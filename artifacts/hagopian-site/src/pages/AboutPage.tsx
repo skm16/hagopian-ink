@@ -26,7 +26,7 @@ const VALUES = [
     desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.',
   },
   {
-    title: 'Woman-Owned, Always',
+    title: 'Woman-Owned, Creatively Driven',
     desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
   },
   {
