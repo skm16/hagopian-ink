@@ -29,7 +29,7 @@ export function Homepage() {
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex flex-col justify-center items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ scale: heroScale }}>
           {/* Cooler, deeper overlay to match real site — no warm tint */}
-          <div className="absolute inset-0 bg-[#060810]/50 z-10" />
+          <div className="absolute inset-0 bg-[#060810]/25 z-10" />
           <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
             className="w-full h-full object-cover">
             <source src={VIDEO_MP4} type="video/mp4" />
