@@ -116,8 +116,8 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="/work" external={false}>
-              View Branding Work <ArrowRight className="w-4 h-4" />
+            <BtnLight href="/expertise/brand-identity" external={false}>
+              Explore Brand Identity <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
@@ -157,8 +157,8 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="/work" external={false}>
-              View UX/UI Work <ArrowRight className="w-4 h-4" />
+            <BtnLight href="/expertise/ux-ui-design" external={false}>
+              Explore UX/UI Design <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
         </div>
@@ -189,8 +189,8 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <Btn href="/work" external={false}>
-              View Email Work <ArrowRight className="w-4 h-4" />
+            <Btn href="/expertise/email-marketing" external={false}>
+              Explore Email Marketing <ArrowRight className="w-4 h-4" />
             </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
@@ -230,8 +230,8 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="/work" external={false}>
-              Health + MedTech Work <ArrowRight className="w-4 h-4" />
+            <BtnLight href="/expertise/health-medtech" external={false}>
+              Explore Health + MedTech <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
@@ -287,8 +287,8 @@ export function ExpertisePage() {
                 </div>
               ))}
             </div>
-            <BtnLight href="/work" external={false}>
-              Nonprofit + Fundraising Work <ArrowRight className="w-4 h-4" />
+            <BtnLight href="/expertise/nonprofit-fundraising" external={false}>
+              Explore Nonprofit Fundraising <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
         </div>

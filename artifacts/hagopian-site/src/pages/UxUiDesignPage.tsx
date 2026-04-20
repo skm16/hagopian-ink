@@ -1,0 +1,171 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Nav } from '@/components/shared/Nav';
+import { Footer } from '@/components/shared/Footer';
+import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
+import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+
+const ease = [0.21, 0.47, 0.32, 0.98] as const;
+
+const CAPABILITIES = [
+  { title: 'UX Research + Strategy',         desc: 'User journeys, competitive benchmarking, and conversion analysis before a single wireframe is drawn.' },
+  { title: 'E-Commerce Design',              desc: 'Luxury-caliber shopping experiences that reduce bounce, increase basket size, and build brand loyalty.' },
+  { title: 'Responsive Web Design',          desc: 'Pixel-perfect, mobile-first design that performs beautifully on every device and screen.' },
+  { title: 'Landing Pages + Microsites',     desc: 'Focused experiences built for a single goal: sign-up, purchase, download, or contact.' },
+  { title: 'UX Audit + CX Optimization',     desc: 'We assess existing digital properties and identify friction points costing you conversions.' },
+  { title: 'Brand-to-Web Translation',       desc: 'Every visual identity we build is designed to extend seamlessly into the digital environment.' },
+];
+
+const PROJECTS = [
+  {
+    client: 'Loum Beauty',
+    category: 'UX/UI + E-Commerce Design',
+    headline: 'Luxury e-commerce that converts',
+    result: "Clarified brand story, reduced bounce rate, and increased consumer connection for a premium beauty brand — creating an e-commerce experience that matched the product's quality.",
+    img: `${CDN}/2022/08/HI_home2_loum.jpg`,
+    href: 'https://hagopianink.com/works/loumbeauty/',
+  },
+  {
+    client: 'Gwynnie Bee',
+    category: 'Subscription Acquisition + UX',
+    headline: '300% increase in signup conversion',
+    result: 'Redesigned the acquisition funnel and landing experience for a subscription fashion service, delivering a 300% lift in new member sign-ups.',
+    img: `${CDN}/2018/08/1111.png`,
+    href: 'https://hagopianink.com/works/gwynnie-bee-subscription-acquisition-email/',
+  },
+];
+
+export function UxUiDesignPage() {
+  return (
+    <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
+      <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
+      <Nav />
+
+      {/* VIDEO HERO */}
+      <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 bg-[#060810]/38 z-10" />
+        <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
+          className="absolute inset-0 w-full h-full object-cover z-0">
+          <source src={VIDEO_MP4} type="video/mp4" />
+        </video>
+        <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>UX/UI + Website Design</p>
+            <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
+              Drive action with<br />
+              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>clear intention.</span>
+            </h1>
+            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+              We place the consumer's needs first for beautiful, effortless online experiences. From first click to checkout — designed to convert.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="bg-[#0a0a0a] border-b border-[#191919]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-3 divide-x divide-[#191919]">
+          {[
+            { n: '300%',  label: 'Increase in signup conversion — Gwynnie Bee' },
+            { n: '58%',   label: 'Increase in website unique visitors — Frette' },
+            { n: '12K',   label: 'New email opt-ins from UX campaign — Frette' },
+          ].map((s, i) => (
+            <FadeIn key={i} delay={i * 0.1} className="py-10 px-8 text-center">
+              <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/45" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* OVERVIEW */}
+      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <FadeIn>
+            <SectionLabel>What We Do</SectionLabel>
+            <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Design that earns its place<br />
+              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>by doing its job.</span>
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed mb-6">
+              We design digital experiences that feel effortless for users and perform powerfully for businesses. Every layout, every flow, every interaction is grounded in the goal: clarity, conversion, and brand alignment.
+            </p>
+            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed">
+              From luxury fashion e-commerce to B2B lead-generation sites, we have designed digital properties that reduced friction, deepened engagement, and moved the needle on the metrics that matter.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* CAPABILITIES */}
+      <section className="bg-[#f1efef] text-[#0a0a0a] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel>Capabilities</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>What we deliver</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+            {CAPABILITIES.map((c, i) => (
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#0a0a0a]/12 pt-7">
+                <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
+                <p className="text-[14px] text-[#0a0a0a]/60 leading-relaxed">{c.desc}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED WORK */}
+      <section className="bg-[#0a0a0a] py-24 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel light>Featured Work</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>UX design in practice</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {PROJECTS.map((p, i) => (
+              <FadeIn key={i} delay={i * 0.15} className="group">
+                <div className="overflow-hidden mb-6">
+                  <img src={p.img} alt={p.client}
+                    className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700" />
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>{p.category}</p>
+                <h3 className="text-2xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.headline}</h3>
+                <p className="text-[14px] text-[#f5f0eb]/60 leading-relaxed mb-5">{p.result}</p>
+                <a href={p.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#f5f0eb]/50 hover:text-[#f5f0eb] border-b border-[#f5f0eb]/20 hover:border-[#f5f0eb] pb-1 transition-all duration-300"
+                  style={{ fontFamily: NAV_FONT }}>
+                  View Project <ArrowRight className="w-3 h-3" />
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 px-8 text-center border-t border-[#e0ddd9]">
+        <FadeIn>
+          <SectionLabel>Start a Project</SectionLabel>
+          <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            Ready for a digital experience<br />
+            <span style={{ fontStyle: 'italic', opacity: 0.6 }}>that actually converts?</span>
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Btn href="/contact" external={false}>
+              Start a Conversation <ArrowRight className="w-4 h-4" />
+            </Btn>
+            <Btn href="/work" external={false} variant="outline">
+              See All Work
+            </Btn>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

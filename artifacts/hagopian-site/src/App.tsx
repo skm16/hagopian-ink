@@ -5,6 +5,11 @@ import { WorkPage } from '@/pages/WorkPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { BlogPage } from '@/pages/BlogPage';
 import { ContactPage } from '@/pages/ContactPage';
+import { BrandIdentityPage } from '@/pages/BrandIdentityPage';
+import { UxUiDesignPage } from '@/pages/UxUiDesignPage';
+import { EmailMarketingPage } from '@/pages/EmailMarketingPage';
+import { NonprofitPage } from '@/pages/NonprofitPage';
+import { HealthMedTechPage } from '@/pages/HealthMedTechPage';
 
 const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
 
@@ -14,6 +19,11 @@ export default function App() {
       <Switch>
         <Route path="/" component={Homepage} />
         <Route path="/expertise" component={ExpertisePage} />
+        <Route path="/expertise/brand-identity" component={BrandIdentityPage} />
+        <Route path="/expertise/ux-ui-design" component={UxUiDesignPage} />
+        <Route path="/expertise/email-marketing" component={EmailMarketingPage} />
+        <Route path="/expertise/nonprofit-fundraising" component={NonprofitPage} />
+        <Route path="/expertise/health-medtech" component={HealthMedTechPage} />
         <Route path="/work" component={WorkPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/blog" component={BlogPage} />
