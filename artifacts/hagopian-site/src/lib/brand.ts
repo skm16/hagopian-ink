@@ -83,7 +83,7 @@ export const CASE_STUDIES = [
   {
     id: 'cs-2',
     client: 'Loum Beauty',
-    category: 'UX/UI + E-Commerce',
+    category: 'Website Design',
     title: 'Luxury e-Commerce design',
     desc: 'Clarifying a brand story to decrease bounce rates and increase consumer connection',
     img: `${CDN}/2022/08/HI_home2_loum.jpg`,

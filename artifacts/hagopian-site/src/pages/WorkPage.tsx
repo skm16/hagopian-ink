@@ -27,7 +27,7 @@ const CATEGORIES = [
   },
   {
     num: '02',
-    label: 'UX/UI + E-Commerce',
+    label: 'Website Design',
     headline: 'Digital experiences\nbuilt to convert.',
     body: 'Beautiful websites that perform. We design e-commerce platforms and marketing sites that prioritize the customer journey — reducing friction, increasing confidence, and driving conversion at every step. From information architecture through final UI, every interaction is considered with purpose.',
     clients: ['Loum Beauty', 'Gwynnie Bee', 'La Perla', 'Bloomingdale\'s', 'Shopbop', 'Frette'],
@@ -119,7 +119,7 @@ export function WorkPage() {
 
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch`}>
                 {/* Text block */}
-                <div className={`${flip ? 'order-1 lg:order-2' : ''} lg:pr-16 flex flex-col justify-center pb-16 lg:pb-0`}>
+                <div className={`${flip ? 'order-1 lg:order-2 lg:pl-16' : 'lg:pr-16'} flex flex-col justify-center pb-16 lg:pb-0`}>
                   <FadeIn>
                     <h2 className="text-5xl md:text-6xl mb-8 leading-[1.0] whitespace-pre-line"
                       style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>

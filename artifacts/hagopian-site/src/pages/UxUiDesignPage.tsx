@@ -20,7 +20,7 @@ const CAPABILITIES = [
 const PROJECTS = [
   {
     client: 'Loum Beauty',
-    category: 'UX/UI + E-Commerce Design',
+    category: 'Website Design',
     headline: 'Luxury e-commerce that converts',
     result: "Clarified brand story, reduced bounce rate, and increased consumer connection for a premium beauty brand — creating an e-commerce experience that matched the product's quality.",
     img: `${CDN}/2022/08/HI_home2_loum.jpg`,

@@ -122,7 +122,7 @@ export function ContactPage() {
                       style={{ fontFamily: SANS }}>
                       <option value="">Select a service...</option>
                       <option>Brand Identity + Strategy</option>
-                      <option>UX/UI + E-Commerce Design</option>
+                      <option>Website Design</option>
                       <option>Email Marketing</option>
                       <option>Health + MedTech Branding</option>
                       <option>Nonprofit + Fundraising</option>
