@@ -5,7 +5,7 @@ import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
-import { CDN, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { CDN, VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 const BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
@@ -96,17 +96,22 @@ export function WorkPage() {
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
       <Nav />
 
-      {/* ── PAGE HERO ─────────────────────────────── */}
-      <section className="bg-[#0a0a0a] pt-36 pb-24 px-8 md:px-16 border-b border-[#191919]">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
+      {/* ── VIDEO HERO ────────────────────────────── */}
+      <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 bg-[#060810]/25 z-10" />
+        <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
+          className="absolute inset-0 w-full h-full object-cover z-0">
+          <source src={VIDEO_WORK} type="video/mp4" />
+        </video>
+        <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Selected Work</p>
-            <h1 className="text-6xl md:text-8xl leading-[0.92]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-6" style={{ fontFamily: NAV_FONT }}>Selected Work</p>
+            <h1 className="text-6xl md:text-8xl leading-[0.92] text-[#f5f0eb]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Our Work.
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
-            className="text-xl text-[#f5f0eb]/55 max-w-md leading-relaxed pb-2">
+            className="text-xl text-[#f5f0eb]/70 max-w-md leading-relaxed pb-2">
             Creative solutions for brands that want to grow, connect, and last.
           </motion.p>
         </div>
