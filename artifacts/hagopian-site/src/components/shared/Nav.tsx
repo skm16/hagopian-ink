@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { label: 'Work',      path: '/work' },
   { label: 'About',     path: '/about' },
   { label: 'Blog',      path: '/blog' },
-  { label: 'Contact',   path: '/contact' },
 ];
 
 export function Nav() {
