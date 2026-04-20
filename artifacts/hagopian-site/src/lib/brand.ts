@@ -2,6 +2,7 @@ export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
 const _BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
 export const VIDEO_MP4        = `${CDN}/2022/08/HI_InkBackground-contact.mp4`;
+export const VIDEO_ABOUT      = `${_BASE}videos/about.mp4`;
 export const VIDEO_CONTACT    = `${_BASE}videos/contact.mp4`;
 export const VIDEO_EXPERTISE  = `${_BASE}videos/expertise.mp4`;
 export const VIDEO_WORK       = `${_BASE}videos/work.mp4`;
