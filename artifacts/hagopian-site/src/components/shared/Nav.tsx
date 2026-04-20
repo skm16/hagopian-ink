@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'wouter';
 import { ChevronDown } from 'lucide-react';
-import { LOGO, NAV_FONT } from '@/lib/brand';
+import logoSrc from '@assets/Ink_logo_1776700076843.png';
+import { NAV_FONT } from '@/lib/brand';
 
 const EXPERTISE_DROPDOWN = {
   services: [
@@ -41,7 +42,7 @@ export function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center bg-[#0a0a0a]/85 backdrop-blur-md border-b border-white/[0.06]">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
         <Link href="/">
-          <img src={LOGO} alt="Hagopian Ink" className="h-7 w-auto brightness-0 invert cursor-pointer" />
+          <img src={logoSrc} alt="Hagopian Ink" className="h-7 w-auto cursor-pointer" />
         </Link>
       </motion.div>
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { Instagram, Linkedin, Facebook } from 'lucide-react';
-import { LOGO, NAV_FONT, SANS } from '@/lib/brand';
+import logoSrc from '@assets/Ink_logo_1776700076843.png';
+import { NAV_FONT, SANS } from '@/lib/brand';
 
 const SOCIAL = [
   { icon: Instagram, href: 'https://www.instagram.com/hagopianink/', label: 'Instagram' },
@@ -15,7 +16,7 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <img src={LOGO} alt="Hagopian Ink" className="h-7 w-auto brightness-0 invert opacity-80 mb-6" />
+            <img src={logoSrc} alt="Hagopian Ink" className="h-7 w-auto opacity-90 mb-6" />
             <p className="text-[13px] text-[#f5f0eb]/45 leading-relaxed mb-6" style={{ fontFamily: SANS }}>
               Boutique brand design and digital experiences. Born in NYC, operating worldwide.
             </p>
