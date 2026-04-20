@@ -10,7 +10,7 @@ const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const POSTS = [
   {
-    category: 'Branding',
+    category: 'Design + Business',
     title: 'Why your brand guidelines are the most underused asset in your company',
     excerpt: 'A comprehensive brand standards document is only valuable if people actually use it. Here is how to build one your team will reach for every time.',
     date: 'March 2025',
@@ -18,7 +18,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'Email Marketing',
+    category: 'Design + Business',
     title: 'The anatomy of an email that converts: what separates 40% open rates from 15%',
     excerpt: 'After managing email programs for Fortune 50 brands and emerging DTC companies alike, we have learned what the high-performers have in common.',
     date: 'February 2025',
@@ -26,7 +26,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'Website Design',
+    category: 'Design + Business',
     title: 'E-commerce design mistakes that quietly kill conversions',
     excerpt: 'Small friction points compound fast. These are the patterns we see most often — and exactly how to fix them.',
     date: 'January 2025',
@@ -34,7 +34,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'Nonprofit',
+    category: 'Studio News',
     title: 'How consistent branding raised $22.2M at a single gala',
     excerpt: 'For Montefiore Medical Center, building a cohesive donor experience across print, email, and event materials made the case for giving impossible to ignore.',
     date: 'December 2024',
@@ -42,7 +42,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'Branding',
+    category: 'Work / Life',
     title: 'What it really means to be a woman-owned business in 2025',
     excerpt: 'How being a woman-owned business shapes the way we hire, pitch, partner, and design.',
     date: 'November 2024',
@@ -50,7 +50,7 @@ const POSTS = [
     href: 'https://hagopianink.com/blog/',
   },
   {
-    category: 'Email Marketing',
+    category: 'Work / Life',
     title: 'Building a welcome series that actually welcomes people',
     excerpt: 'Your first email sets the tone for the entire relationship. Most brands squander it. Here is a framework that does not.',
     date: 'October 2024',
@@ -59,7 +59,7 @@ const POSTS = [
   },
 ];
 
-const TABS = ['View All', 'Branding', 'Email Marketing', 'Website Design', 'Nonprofit'];
+const TABS = ['View All', 'Design + Business', 'Studio News', 'Work / Life'];
 
 export function BlogPage() {
   const [active, setActive] = useState('View All');
