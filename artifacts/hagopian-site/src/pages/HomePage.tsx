@@ -127,7 +127,7 @@ export function Homepage() {
                         className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="flex justify-center mt-4">
-                      <img src={svc.icon} alt="" className="h-16 w-auto object-contain opacity-65" />
+                      <img src={svc.icon} alt="" className="h-16 w-auto object-contain opacity-65" style={svc.iconFilter ? { filter: svc.iconFilter } : undefined} />
                     </div>
                   </div>
                 </div>
