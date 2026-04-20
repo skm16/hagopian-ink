@@ -5,7 +5,8 @@ export const VIDEO_CONTACT    = `${CDN}/2022/09/HI_InkBackground-new-2.mp4`;
 export const VIDEO_EXPERTISE  = `${CDN}/2022/08/HI_InkBackground-expertise.mp4`;
 export const VIDEO_WORK       = `${CDN}/2022/08/HI_InkBackground-work.mp4`;
 export const VIDEO_BLOG       = `${CDN}/2022/08/HI_InkBackground-1_LoopB-1.mp4`;
-export const VIDEO_POSTER = 'https://hagopianink.com/wp-content/uploads/2022/09/contact_still.png';
+export const VIDEO_POSTER      = 'https://hagopianink.com/wp-content/uploads/2022/09/contact_still.png';
+export const VIDEO_BLOG_POSTER = 'https://hagopianink.com/wp-content/uploads/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg';
 export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 
 export const BRAND_STYLES = `
