@@ -76,7 +76,7 @@ export function BlogPage() {
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 bg-[#060810]/20 z-10" />
-        <video autoPlay loop muted playsInline poster={VIDEO_BLOG_POSTER}
+        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_BLOG_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_BLOG} type="video/mp4" />
         </video>
