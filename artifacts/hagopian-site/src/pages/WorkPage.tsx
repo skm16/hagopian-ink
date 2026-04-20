@@ -8,6 +8,7 @@ import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+const BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
 
 const CATEGORIES = [
   {
@@ -20,8 +21,8 @@ const CATEGORIES = [
       { n: '100+', label: 'brands developed' },
       { n: '20+',  label: 'years of expertise' },
     ],
-    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: 'https://hagopianink.com/work/design-branding/',
+    img: `${BASE}deck-images/brand-06.png`,
+    href: '/expertise/brand-identity',
     bg: '#f1efef',
     dark: false,
   },
@@ -30,13 +31,13 @@ const CATEGORIES = [
     label: 'Website Design',
     headline: 'Digital experiences\nbuilt to convert.',
     body: 'Beautiful websites that perform. We design e-commerce platforms and marketing sites that prioritize the customer journey — reducing friction, increasing confidence, and driving conversion at every step. From information architecture through final UI, every interaction is considered with purpose.',
-    clients: ['Loum Beauty', 'Gwynnie Bee', 'La Perla', 'Bloomingdale\'s', 'Shopbop', 'Frette'],
+    clients: ['Loum Beauty', 'Gwynnie Bee', 'La Perla', "Bloomingdale's", 'Shopbop', 'Frette'],
     stats: [
       { n: '300%', label: 'increase in signup conversion' },
       { n: '58%',  label: 'increase in unique visitors' },
     ],
     img: `${CDN}/2022/08/HI_home2_loum.jpg`,
-    href: 'https://hagopianink.com/work/ux-design/',
+    href: '/expertise/ux-ui-design',
     bg: '#0a0a0a',
     dark: true,
   },
@@ -51,26 +52,41 @@ const CATEGORIES = [
       { n: '40%+',   label: 'average open rate achieved' },
       { n: '$56K',   label: 'new sales from automations' },
     ],
-    img: `${CDN}/2022/09/HI_case3_audible.jpg`,
-    href: 'https://hagopianink.com/work/email/',
+    img: `${BASE}deck-images/email-06.png`,
+    href: '/expertise/email-marketing',
     bg: '#f1efef',
     dark: false,
   },
   {
     num: '04',
+    label: 'Health + MedTech',
+    headline: 'Brands that earn\ntrust in health.',
+    body: 'In regulated, high-stakes industries, credibility is everything. We help health and medtech companies distill complex offerings into compelling stories — creating brand identities, digital experiences, and campaigns that build trust with patients, providers, and investors. From medical device manufacturers to wellness startups, we bring clarity to complexity.',
+    clients: ['Viant Medical', 'Aptyx', 'Cannadips', 'P.Volve'],
+    stats: [
+      { n: '6 yrs',  label: 'Viant Medical brand partnership' },
+      { n: '24',     label: 'global locations reached' },
+    ],
+    img: `${BASE}deck-images/medtech-05.png`,
+    href: '/expertise/health-medtech',
+    bg: '#0a0a0a',
+    dark: true,
+  },
+  {
+    num: '05',
     label: 'Nonprofit + Fundraising',
     headline: 'Design that drives\ngiving.',
     body: 'Nonprofits need brands and campaigns that inspire trust, tell compelling stories, and turn mission into action. We have helped organizations like Montefiore, the Epilepsy Foundation, and Black Lives Matter Canada build stronger donor relationships through sophisticated email programs, event materials, print campaigns, and digital fundraising.',
-    clients: ['Montefiore', 'Epilepsy Foundation', 'BLMC', 'March of Dimes'],
+    clients: ['Montefiore', 'Epilepsy Foundation', 'BLMC', 'Malala Fund', 'March of Dimes'],
     stats: [
       { n: '329%',   label: 'more dollars raised' },
       { n: '$22.2M', label: 'raised, Montefiore Gala' },
       { n: '180%',   label: 'increase in online donations' },
     ],
-    img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: '/expertise',
-    bg: '#0a0a0a',
-    dark: true,
+    img: `${BASE}deck-images/nonprofit-05.png`,
+    href: '/expertise/nonprofit-fundraising',
+    bg: '#f1efef',
+    dark: false,
   },
 ];
 
@@ -91,7 +107,7 @@ export function WorkPage() {
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
             className="text-xl text-[#f5f0eb]/55 max-w-md leading-relaxed pb-2">
-            Four disciplines. Twenty-plus years. World-class results.
+            Creative solutions for brands that want to grow, connect, and last.
           </motion.p>
         </div>
       </section>
@@ -102,7 +118,7 @@ export function WorkPage() {
         const textColor = cat.dark ? '#f5f0eb' : '#0a0a0a';
         const mutedColor = cat.dark ? 'rgba(245,240,235,0.55)' : 'rgba(10,10,10,0.55)';
         const borderColor = cat.dark ? 'rgba(245,240,235,0.1)' : 'rgba(10,10,10,0.1)';
-        const accentColor = cat.dark ? 'rgba(245,240,235,0.3)' : '#a57b83';
+        const accentColor = cat.dark ? 'rgba(245,240,235,0.3)' : 'rgba(10,10,10,0.3)';
 
         return (
           <section key={cat.num} style={{ background: cat.bg }} className="py-24 md:py-36 px-6 md:px-12"
@@ -117,7 +133,7 @@ export function WorkPage() {
                   style={{ color: mutedColor, fontFamily: NAV_FONT }}>{cat.label}</span>
               </FadeIn>
 
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch`}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
                 {/* Text block */}
                 <div className={`${flip ? 'order-1 lg:order-2 lg:pl-16' : 'lg:pr-16'} flex flex-col justify-center pb-16 lg:pb-0`}>
                   <FadeIn>
@@ -152,29 +168,21 @@ export function WorkPage() {
                       </div>
                     </div>
 
-                    {cat.href.startsWith('/') ? (
-                      <Link href={cat.href}
-                        className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4 cursor-pointer"
-                        style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
-                        Explore Our Expertise <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    ) : (
-                      <a href={cat.href} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4"
-                        style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
-                        View Case Studies <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
-                    )}
+                    <Link href={cat.href}
+                      className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4 cursor-pointer"
+                      style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
+                      Explore This Specialty <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </FadeIn>
                 </div>
 
                 {/* Image */}
-                <div className={`${flip ? 'order-2 lg:order-1' : ''} ${flip ? 'lg:pr-0 lg:pl-0' : ''}`}>
+                <div className={`${flip ? 'order-2 lg:order-1' : ''}`}>
                   <FadeIn delay={0.2} dir={flip ? 'right' : 'left'}
                     className="overflow-hidden h-[500px] md:h-[640px]">
                     <img src={cat.img} alt={cat.label}
                       className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000"
-                      style={{ opacity: cat.dark ? 0.8 : 1 }} />
+                      style={{ opacity: cat.dark ? 0.9 : 1 }} />
                   </FadeIn>
                 </div>
               </div>
@@ -189,18 +197,18 @@ export function WorkPage() {
         );
       })}
 
-      {/* ── ALL CASE STUDIES CTA ──────────────────── */}
+      {/* ── CTA ──────────────────────────────────── */}
       <section className="bg-[#0a0a0a] py-28 px-6 text-center border-t border-[#191919]">
         <FadeIn>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Go Deeper</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-4xl md:text-6xl mb-4 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            Ready to see the full work?
+            Ready to make something great?
           </h2>
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
-            Browse our full portfolio of case studies — branding, campaigns, email programs, and more.
+            Tell us about your brand, your goals, and what you need. We will take it from there.
           </p>
-          <BtnLight href="https://hagopianink.com/case-studies/">
-            View All Case Studies <ArrowRight className="w-4 h-4" />
+          <BtnLight href="/contact">
+            Get In Touch <ArrowRight className="w-4 h-4" />
           </BtnLight>
         </FadeIn>
       </section>
