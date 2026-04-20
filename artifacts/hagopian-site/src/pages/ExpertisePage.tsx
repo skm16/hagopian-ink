@@ -50,7 +50,7 @@ export function ExpertisePage() {
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
-            <h1 className="leading-[0.92] mb-0" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.75rem, 9.25vw, 8.5rem)' }}>
+            <h1 className="leading-[0.95] mb-0" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Built on brand.<br />
               <span style={{ fontStyle: 'italic', opacity: 0.55 }}>Driven by results.</span>
             </h1>
