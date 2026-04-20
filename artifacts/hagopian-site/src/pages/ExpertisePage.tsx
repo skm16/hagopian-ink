@@ -139,7 +139,7 @@ export function ExpertisePage() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
-            <SectionLabel light>UX/UI + E-Commerce</SectionLabel>
+            <SectionLabel light>Website Design</SectionLabel>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Drive action with<br />clear intention.
             </h2>

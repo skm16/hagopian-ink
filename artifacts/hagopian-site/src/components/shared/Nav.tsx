@@ -7,7 +7,7 @@ import { LOGO, NAV_FONT } from '@/lib/brand';
 const EXPERTISE_DROPDOWN = {
   services: [
     { label: 'Brand Identity',        path: '/expertise/brand-identity' },
-    { label: 'UX/UI Website Design',  path: '/expertise/ux-ui-design' },
+    { label: 'Website Design',         path: '/expertise/ux-ui-design' },
     { label: 'Email Marketing',       path: '/expertise/email-marketing' },
   ],
   industries: [

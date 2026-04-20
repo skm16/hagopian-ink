@@ -112,7 +112,7 @@ export const CASE_STUDIES = [
 export const SERVICES = [
   {
     name: 'Branding',
-    color: '#a57b83',
+    color: '#6b5c4e',
     title: 'Your 1st impression\nis everything.',
     desc: 'Leave a lasting impact that communicates the essence of your brand. Rise above the competition with award-winning logo and brand development.',
     link: 'https://hagopianink.com/work/design-branding/',
@@ -121,18 +121,18 @@ export const SERVICES = [
     icon: `${CDN}/2018/08/10-layers.png`,
   },
   {
-    name: 'UX/UI Design',
+    name: 'Website Design',
     color: '#444456',
     title: 'Drive action with\nclear intention.',
     desc: "We place the consumer's needs first for beautiful, effortless online experiences. Your applications are covered from first click to checkout.",
     link: 'https://hagopianink.com/work/ux-design/',
-    linkText: 'View UX/UI design',
+    linkText: 'View website design',
     img: `${CDN}/2018/08/1111.png`,
     icon: `${CDN}/2022/08/ux_icon_drop2.png`,
   },
   {
     name: 'Email Marketing',
-    color: '#a57b83',
+    color: '#4e5c5e',
     title: 'Harness the power of\nyour email sends.',
     desc: "Flawless aesthetics and messaging increase conversions and create brand loyalty. See why Fortune 50 companies trust us with their email programs year after year.",
     link: 'https://hagopianink.com/work/email/',
