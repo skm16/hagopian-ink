@@ -30,8 +30,8 @@ const VALUES = [
     desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
   },
   {
-    title: 'Small by Design',
-    desc: 'We are boutique on purpose. Every client works directly with senior strategists and designers — no hand-offs to junior teams.',
+    title: 'Curated Teams, by Design',
+    desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project, producing extraordinary results together.',
   },
 ];
 
@@ -84,6 +84,48 @@ export function AboutPage() {
             <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
               As a woman-owned business, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.
             </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── LEADERSHIP ────────────────────────────── */}
+      <section className="bg-[#111111] py-28 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-16">
+            <SectionLabel light>Leadership</SectionLabel>
+          </FadeIn>
+          <FadeIn className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
+            {/* Photo placeholder — swap src for a real headshot */}
+            <div className="shrink-0 w-48 md:w-56 flex flex-col gap-4">
+              <div
+                className="w-48 md:w-56 aspect-square bg-[#1a1a1a] border border-[#252525] flex items-center justify-center"
+                style={{ fontFamily: SERIF }}>
+                <span className="text-5xl text-[#f5f0eb]/20 select-none" style={{ fontStyle: 'italic' }}>CH</span>
+              </div>
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-1" style={{ fontFamily: NAV_FONT }}>Photo</p>
+                <p className="text-[11px] text-[#f5f0eb]/25 leading-relaxed" style={{ fontFamily: NAV_FONT }}>Replace placeholder with headshot</p>
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="flex-1 max-w-2xl">
+              <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+                Christina Hagopian
+              </h3>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>
+                President &amp; Creative Director
+              </p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
+                Christina founded Hagopian Ink in 2002 with a conviction that thoughtful brand strategy and exceptional creative could genuinely move people — and move business. More than two decades on, that conviction shapes every brief the studio takes.
+              </p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
+                As President and Creative Director, she leads every client engagement directly — bringing a rare combination of strategic clarity and hands-on creative direction to organizations ranging from Fortune 50 companies to mission-driven nonprofits and emerging luxury brands.
+              </p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
+                Her philosophy is simple: great work starts with genuine partnership. She built Hagopian Ink not on size, but on the depth of its client relationships — many spanning a decade or more.
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>
