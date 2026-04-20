@@ -49,6 +49,9 @@ export function ContactPage() {
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.02] text-[#0a0a0a]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Good design is good business.
             </h2>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#0a0a0a]/35 mb-5" style={{ fontFamily: NAV_FONT }}>
+              True Partnership Starts Here
+            </p>
             <p className="text-xl font-light text-[#0a0a0a]/55 mb-6" style={{ fontFamily: SANS }}>
               Let us create together.
             </p>

@@ -207,7 +207,7 @@ export function WorkPage() {
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-4xl md:text-6xl mb-4 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            Ready to make something great?
+            Ready to create something new?
           </h2>
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
             Tell us about your brand, your goals, and what you need. We will take it from there.
