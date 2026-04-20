@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'wouter';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import logoSrc from '@assets/Ink_logo_1776700076843.png';
-import { NAV_FONT } from '@/lib/brand';
+import { NAV_FONT, SANS } from '@/lib/brand';
 
 const EXPERTISE_DROPDOWN = {
   services: [
@@ -86,8 +86,8 @@ export function Nav() {
                     {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
-                        className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                        style={{ fontFamily: NAV_FONT }}>
+                        className={`block py-2 text-[12px] tracking-[0.06em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                        style={{ fontFamily: SANS }}>
                         {label}
                       </Link>
                     ))}
@@ -97,8 +97,8 @@ export function Nav() {
                     {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
-                        className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                        style={{ fontFamily: NAV_FONT }}>
+                        className={`block py-2 text-[12px] tracking-[0.06em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                        style={{ fontFamily: SANS }}>
                         {label}
                       </Link>
                     ))}
@@ -164,17 +164,19 @@ export function Nav() {
                         className="py-2.5 text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/40 border-b border-[#1a1a1a] mb-2">
                         All Expertise
                       </Link>
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-2 mb-1">Services</p>
+                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-2 mb-1" style={{ fontFamily: NAV_FONT }}>Services</p>
                       {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                         <Link key={path} href={path} onClick={closeMobile}
-                          className={`py-2.5 text-[13px] tracking-[0.08em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}>
+                          className={`py-2.5 text-[13px] tracking-[0.04em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}
+                          style={{ fontFamily: SANS }}>
                           {label}
                         </Link>
                       ))}
-                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-3 mb-1">Industries</p>
+                      <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/25 mt-3 mb-1" style={{ fontFamily: NAV_FONT }}>Industries</p>
                       {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                         <Link key={path} href={path} onClick={closeMobile}
-                          className={`py-2.5 text-[13px] tracking-[0.08em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}>
+                          className={`py-2.5 text-[13px] tracking-[0.04em] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/55'}`}
+                          style={{ fontFamily: SANS }}>
                           {label}
                         </Link>
                       ))}
