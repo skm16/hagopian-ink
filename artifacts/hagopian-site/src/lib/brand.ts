@@ -1,10 +1,11 @@
 export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
+const _BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
 export const VIDEO_MP4        = `${CDN}/2022/08/HI_InkBackground-contact.mp4`;
-export const VIDEO_CONTACT    = `${CDN}/2022/09/HI_InkBackground-new-2.mp4`;
-export const VIDEO_EXPERTISE  = `${CDN}/2022/08/HI_InkBackground-expertise.mp4`;
-export const VIDEO_WORK       = `${CDN}/2022/08/HI_InkBackground-work.mp4`;
-export const VIDEO_BLOG       = `${CDN}/2022/08/HI_InkBackground-1_LoopB-1.mp4`;
+export const VIDEO_CONTACT    = `${_BASE}videos/contact.mp4`;
+export const VIDEO_EXPERTISE  = `${_BASE}videos/expertise.mp4`;
+export const VIDEO_WORK       = `${_BASE}videos/work.mp4`;
+export const VIDEO_BLOG       = `${_BASE}videos/blog.mp4`;
 export const VIDEO_POSTER      = 'https://hagopianink.com/wp-content/uploads/2022/09/contact_still.png';
 export const VIDEO_BLOG_POSTER = 'https://hagopianink.com/wp-content/uploads/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg';
 export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
