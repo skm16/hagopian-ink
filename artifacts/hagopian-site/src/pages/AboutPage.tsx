@@ -60,7 +60,7 @@ export function AboutPage() {
             className="leading-[0.9] mb-0"
             style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
             We build brands<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>worth remembering.</span>
+            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>that move people.</span>
           </motion.h1>
         </div>
       </section>
