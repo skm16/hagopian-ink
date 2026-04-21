@@ -129,7 +129,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── BRANDING CHAPTER ──────────────────────── */}
-      <section style={{ background: '#2b1f20' }} className="py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <SectionLabel light>Brand Identity</SectionLabel>
@@ -156,7 +156,7 @@ export function ExpertisePage() {
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[4/5] overflow-hidden" style={{ background: '#3a2728' }}>
+            <div className="aspect-[4/5] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Brand identity work"
                 className="w-full h-full object-cover opacity-75 hover:opacity-90 transition-opacity duration-700" />
             </div>
@@ -165,10 +165,10 @@ export function ExpertisePage() {
       </section>
 
       {/* ── UX/UI CHAPTER ─────────────────────────── */}
-      <section style={{ background: '#1e1e2a' }} className="py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[4/5] overflow-hidden" style={{ background: '#27273a' }}>
+            <div className="aspect-[4/5] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_home2_loum.jpg`} alt="UX/UI design work"
                 className="w-full h-full object-cover opacity-80 hover:opacity-95 transition-opacity duration-700" />
             </div>
@@ -238,10 +238,10 @@ export function ExpertisePage() {
       </section>
 
       {/* ── HEALTH + MEDTECH SPECIALTY ────────────── */}
-      <section style={{ background: '#0d1f1f' }} className="py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
-            <div className="inline-block bg-[#f5f0eb] text-[#0d1f1f] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#f5f0eb] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -270,10 +270,10 @@ export function ExpertisePage() {
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[3/4] overflow-hidden" style={{ background: '#142222' }}>
+            <div className="aspect-[3/4] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Health + MedTech brand work"
                 className="w-full h-full object-cover opacity-65" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d1f1f]/70 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/70 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <p className="text-xl italic text-[#f5f0eb]" style={{ fontFamily: SERIF }}>
                   "My speed to market can help speed her recovery. I'm in it for life."
@@ -286,13 +286,13 @@ export function ExpertisePage() {
       </section>
 
       {/* ── NONPROFIT SPECIALTY ───────────────────── */}
-      <section style={{ background: '#1a1208' }} className="py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[3/4] overflow-hidden" style={{ background: '#251a0a' }}>
+            <div className="aspect-[3/4] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`} alt="Nonprofit fundraising work"
                 className="w-full h-full object-cover opacity-75" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1208]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/60 to-transparent" />
               <div className="absolute bottom-8 left-8">
                 <div className="text-4xl font-light text-[#f5f0eb] mb-1" style={{ fontFamily: SERIF }}>329%</div>
                 <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>more dollars raised — Montefiore</div>
@@ -300,7 +300,7 @@ export function ExpertisePage() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
-            <div className="inline-block bg-[#f5f0eb] text-[#1a1208] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#f5f0eb] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
