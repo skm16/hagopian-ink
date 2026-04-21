@@ -75,7 +75,7 @@ export function BlogPage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_BLOG_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_BLOG} type="video/mp4" />
@@ -95,7 +95,7 @@ export function BlogPage() {
       </section>
 
       {/* ── CATEGORY TABS ─────────────────────────── */}
-      <section className="bg-[#f1efef] border-b border-[#0a0a0a]/8 sticky top-[72px] z-10">
+      <section className="bg-[#f1efef] border-b border-[#2d3232]/8 sticky top-[72px] z-10">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16">
           <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
             {TABS.map(tab => (
@@ -105,12 +105,12 @@ export function BlogPage() {
                 className="relative shrink-0 px-5 py-5 text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer"
                 style={{
                   fontFamily: NAV_FONT,
-                  color: active === tab ? '#0a0a0a' : 'rgba(10,10,10,0.38)',
+                  color: active === tab ? '#2d3232' : 'rgba(10,10,10,0.38)',
                 }}>
                 {tab}
                 {active === tab && (
                   <motion.span layoutId="tab-underline"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#0a0a0a]"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2d3232]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }} />
                 )}
               </button>
@@ -120,7 +120,7 @@ export function BlogPage() {
       </section>
 
       {/* ── POSTS GRID ────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-20 md:py-28 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
             {filtered.map((post, i) => (
@@ -131,19 +131,19 @@ export function BlogPage() {
                     <img src={post.img} alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
                   </div>
-                  <p className="text-[9px] uppercase tracking-[0.2em] text-[#0a0a0a]/40 mb-3" style={{ fontFamily: NAV_FONT }}>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-[#2d3232]/40 mb-3" style={{ fontFamily: NAV_FONT }}>
                     {post.category}
                   </p>
                   <h3 className="text-xl leading-[1.2] mb-3 group-hover:opacity-60 transition-opacity duration-300"
                     style={{ fontFamily: SERIF, fontWeight: 700 }}>
                     {post.title}
                   </h3>
-                  <p className="text-sm text-[#0a0a0a]/55 leading-relaxed mb-5">{post.excerpt}</p>
+                  <p className="text-sm text-[#2d3232]/55 leading-relaxed mb-5">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/30" style={{ fontFamily: NAV_FONT }}>
+                    <span className="text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/30" style={{ fontFamily: NAV_FONT }}>
                       {post.date}
                     </span>
-                    <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#0a0a0a]/40 group-hover:text-[#0a0a0a] transition-colors"
+                    <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors"
                       style={{ fontFamily: NAV_FONT }}>
                       Read <ArrowRight className="w-3 h-3" />
                     </span>
@@ -154,7 +154,7 @@ export function BlogPage() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-[#0a0a0a]/35 py-20 text-sm" style={{ fontFamily: NAV_FONT }}>
+            <p className="text-center text-[#2d3232]/35 py-20 text-sm" style={{ fontFamily: NAV_FONT }}>
               No posts in this category yet.
             </p>
           )}
@@ -162,7 +162,7 @@ export function BlogPage() {
       </section>
 
       {/* ── ALL POSTS CTA ─────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-24 px-6 text-center border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>See More</p>
           <h2 className="text-3xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

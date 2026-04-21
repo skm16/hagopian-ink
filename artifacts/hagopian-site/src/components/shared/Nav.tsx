@@ -47,7 +47,7 @@ export function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center bg-[#0a0a0a]/85 backdrop-blur-md border-b border-white/[0.06]">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center bg-[#2d3232]/85 backdrop-blur-md border-b border-white/[0.06]">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
           <Link href="/" onClick={closeMobile}>
             <img src={logoSrc} alt="Hagopian Ink" className="h-11 w-auto cursor-pointer" />
@@ -74,10 +74,10 @@ export function Nav() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#111111] border border-[#252525] shadow-2xl overflow-hidden">
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#343a3a] border border-[#474d4d] shadow-2xl overflow-hidden">
                   <Link href="/expertise"
                     onClick={() => setOpen(false)}
-                    className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#1a1a1a] transition-colors border-b border-[#1e1e1e] text-[11px] uppercase tracking-[0.14em]"
+                    className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
                     style={{ fontFamily: NAV_FONT }}>
                     All Expertise
                   </Link>
@@ -92,7 +92,7 @@ export function Nav() {
                       </Link>
                     ))}
                   </div>
-                  <div className="px-5 pt-3 pb-4 border-t border-[#1e1e1e] mt-1">
+                  <div className="px-5 pt-3 pb-4 border-t border-[#424848] mt-1">
                     <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
                     {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                       <Link key={path} href={path}
@@ -139,11 +139,11 @@ export function Nav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.32, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col pt-24 pb-10 px-8 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#2d3232] flex flex-col pt-24 pb-10 px-8 md:hidden overflow-y-auto"
             style={{ fontFamily: NAV_FONT }}>
 
             {/* Expertise accordion */}
-            <div className="border-b border-[#1e1e1e]">
+            <div className="border-b border-[#424848]">
               <button
                 onClick={() => setExpertiseExpanded(v => !v)}
                 className="w-full flex items-center justify-between py-5 text-[13px] uppercase tracking-[0.14em] text-[#f5f0eb]/70">
@@ -159,9 +159,9 @@ export function Nav() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25 }}
                     className="overflow-hidden">
-                    <div className="mb-4 bg-[#111111] border border-[#252525]">
+                    <div className="mb-4 bg-[#343a3a] border border-[#474d4d]">
                       <Link href="/expertise" onClick={closeMobile}
-                        className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#1a1a1a] transition-colors border-b border-[#1e1e1e] text-[11px] uppercase tracking-[0.14em]"
+                        className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
                         style={{ fontFamily: NAV_FONT }}>
                         All Expertise
                       </Link>
@@ -175,7 +175,7 @@ export function Nav() {
                           </Link>
                         ))}
                       </div>
-                      <div className="px-5 pt-3 pb-4 border-t border-[#1e1e1e] mt-1">
+                      <div className="px-5 pt-3 pb-4 border-t border-[#424848] mt-1">
                         <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
                         {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                           <Link key={path} href={path} onClick={closeMobile}
@@ -194,7 +194,7 @@ export function Nav() {
             {/* Other links */}
             {OTHER_LINKS.map(({ label, path }) => (
               <Link key={label} href={path} onClick={closeMobile}
-                className={`py-5 text-[13px] uppercase tracking-[0.14em] border-b border-[#1e1e1e] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/70'}`}>
+                className={`py-5 text-[13px] uppercase tracking-[0.14em] border-b border-[#424848] ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/70'}`}>
                 {label}
               </Link>
             ))}

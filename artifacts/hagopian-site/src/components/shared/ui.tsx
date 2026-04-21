@@ -45,8 +45,8 @@ interface BtnProps {
 export function Btn({ href, children, variant = 'solid', external = true, className = '' }: BtnProps) {
   const base = `inline-flex items-center gap-2 px-9 py-4 text-[11px] uppercase tracking-[0.16em] transition-all duration-300 ${className}`;
   const v = variant === 'solid'
-    ? 'bg-[#0a0a0a] text-[#f5f0eb] hover:bg-[#1a1a1a]'
-    : 'border border-[#0a0a0a]/30 text-[#0a0a0a] hover:border-[#0a0a0a]';
+    ? 'bg-[#2d3232] text-[#f5f0eb] hover:bg-[#3a4040]'
+    : 'border border-[#2d3232]/30 text-[#2d3232] hover:border-[#2d3232]';
   const style = { fontFamily: NAV_FONT };
 
   if (!external) {
@@ -62,7 +62,7 @@ export function Btn({ href, children, variant = 'solid', external = true, classN
 export function BtnLight({ href, children, variant = 'solid', external = true, className = '' }: BtnProps) {
   const base = `inline-flex items-center gap-2 px-9 py-4 text-[11px] uppercase tracking-[0.16em] transition-all duration-300 ${className}`;
   const v = variant === 'solid'
-    ? 'bg-[#f5f0eb] text-[#0a0a0a] hover:bg-white'
+    ? 'bg-[#f5f0eb] text-[#2d3232] hover:bg-white'
     : 'border border-[#f5f0eb]/35 text-[#f5f0eb] hover:border-[#f5f0eb]';
   const style = { fontFamily: NAV_FONT };
 

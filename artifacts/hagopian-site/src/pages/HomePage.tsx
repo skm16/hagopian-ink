@@ -29,7 +29,7 @@ export function Homepage() {
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex flex-col justify-center items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ scale: heroScale }}>
           {/* Cooler, deeper overlay to match real site — no warm tint */}
-          <div className="absolute inset-0 bg-[#060810]/25 z-10" />
+          <div className="absolute inset-0 bg-[#2d3232]/12 z-10" />
           <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
             className="w-full h-full object-cover">
             <source src={VIDEO_MP4} type="video/mp4" />
@@ -77,15 +77,15 @@ export function Homepage() {
       {/* ═══════════════════════════════════════════════════════
           CLIENT LOGO TRAIN
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a] py-16 border-b border-[#191919] overflow-hidden relative">
+      <section className="bg-[#2d3232] py-16 border-b border-[#3a4040] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
             Trusted by world-class brands
           </p>
         </FadeIn>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2d3232] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2d3232] to-transparent z-10 pointer-events-none" />
           <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
@@ -100,11 +100,11 @@ export function Homepage() {
       {/* ═══════════════════════════════════════════════════════
           SERVICES BLOCKS (3 columns)
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="max-w-3xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
-            <p className="text-lg md:text-xl text-[#0a0a0a]/70 leading-relaxed">
+            <p className="text-lg md:text-xl text-[#2d3232]/70 leading-relaxed">
               As a trusted partner for brand identity, visual communication, web design, and digital experiences, we combine consumer insights with creativity for optimal results. Our emphasis is on producing thoughtful, conceptually driven work that comes from a clear understanding of our clients and their audience.
             </p>
           </FadeIn>
@@ -115,9 +115,9 @@ export function Homepage() {
                 <div className="bg-white p-8 flex-grow flex flex-col shadow-[0_2px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_48px_rgba(0,0,0,0.12)] transition-shadow duration-500">
                   <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4" style={{ color: svc.color, fontFamily: NAV_FONT }}>{svc.name}</p>
                   <h3 className="text-2xl md:text-3xl mb-5 leading-snug whitespace-pre-line" style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
-                  <p className="text-[#0a0a0a]/60 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
+                  <p className="text-[#2d3232]/60 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
                   <a href={svc.link} target="_blank" rel="noopener noreferrer"
-                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/50 hover:text-[#0a0a0a] transition-colors border-b border-[#0a0a0a]/15 pb-1 self-start mb-8"
+                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/50 hover:text-[#2d3232] transition-colors border-b border-[#2d3232]/15 pb-1 self-start mb-8"
                     style={{ fontFamily: NAV_FONT }}>
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
                   </a>
@@ -143,10 +143,10 @@ export function Homepage() {
       <section className="bg-[#f1efef]">
         <FadeIn className="pt-20 pb-4 px-10 md:px-16">
           <div className="flex items-center gap-3">
-            <span className="w-8 h-px bg-[#0a0a0a]/30" />
-            <span className="text-[10px] uppercase tracking-[0.22em] text-[#0a0a0a]/40 font-medium" style={{ fontFamily: NAV_FONT }}>Selected Work</span>
+            <span className="w-8 h-px bg-[#2d3232]/30" />
+            <span className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 font-medium" style={{ fontFamily: NAV_FONT }}>Selected Work</span>
           </div>
-          <h2 className="text-5xl md:text-7xl mt-3 leading-none text-[#0a0a0a]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
+          <h2 className="text-5xl md:text-7xl mt-3 leading-none text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
         </FadeIn>
 
         <div className="pb-8">
@@ -164,11 +164,11 @@ export function Homepage() {
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 bg-white px-10 py-9 w-full md:w-[38%] shadow-[0_4px_40px_rgba(0,0,0,0.10)]`}>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-[#0a0a0a]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
-                    <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#0a0a0a]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
-                    <p className="text-[14px] text-[#0a0a0a]/55 leading-relaxed mb-6">{cs.desc}</p>
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
+                    <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
+                    <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-6">{cs.desc}</p>
                     <a href={cs.href} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#0a0a0a]/50 hover:text-[#0a0a0a] border-b border-[#0a0a0a]/20 hover:border-[#0a0a0a] pb-1 transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/50 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
                       style={{ fontFamily: NAV_FONT }}>
                       View Case Study <ArrowRight className="w-3 h-3" />
                     </a>
@@ -190,7 +190,7 @@ export function Homepage() {
       {/* ═══════════════════════════════════════════════════════
           BOUTIQUE DIFFERENTIATOR + TESTIMONIALS
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a] py-32 md:py-52 px-6 md:px-12 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-32 md:py-52 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-8 items-center">
           <div className="lg:col-span-5">
             <FadeIn>
@@ -245,7 +245,7 @@ export function Homepage() {
       {/* ═══════════════════════════════════════════════════════
           RESULTS PROOF GRID
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a] py-24 md:py-36 px-6 md:px-12 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16 text-center">
             <SectionLabel light>Results That Speak</SectionLabel>
@@ -253,7 +253,7 @@ export function Homepage() {
               Creative campaigns that drive results.
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-l border-[#1c1c1c]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-l border-[#424848]">
             {[
               { n: '1,030%', label: 'email list growth in 6 months',      client: 'P.Volve' },
               { n: '300%',   label: 'increase in signup conversion',       client: 'Gwynnie Bee' },
@@ -265,7 +265,7 @@ export function Homepage() {
               { n: '180%',   label: 'increase in online donations',        client: 'Epilepsy Foundation' },
             ].map((s, i) => (
               <FadeIn key={i} delay={i * 0.06}
-                className="border-r border-b border-[#1c1c1c] p-8 text-center hover:bg-[#111111] transition-colors duration-300">
+                className="border-r border-b border-[#424848] p-8 text-center hover:bg-[#343a3a] transition-colors duration-300">
                 <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
                 <div className="text-[13px] text-[#f5f0eb]/60 mb-2 leading-snug">{s.label}</div>
                 <div className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/28" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
@@ -278,7 +278,7 @@ export function Homepage() {
       {/* ═══════════════════════════════════════════════════════
           CONTACT / CTA
       ═══════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a] py-32 md:py-52 px-6 md:px-12 border-t border-[#191919] relative overflow-hidden">
+      <section className="bg-[#2d3232] py-32 md:py-52 px-6 md:px-12 border-t border-[#3a4040] relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
           style={{ background: 'radial-gradient(ellipse, rgba(245,240,235,0.035) 0%, transparent 70%)' }} />
         <div className="max-w-[1400px] mx-auto relative z-10">
@@ -305,7 +305,7 @@ export function Homepage() {
               </BtnLight>
             </FadeIn>
 
-            <FadeIn delay={0.25} className="bg-[#111111] border border-[#1e1e1e] p-10">
+            <FadeIn delay={0.25} className="bg-[#343a3a] border border-[#424848] p-10">
               <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/65 mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
               <div className="space-y-5">
                 {[
@@ -329,7 +329,7 @@ export function Homepage() {
                     )}
                   </div>
                 ))}
-                <button className="w-full py-4 bg-[#f5f0eb] text-[#0a0a0a] text-[11px] uppercase tracking-[0.16em] hover:bg-white transition-colors duration-300 mt-4"
+                <button className="w-full py-4 bg-[#f5f0eb] text-[#2d3232] text-[11px] uppercase tracking-[0.16em] hover:bg-white transition-colors duration-300 mt-4"
                   style={{ fontFamily: NAV_FONT }}>
                   Send Message
                 </button>

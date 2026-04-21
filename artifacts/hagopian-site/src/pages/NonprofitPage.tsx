@@ -51,7 +51,7 @@ export function NonprofitPage() {
 
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
@@ -71,8 +71,8 @@ export function NonprofitPage() {
       </section>
 
       {/* STATS */}
-      <section className="bg-[#0a0a0a] border-b border-[#191919]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#191919]">
+      <section className="bg-[#2d3232] border-b border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3a4040]">
           {STATS.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -83,7 +83,7 @@ export function NonprofitPage() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-8 md:px-16">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>Our Approach</SectionLabel>
@@ -93,10 +93,10 @@ export function NonprofitPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
               We understand that nonprofits operate under unique pressures: limited budgets, high accountability, and an audience whose trust must be earned with every communication. That's why every piece of work we produce for the nonprofit sector is built on strategic clarity and emotional resonance.
             </p>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed">
               From multi-year fundraising programs for health systems to urgent activist campaigns for social justice organizations, we bring the same level of strategic rigor and creative craft that we apply to our Fortune 50 clients — because your mission deserves nothing less.
             </p>
           </FadeIn>
@@ -104,7 +104,7 @@ export function NonprofitPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Capabilities</SectionLabel>
@@ -112,9 +112,9 @@ export function NonprofitPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {CAPABILITIES.map((c, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#0a0a0a]/12 pt-7">
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
-                <p className="text-[14px] text-[#0a0a0a]/60 leading-relaxed">{c.desc}</p>
+                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -122,7 +122,7 @@ export function NonprofitPage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-[#0a0a0a] py-24 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel light>Featured Work</SectionLabel>
@@ -150,14 +150,14 @@ export function NonprofitPage() {
       </section>
 
       {/* CLIENTS */}
-      <section className="bg-[#0a0a0a] py-16 border-t border-[#191919] px-8 md:px-16">
+      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-10">
             <SectionLabel light>Clients We've Served</SectionLabel>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['Montefiore Health System', 'Epilepsy Foundation', 'Black Lives Matter Canada', 'Malala Fund'].map((c, i) => (
-              <FadeIn key={i} delay={i * 0.08} className="border-t border-[#252525] pt-5">
+              <FadeIn key={i} delay={i * 0.08} className="border-t border-[#474d4d] pt-5">
                 <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
               </FadeIn>
             ))}
@@ -166,7 +166,7 @@ export function NonprofitPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 px-8 text-center border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

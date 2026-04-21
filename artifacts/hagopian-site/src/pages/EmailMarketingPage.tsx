@@ -52,7 +52,7 @@ export function EmailMarketingPage() {
 
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
@@ -72,8 +72,8 @@ export function EmailMarketingPage() {
       </section>
 
       {/* STATS */}
-      <section className="bg-[#0a0a0a] border-b border-[#191919]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#191919]">
+      <section className="bg-[#2d3232] border-b border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3a4040]">
           {[
             { n: '1,030%', label: 'Email list growth in 6 months — P.Volve' },
             { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
@@ -89,7 +89,7 @@ export function EmailMarketingPage() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-8 md:px-16">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
@@ -99,10 +99,10 @@ export function EmailMarketingPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
               We have been designing and strategizing email programs for Fortune 50 brands and fast-growing startups since 2002. Email is the highest-ROI channel in digital marketing — and the most unforgiving when it's done poorly.
             </p>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed">
               Our approach combines beautiful design with rigorous strategy: the right message, to the right audience, at exactly the right moment. Every flow we build is designed to grow with your business.
             </p>
           </FadeIn>
@@ -110,7 +110,7 @@ export function EmailMarketingPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Capabilities</SectionLabel>
@@ -118,9 +118,9 @@ export function EmailMarketingPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {CAPABILITIES.map((c, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#0a0a0a]/12 pt-7">
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
-                <p className="text-[14px] text-[#0a0a0a]/60 leading-relaxed">{c.desc}</p>
+                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -128,7 +128,7 @@ export function EmailMarketingPage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-[#0a0a0a] py-24 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel light>Featured Work</SectionLabel>
@@ -156,7 +156,7 @@ export function EmailMarketingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 px-8 text-center border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

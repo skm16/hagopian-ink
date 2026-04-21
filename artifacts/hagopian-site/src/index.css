@@ -4,4 +4,4 @@
 @keyframes ticker  { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: #0a0a0a; font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+html, body { margin: 0; padding: 0; background: #2d3232; font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }

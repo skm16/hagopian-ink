@@ -43,7 +43,7 @@ export function ExpertisePage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_EXPERTISE} type="video/mp4" />
@@ -63,12 +63,12 @@ export function ExpertisePage() {
       </section>
 
       {/* ── SUB-PAGE NAV GRID ─────────────────────── */}
-      <section className="bg-[#0a0a0a] py-16 md:py-20 px-6 md:px-12 border-b border-[#191919]">
+      <section className="bg-[#2d3232] py-16 md:py-20 px-6 md:px-12 border-b border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-10">
             <SectionLabel light>Explore Our Specialties</SectionLabel>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#1e1e1e]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#424848]">
             {[
               { label: 'Brand Identity',        sub: 'Services',   path: '/expertise/brand-identity',        desc: 'Logo, mark development, naming strategy & visual identity systems.' },
               { label: 'Website Design',         sub: 'Services',   path: '/expertise/ux-ui-design',          desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
@@ -97,7 +97,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── DISCIPLINES GRID ──────────────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel>Our Disciplines</SectionLabel>
@@ -105,7 +105,7 @@ export function ExpertisePage() {
               <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 We help them with...
               </h2>
-              <p className="text-lg text-[#0a0a0a]/60 max-w-sm leading-relaxed">
+              <p className="text-lg text-[#2d3232]/60 max-w-sm leading-relaxed">
                 From naming and visual identity to email acquisition and omnichannel campaigns — across every medium.
               </p>
             </div>
@@ -116,9 +116,9 @@ export function ExpertisePage() {
                 className="group border-r border-b border-[#d8d5d1] p-9 hover:bg-white transition-colors duration-300 cursor-pointer">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#444456] mb-6 group-hover:scale-150 transition-transform duration-300" />
                 <h3 className="text-xl mb-4 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.title}</h3>
-                <p className="text-[#0a0a0a]/60 text-[14px] leading-relaxed mb-6">{item.desc}</p>
+                <p className="text-[#2d3232]/60 text-[14px] leading-relaxed mb-6">{item.desc}</p>
                 <a href={item.link} target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#0a0a0a]/40 group-hover:text-[#444456] transition-colors"
+                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/40 group-hover:text-[#444456] transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
                   Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -200,26 +200,26 @@ export function ExpertisePage() {
       </section>
 
       {/* ── EMAIL MARKETING CHAPTER ───────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <SectionLabel>Email Marketing</SectionLabel>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Harness the power of<br />your email sends.
             </h2>
-            <p className="text-lg text-[#0a0a0a]/65 leading-relaxed mb-8">
+            <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-8">
               Flawless aesthetics and strategic messaging increase conversions and create brand loyalty. We handle every facet of email marketing — from template design and copywriting to automation flows, segmentation strategy, and program management. Our clients include Fortune 50 brands and emerging DTC companies alike.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-[#0a0a0a]/10 pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '1,030%', label: 'email list growth in 6 months', client: 'P.Volve' },
                 { n: '40%+',   label: 'average open rate',              client: 'Multiple clients' },
                 { n: '$56K',   label: 'new sales from automations',     client: 'Cannadips' },
                 { n: '$54K',   label: 'in new sales, one campaign',     client: 'Frette' },
               ].map((s, i) => (
-                <div key={i} className="border-t border-[#0a0a0a]/10 pt-5">
+                <div key={i} className="border-t border-[#2d3232]/10 pt-5">
                   <div className="text-2xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#0a0a0a]/50 leading-snug mb-1">{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/50 leading-snug mb-1">{s.label}</div>
                   <div className="text-[10px] text-[#a57b83]" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
                 </div>
               ))}
@@ -330,7 +330,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── INDUSTRIES ────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-6 md:px-12 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel>Who We Work With</SectionLabel>
@@ -341,7 +341,7 @@ export function ExpertisePage() {
               <FadeIn key={i} delay={i * 0.08}
                 className="group border-r border-b border-[#d8d5d1] p-9 hover:bg-white transition-colors duration-300">
                 <h3 className="text-xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{area.industry}</h3>
-                <p className="text-[#0a0a0a]/55 text-[13px] leading-relaxed">{area.services}</p>
+                <p className="text-[#2d3232]/55 text-[13px] leading-relaxed">{area.services}</p>
               </FadeIn>
             ))}
           </div>
@@ -349,7 +349,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── PROCESS STEPS ─────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-24 md:py-36 px-6 md:px-12 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel light>How We Begin</SectionLabel>
@@ -371,7 +371,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-28 px-6 text-center border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-5xl md:text-7xl mb-10 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

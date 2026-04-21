@@ -43,7 +43,7 @@ export function AboutPage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_ABOUT} type="video/mp4" />
@@ -66,7 +66,7 @@ export function AboutPage() {
       </section>
 
       {/* ── STORY ─────────────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-28 md:py-44 px-8 md:px-16 border-b border-[#191919]">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-8 md:px-16 border-b border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <FadeIn>
             <SectionLabel light>Our Story</SectionLabel>
@@ -89,7 +89,7 @@ export function AboutPage() {
       </section>
 
       {/* ── LEADERSHIP ────────────────────────────── */}
-      <section className="bg-[#111111] py-28 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+      <section className="bg-[#343a3a] py-28 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel light>Leadership</SectionLabel>
@@ -127,7 +127,7 @@ export function AboutPage() {
       </section>
 
       {/* ── STATS ─────────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-20 px-8 md:px-16">
+      <section className="bg-[#f1efef] text-[#2d3232] py-20 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { n: '2002',  label: 'Year founded' },
@@ -135,16 +135,16 @@ export function AboutPage() {
             { n: '20+',   label: 'Years of partnerships' },
             { n: 'W/O',   label: 'Woman owned, creatively driven' },
           ].map((s, i) => (
-            <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#0a0a0a]/10 pt-6">
+            <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[11px] uppercase tracking-[0.14em] text-[#0a0a0a]/50" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#2d3232]/50" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
             </FadeIn>
           ))}
         </div>
       </section>
 
       {/* ── VALUES ────────────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-28 md:py-44 px-8 md:px-16 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-28 md:py-44 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel light>How We Work</SectionLabel>
@@ -154,7 +154,7 @@ export function AboutPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
             {VALUES.map((v, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#252525] pt-8">
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#474d4d] pt-8">
                 <h3 className="text-xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{v.title}</h3>
                 <p className="text-[14px] text-[#f5f0eb]/70 leading-relaxed">{v.desc}</p>
               </FadeIn>
@@ -164,15 +164,15 @@ export function AboutPage() {
       </section>
 
       {/* ── CLIENT LOGOS ──────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-16 border-t border-[#191919] overflow-hidden relative">
+      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
             Brands We Have Served
           </p>
         </FadeIn>
         <div className="relative">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2d3232] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2d3232] to-transparent z-10 pointer-events-none" />
           <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
@@ -185,7 +185,7 @@ export function AboutPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-28 px-6 text-center border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Work With Us</p>
           <h2 className="text-4xl md:text-6xl mb-8 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

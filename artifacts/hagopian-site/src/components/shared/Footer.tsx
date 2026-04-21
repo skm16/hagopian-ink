@@ -12,7 +12,7 @@ const SOCIAL = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-[#191919] px-6 md:px-12 py-16">
+    <footer className="bg-[#2d3232] border-t border-[#3a4040] px-6 md:px-12 py-16">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
@@ -24,7 +24,7 @@ export function Footer() {
               {SOCIAL.map(({ icon: Icon, href, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 border border-[#252525] flex items-center justify-center text-[#f5f0eb]/35 hover:text-[#f5f0eb]/70 hover:border-[#383838] transition-all duration-250">
+                  className="w-9 h-9 border border-[#474d4d] flex items-center justify-center text-[#f5f0eb]/35 hover:text-[#f5f0eb]/70 hover:border-[#383838] transition-all duration-250">
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
@@ -78,7 +78,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#191919] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/25"
+        <div className="border-t border-[#3a4040] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/25"
           style={{ fontFamily: NAV_FONT }}>
           <p>© 2025 Hagopian Ink. All rights reserved.</p>
           <p>Woman-Owned Business · Since 2002</p>

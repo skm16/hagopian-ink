@@ -45,7 +45,7 @@ export function BrandIdentityPage() {
 
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/20 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
@@ -65,8 +65,8 @@ export function BrandIdentityPage() {
       </section>
 
       {/* STATS */}
-      <section className="bg-[#0a0a0a] border-b border-[#191919]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-3 divide-x divide-[#191919]">
+      <section className="bg-[#2d3232] border-b border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-3 divide-x divide-[#3a4040]">
           {[
             { n: '100+', label: 'Brand identities developed' },
             { n: '20+',  label: 'Years of brand expertise' },
@@ -81,7 +81,7 @@ export function BrandIdentityPage() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 md:py-36 px-8 md:px-16">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
@@ -91,10 +91,10 @@ export function BrandIdentityPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
               We believe great branding begins with rigorous strategy and ends with flawless execution. Every mark we create is designed to work across every context — from a business card to a billboard — and to remain relevant not just today, but a decade from now.
             </p>
-            <p className="text-lg text-[#0a0a0a]/70 leading-relaxed">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed">
               Our clients range from Fortune 50 companies launching new product lines to entrepreneurs building their first brand from scratch. What they share is a demand for quality, clarity, and creative work that truly reflects who they are.
             </p>
           </FadeIn>
@@ -102,7 +102,7 @@ export function BrandIdentityPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Capabilities</SectionLabel>
@@ -110,9 +110,9 @@ export function BrandIdentityPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {CAPABILITIES.map((c, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#0a0a0a]/12 pt-7">
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
-                <p className="text-[14px] text-[#0a0a0a]/60 leading-relaxed">{c.desc}</p>
+                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -120,7 +120,7 @@ export function BrandIdentityPage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-[#0a0a0a] py-24 md:py-36 px-8 md:px-16 border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel light>Featured Work</SectionLabel>
@@ -148,7 +148,7 @@ export function BrandIdentityPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f1efef] text-[#0a0a0a] py-24 px-8 text-center border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

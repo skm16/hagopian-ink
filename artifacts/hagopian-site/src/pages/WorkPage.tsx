@@ -38,7 +38,7 @@ const CATEGORIES = [
     ],
     img: `${CDN}/2022/08/HI_home2_loum.jpg`,
     href: '/expertise/ux-ui-design',
-    bg: '#0a0a0a',
+    bg: '#2d3232',
     dark: true,
   },
   {
@@ -69,7 +69,7 @@ const CATEGORIES = [
     ],
     img: `${BASE}deck-images/medtech-05.png`,
     href: '/expertise/health-medtech',
-    bg: '#0a0a0a',
+    bg: '#2d3232',
     dark: true,
   },
   {
@@ -98,7 +98,7 @@ export function WorkPage() {
 
       {/* ── VIDEO HERO ────────────────────────────── */}
       <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#060810]/25 z-10" />
+        <div className="absolute inset-0 bg-[#2d3232]/12 z-10" />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_WORK} type="video/mp4" />
@@ -120,7 +120,7 @@ export function WorkPage() {
       {/* ── CATEGORY CHAPTERS ─────────────────────── */}
       {CATEGORIES.map((cat, i) => {
         const flip = i % 2 !== 0;
-        const textColor = cat.dark ? '#f5f0eb' : '#0a0a0a';
+        const textColor = cat.dark ? '#f5f0eb' : '#2d3232';
         const mutedColor = cat.dark ? 'rgba(245,240,235,0.55)' : 'rgba(10,10,10,0.55)';
         const borderColor = cat.dark ? 'rgba(245,240,235,0.1)' : 'rgba(10,10,10,0.1)';
         const accentColor = cat.dark ? 'rgba(245,240,235,0.3)' : 'rgba(10,10,10,0.3)';
@@ -203,7 +203,7 @@ export function WorkPage() {
       })}
 
       {/* ── CTA ──────────────────────────────────── */}
-      <section className="bg-[#0a0a0a] py-28 px-6 text-center border-t border-[#191919]">
+      <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-4xl md:text-6xl mb-4 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
