@@ -218,7 +218,7 @@ export function Homepage() {
           <div className="lg:col-span-6 lg:col-start-7">
             <FadeIn delay={0.35}>
               <div className="border-l-2 border-[#f5f0eb]/12 pl-10 relative">
-                <span className="absolute -top-12 -left-4 text-[9rem] leading-none text-[#f5f0eb]/05" style={{ fontFamily: SERIF }}>"</span>
+                <span className="absolute -top-12 -left-4 text-[9rem] leading-none text-[#f5f0eb]/05" style={{ fontFamily: SERIF }}>“</span>
                 <blockquote className="text-3xl md:text-4xl leading-snug mb-8 relative" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                   Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas.
                 </blockquote>
@@ -232,7 +232,7 @@ export function Homepage() {
             </FadeIn>
             <FadeIn delay={0.5} className="mt-16 border-l-2 border-[#f5f0eb]/08 pl-10">
               <blockquote className="text-xl md:text-2xl leading-relaxed mb-6 italic text-[#f5f0eb]/75" style={{ fontFamily: SERIF }}>
-                "The email strategy and automated flows you created delivered a lift in our online sales by 5-10%... email now makes up 5% of all sales. The investment was well worth it."
+                “The email strategy and automated flows you created delivered a lift in our online sales by 5-10%... email now makes up 5% of all sales. The investment was well worth it.”
               </blockquote>
               <cite className="not-italic">
                 <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/35" style={{ fontFamily: NAV_FONT }}>Client, Cannadips</span>
@@ -259,7 +259,7 @@ export function Homepage() {
               { n: '300%',   label: 'increase in signup conversion',       client: 'Gwynnie Bee' },
               { n: '40%+',   label: 'average open rate achieved',          client: 'P.Volve — 49.5%' },
               { n: '$56K',   label: 'new sales from email automations',    client: 'Cannadips, 4 months' },
-              { n: '12K',    label: 'new email opt-ins',                   client: 'Frette "Escape to Italy"' },
+              { n: '12K',    label: 'new email opt-ins',                   client: 'Frette “Escape to Italy”' },
               { n: '58%',    label: 'increase in website unique visitors', client: 'Frette campaign' },
               { n: '329%',   label: 'more dollars raised',                 client: 'Montefiore' },
               { n: '180%',   label: 'increase in online donations',        client: 'Epilepsy Foundation' },

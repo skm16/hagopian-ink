@@ -251,7 +251,7 @@ export function ExpertisePage() {
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms to nonprofit health initiatives.
             </p>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
-              Our 6-year "In It for Life" campaign partnership with Viant Medical brought their brand to life across print trade media, targeted email, and digital display, building lasting credibility with an executive audience across 24 global locations.
+              Our 6-year “In It for Life” campaign partnership with Viant Medical brought their brand to life across print trade media, targeted email, and digital display, building lasting credibility with an executive audience across 24 global locations.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
@@ -276,7 +276,7 @@ export function ExpertisePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/70 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8">
                 <p className="text-xl italic text-[#f5f0eb]" style={{ fontFamily: SERIF }}>
-                  "My speed to market can help speed her recovery. I'm in it for life."
+                  “My speed to market can help speed her recovery. I'm in it for life.”
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/50 mt-3" style={{ fontFamily: NAV_FONT }}>— Viant Medical campaign</p>
               </div>

@@ -28,8 +28,8 @@ const PROJECTS = [
   {
     client: 'Viant Medical',
     category: 'Medical Device Brand + Campaign',
-    headline: '"In It for Life" — a 6-year brand partnership',
-    result: 'Built and sustained the "In It for Life" campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
+    headline: '“In It for Life” — a 6-year brand partnership',
+    result: 'Built and sustained the “In It for Life” campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
     href: 'https://hagopianink.com/expertise/',
   },
