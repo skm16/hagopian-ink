@@ -4,6 +4,7 @@ import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
+import ceciliaHeadshot from '@assets/image_1776807172711.png';
 import {
   CDN, LOGO, VIDEO_MP4, VIDEO_POSTER,
   SERIF, SANS, NAV_FONT, BRAND_STYLES,
@@ -222,10 +223,13 @@ export function Homepage() {
                 <blockquote className="text-3xl md:text-4xl leading-snug mb-8 relative" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                   Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas.
                 </blockquote>
-                <cite className="not-italic">
-                  <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Cecilia Pagkalinawan</span>
-                  <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
-                    VP E-commerce &amp; Direct Marketing<br />Frette Inc &amp; La Perla Fashions Inc.
+                <cite className="not-italic flex items-center gap-4">
+                  <img src={ceciliaHeadshot} alt="Cecilia Pagkalinawan" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
+                  <span>
+                    <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Cecilia Pagkalinawan</span>
+                    <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
+                      VP E-commerce &amp; Direct Marketing<br />Frette Inc &amp; La Perla Fashions Inc.
+                    </span>
                   </span>
                 </cite>
               </div>
