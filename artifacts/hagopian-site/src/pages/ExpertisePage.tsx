@@ -78,7 +78,7 @@ export function ExpertisePage() {
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
                 <Link href={item.path}
-                  className="group flex flex-col justify-between bg-[#0f0f0f] hover:bg-[#161616] transition-colors duration-300 p-8 h-full cursor-pointer">
+                  className="group flex flex-col justify-between bg-[#343a3a] hover:bg-[#3a4040] transition-colors duration-300 p-8 h-full cursor-pointer">
                   <div>
                     <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/30 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
                     <h3 className="text-xl mb-3 leading-snug group-hover:text-white transition-colors" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.label}</h3>
@@ -91,7 +91,7 @@ export function ExpertisePage() {
               </FadeIn>
             ))}
             {/* spacer for grid alignment on last row */}
-            <div className="hidden lg:block bg-[#0f0f0f]" />
+            <div className="hidden lg:block bg-[#343a3a]" />
           </div>
         </div>
       </section>
