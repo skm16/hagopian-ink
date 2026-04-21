@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'wouter';
 import { ChevronDown, Menu, X } from 'lucide-react';
@@ -28,9 +28,17 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expertiseExpanded, setExpertiseExpanded] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const expertiseActive = location.startsWith('/expertise');
+
+  useEffect(() => {
+    const handleScroll = () => setHasScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   function handleMouseEnter() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -47,7 +55,11 @@ export function Nav() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center bg-[#2d3232]/85 backdrop-blur-md border-b border-white/[0.06]">
+      <nav className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center transition-all duration-500 ${
+        hasScrolled || mobileOpen
+          ? 'bg-[#2d3232]/88 backdrop-blur-md border-b border-white/[0.06]'
+          : 'bg-transparent border-b border-transparent'
+      }`}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
           <Link href="/" onClick={closeMobile}>
             <img src={logoSrc} alt="Hagopian Ink" className="h-11 w-auto cursor-pointer" />
