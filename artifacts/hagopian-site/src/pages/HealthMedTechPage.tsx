@@ -89,7 +89,7 @@ export function HealthMedTechPage() {
             <SectionLabel>Our Approach</SectionLabel>
             <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               The stakes are high.<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>The brand has to match.</span>
+              The brand has to <span style={{ fontStyle: 'italic', opacity: 0.6 }}>match.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>

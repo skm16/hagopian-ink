@@ -55,7 +55,7 @@ export function BrandIdentityPage() {
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Brand Identity</p>
             <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Your first impression<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>is everything.</span>
+              is <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything.</span>
             </h1>
             <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
               Leave a lasting impact that communicates the essence of your brand. Rise above the competition with award-winning logo and brand development built on strategic insight.
@@ -87,7 +87,7 @@ export function BrandIdentityPage() {
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               A brand is more than a logo.<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>It's a promise.</span>
+              It's a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>promise.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -153,7 +153,7 @@ export function BrandIdentityPage() {
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to build a brand<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.6 }}>that endures?</span>
+            that <span style={{ fontStyle: 'italic', opacity: 0.6 }}>endures?</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Btn href="/contact" external={false}>

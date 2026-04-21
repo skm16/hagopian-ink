@@ -86,7 +86,7 @@ export function UxUiDesignPage() {
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Design that earns its place<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>by doing its job.</span>
+              by doing its <span style={{ fontStyle: 'italic', opacity: 0.6 }}>job.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -152,7 +152,7 @@ export function UxUiDesignPage() {
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready for a digital experience<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.6 }}>that actually converts?</span>
+            that actually <span style={{ fontStyle: 'italic', opacity: 0.6 }}>converts?</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Btn href="/contact" external={false}>

@@ -62,7 +62,7 @@ export function EmailMarketingPage() {
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Email Marketing</p>
             <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Harness the power<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>of your email sends.</span>
+              of your <span style={{ fontStyle: 'italic', opacity: 0.55 }}>email sends.</span>
             </h1>
             <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
               Flawless aesthetics and messaging increase conversions and create brand loyalty. See why Fortune 50 companies trust us with their email programs year after year.
@@ -95,7 +95,7 @@ export function EmailMarketingPage() {
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Email done right<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>is a growth engine.</span>
+              is a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>growth engine.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -161,7 +161,7 @@ export function EmailMarketingPage() {
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to turn your email list<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.6 }}>into a revenue engine?</span>
+            into a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>revenue engine?</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Btn href="/contact" external={false}>

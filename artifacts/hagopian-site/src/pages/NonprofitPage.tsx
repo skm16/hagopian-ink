@@ -61,7 +61,7 @@ export function NonprofitPage() {
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Nonprofit + Fundraising</p>
             <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Building bold brands<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>for a new era of impact.</span>
+              for a new era of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>impact.</span>
             </h1>
             <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
               We help nonprofits build the brands and fundraising programs that connect missions to donors — and donors to results. From quarterly appeals to $22M galas.
@@ -89,7 +89,7 @@ export function NonprofitPage() {
             <SectionLabel>Our Approach</SectionLabel>
             <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Mission-driven work<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.6 }}>demands mission-driven design.</span>
+              demands <span style={{ fontStyle: 'italic', opacity: 0.6 }}>mission-driven design.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>

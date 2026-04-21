@@ -53,7 +53,7 @@ export function ExpertisePage() {
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
             <h1 className="leading-[0.95] mb-0" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Built on brand.<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>Driven by results.</span>
+              Driven by <span style={{ fontStyle: 'italic', opacity: 0.55 }}>results.</span>
             </h1>
             <p className="text-xl text-[#f5f0eb]/60 max-w-2xl leading-relaxed">
               Since 2002, we have combined consumer insight with creative execution to produce work that moves people — and moves the needle for our clients.
