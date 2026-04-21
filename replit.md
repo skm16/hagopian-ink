@@ -16,6 +16,11 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Hagopian Ink Website Notes
+
+- Blog landing is branded as “Fresh Ink” and uses a two-column editorial layout: 3:2 post cards on the left, search and About Us sidebar on the right.
+- Local blog detail route added for `/celebrating-20-years-at-hagopian-ink`, preserving the source image proportions while applying the updated charcoal/cream style system.
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages

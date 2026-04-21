@@ -4,6 +4,7 @@ import { ExpertisePage } from '@/pages/ExpertisePage';
 import { WorkPage } from '@/pages/WorkPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { BlogPage } from '@/pages/BlogPage';
+import { BlogPostPage } from '@/pages/BlogPostPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { BrandIdentityPage } from '@/pages/BrandIdentityPage';
 import { UxUiDesignPage } from '@/pages/UxUiDesignPage';
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/work" component={WorkPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/blog" component={BlogPage} />
+        <Route path="/celebrating-20-years-at-hagopian-ink" component={BlogPostPage} />
         <Route path="/contact" component={ContactPage} />
         <Route><Homepage /></Route>
       </Switch>
