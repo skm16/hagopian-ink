@@ -61,7 +61,7 @@ export function HealthMedTechPage() {
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Health + MedTech</p>
             <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Medical innovation<br />
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>deserves a brand that commands trust.</span>
+              deserves a brand that <span style={{ fontStyle: 'italic', opacity: 0.55 }}>commands trust.</span>
             </h1>
             <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms to nonprofit health initiatives.
