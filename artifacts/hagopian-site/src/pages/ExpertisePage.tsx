@@ -27,13 +27,6 @@ const INDUSTRIES = [
   { industry: 'Entertainment + Hospitality',  services: 'Campaign marketing, email strategy, brand identity' },
 ];
 
-const PROCESS = [
-  { num: '01', title: 'Brand Strategy + Naming',      desc: 'Defining your positioning, voice, and what makes you distinct in your market.' },
-  { num: '02', title: 'Logo + Mark Development',      desc: 'Crafting a visual identity that is distinctive, memorable, and enduring.' },
-  { num: '03', title: 'Brand Standards + Guidelines', desc: 'The rulebook that keeps your brand consistent across every touchpoint.' },
-  { num: '04', title: 'Documents + Imagery',          desc: 'Collateral, photography direction, and materials that bring the brand to life.' },
-  { num: '05', title: 'Launch + Ongoing Expansions',  desc: 'Campaigns, digital rollout, and growth strategies to sustain momentum.' },
-];
 
 export function ExpertisePage() {
   return (
@@ -375,28 +368,6 @@ export function ExpertisePage() {
               Explore Nonprofit Fundraising <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ── PROCESS STEPS ─────────────────────────── */}
-      <section className="bg-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-16">
-            <SectionLabel light>How We Begin</SectionLabel>
-            <h2 className="text-5xl md:text-6xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              How can we begin your<br />new brand development?
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {PROCESS.map((step, i) => (
-              <FadeIn key={i} delay={i * 0.1}
-                className="border-t-2 border-[#f5f0eb]/10 pt-8 hover:border-[#a57b83] transition-colors duration-300 group">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/30 mb-4" style={{ fontFamily: NAV_FONT }}>{step.num}</div>
-                <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{step.title}</h3>
-                <p className="text-[#f5f0eb]/50 text-[13px] leading-relaxed">{step.desc}</p>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 

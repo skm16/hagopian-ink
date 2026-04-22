@@ -18,6 +18,14 @@ const CAPABILITIES = [
   { title: 'Brand Refresh + Evolution',       desc: 'When your brand has outgrown itself, we preserve equity while modernizing for what comes next.' },
 ];
 
+const PROCESS = [
+  { num: '01', title: 'Brand Strategy + Naming',      desc: 'Defining your positioning, voice, and what makes you distinct in your market.' },
+  { num: '02', title: 'Logo + Mark Development',      desc: 'Crafting a visual identity that is distinctive, memorable, and enduring.' },
+  { num: '03', title: 'Brand Standards + Guidelines', desc: 'The rulebook that keeps your brand consistent across every touchpoint.' },
+  { num: '04', title: 'Documents + Imagery',          desc: 'Collateral, photography direction, and materials that bring the brand to life.' },
+  { num: '05', title: 'Launch + Ongoing Expansions',  desc: 'Campaigns, digital rollout, and growth strategies to sustain momentum.' },
+];
+
 const PROJECTS = [
   {
     client: 'Joseph Robert',
@@ -141,6 +149,27 @@ export function BrandIdentityPage() {
                   style={{ fontFamily: NAV_FONT }}>
                   View Project <ArrowRight className="w-3 h-3" />
                 </a>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW WE BEGIN */}
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-16">
+            <SectionLabel>How We Begin</SectionLabel>
+            <h2 className="text-4xl md:text-5xl leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              How can we begin your<br />new brand development?
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-x-8">
+            {PROCESS.map((step, i) => (
+              <FadeIn key={i} delay={i * 0.1} className="border-t-2 border-[#2d3232]/10 pt-8 hover:border-[#2d3232]/40 transition-colors duration-300">
+                <div className="text-[11px] uppercase tracking-[0.2em] text-[#2d3232]/30 mb-4" style={{ fontFamily: NAV_FONT }}>{step.num}</div>
+                <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{step.title}</h3>
+                <p className="text-[#2d3232]/55 text-[13px] leading-relaxed">{step.desc}</p>
               </FadeIn>
             ))}
           </div>
