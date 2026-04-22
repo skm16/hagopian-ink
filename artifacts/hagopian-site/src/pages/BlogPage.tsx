@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
 import { Link } from 'wouter';
@@ -67,6 +67,7 @@ const POSTS = [
 ];
 
 const TABS = ['View All', 'Design + Business', 'Studio News', 'Work / Life'];
+const PAGE_SIZE = 4;
 
 function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
   const reversed = i % 2 !== 0;
@@ -105,6 +106,7 @@ function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
 export function BlogPage() {
   const [active, setActive] = useState('View All');
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -114,6 +116,11 @@ export function BlogPage() {
       return matchesTab && matchesSearch;
     });
   }, [active, query]);
+
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+  useEffect(() => { setPage(1); }, [active, query]);
 
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
@@ -162,7 +169,7 @@ export function BlogPage() {
       <section className="bg-[#f1efef] text-[#2d3232] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-16 items-start">
           <div>
-            {filtered.map((post, i) => <PostCard key={`${active}-${query}-${post.title}`} post={post} i={i} />)}
+            {paginated.map((post, i) => <PostCard key={`${active}-${query}-${page}-${post.title}`} post={post} i={i} />)}
             {filtered.length === 0 && (
               <div className="border-t border-[#2d3232]/10 py-16 px-8 text-center">
                 <p className="text-sm text-[#2d3232]/45 mb-6">No posts match your search.</p>
@@ -173,6 +180,39 @@ export function BlogPage() {
               </div>
             )}
             <div className="border-t border-[#2d3232]/10" />
+
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-1 pt-12 pb-4">
+                <button
+                  onClick={() => setPage(p => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/40 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
+                  aria-label="Previous page">
+                  <ArrowRight className="w-3.5 h-3.5 rotate-180" />
+                </button>
+                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(n => (
+                  <button
+                    key={n}
+                    onClick={() => setPage(n)}
+                    className="w-9 h-9 flex items-center justify-center text-[11px] border transition-colors"
+                    style={{
+                      fontFamily: NAV_FONT,
+                      borderColor: page === n ? '#2d3232' : 'rgba(45,50,50,0.15)',
+                      color: page === n ? '#2d3232' : 'rgba(45,50,50,0.40)',
+                      background: page === n ? 'rgba(45,50,50,0.05)' : 'transparent',
+                    }}>
+                    {n}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                  disabled={page === totalPages}
+                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/40 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
+                  aria-label="Next page">
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            )}
           </div>
 
           <aside className="lg:sticky lg:top-40 space-y-10">
