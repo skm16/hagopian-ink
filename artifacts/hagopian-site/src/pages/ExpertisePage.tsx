@@ -55,39 +55,6 @@ export function ExpertisePage() {
         </div>
       </section>
 
-      {/* ── SUB-PAGE NAV GRID ─────────────────────── */}
-      <section className="bg-[#2d3232] py-16 md:py-20 px-6 md:px-12 border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-10">
-            <SectionLabel light>Explore Our Specialties</SectionLabel>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#424848]">
-            {[
-              { label: 'Brand Identity',        sub: 'Services',   path: '/expertise/brand-identity',        desc: 'Logo, mark development, naming strategy & visual identity systems.' },
-              { label: 'Website Design',         sub: 'Services',   path: '/expertise/ux-ui-design',          desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
-              { label: 'Email Marketing',        sub: 'Services',   path: '/expertise/email-marketing',       desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
-              { label: 'Luxury + Lifestyle',     sub: 'Industries', path: '/expertise/luxury-lifestyle',      desc: 'Fashion, beauty & luxury brand identity, campaigns & e-commerce.' },
-              { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
-              { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
-            ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.07}>
-                <Link href={item.path}
-                  className="group flex flex-col justify-between bg-[#343a3a] hover:bg-[#3a4040] transition-colors duration-300 p-8 h-full cursor-pointer">
-                  <div>
-                    <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/30 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
-                    <h3 className="text-xl mb-3 leading-snug group-hover:text-white transition-colors" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.label}</h3>
-                    <p className="text-[13px] text-[#f5f0eb]/50 leading-relaxed">{item.desc}</p>
-                  </div>
-                  <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/30 group-hover:text-[#f5f0eb]/70 transition-colors" style={{ fontFamily: NAV_FONT }}>
-                    Explore <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── WHO + WHAT ────────────────────────────── */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
@@ -368,6 +335,39 @@ export function ExpertisePage() {
               Explore Nonprofit Fundraising <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ── EXPLORE OUR SPECIALTIES ───────────────── */}
+      <section className="bg-[#2d3232] py-16 md:py-20 px-6 md:px-12 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-10">
+            <SectionLabel light>Explore Our Specialties</SectionLabel>
+          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#424848]">
+            {[
+              { label: 'Brand Identity',        sub: 'Services',   path: '/expertise/brand-identity',        desc: 'Logo, mark development, naming strategy & visual identity systems.' },
+              { label: 'Website Design',         sub: 'Services',   path: '/expertise/ux-ui-design',          desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
+              { label: 'Email Marketing',        sub: 'Services',   path: '/expertise/email-marketing',       desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
+              { label: 'Luxury + Lifestyle',     sub: 'Industries', path: '/expertise/luxury-lifestyle',      desc: 'Fashion, beauty & luxury brand identity, campaigns & e-commerce.' },
+              { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
+              { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.07}>
+                <Link href={item.path}
+                  className="group flex flex-col justify-between bg-[#343a3a] hover:bg-[#3a4040] transition-colors duration-300 p-8 h-full cursor-pointer">
+                  <div>
+                    <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/30 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
+                    <h3 className="text-xl mb-3 leading-snug group-hover:text-white transition-colors" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.label}</h3>
+                    <p className="text-[13px] text-[#f5f0eb]/50 leading-relaxed">{item.desc}</p>
+                  </div>
+                  <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/30 group-hover:text-[#f5f0eb]/70 transition-colors" style={{ fontFamily: NAV_FONT }}>
+                    Explore <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
