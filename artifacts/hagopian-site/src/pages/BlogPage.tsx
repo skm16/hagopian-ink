@@ -227,7 +227,7 @@ export function BlogPage() {
                 value={query}
                 onChange={event => setQuery(event.target.value)}
                 placeholder="Search ..."
-                className="w-full bg-[#f8f6f3] border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/35 transition-colors"
+                className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/35 transition-colors"
               />
             </FadeIn>
 
