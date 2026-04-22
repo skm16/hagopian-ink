@@ -30,7 +30,7 @@ export function BlogPostPage() {
               <div className="text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/45 mb-10" style={{ fontFamily: NAV_FONT }}>
                 Studio News&nbsp;&nbsp;|&nbsp;&nbsp;September 21, 2022&nbsp;&nbsp;|&nbsp;&nbsp;Author: Christina Hagopian
               </div>
-              <h1 className="text-5xl md:text-7xl leading-[0.98] max-w-4xl mx-auto" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              <h1 className="text-5xl md:text-7xl leading-[0.98] max-w-4xl mx-auto text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 Evolving and Embracing Change: Celebrating 20 years at Hagopian Ink
               </h1>
             </FadeIn>

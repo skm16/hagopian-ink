@@ -97,7 +97,7 @@ export function AboutPage() {
             About Hagopian Ink
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
-            className="leading-[0.9] mb-0" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
+            className="leading-[0.9] mb-0 text-white" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
             We help you make<br />
             <span style={{ fontStyle: 'italic', opacity: 0.55 }}>your mark.</span>
           </motion.h1>

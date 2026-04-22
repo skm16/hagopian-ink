@@ -32,7 +32,7 @@ export function ContactPage() {
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
-            className="leading-[0.9]"
+            className="leading-[0.9] text-white"
             style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.75rem, 9.25vw, 8.5rem)' }}>
             Let's talk.
           </motion.h1>
