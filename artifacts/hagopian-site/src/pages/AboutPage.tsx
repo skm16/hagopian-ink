@@ -195,30 +195,30 @@ export function AboutPage() {
       </section>
 
       {/* ── AWARDS ────────────────────────────────── */}
-      <section className="bg-[#343a3a] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>Recognition</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Awards &amp; honors.</h2>
+            <SectionLabel>Recognition</SectionLabel>
+            <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Awards &amp; honors.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(245,240,235,0.07)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(45,50,50,0.1)' }}>
             {AWARDS.map((a, i) => (
               <FadeIn key={i} delay={i * 0.05}
                 className="flex gap-4 items-start p-6 group"
-                style={{ background: '#343a3a' }}>
-                <Trophy className="w-3.5 h-3.5 shrink-0 mt-1" style={{ color: '#f5f0eb', opacity: 0.3 }} />
+                style={{ background: '#f1efef' }}>
+                <Trophy className="w-3.5 h-3.5 shrink-0 mt-1" style={{ color: '#2d3232', opacity: 0.25 }} />
                 <div className="flex-1 min-w-0">
                   {a.href ? (
                     <a href={a.href} target="_blank" rel="noopener noreferrer"
                       className="flex items-start gap-1.5 group/link">
-                      <span className="text-[15px] leading-snug group-hover/link:opacity-100 transition-opacity"
-                        style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.name}</span>
-                      <ExternalLink className="w-3 h-3 shrink-0 mt-1 opacity-0 group-hover/link:opacity-50 transition-opacity" />
+                      <span className="text-[15px] leading-snug text-[#2d3232] group-hover/link:opacity-70 transition-opacity"
+                        style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</span>
+                      <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover/link:opacity-40 transition-opacity" />
                     </a>
                   ) : (
-                    <p className="text-[15px] leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.name}</p>
+                    <p className="text-[15px] leading-snug text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</p>
                   )}
-                  <p className="text-[11px] uppercase tracking-[0.1em] mt-1" style={{ color: muted, fontFamily: NAV_FONT }}>{a.org}</p>
+                  <p className="text-[11px] uppercase tracking-[0.1em] mt-1 text-[#2d3232]/50" style={{ fontFamily: NAV_FONT }}>{a.org}</p>
                 </div>
               </FadeIn>
             ))}
@@ -227,23 +227,23 @@ export function AboutPage() {
       </section>
 
       {/* ── PUBLICATIONS ──────────────────────────── */}
-      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      <section className="bg-[#f5f0eb] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>In Print</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
+            <SectionLabel>In Print</SectionLabel>
+            <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {BOOKS.map((b, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="border-t pt-8" style={{ borderColor: border }}>
-                <BookOpen className="w-5 h-5 mb-5" style={{ color: '#f5f0eb', opacity: 0.3 }} />
-                <h3 className="text-lg leading-snug mb-1" style={{ fontFamily: SERIF, fontWeight: 700 }}>{b.title}</h3>
-                {b.subtitle && <p className="text-[13px] mb-2" style={{ color: muted }}>{b.subtitle}</p>}
-                {b.authors  && <p className="text-[12px] mb-1" style={{ color: dimmed, fontFamily: NAV_FONT }}>{b.authors}</p>}
-                <p className="text-[11px] uppercase tracking-[0.1em] mb-5" style={{ color: dimmed, fontFamily: NAV_FONT }}>{b.publisher}</p>
+              <FadeIn key={i} delay={i * 0.1} className="border-t pt-8 border-[#2d3232]/12">
+                <BookOpen className="w-5 h-5 mb-5 text-[#2d3232]/30" />
+                <h3 className="text-lg leading-snug mb-1 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{b.title}</h3>
+                {b.subtitle && <p className="text-[13px] mb-2 text-[#2d3232]/55">{b.subtitle}</p>}
+                {b.authors  && <p className="text-[12px] mb-1 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{b.authors}</p>}
+                <p className="text-[11px] uppercase tracking-[0.1em] mb-5 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{b.publisher}</p>
                 <a href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] border-b pb-0.5 transition-all hover:gap-2.5"
-                  style={{ color: muted, borderColor: border, fontFamily: NAV_FONT }}>
+                  className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] border-b pb-0.5 transition-all hover:gap-2.5 text-[#2d3232]/50 border-[#2d3232]/20"
+                  style={{ fontFamily: NAV_FONT }}>
                   View on Amazon <ExternalLink className="w-3 h-3" />
                 </a>
               </FadeIn>
@@ -253,21 +253,21 @@ export function AboutPage() {
       </section>
 
       {/* ── ARTICLES & FEATURES ───────────────────── */}
-      <section className="bg-[#343a3a] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>Covered By</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Articles &amp; features.</h2>
+            <SectionLabel>Covered By</SectionLabel>
+            <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Articles &amp; features.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(245,240,235,0.07)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(45,50,50,0.1)' }}>
             {ARTICLES.map((a, i) => (
               <FadeIn key={i} delay={i * 0.07}
-                className="p-6 group" style={{ background: '#343a3a' }}>
-                <p className="text-[10px] uppercase tracking-[0.18em] mb-2" style={{ color: dimmed, fontFamily: NAV_FONT }}>{a.pub}</p>
+                className="p-6 group" style={{ background: '#f1efef' }}>
+                <p className="text-[10px] uppercase tracking-[0.18em] mb-2 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{a.pub}</p>
                 <a href={a.href} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-start gap-2 group/link">
-                  <span className="text-[16px] leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.title}</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-1 opacity-0 group-hover/link:opacity-50 transition-opacity" />
+                  <span className="text-[16px] leading-snug text-[#2d3232] group-hover/link:opacity-60 transition-opacity" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.title}</span>
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover/link:opacity-40 transition-opacity" />
                 </a>
               </FadeIn>
             ))}
@@ -275,15 +275,15 @@ export function AboutPage() {
 
           {/* Medium pieces */}
           <FadeIn className="mb-8">
-            <p className="text-[10px] uppercase tracking-[0.2em] mb-6" style={{ color: dimmed, fontFamily: NAV_FONT }}>Medium.com — Written by Christina Hagopian</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-6 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>Medium.com — Written by Christina Hagopian</p>
             <div className="flex flex-col gap-4">
               {MEDIUM.map((m, i) => (
                 <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 group border-b pb-4" style={{ borderColor: border }}>
-                  <Newspaper className="w-3.5 h-3.5 shrink-0" style={{ color: '#f5f0eb', opacity: 0.3 }} />
-                  <span className="text-[15px] leading-snug group-hover:opacity-100 transition-opacity"
-                    style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.8 }}>{m.title}</span>
-                  <ExternalLink className="w-3 h-3 shrink-0 opacity-0 group-hover:opacity-40 transition-opacity ml-auto" />
+                  className="inline-flex items-center gap-2 group border-b pb-4 border-[#2d3232]/12">
+                  <Newspaper className="w-3.5 h-3.5 shrink-0 text-[#2d3232]/25" />
+                  <span className="text-[15px] leading-snug text-[#2d3232] group-hover:opacity-60 transition-opacity"
+                    style={{ fontFamily: SERIF, fontWeight: 700 }}>{m.title}</span>
+                  <ExternalLink className="w-3 h-3 shrink-0 text-[#2d3232] opacity-0 group-hover:opacity-40 transition-opacity ml-auto" />
                 </a>
               ))}
             </div>
@@ -291,17 +291,17 @@ export function AboutPage() {
 
           {/* Promotions — For Print Only */}
           <FadeIn>
-            <p className="text-[10px] uppercase tracking-[0.2em] mb-6" style={{ color: dimmed, fontFamily: NAV_FONT }}>Hagopian Ink Promotions — Featured Work</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-6 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>Hagopian Ink Promotions — Featured Work</p>
             <div className="flex flex-col gap-4">
               {PROMOTIONS.map((p, i) => (
                 <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
-                  className="flex items-start gap-3 group border-b pb-4" style={{ borderColor: border }}>
+                  className="flex items-start gap-3 group border-b pb-4 border-[#2d3232]/12">
                   <div className="flex-1">
-                    <span className="block text-[15px] leading-snug group-hover:opacity-100 transition-opacity"
-                      style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.8 }}>{p.title}</span>
-                    <span className="text-[10px] uppercase tracking-[0.12em] mt-1 block" style={{ color: dimmed, fontFamily: NAV_FONT }}>{p.pub}</span>
+                    <span className="block text-[15px] leading-snug text-[#2d3232] group-hover:opacity-60 transition-opacity"
+                      style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.title}</span>
+                    <span className="text-[10px] uppercase tracking-[0.12em] mt-1 block text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{p.pub}</span>
                   </div>
-                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 opacity-0 group-hover:opacity-40 transition-opacity" />
+                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover:opacity-40 transition-opacity" />
                 </a>
               ))}
             </div>
