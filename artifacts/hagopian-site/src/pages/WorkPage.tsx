@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
@@ -8,96 +8,241 @@ import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
-const BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
+const BASE = import.meta.env.BASE_URL;
 
-const CATEGORIES = [
+/* ── Types ─────────────────────────────────────────────── */
+type Case = {
+  client: string;
+  category: string;
+  stat: string;
+  statLabel: string;
+  result: string;
+  img: string;
+  href: string;
+};
+
+type Industry = {
+  num: string;
+  label: string;
+  headline: string;
+  intro: string;
+  stats: { n: string; label: string }[];
+  href: string;
+  bg: string;
+  dark: boolean;
+  cases: Case[];
+};
+
+/* ── Data ───────────────────────────────────────────────── */
+const INDUSTRIES: Industry[] = [
   {
     num: '01',
-    label: 'Brand Identity',
-    headline: 'We build brands\nthat last.',
-    body: 'From startups launching their first identity to established companies ready to evolve, we develop comprehensive brand systems that define who you are, what you stand for, and how you show up in the world. Our process begins with strategy — naming, positioning, competitive landscape — and culminates in a complete visual identity system your team can confidently use across every touchpoint.',
-    clients: ['Joseph Robert', 'Viant Medical', 'Frette', 'P.Volve', 'Cannadips', 'BLMC'],
+    label: 'Luxury + Lifestyle',
+    headline: 'Where we started.\nThe DNA of everything we do.',
+    intro: 'For over 20 years we have built brands, campaigns, and digital experiences for the world\'s most discerning consumers — from global fashion houses to independent luxury labels.',
     stats: [
-      { n: '100+', label: 'brands developed' },
-      { n: '20+',  label: 'years of expertise' },
+      { n: '30%',   label: 'Valentine\'s Day sales lift — La Perla' },
+      { n: '3x',    label: 'Online sales increase — MSG Suites' },
+      { n: '2.93M', label: 'Facebook followers — Lancôme' },
     ],
-    img: `${BASE}deck-images/brand-06.png`,
-    href: '/expertise/brand-identity',
+    href: '/expertise/luxury-lifestyle',
     bg: '#f1efef',
     dark: false,
+    cases: [
+      {
+        client: 'Lancôme',
+        category: 'Digital Campaign',
+        stat: '2.93M',
+        statLabel: 'Facebook followers',
+        result: 'House of Color virtual makeup experience sold out the launch palette in its first month on market.',
+        img: `${BASE}deck-images/brand-01.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'La Perla',
+        category: 'Omnichannel Marketing',
+        stat: '30%',
+        statLabel: 'Valentine\'s Day sales increase',
+        result: 'Timed email, direct mail, and digital ads moved product and drove in-store traffic for the peak purchasing season.',
+        img: `${BASE}deck-images/email-01.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Frette',
+        category: 'Email + UX Campaign',
+        stat: '$54K',
+        statLabel: 'New sales — "Escape to Italy"',
+        result: 'Multi-channel contest drove 3,000+ new email opt-ins, $54K in sales, 58% increase in unique visitors, and 2× ROI.',
+        img: `${BASE}deck-images/email-02.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Todd + Duncan',
+        category: 'Luxury Brand Identity',
+        stat: 'Award-winning',
+        statLabel: 'Brand launch for US market',
+        result: 'Complete visual identity — logo, stationery, signage, and packaging — for a 140-year-old Scottish cashmere label entering the US market.',
+        img: `${BASE}deck-images/brand-02.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+    ],
   },
   {
     num: '02',
-    label: 'Website Design',
-    headline: 'Digital experiences\nbuilt to convert.',
-    body: 'Beautiful websites that perform. We design e-commerce platforms and marketing sites that prioritize the customer journey — reducing friction, increasing confidence, and driving conversion at every step. From information architecture through final UI, every interaction is considered with purpose.',
-    clients: ['Loum Beauty', 'Gwynnie Bee', 'La Perla', "Bloomingdale's", 'Shopbop', 'Frette'],
-    stats: [
-      { n: '300%', label: 'increase in signup conversion' },
-      { n: '58%',  label: 'increase in unique visitors' },
-    ],
-    img: `${CDN}/2022/08/HI_home2_loum.jpg`,
-    href: '/expertise/ux-ui-design',
-    bg: '#2d3232',
-    dark: true,
-  },
-  {
-    num: '03',
-    label: 'Email Marketing',
-    headline: 'Email that performs.\nEvery send.',
-    body: 'We design, write, build, and deploy email programs that drive measurable results for Fortune 50 brands and fast-growing DTC companies alike. From template design and automation flows to list growth strategy and full program management — we treat email as the high-ROI channel it is.',
-    clients: ['Pepsi', 'Audible', 'P.Volve', 'La Perla', 'Estée Lauder', 'Cannadips'],
-    stats: [
-      { n: '1,030%', label: 'email list growth, 6 months' },
-      { n: '40%+',   label: 'average open rate achieved' },
-      { n: '$56K',   label: 'new sales from automations' },
-    ],
-    img: `${BASE}deck-images/email-06.png`,
-    href: '/expertise/email-marketing',
-    bg: '#f1efef',
-    dark: false,
-  },
-  {
-    num: '04',
     label: 'Health + MedTech',
-    headline: 'Brands that earn\ntrust in health.',
-    body: 'In regulated, high-stakes industries, credibility is everything. We help health and medtech companies distill complex offerings into compelling stories — creating brand identities, digital experiences, and campaigns that build trust with patients, providers, and investors. From medical device manufacturers to wellness startups, we bring clarity to complexity.',
-    clients: ['Viant Medical', 'Aptyx', 'Cannadips', 'P.Volve'],
+    headline: 'Medical innovation deserves\na brand that commands trust.',
+    intro: 'We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms, and wellness companies.',
     stats: [
       { n: '6 yrs',  label: 'Viant Medical brand partnership' },
-      { n: '24',     label: 'global locations reached' },
+      { n: '24',     label: 'Global locations reached' },
+      { n: '1,030%', label: 'Email list growth in 6 months — P.Volve' },
     ],
-    img: `${BASE}deck-images/medtech-05.png`,
     href: '/expertise/health-medtech',
     bg: '#2d3232',
     dark: true,
+    cases: [
+      {
+        client: 'Viant Medical',
+        category: 'Brand + Campaign',
+        stat: '6 years',
+        statLabel: '24 global locations',
+        result: '"In It for Life" campaign built lasting credibility across print, email, and digital display for a global medical device leader.',
+        img: `${BASE}deck-images/medtech-01.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'P.Volve',
+        category: 'Digital Health + Email',
+        stat: '1,030%',
+        statLabel: 'Email list growth in 6 months',
+        result: 'Full email program launch — welcome series, campaigns, and UX — achieved a 49.5% open rate high for a groundbreaking fitness platform.',
+        img: `${BASE}deck-images/medtech-02.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Cannadips',
+        category: 'Email Marketing',
+        stat: '$56K',
+        statLabel: 'New sales in first 4 months',
+        result: 'Welcome series and abandoned cart automations generated $56K in new sales with breakeven after 3 months.',
+        img: `${BASE}deck-images/medtech-03.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Recovery Plus',
+        category: 'Digital Health UX',
+        stat: 'B2C + B2B',
+        statLabel: 'Home-based cardiac rehab',
+        result: 'Digital platform designed to connect cardiac patients with remote rehabilitation — anywhere, anytime.',
+        img: `${BASE}deck-images/medtech-04.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+    ],
   },
   {
-    num: '05',
+    num: '03',
     label: 'Nonprofit + Fundraising',
     headline: 'Design that drives\ngiving.',
-    body: 'Nonprofits need brands and campaigns that inspire trust, tell compelling stories, and turn mission into action. We have helped organizations like Montefiore, the Epilepsy Foundation, and Black Lives Matter Canada build stronger donor relationships through sophisticated email programs, event materials, print campaigns, and digital fundraising.',
-    clients: ['Montefiore', 'Epilepsy Foundation', 'BLMC', 'Malala Fund', 'March of Dimes'],
+    intro: 'From multi-year gala programs to urgent activist campaigns, we help nonprofits build brands and fundraising programs that connect missions to donors — and donors to results.',
     stats: [
-      { n: '329%',   label: 'more dollars raised' },
-      { n: '$22.2M', label: 'raised, Montefiore Gala' },
-      { n: '180%',   label: 'increase in online donations' },
+      { n: '329%',   label: 'More dollars raised — Montefiore' },
+      { n: '$22.2M', label: 'Raised at annual gala' },
+      { n: '180%',   label: 'Increase in online donations — Epilepsy Foundation' },
     ],
-    img: `${BASE}deck-images/nonprofit-05.png`,
     href: '/expertise/nonprofit-fundraising',
     bg: '#f1efef',
     dark: false,
+    cases: [
+      {
+        client: 'Montefiore Health System',
+        category: 'Fundraising + Gala Design',
+        stat: '329%',
+        statLabel: 'More dollars raised',
+        result: 'Multi-year program spanning donor email, gala invitations, and event branding raised $22.2M and added 100+ new attendees.',
+        img: `${BASE}deck-images/nonprofit-01.png`,
+        href: 'https://hagopianink.com/works/montefiore-healthcare-design/',
+      },
+      {
+        client: 'Epilepsy Foundation',
+        category: 'Email + Brand',
+        stat: '180%',
+        statLabel: 'Increase in online donations',
+        result: '2019 Holiday Appeal campaign and brand rollout supporting the Foundation\'s 5-year strategic plan.',
+        img: `${BASE}deck-images/nonprofit-02.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Black Lives Matter Canada',
+        category: 'Activist Campaign',
+        stat: 'Multi-channel',
+        statLabel: 'Email + digital fundraising',
+        result: 'Email messages that connected a global movement to individual action and measurable charitable giving.',
+        img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
+        href: 'https://hagopianink.com/works/black-lives-matter-canada/',
+      },
+      {
+        client: 'Malala Fund',
+        category: 'Nonprofit Brand',
+        stat: 'Global',
+        statLabel: 'Brand + campaign design',
+        result: 'Creative support for the global education equity organization\'s communications and fundraising materials.',
+        img: `${BASE}deck-images/nonprofit-03.png`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+    ],
   },
 ];
 
+/* ── Case study card ────────────────────────────────────── */
+function CaseCard({ c, dark }: { c: Case; dark: boolean }) {
+  const textColor    = dark ? '#f5f0eb' : '#2d3232';
+  const mutedColor   = dark ? 'rgba(245,240,235,0.5)'  : 'rgba(45,50,50,0.5)';
+  const borderColor  = dark ? 'rgba(245,240,235,0.1)'  : 'rgba(45,50,50,0.1)';
+  const cardBg       = dark ? '#343a3a' : '#ffffff';
+  const cardBorder   = dark ? '#424848' : '#e8e4e0';
+
+  return (
+    <FadeIn className="group flex flex-col" style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
+      {/* Image */}
+      <div className="overflow-hidden aspect-[4/3]">
+        <img src={c.img} alt={c.client}
+          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+      </div>
+      {/* Content */}
+      <div className="p-7 flex flex-col flex-1">
+        <p className="text-[9px] uppercase tracking-[0.2em] mb-3" style={{ color: mutedColor, fontFamily: NAV_FONT }}>
+          {c.category}
+        </p>
+        <h3 className="text-xl mb-2 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
+          {c.client}
+        </h3>
+        {/* Stat pill */}
+        <div className="flex items-baseline gap-2 mb-4 pb-4" style={{ borderBottom: `1px solid ${borderColor}` }}>
+          <span className="text-3xl font-light" style={{ fontFamily: SERIF, color: textColor }}>{c.stat}</span>
+          <span className="text-[11px] uppercase tracking-[0.1em] leading-snug" style={{ color: mutedColor, fontFamily: NAV_FONT }}>{c.statLabel}</span>
+        </div>
+        <p className="text-[13px] leading-relaxed flex-1 mb-6" style={{ color: mutedColor }}>
+          {c.result}
+        </p>
+        <a href={c.href} target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
+          style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
+          View Work <ExternalLink className="w-3 h-3" />
+        </a>
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ── Page ───────────────────────────────────────────────── */
 export function WorkPage() {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
       <Nav />
 
-      {/* ── VIDEO HERO ────────────────────────────── */}
-      <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
+      {/* ── VIDEO HERO ─────────────────────── */}
+      <section className="relative h-[55vh] min-h-[400px] flex flex-col justify-end overflow-hidden">
         <div className="absolute inset-0 bg-[#2d3232]/12 z-10" />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
@@ -112,97 +257,78 @@ export function WorkPage() {
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
             className="text-xl text-[#f5f0eb]/70 max-w-md leading-relaxed pb-2">
-            Creative solutions for brands that want to grow, connect, and last.
+            Three specialty areas. 20+ years. Brands built to last.
           </motion.p>
         </div>
       </section>
 
-      {/* ── CATEGORY CHAPTERS ─────────────────────── */}
-      {CATEGORIES.map((cat, i) => {
-        const flip = i % 2 !== 0;
-        const textColor = cat.dark ? '#f5f0eb' : '#2d3232';
-        const mutedColor = cat.dark ? 'rgba(245,240,235,0.55)' : 'rgba(10,10,10,0.55)';
-        const borderColor = cat.dark ? 'rgba(245,240,235,0.1)' : 'rgba(10,10,10,0.1)';
-        const accentColor = cat.dark ? 'rgba(245,240,235,0.3)' : 'rgba(10,10,10,0.3)';
+      {/* ── INDUSTRY SECTIONS ──────────────── */}
+      {INDUSTRIES.map((ind, i) => {
+        const textColor   = ind.dark ? '#f5f0eb' : '#2d3232';
+        const mutedColor  = ind.dark ? 'rgba(245,240,235,0.55)' : 'rgba(45,50,50,0.55)';
+        const borderColor = ind.dark ? 'rgba(245,240,235,0.1)'  : 'rgba(45,50,50,0.1)';
+        const divColor    = ind.dark ? '#3a4040' : '#e0ddd9';
 
         return (
-          <section key={cat.num} style={{ background: cat.bg }} className="py-24 md:py-36 px-6 md:px-12"
-            id={`cat-${cat.num}`}>
-            <div className="max-w-[1400px] mx-auto">
-              {/* Chapter number + label */}
-              <FadeIn className="flex items-center gap-4 mb-16">
+          <section key={ind.num} style={{ background: ind.bg }}>
+
+            {/* ── Section header ── */}
+            <div className="px-8 md:px-16 pt-24 md:pt-36 pb-16 max-w-[1400px] mx-auto">
+              <FadeIn className="flex items-center gap-4 mb-12">
                 <span className="text-[11px] uppercase tracking-[0.22em]"
-                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>{cat.num}</span>
-                <span className="w-12 h-px" style={{ background: borderColor }} />
+                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>{ind.num}</span>
+                <span className="w-10 h-px" style={{ background: borderColor }} />
                 <span className="text-[11px] uppercase tracking-[0.18em]"
-                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>{cat.label}</span>
+                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>Specialty</span>
               </FadeIn>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-                {/* Text block */}
-                <div className={`${flip ? 'order-1 lg:order-2 lg:pl-16' : 'lg:pr-16'} flex flex-col justify-center pb-16 lg:pb-0`}>
-                  <FadeIn>
-                    <h2 className="text-5xl md:text-6xl mb-8 leading-[1.0] whitespace-pre-line"
-                      style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
-                      {cat.headline}
-                    </h2>
-                    <p className="text-lg leading-relaxed mb-10" style={{ color: mutedColor }}>
-                      {cat.body}
-                    </p>
-
-                    {/* Stats */}
-                    <div className={`grid grid-cols-${cat.stats.length} gap-6 mb-10 pt-8`}
-                      style={{ borderTop: `1px solid ${borderColor}` }}>
-                      {cat.stats.map((s, si) => (
-                        <div key={si}>
-                          <div className="text-3xl md:text-4xl mb-1" style={{ fontFamily: SERIF, color: textColor }}>{s.n}</div>
-                          <div className="text-[11px] uppercase tracking-[0.1em] leading-snug"
-                            style={{ color: mutedColor, fontFamily: NAV_FONT }}>{s.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Clients */}
-                    <div className="mb-10">
-                      <p className="text-[10px] uppercase tracking-[0.18em] mb-3"
-                        style={{ color: mutedColor, fontFamily: NAV_FONT }}>Featured Clients</p>
-                      <div className="flex flex-wrap gap-x-5 gap-y-1">
-                        {cat.clients.map((c, ci) => (
-                          <span key={ci} className="text-[13px]" style={{ color: mutedColor }}>{c}</span>
-                        ))}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+                <FadeIn>
+                  <h2 className="text-5xl md:text-6xl leading-[1.02] whitespace-pre-line"
+                    style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
+                    {ind.headline}
+                  </h2>
+                </FadeIn>
+                <FadeIn delay={0.15}>
+                  <p className="text-lg leading-relaxed mb-8" style={{ color: mutedColor }}>
+                    {ind.intro}
+                  </p>
+                  {/* Stats row */}
+                  <div className="grid grid-cols-3 gap-6 pt-8 mb-8" style={{ borderTop: `1px solid ${borderColor}` }}>
+                    {ind.stats.map((s, si) => (
+                      <div key={si}>
+                        <div className="text-2xl md:text-3xl mb-1 font-light" style={{ fontFamily: SERIF, color: textColor }}>{s.n}</div>
+                        <div className="text-[10px] uppercase tracking-[0.1em] leading-snug" style={{ color: mutedColor, fontFamily: NAV_FONT }}>{s.label}</div>
                       </div>
-                    </div>
+                    ))}
+                  </div>
+                  <Link href={ind.href}
+                    className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] border-b pb-1 transition-all duration-300 hover:gap-3 cursor-pointer"
+                    style={{ color: textColor, borderColor: `rgba(${ind.dark ? '245,240,235' : '45,50,50'},0.3)`, fontFamily: NAV_FONT }}>
+                    Explore this specialty <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </FadeIn>
+              </div>
+            </div>
 
-                    <Link href={cat.href}
-                      className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.16em] border-b pb-1.5 transition-all duration-300 hover:gap-4 cursor-pointer"
-                      style={{ color: textColor, borderColor: accentColor, fontFamily: NAV_FONT }}>
-                      Explore This Specialty <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </FadeIn>
-                </div>
-
-                {/* Image */}
-                <div className={`${flip ? 'order-2 lg:order-1' : ''}`}>
-                  <FadeIn delay={0.2} dir={flip ? 'right' : 'left'}
-                    className="overflow-hidden h-[500px] md:h-[640px]">
-                    <img src={cat.img} alt={cat.label}
-                      className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000"
-                      style={{ opacity: cat.dark ? 0.9 : 1 }} />
-                  </FadeIn>
-                </div>
+            {/* ── Case study cards ── */}
+            <div className="px-8 md:px-16 pb-24 md:pb-36">
+              <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {ind.cases.map((c, ci) => (
+                  <CaseCard key={ci} c={c} dark={ind.dark} />
+                ))}
               </div>
             </div>
 
             {/* Divider */}
-            {i < CATEGORIES.length - 1 && (
-              <div className="max-w-[1400px] mx-auto mt-24"
-                style={{ borderBottom: `1px solid ${borderColor}` }} />
+            {i < INDUSTRIES.length - 1 && (
+              <div style={{ borderBottom: `1px solid ${divColor}` }} />
             )}
           </section>
         );
       })}
 
-      {/* ── CTA ──────────────────────────────────── */}
+      {/* ── CTA ──────────────────────────── */}
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
@@ -212,7 +338,7 @@ export function WorkPage() {
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
             Tell us about your brand, your goals, and what you need. We will take it from there.
           </p>
-          <BtnLight href="/contact">
+          <BtnLight href="/contact" external={false}>
             Get In Touch <ArrowRight className="w-4 h-4" />
           </BtnLight>
         </FadeIn>
