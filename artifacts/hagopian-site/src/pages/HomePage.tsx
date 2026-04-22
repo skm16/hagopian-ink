@@ -324,11 +324,11 @@ export function Homepage() {
                     </label>
                     {field.type === 'textarea' ? (
                       <textarea rows={4}
-                        className="w-full bg-[#f8f6f3] border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 resize-none transition-colors"
+                        className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 resize-none transition-colors"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     ) : (
                       <input type={field.type}
-                        className="w-full bg-[#f8f6f3] border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 transition-colors"
+                        className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 transition-colors"
                         placeholder={field.placeholder} style={{ fontFamily: SANS }} />
                     )}
                   </div>
