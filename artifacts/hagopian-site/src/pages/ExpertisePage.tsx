@@ -213,7 +213,7 @@ export function ExpertisePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
-              Specialty Practice
+              Specialty: Luxury + Lifestyle
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Where we started.<br />The DNA of everything<br /><span style={{ fontStyle: 'italic', opacity: 0.6 }}>we do.</span>
@@ -251,7 +251,7 @@ export function ExpertisePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
-              Specialty Practice
+              Specialty: Health + MedTech
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for the future of health.
@@ -310,7 +310,7 @@ export function ExpertisePage() {
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
             <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
-              Specialty Practice
+              Specialty: Nonprofit Fundraising
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for a new era of impact.
