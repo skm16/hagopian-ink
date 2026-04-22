@@ -262,9 +262,9 @@ export function AboutPage() {
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Articles &amp; features.</h2>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(45,50,50,0.08)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 mb-16">
             {ARTICLES.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="p-6 group" style={{ background: 'white' }}>
+              <FadeIn key={i} delay={i * 0.07} className="py-5 border-t border-[#2d3232]/12 pr-8">
                 <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                   <div>
                     <p className="text-[12px] text-[#2d3232]/40 mb-1.5">{a.pub}</p>
@@ -276,14 +276,14 @@ export function AboutPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Medium pieces */}
-            <FadeIn className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)]">
-              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/10 pb-3">Medium — Written by Christina Hagopian</p>
-              <div className="flex flex-col gap-5">
+            <FadeIn>
+              <p className="text-[12px] text-[#2d3232]/40 mb-0 border-t border-[#2d3232]/12 pt-5">Medium — Written by Christina Hagopian</p>
+              <div className="flex flex-col">
                 {MEDIUM.map((m, i) => (
                   <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-3 group">
+                    className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
                     <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{m.title}</p>
                     <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -292,12 +292,12 @@ export function AboutPage() {
             </FadeIn>
 
             {/* Promotions */}
-            <FadeIn delay={0.1} className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)]">
-              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/10 pb-3">Hagopian Ink Promotions — Featured Work</p>
-              <div className="flex flex-col gap-5">
+            <FadeIn delay={0.1}>
+              <p className="text-[12px] text-[#2d3232]/40 mb-0 border-t border-[#2d3232]/12 pt-5">Hagopian Ink Promotions — Featured Work</p>
+              <div className="flex flex-col">
                 {PROMOTIONS.map((p, i) => (
                   <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
-                    className="flex items-start justify-between gap-3 group">
+                    className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
                     <div>
                       <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{p.title}</p>
                       <p className="text-[12px] text-[#2d3232]/40 mt-1">{p.pub}</p>
