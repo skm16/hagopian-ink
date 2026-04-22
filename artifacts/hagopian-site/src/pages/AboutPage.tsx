@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, BookOpen } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -10,28 +10,65 @@ const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const VALUES = [
   {
+    icon: Target,
     title: 'Strategy First',
     desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.',
   },
   {
+    icon: Gem,
     title: 'Craft Without Compromise',
     desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.',
   },
   {
+    icon: Heart,
     title: 'Relationships Over Transactions',
     desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.',
   },
   {
+    icon: TrendingUp,
     title: 'Results Are the Measure',
     desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.',
   },
   {
+    icon: Star,
     title: 'Woman-Owned, Creatively Driven',
     desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
   },
   {
+    icon: Users,
     title: 'Curated Teams, by Design',
-    desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project, producing extraordinary results together.',
+    desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.',
+  },
+];
+
+const AWARDS = [
+  { name: 'FSEA Gold Leaf Award',                     org: 'Foil & Specialty Effects Association' },
+  { name: 'Healthcare Marketing IMPACT Award',         org: 'Winner — Direct Marketing' },
+  { name: 'GDUSA American Packaging Design Award',     org: 'Graphic Design USA' },
+  { name: 'GDUSA American Web Design Award',           org: 'Graphic Design USA — Honorable Mention' },
+  { name: 'Stevie Award for Women Entrepreneurs',      org: 'Finalist' },
+  { name: 'Best of New England Award',                 org: 'BoNE — Creative Excellence' },
+  { name: 'HOW International Annual Award',            org: 'Business Communications' },
+];
+
+const PRESS = [
+  {
+    icon: BookOpen,
+    title: 'LogoLounge Master Library, Vol. 3',
+    sub: 'Rockport Publishers',
+    desc: '3,000 Shapes and Symbol Logos — Katherine Fishel & Bill Gardner',
+  },
+  {
+    icon: BookOpen,
+    title: '1,000 Greetings',
+    sub: 'Rockport Publishers',
+    desc: 'Creative Correspondence Designed for All Occasions',
+  },
+  {
+    icon: Star,
+    title: 'Forbes',
+    sub: 'Editorial Feature',
+    desc: "Press and editorial coverage of Hagopian Ink\u2019s work and leadership",
   },
 ];
 
@@ -95,7 +132,6 @@ export function AboutPage() {
             <SectionLabel light>Leadership</SectionLabel>
           </FadeIn>
           <FadeIn className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
-            {/* Headshot */}
             <div className="shrink-0">
               <img
                 src={PHOTO_CHRISTINA}
@@ -103,8 +139,6 @@ export function AboutPage() {
                 className="w-48 md:w-56 aspect-square object-cover object-top"
               />
             </div>
-
-            {/* Bio */}
             <div className="flex-1 max-w-2xl">
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 Christina Hagopian
@@ -153,12 +187,69 @@ export function AboutPage() {
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
-            {VALUES.map((v, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#474d4d] pt-8">
-                <h3 className="text-xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{v.title}</h3>
-                <p className="text-[14px] text-[#f5f0eb]/70 leading-relaxed">{v.desc}</p>
+            {VALUES.map((v, i) => {
+              const Icon = v.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.07} className="border-t border-[#474d4d] pt-8">
+                  <div className="mb-4 w-9 h-9 rounded-sm flex items-center justify-center"
+                    style={{ background: 'rgba(245,240,235,0.07)' }}>
+                    <Icon className="w-4 h-4" style={{ color: '#f5f0eb', opacity: 0.7 }} />
+                  </div>
+                  <h3 className="text-xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{v.title}</h3>
+                  <p className="text-[14px] text-[#f5f0eb]/70 leading-relaxed">{v.desc}</p>
+                </FadeIn>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── AWARDS ────────────────────────────────── */}
+      <section className="bg-[#343a3a] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel light>Recognition</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Awards &amp; honors.
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {AWARDS.map((a, i) => (
+              <FadeIn key={i} delay={i * 0.07}
+                className="flex gap-4 items-start p-6 border border-[#424848]"
+                style={{ background: '#2d3232' }}>
+                <Trophy className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#f5f0eb', opacity: 0.4 }} />
+                <div>
+                  <p className="text-[15px] leading-snug mb-1" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</p>
+                  <p className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>{a.org}</p>
+                </div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PUBLICATIONS + PRESS ──────────────────── */}
+      <section className="bg-[#343a3a] py-16 pb-24 md:pb-36 px-8 md:px-16 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel light>In Print + Press</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Publications &amp; features.
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PRESS.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <FadeIn key={i} delay={i * 0.1} className="border-t border-[#474d4d] pt-8">
+                  <Icon className="w-5 h-5 mb-5" style={{ color: '#f5f0eb', opacity: 0.35 }} />
+                  <h3 className="text-xl mb-1 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.title}</h3>
+                  <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40 mb-3" style={{ fontFamily: NAV_FONT }}>{p.sub}</p>
+                  <p className="text-[13px] text-[#f5f0eb]/55 leading-relaxed">{p.desc}</p>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -167,7 +258,7 @@ export function AboutPage() {
       <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
-            Brands We Have Served
+            Brands Who Trust Us
           </p>
         </FadeIn>
         <div className="relative">
