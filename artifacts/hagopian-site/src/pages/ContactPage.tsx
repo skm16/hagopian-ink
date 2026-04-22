@@ -46,7 +46,7 @@ export function ContactPage() {
           {/* Left — info */}
           <FadeIn>
             <SectionLabel>Start a Conversation</SectionLabel>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.02] text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.02] text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Good design is good business.
             </h2>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/35 mb-5" style={{ fontFamily: NAV_FONT }}>

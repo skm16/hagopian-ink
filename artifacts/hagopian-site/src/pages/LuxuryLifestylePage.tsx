@@ -114,7 +114,7 @@ export function LuxuryLifestylePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>Our Approach</SectionLabel>
-            <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Luxury brands demand<br />
               a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>luxury standard.</span>
             </h2>
@@ -205,7 +205,7 @@ export function LuxuryLifestylePage() {
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
-          <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+          <h2 className="text-3xl md:text-4xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to build a luxury brand<br />
             <span style={{ fontStyle: 'italic', opacity: 0.6 }}>that endures?</span>
           </h2>

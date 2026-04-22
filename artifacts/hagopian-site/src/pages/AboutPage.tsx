@@ -126,7 +126,7 @@ export function AboutPage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <FadeIn>
             <SectionLabel light>Our Story</SectionLabel>
-            <h2 className="text-4xl md:text-6xl leading-[1.02] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl leading-[1.02] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Twenty-plus years of doing this right.
             </h2>
           </FadeIn>
@@ -175,7 +175,7 @@ export function AboutPage() {
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel light>How We Work</SectionLabel>
-            <h2 className="text-4xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Our principles.</h2>
+            <h2 className="text-3xl md:text-5xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Our principles.</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
             {VALUES.map((v, i) => {
@@ -336,7 +336,7 @@ export function AboutPage() {
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Work With Us</p>
-          <h2 className="text-4xl md:text-6xl mb-8 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+          <h2 className="text-3xl md:text-5xl mb-8 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to make your mark?
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

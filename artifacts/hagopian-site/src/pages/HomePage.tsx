@@ -196,7 +196,7 @@ export function Homepage() {
           <div className="lg:col-span-5">
             <FadeIn>
               <SectionLabel light>Our Approach</SectionLabel>
-              <h2 className="text-4xl md:text-6xl leading-[1.05] mb-10" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              <h2 className="text-3xl md:text-5xl leading-[1.05] mb-10" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 The personal touch.<br />
                 <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>Big agency results.</span>
               </h2>
@@ -253,7 +253,7 @@ export function Homepage() {
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16 text-center">
             <SectionLabel light>Results That Speak</SectionLabel>
-            <h2 className="text-5xl md:text-6xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-4xl md:text-5xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Creative campaigns that drive results.
             </h2>
           </FadeIn>

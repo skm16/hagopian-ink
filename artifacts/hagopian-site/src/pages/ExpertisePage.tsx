@@ -62,7 +62,7 @@ export function ExpertisePage() {
           {/* Industries */}
           <FadeIn className="mb-16">
             <SectionLabel>Who We Work With</SectionLabel>
-            <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               We work with clients in...
             </h2>
           </FadeIn>
@@ -78,7 +78,7 @@ export function ExpertisePage() {
           {/* Disciplines */}
           <FadeIn className="mb-16">
             <SectionLabel>What We Do</SectionLabel>
-            <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               And we help them with...
             </h2>
           </FadeIn>
@@ -104,7 +104,7 @@ export function ExpertisePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <SectionLabel light>Brand Identity</SectionLabel>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Your first impression<br />is everything.
             </h2>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-8">
@@ -146,7 +146,7 @@ export function ExpertisePage() {
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
             <SectionLabel light>Website Design</SectionLabel>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Drive action with<br />clear intention.
             </h2>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-8">
@@ -175,7 +175,7 @@ export function ExpertisePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <SectionLabel>Email Marketing</SectionLabel>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Harness the power of<br />your email sends.
             </h2>
             <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-8">
@@ -215,7 +215,7 @@ export function ExpertisePage() {
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Where we started.<br />The DNA of everything<br /><span style={{ fontStyle: 'italic', opacity: 0.6 }}>we do.</span>
             </h2>
             <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-6">
@@ -253,7 +253,7 @@ export function ExpertisePage() {
             <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for the future of health.
             </h2>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-6">
@@ -312,7 +312,7 @@ export function ExpertisePage() {
             <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
-            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for a new era of impact.
             </h2>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">

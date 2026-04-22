@@ -87,7 +87,7 @@ export function NonprofitPage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>Our Approach</SectionLabel>
-            <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Mission-driven work<br />
               demands <span style={{ fontStyle: 'italic', opacity: 0.6 }}>mission-driven design.</span>
             </h2>
@@ -169,7 +169,7 @@ export function NonprofitPage() {
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
-          <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+          <h2 className="text-3xl md:text-4xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to put your mission<br />
             <span style={{ fontStyle: 'italic', opacity: 0.6 }}>into motion?</span>
           </h2>

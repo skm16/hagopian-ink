@@ -71,7 +71,7 @@ export function BlogPostPage() {
           <div className="max-w-[1200px] mx-auto">
             <FadeIn className="mb-12">
               <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/42 mb-5" style={{ fontFamily: NAV_FONT }}>Archive Images</p>
-              <h2 className="text-4xl md:text-5xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              <h2 className="text-3xl md:text-4xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 The same story, reframed in the new system.
               </h2>
             </FadeIn>
@@ -94,7 +94,7 @@ export function BlogPostPage() {
         <section className="bg-[#f1efef] px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
           <FadeIn>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Keep Reading</p>
-            <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               More Fresh Ink.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

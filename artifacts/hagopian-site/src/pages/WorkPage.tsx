@@ -279,7 +279,7 @@ export function WorkPage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
                 <FadeIn>
-                  <h2 className="text-5xl md:text-6xl leading-[1.02] whitespace-pre-line"
+                  <h2 className="text-3xl md:text-4xl leading-[1.02] whitespace-pre-line"
                     style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
                     {ind.headline}
                   </h2>
@@ -327,7 +327,7 @@ export function WorkPage() {
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
-          <h2 className="text-4xl md:text-6xl mb-4 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+          <h2 className="text-3xl md:text-5xl mb-4 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to create something new?
           </h2>
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
