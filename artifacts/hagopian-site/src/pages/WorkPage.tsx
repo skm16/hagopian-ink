@@ -50,30 +50,12 @@ const INDUSTRIES: Industry[] = [
     dark: false,
     cases: [
       {
-        client: 'Lancôme',
-        category: 'Digital Campaign',
-        stat: '2.93M',
-        statLabel: 'Facebook followers',
-        result: 'House of Color virtual makeup experience sold out the launch palette in its first month on market.',
-        img: `${BASE}deck-images/brand-01.png`,
-        href: 'https://hagopianink.com/expertise/',
-      },
-      {
         client: 'La Perla',
         category: 'Omnichannel Marketing',
         stat: '30%',
         statLabel: 'Valentine\'s Day sales increase',
         result: 'Timed email, direct mail, and digital ads moved product and drove in-store traffic for the peak purchasing season.',
-        img: `${BASE}deck-images/email-01.png`,
-        href: 'https://hagopianink.com/expertise/',
-      },
-      {
-        client: 'Frette',
-        category: 'Email + UX Campaign',
-        stat: '$54K',
-        statLabel: 'New sales — "Escape to Italy"',
-        result: 'Multi-channel contest drove 3,000+ new email opt-ins, $54K in sales, 58% increase in unique visitors, and 2× ROI.',
-        img: `${BASE}deck-images/email-02.png`,
+        img: `${CDN}/2018/08/Work-Thumb_laperla-293x414.jpg`,
         href: 'https://hagopianink.com/expertise/',
       },
       {
@@ -82,7 +64,25 @@ const INDUSTRIES: Industry[] = [
         stat: 'Award-winning',
         statLabel: 'Brand launch for US market',
         result: 'Complete visual identity — logo, stationery, signage, and packaging — for a 140-year-old Scottish cashmere label entering the US market.',
-        img: `${BASE}deck-images/brand-02.png`,
+        img: `${CDN}/2018/08/Work-Thumb_TD-293x414.jpg`,
+        href: 'https://hagopianink.com/expertise/',
+      },
+      {
+        client: 'Gwynnie Bee',
+        category: 'UX + Email Marketing',
+        stat: '300%',
+        statLabel: 'Increase in signup conversion',
+        result: 'Redesigned acquisition funnel and subscription landing experience delivered a 300% lift in new member sign-ups.',
+        img: `${CDN}/2018/08/Work-Thumb_gwynnie-293x414.jpg`,
+        href: 'https://hagopianink.com/works/gwynnie-bee-subscription-acquisition-email/',
+      },
+      {
+        client: 'Loum Beauty',
+        category: 'Brand + UX Redesign',
+        stat: 'Clarity',
+        statLabel: 'Complex brand story simplified',
+        result: 'Redesigned the digital experience to clarify a complex clean-beauty story, improve navigation, and drive conversions on mobile and desktop.',
+        img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
         href: 'https://hagopianink.com/expertise/',
       },
     ],
@@ -129,12 +129,12 @@ const INDUSTRIES: Industry[] = [
         href: 'https://hagopianink.com/expertise/',
       },
       {
-        client: 'Recovery Plus',
-        category: 'Digital Health UX',
-        stat: 'B2C + B2B',
-        statLabel: 'Home-based cardiac rehab',
-        result: 'Digital platform designed to connect cardiac patients with remote rehabilitation — anywhere, anytime.',
-        img: `${BASE}deck-images/medtech-04.png`,
+        client: 'beWELL',
+        category: 'Health App + Brand',
+        stat: 'Launch',
+        statLabel: 'End-to-end brand + digital',
+        result: 'Brand identity, UX design, and go-to-market digital presence for a health and wellness app built for everyday consumers.',
+        img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
         href: 'https://hagopianink.com/expertise/',
       },
     ],
@@ -159,7 +159,7 @@ const INDUSTRIES: Industry[] = [
         stat: '329%',
         statLabel: 'More dollars raised',
         result: 'Multi-year program spanning donor email, gala invitations, and event branding raised $22.2M and added 100+ new attendees.',
-        img: `${BASE}deck-images/nonprofit-01.png`,
+        img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
         href: 'https://hagopianink.com/works/montefiore-healthcare-design/',
       },
       {
@@ -177,7 +177,7 @@ const INDUSTRIES: Industry[] = [
         stat: 'Multi-channel',
         statLabel: 'Email + digital fundraising',
         result: 'Email messages that connected a global movement to individual action and measurable charitable giving.',
-        img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
+        img: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
         href: 'https://hagopianink.com/works/black-lives-matter-canada/',
       },
       {
@@ -203,8 +203,8 @@ function CaseCard({ c, dark }: { c: Case; dark: boolean }) {
 
   return (
     <FadeIn className="group flex flex-col" style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
-      {/* Image — tall portrait */}
-      <div className="overflow-hidden aspect-[3/4]">
+      {/* Image — tall portrait 293×414 (matches live case study thumbnails) */}
+      <div className="overflow-hidden aspect-[293/414]">
         <img src={c.img} alt={c.client}
           className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
       </div>
