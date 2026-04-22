@@ -105,7 +105,7 @@ export function AboutPage() {
       </section>
 
       {/* ── STATS ─────────────────────────────────── */}
-      <section className="bg-white text-[#2d3232] py-20 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-20 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { n: '2002', label: 'Year founded' },
@@ -195,7 +195,7 @@ export function AboutPage() {
       </section>
 
       {/* ── AWARDS ────────────────────────────────── */}
-      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Recognition</SectionLabel>
@@ -231,21 +231,21 @@ export function AboutPage() {
       </section>
 
       {/* ── PUBLICATIONS ──────────────────────────── */}
-      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>In Print</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {BOOKS.map((b, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="border-t border-[#2d3232]/15 pt-7">
+              <FadeIn key={i} delay={i * 0.1} className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)] flex flex-col">
                 <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
                 {b.subtitle && <p className="text-[13px] text-[#2d3232]/55 mb-3 leading-snug">{b.subtitle}</p>}
                 {b.authors  && <p className="text-[13px] text-[#2d3232]/40 mb-0.5">{b.authors}</p>}
                 <p className="text-[13px] text-[#2d3232]/40 mb-5">{b.publisher}</p>
                 <a href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/50 hover:text-[#2d3232]/80 transition-colors">
+                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/50 hover:text-[#2d3232]/80 transition-colors mt-auto">
                   View on Amazon <ExternalLink className="w-3 h-3" />
                 </a>
               </FadeIn>
@@ -255,7 +255,7 @@ export function AboutPage() {
       </section>
 
       {/* ── ARTICLES & FEATURES ───────────────────── */}
-      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Covered By</SectionLabel>
@@ -276,10 +276,10 @@ export function AboutPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Medium pieces */}
-            <FadeIn>
-              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/12 pb-3">Medium — Written by Christina Hagopian</p>
+            <FadeIn className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)]">
+              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/10 pb-3">Medium — Written by Christina Hagopian</p>
               <div className="flex flex-col gap-5">
                 {MEDIUM.map((m, i) => (
                   <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
@@ -292,8 +292,8 @@ export function AboutPage() {
             </FadeIn>
 
             {/* Promotions */}
-            <FadeIn delay={0.1}>
-              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/12 pb-3">Hagopian Ink Promotions — Featured Work</p>
+            <FadeIn delay={0.1} className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)]">
+              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/10 pb-3">Hagopian Ink Promotions — Featured Work</p>
               <div className="flex flex-col gap-5">
                 {PROMOTIONS.map((p, i) => (
                   <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"

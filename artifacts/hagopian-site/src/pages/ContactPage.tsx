@@ -40,7 +40,7 @@ export function ContactPage() {
       </section>
 
       {/* ── CONTACT GRID ──────────────────────────── */}
-      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#2d3232]/8">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#2d3232]/8">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
           {/* Left — info */}

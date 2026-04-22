@@ -96,7 +96,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── DISCIPLINES GRID ──────────────────────── */}
-      <section className="bg-white text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel>Our Disciplines</SectionLabel>
@@ -199,7 +199,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── EMAIL MARKETING CHAPTER ───────────────── */}
-      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <SectionLabel>Email Marketing</SectionLabel>
@@ -237,7 +237,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── LUXURY + LIFESTYLE SPECIALTY ─────────── */}
-      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
@@ -367,7 +367,7 @@ export function ExpertisePage() {
       </section>
 
       {/* ── INDUSTRIES ────────────────────────────── */}
-      <section className="bg-white text-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel>Who We Work With</SectionLabel>

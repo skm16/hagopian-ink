@@ -91,7 +91,7 @@ export function BlogPostPage() {
           </div>
         </section>
 
-        <section className="bg-white px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
+        <section className="bg-[#f1efef] px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
           <FadeIn>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Keep Reading</p>
             <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
