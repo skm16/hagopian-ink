@@ -146,7 +146,7 @@ export function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#f1efef] border-b border-[#2d3232]/8 sticky top-[72px] z-10">
+      <section className="bg-white border-b border-[#2d3232]/8 sticky top-[72px] z-10">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16">
           <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
             {TABS.map(tab => (
@@ -165,7 +165,7 @@ export function BlogPage() {
         </div>
       </section>
 
-      <section className="bg-[#f1efef] text-[#2d3232] py-20 md:py-28 px-6 md:px-12">
+      <section className="bg-white text-[#2d3232] py-20 md:py-28 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-16 items-start">
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-18">

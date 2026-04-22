@@ -105,7 +105,7 @@ export function AboutPage() {
       </section>
 
       {/* ── STATS ─────────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#2d3232] py-20 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-white text-[#2d3232] py-20 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { n: '2002', label: 'Year founded' },
@@ -195,7 +195,7 @@ export function AboutPage() {
       </section>
 
       {/* ── AWARDS ────────────────────────────────── */}
-      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Recognition</SectionLabel>
@@ -203,7 +203,7 @@ export function AboutPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(45,50,50,0.08)' }}>
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.04} className="p-4 group" style={{ background: '#f1efef' }}>
+              <FadeIn key={i} delay={i * 0.04} className="p-4 group" style={{ background: 'white' }}>
                 {a.href ? (
                   <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                     <div className="flex gap-3 items-start">
@@ -231,7 +231,7 @@ export function AboutPage() {
       </section>
 
       {/* ── PUBLICATIONS ──────────────────────────── */}
-      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>In Print</SectionLabel>
@@ -255,7 +255,7 @@ export function AboutPage() {
       </section>
 
       {/* ── ARTICLES & FEATURES ───────────────────── */}
-      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-white py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Covered By</SectionLabel>
@@ -264,7 +264,7 @@ export function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(45,50,50,0.08)' }}>
             {ARTICLES.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="p-6 group" style={{ background: '#f1efef' }}>
+              <FadeIn key={i} delay={i * 0.07} className="p-6 group" style={{ background: 'white' }}>
                 <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                   <div>
                     <p className="text-[12px] text-[#2d3232]/40 mb-1.5">{a.pub}</p>

@@ -80,7 +80,7 @@ export function UxUiDesignPage() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
+      <section className="bg-white text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
@@ -101,7 +101,7 @@ export function UxUiDesignPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-[#f1efef] text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-white text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Capabilities</SectionLabel>
@@ -147,7 +147,7 @@ export function UxUiDesignPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
+      <section className="bg-white text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
         <FadeIn>
           <SectionLabel>Start a Project</SectionLabel>
           <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

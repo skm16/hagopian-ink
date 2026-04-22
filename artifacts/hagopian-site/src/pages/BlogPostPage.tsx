@@ -15,12 +15,12 @@ const IMAGES = {
 
 export function BlogPostPage() {
   return (
-    <div className="bg-[#f1efef] text-[#2d3232]" style={{ fontFamily: SANS }}>
+    <div className="bg-white text-[#2d3232]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
       <Nav />
 
       <article>
-        <section className="pt-36 md:pt-44 pb-20 md:pb-28 px-6 md:px-12 bg-[#f1efef]">
+        <section className="pt-36 md:pt-44 pb-20 md:pb-28 px-6 md:px-12 bg-white">
           <div className="max-w-[1100px] mx-auto text-center">
             <FadeIn>
               <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/45 hover:text-[#2d3232] mb-12" style={{ fontFamily: NAV_FONT }}>
@@ -37,7 +37,7 @@ export function BlogPostPage() {
           </div>
         </section>
 
-        <section className="px-6 md:px-12 pb-20 bg-[#f1efef]">
+        <section className="px-6 md:px-12 pb-20 bg-white">
           <FadeIn className="max-w-[900px] mx-auto bg-white/68 shadow-[0_30px_90px_rgba(45,50,50,0.08)] px-8 md:px-20 py-14 md:py-20">
             <div className="text-7xl leading-none text-[#d8d8e6] mb-4" style={{ fontFamily: SERIF }}>“</div>
             <blockquote className="text-2xl md:text-3xl leading-relaxed text-[#2d3232]/72 mb-8" style={{ fontFamily: SERIF }}>
@@ -47,7 +47,7 @@ export function BlogPostPage() {
           </FadeIn>
         </section>
 
-        <section className="px-6 md:px-12 pb-24 bg-[#f1efef]">
+        <section className="px-6 md:px-12 pb-24 bg-white">
           <div className="max-w-[900px] mx-auto space-y-7 text-lg leading-relaxed text-[#2d3232]/68">
             <FadeIn>
               <p>
@@ -91,7 +91,7 @@ export function BlogPostPage() {
           </div>
         </section>
 
-        <section className="bg-[#f1efef] px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
+        <section className="bg-white px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
           <FadeIn>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Keep Reading</p>
             <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
