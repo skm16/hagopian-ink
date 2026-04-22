@@ -104,23 +104,44 @@ export function AboutPage() {
         </div>
       </section>
 
+      {/* ── CLIENT LOGOS ──────────────────────────── */}
+      <section className="bg-[#f1efef] py-14 border-t border-[#e0ddd9] overflow-hidden relative">
+        <FadeIn className="text-center mb-8">
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/45" style={{ fontFamily: NAV_FONT }}>
+            Brands Who Trust Us
+          </p>
+        </FadeIn>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f1efef] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f1efef] to-transparent z-10 pointer-events-none" />
+          <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
+              <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
+                <img src={logo.src} alt={logo.alt}
+                  className="max-w-full max-h-full object-contain brightness-0 opacity-35 hover:opacity-65 transition-opacity duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── STORY ─────────────────────────────────── */}
-      <section className="bg-[#2d3232] py-28 md:py-44 px-8 md:px-16 border-b border-[#3a4040]">
+      <section className="bg-white py-28 md:py-44 px-8 md:px-16 border-t border-[#e8e4e0]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <FadeIn>
-            <SectionLabel light>Our Story</SectionLabel>
-            <h2 className="text-4xl md:text-6xl leading-[1.02] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <SectionLabel>Our Story</SectionLabel>
+            <h2 className="text-4xl md:text-6xl leading-[1.02] mb-8 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Twenty-plus years of doing this right.
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/60 leading-relaxed mb-6">
               Hagopian Ink was founded in 2002 with a simple but demanding belief: that thoughtful brand strategy and exceptional design could move people — and move business. Over two decades later, that conviction is unchanged.
             </p>
-            <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/60 leading-relaxed mb-6">
               We are a boutique creative studio born in New York City and now operating virtually around the globe, working with some of the world's most recognizable brands and the most ambitious organizations you have never heard of yet. Our clients include Fortune 50 companies, luxury fashion houses, medical device manufacturers, nonprofit fundraising organizations, and emerging DTC brands — and we treat every brief with the same level of care and strategic rigor.
             </p>
-            <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
+            <p className="text-lg text-[#2d3232]/60 leading-relaxed">
               As a woman-owned business, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.
             </p>
           </FadeIn>
@@ -307,27 +328,6 @@ export function AboutPage() {
                 ))}
               </div>
             </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CLIENT LOGOS ──────────────────────────── */}
-      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] overflow-hidden relative">
-        <FadeIn className="text-center mb-10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
-            Brands Who Trust Us
-          </p>
-        </FadeIn>
-        <div className="relative">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2d3232] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2d3232] to-transparent z-10 pointer-events-none" />
-          <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
-            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
-              <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 120, height: 52 }}>
-                <img src={logo.src} alt={logo.alt}
-                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
           </div>
         </div>
       </section>
