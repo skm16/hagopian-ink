@@ -71,20 +71,20 @@ const TABS = ['View All', 'Design + Business', 'Studio News', 'Work / Life'];
 function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
   const reversed = i % 2 !== 0;
   const inner = (
-    <div className={`flex flex-col md:flex-row items-stretch gap-0 group${reversed ? ' md:flex-row-reverse' : ''}`}>
-      <div className="w-full md:w-[42%] shrink-0 overflow-hidden bg-[#e7e3de] aspect-[3/2]">
+    <div className="group">
+      <div className="overflow-hidden aspect-[3/2] bg-[#e7e3de] mb-7">
         <img src={post.img} alt={post.title}
           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
       </div>
-      <div className={`flex-1 flex flex-col justify-center py-10 ${reversed ? 'md:pr-14' : 'md:pl-14'}`}>
-        <p className="text-[9px] uppercase tracking-[0.22em] text-[#2d3232]/38 mb-4" style={{ fontFamily: NAV_FONT }}>
+      <div className={`max-w-[62%] ${reversed ? 'ml-auto text-right' : ''}`}>
+        <p className="text-[9px] uppercase tracking-[0.22em] text-[#2d3232]/38 mb-3" style={{ fontFamily: NAV_FONT }}>
           {post.category}
         </p>
-        <h3 className="text-2xl md:text-3xl leading-[1.1] mb-5 group-hover:opacity-55 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+        <h3 className="text-2xl md:text-3xl leading-[1.1] mb-4 group-hover:opacity-55 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
           {post.title}
         </h3>
-        <p className="text-[15px] text-[#2d3232]/55 leading-relaxed mb-7">{post.excerpt}</p>
-        <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
+        <p className="text-[15px] text-[#2d3232]/55 leading-relaxed mb-6">{post.excerpt}</p>
+        <span className={`inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors ${reversed ? 'justify-end' : ''}`} style={{ fontFamily: NAV_FONT }}>
           Read More <ArrowRight className="w-3 h-3" />
         </span>
       </div>
@@ -92,7 +92,7 @@ function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
   );
 
   return (
-    <FadeIn delay={i * 0.08} className="border-t border-[#2d3232]/10">
+    <FadeIn delay={i * 0.08} className="border-t border-[#2d3232]/10 py-12">
       {post.local ? (
         <Link href={post.href}>{inner}</Link>
       ) : (
