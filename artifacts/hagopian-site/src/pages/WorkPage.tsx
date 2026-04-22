@@ -203,8 +203,8 @@ function CaseCard({ c, dark }: { c: Case; dark: boolean }) {
 
   return (
     <FadeIn className="group flex flex-col" style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
-      {/* Image */}
-      <div className="overflow-hidden aspect-[4/3]">
+      {/* Image — tall portrait */}
+      <div className="overflow-hidden aspect-[3/4]">
         <img src={c.img} alt={c.client}
           className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
       </div>
@@ -213,14 +213,9 @@ function CaseCard({ c, dark }: { c: Case; dark: boolean }) {
         <p className="text-[9px] uppercase tracking-[0.2em] mb-3" style={{ color: mutedColor, fontFamily: NAV_FONT }}>
           {c.category}
         </p>
-        <h3 className="text-xl mb-2 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
+        <h3 className="text-xl mb-4 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
           {c.client}
         </h3>
-        {/* Stat pill */}
-        <div className="flex items-baseline gap-2 mb-4 pb-4" style={{ borderBottom: `1px solid ${borderColor}` }}>
-          <span className="text-3xl font-light" style={{ fontFamily: SERIF, color: textColor }}>{c.stat}</span>
-          <span className="text-[11px] uppercase tracking-[0.1em] leading-snug" style={{ color: mutedColor, fontFamily: NAV_FONT }}>{c.statLabel}</span>
-        </div>
         <p className="text-[13px] leading-relaxed flex-1 mb-6" style={{ color: mutedColor }}>
           {c.result}
         </p>
