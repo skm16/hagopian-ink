@@ -95,35 +95,47 @@ export function ExpertisePage() {
         </div>
       </section>
 
-      {/* ── DISCIPLINES GRID ──────────────────────── */}
+      {/* ── WHO + WHAT ────────────────────────────── */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
+
+          {/* Industries */}
           <FadeIn className="mb-16">
-            <SectionLabel>Our Disciplines</SectionLabel>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-              <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                We help them with...
-              </h2>
-              <p className="text-lg text-[#2d3232]/60 max-w-sm leading-relaxed">
-                From naming and visual identity to email acquisition and omnichannel campaigns — across every medium.
-              </p>
-            </div>
+            <SectionLabel>Who We Work With</SectionLabel>
+            <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              We work with clients in...
+            </h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-[#d8d5d1]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-24">
+            {INDUSTRIES.map((area, i) => (
+              <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10">
+                <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{area.industry}</h3>
+                <p className="text-[13px] text-[#2d3232]/50 leading-relaxed">{area.services}</p>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Disciplines */}
+          <FadeIn className="mb-16">
+            <SectionLabel>What We Do</SectionLabel>
+            <h2 className="text-5xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              And we help them with...
+            </h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {DISCIPLINES.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.07}
-                className="group border-r border-b border-[#d8d5d1] p-9 hover:bg-white transition-colors duration-300 cursor-pointer">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#444456] mb-6 group-hover:scale-150 transition-transform duration-300" />
-                <h3 className="text-xl mb-4 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.title}</h3>
-                <p className="text-[#2d3232]/60 text-[14px] leading-relaxed mb-6">{item.desc}</p>
+              <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10 group">
+                <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{item.title}</h3>
+                <p className="text-[13px] text-[#2d3232]/50 leading-relaxed mb-3">{item.desc}</p>
                 <a href={item.link} target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/40 group-hover:text-[#444456] transition-colors"
+                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/35 group-hover:text-[#2d3232]/70 transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
-                  Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </a>
               </FadeIn>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -363,25 +375,6 @@ export function ExpertisePage() {
               Explore Nonprofit Fundraising <ArrowRight className="w-4 h-4" />
             </BtnLight>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ── INDUSTRIES ────────────────────────────── */}
-      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12 border-t border-[#e0ddd9]">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-16">
-            <SectionLabel>Who We Work With</SectionLabel>
-            <h2 className="text-5xl md:text-6xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>We work with clients in...</h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-[#d8d5d1]">
-            {INDUSTRIES.map((area, i) => (
-              <FadeIn key={i} delay={i * 0.08}
-                className="group border-r border-b border-[#d8d5d1] p-9 hover:bg-white transition-colors duration-300">
-                <h3 className="text-xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{area.industry}</h3>
-                <p className="text-[#2d3232]/55 text-[13px] leading-relaxed">{area.services}</p>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 
