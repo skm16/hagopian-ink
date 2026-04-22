@@ -101,7 +101,7 @@ export function ExpertisePage() {
 
       {/* ── BRANDING CHAPTER ──────────────────────── */}
       <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel light>Brand Identity</SectionLabel>
             <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -127,7 +127,7 @@ export function ExpertisePage() {
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[3/2] overflow-hidden bg-[#343a3a]">
+            <div className="aspect-[1/1] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Brand identity work"
                 className="w-full h-full object-cover opacity-75 hover:opacity-90 transition-opacity duration-700" />
             </div>
@@ -137,9 +137,9 @@ export function ExpertisePage() {
 
       {/* ── UX/UI CHAPTER ─────────────────────────── */}
       <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[3/2] overflow-hidden bg-[#343a3a]">
+            <div className="aspect-[1/1] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_home2_loum.jpg`} alt="UX/UI design work"
                 className="w-full h-full object-cover opacity-80 hover:opacity-95 transition-opacity duration-700" />
             </div>
@@ -172,7 +172,7 @@ export function ExpertisePage() {
 
       {/* ── EMAIL MARKETING CHAPTER ───────────────── */}
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>Email Marketing</SectionLabel>
             <h2 className="text-3xl md:text-5xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -200,7 +200,7 @@ export function ExpertisePage() {
             </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[3/2] overflow-hidden bg-[#e0ddd9]">
+            <div className="aspect-[1/1] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2018/09/pepsi-1537458269464-3078.png`} alt="Email marketing work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
@@ -210,7 +210,7 @@ export function ExpertisePage() {
 
       {/* ── LUXURY + LIFESTYLE SPECIALTY ─────────── */}
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
@@ -238,7 +238,7 @@ export function ExpertisePage() {
             </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[3/2] overflow-hidden bg-[#e0ddd9]">
+            <div className="aspect-[1/1] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Luxury brand work"
                 className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-700" />
             </div>
@@ -248,7 +248,7 @@ export function ExpertisePage() {
 
       {/* ── HEALTH + MEDTECH SPECIALTY ────────────── */}
       <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
@@ -279,7 +279,7 @@ export function ExpertisePage() {
             </BtnLight>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="relative aspect-[3/2] overflow-hidden bg-[#343a3a]">
+            <div className="relative aspect-[1/1] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Health + MedTech brand work"
                 className="w-full h-full object-cover opacity-65" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/70 to-transparent" />
@@ -296,9 +296,9 @@ export function ExpertisePage() {
 
       {/* ── NONPROFIT SPECIALTY ───────────────────── */}
       <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="relative aspect-[3/2] overflow-hidden bg-[#343a3a]">
+            <div className="relative aspect-[1/1] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`} alt="Nonprofit fundraising work"
                 className="w-full h-full object-cover opacity-75" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/60 to-transparent" />
