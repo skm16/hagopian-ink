@@ -112,7 +112,7 @@ export function ExpertisePage() {
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
-                { n: '100+', label: 'brands built' },
+                { n: '2002', label: 'Founded in New York City' },
                 { n: '20+',  label: 'years of brand expertise' },
                 { n: 'W/O',  label: 'Woman owned, creatively driven' },
               ].map((s, i) => (
