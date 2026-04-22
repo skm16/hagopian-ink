@@ -201,25 +201,23 @@ export function AboutPage() {
             <SectionLabel>Recognition</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Awards &amp; honors.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(45,50,50,0.1)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(45,50,50,0.08)' }}>
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.05}
-                className="flex gap-4 items-start p-6 group"
-                style={{ background: '#f1efef' }}>
-                <Trophy className="w-3.5 h-3.5 shrink-0 mt-1" style={{ color: '#2d3232', opacity: 0.25 }} />
-                <div className="flex-1 min-w-0">
-                  {a.href ? (
-                    <a href={a.href} target="_blank" rel="noopener noreferrer"
-                      className="flex items-start gap-1.5 group/link">
-                      <span className="text-[15px] leading-snug text-[#2d3232] group-hover/link:opacity-70 transition-opacity"
-                        style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</span>
-                      <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover/link:opacity-40 transition-opacity" />
-                    </a>
-                  ) : (
-                    <p className="text-[15px] leading-snug text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</p>
-                  )}
-                  <p className="text-[11px] uppercase tracking-[0.1em] mt-1 text-[#2d3232]/50" style={{ fontFamily: NAV_FONT }}>{a.org}</p>
-                </div>
+              <FadeIn key={i} delay={i * 0.04} className="p-6 group" style={{ background: '#f1efef' }}>
+                {a.href ? (
+                  <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
+                    <div>
+                      <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/60 transition-colors">{a.name}</p>
+                      <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                    </div>
+                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  </a>
+                ) : (
+                  <div>
+                    <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
+                    <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                  </div>
+                )}
               </FadeIn>
             ))}
           </div>
@@ -233,17 +231,15 @@ export function AboutPage() {
             <SectionLabel>In Print</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {BOOKS.map((b, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="border-t pt-8 border-[#2d3232]/12">
-                <BookOpen className="w-5 h-5 mb-5 text-[#2d3232]/30" />
-                <h3 className="text-lg leading-snug mb-1 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{b.title}</h3>
-                {b.subtitle && <p className="text-[13px] mb-2 text-[#2d3232]/55">{b.subtitle}</p>}
-                {b.authors  && <p className="text-[12px] mb-1 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{b.authors}</p>}
-                <p className="text-[11px] uppercase tracking-[0.1em] mb-5 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{b.publisher}</p>
+              <FadeIn key={i} delay={i * 0.1} className="border-t border-[#2d3232]/15 pt-7">
+                <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
+                {b.subtitle && <p className="text-[13px] text-[#2d3232]/55 mb-3 leading-snug">{b.subtitle}</p>}
+                {b.authors  && <p className="text-[13px] text-[#2d3232]/40 mb-0.5">{b.authors}</p>}
+                <p className="text-[13px] text-[#2d3232]/40 mb-5">{b.publisher}</p>
                 <a href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] border-b pb-0.5 transition-all hover:gap-2.5 text-[#2d3232]/50 border-[#2d3232]/20"
-                  style={{ fontFamily: NAV_FONT }}>
+                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/50 hover:text-[#2d3232]/80 transition-colors">
                   View on Amazon <ExternalLink className="w-3 h-3" />
                 </a>
               </FadeIn>
@@ -259,53 +255,53 @@ export function AboutPage() {
             <SectionLabel>Covered By</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Articles &amp; features.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(45,50,50,0.1)' }}>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(45,50,50,0.08)' }}>
             {ARTICLES.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.07}
-                className="p-6 group" style={{ background: '#f1efef' }}>
-                <p className="text-[10px] uppercase tracking-[0.18em] mb-2 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{a.pub}</p>
-                <a href={a.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-start gap-2 group/link">
-                  <span className="text-[16px] leading-snug text-[#2d3232] group-hover/link:opacity-60 transition-opacity" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.title}</span>
-                  <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover/link:opacity-40 transition-opacity" />
+              <FadeIn key={i} delay={i * 0.07} className="p-6 group" style={{ background: '#f1efef' }}>
+                <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
+                  <div>
+                    <p className="text-[12px] text-[#2d3232]/40 mb-1.5">{a.pub}</p>
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover/link:text-[#2d3232]/60 transition-colors">{a.title}</p>
+                  </div>
+                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
               </FadeIn>
             ))}
           </div>
 
-          {/* Medium pieces */}
-          <FadeIn className="mb-8">
-            <p className="text-[10px] uppercase tracking-[0.2em] mb-6 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>Medium.com — Written by Christina Hagopian</p>
-            <div className="flex flex-col gap-4">
-              {MEDIUM.map((m, i) => (
-                <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 group border-b pb-4 border-[#2d3232]/12">
-                  <Newspaper className="w-3.5 h-3.5 shrink-0 text-[#2d3232]/25" />
-                  <span className="text-[15px] leading-snug text-[#2d3232] group-hover:opacity-60 transition-opacity"
-                    style={{ fontFamily: SERIF, fontWeight: 700 }}>{m.title}</span>
-                  <ExternalLink className="w-3 h-3 shrink-0 text-[#2d3232] opacity-0 group-hover:opacity-40 transition-opacity ml-auto" />
-                </a>
-              ))}
-            </div>
-          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            {/* Medium pieces */}
+            <FadeIn>
+              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/12 pb-3">Medium — Written by Christina Hagopian</p>
+              <div className="flex flex-col gap-5">
+                {MEDIUM.map((m, i) => (
+                  <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
+                    className="flex items-start justify-between gap-3 group">
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{m.title}</p>
+                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
 
-          {/* Promotions — For Print Only */}
-          <FadeIn>
-            <p className="text-[10px] uppercase tracking-[0.2em] mb-6 text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>Hagopian Ink Promotions — Featured Work</p>
-            <div className="flex flex-col gap-4">
-              {PROMOTIONS.map((p, i) => (
-                <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
-                  className="flex items-start gap-3 group border-b pb-4 border-[#2d3232]/12">
-                  <div className="flex-1">
-                    <span className="block text-[15px] leading-snug text-[#2d3232] group-hover:opacity-60 transition-opacity"
-                      style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.title}</span>
-                    <span className="text-[10px] uppercase tracking-[0.12em] mt-1 block text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>{p.pub}</span>
-                  </div>
-                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232] opacity-0 group-hover:opacity-40 transition-opacity" />
-                </a>
-              ))}
-            </div>
-          </FadeIn>
+            {/* Promotions */}
+            <FadeIn delay={0.1}>
+              <p className="text-[12px] text-[#2d3232]/40 mb-6 border-b border-[#2d3232]/12 pb-3">Hagopian Ink Promotions — Featured Work</p>
+              <div className="flex flex-col gap-5">
+                {PROMOTIONS.map((p, i) => (
+                  <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
+                    className="flex items-start justify-between gap-3 group">
+                    <div>
+                      <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{p.title}</p>
+                      <p className="text-[12px] text-[#2d3232]/40 mt-1">{p.pub}</p>
+                    </div>
+                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
