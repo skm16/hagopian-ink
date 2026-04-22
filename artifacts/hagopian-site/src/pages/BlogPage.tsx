@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Search } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
-import { FadeIn, Btn, BtnLight } from '@/components/shared/ui';
+import { FadeIn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_BLOG, VIDEO_BLOG_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
@@ -69,40 +69,34 @@ const POSTS = [
 const TABS = ['View All', 'Design + Business', 'Studio News', 'Work / Life'];
 
 function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
-  const content = (
-    <>
-      <div className="overflow-hidden mb-6 aspect-[3/2] bg-[#e7e3de]">
+  const reversed = i % 2 !== 0;
+  const inner = (
+    <div className={`flex flex-col md:flex-row items-stretch gap-0 group${reversed ? ' md:flex-row-reverse' : ''}`}>
+      <div className="w-full md:w-[42%] shrink-0 overflow-hidden bg-[#e7e3de] aspect-[3/2] md:aspect-auto">
         <img src={post.img} alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
       </div>
-      <p className="text-[9px] uppercase tracking-[0.2em] text-[#2d3232]/40 mb-3" style={{ fontFamily: NAV_FONT }}>
-        {post.category}
-      </p>
-      <h3 className="text-2xl md:text-3xl leading-[1.08] mb-4 group-hover:opacity-60 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-        {post.title}
-      </h3>
-      <p className="text-[15px] text-[#2d3232]/58 leading-relaxed mb-6">{post.excerpt}</p>
-      <div className="flex items-center justify-between border-t border-[#2d3232]/10 pt-5">
-        <span className="text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/35" style={{ fontFamily: NAV_FONT }}>
-          {post.date}
-        </span>
-        <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/45 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
+      <div className={`flex-1 flex flex-col justify-center py-10 ${reversed ? 'md:pr-14' : 'md:pl-14'}`}>
+        <p className="text-[9px] uppercase tracking-[0.22em] text-[#2d3232]/38 mb-4" style={{ fontFamily: NAV_FONT }}>
+          {post.category}
+        </p>
+        <h3 className="text-2xl md:text-3xl leading-[1.1] mb-5 group-hover:opacity-55 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+          {post.title}
+        </h3>
+        <p className="text-[15px] text-[#2d3232]/55 leading-relaxed mb-7">{post.excerpt}</p>
+        <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
           Read More <ArrowRight className="w-3 h-3" />
         </span>
       </div>
-    </>
+    </div>
   );
 
   return (
-    <FadeIn delay={i * 0.06}>
+    <FadeIn delay={i * 0.08} className="border-t border-[#2d3232]/10">
       {post.local ? (
-        <Link href={post.href} className="group block">
-          {content}
-        </Link>
+        <Link href={post.href}>{inner}</Link>
       ) : (
-        <a href={post.href} target="_blank" rel="noopener noreferrer" className="group block">
-          {content}
-        </a>
+        <a href={post.href} target="_blank" rel="noopener noreferrer">{inner}</a>
       )}
     </FadeIn>
   );
@@ -110,16 +104,10 @@ function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
 
 export function BlogPage() {
   const [active, setActive] = useState('View All');
-  const [query, setQuery] = useState('');
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return POSTS.filter(post => {
-      const matchesTab = active === 'View All' || post.category === active;
-      const matchesSearch = !q || [post.title, post.excerpt, post.category, post.date].some(value => value.toLowerCase().includes(q));
-      return matchesTab && matchesSearch;
-    });
-  }, [active, query]);
+  const filtered = useMemo(() =>
+    POSTS.filter(post => active === 'View All' || post.category === active),
+  [active]);
 
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
@@ -166,55 +154,18 @@ export function BlogPage() {
       </section>
 
       <section className="bg-[#f1efef] text-[#2d3232] py-20 md:py-28 px-6 md:px-12">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-16 items-start">
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-18">
-              {filtered.map((post, i) => <PostCard key={`${active}-${query}-${post.title}`} post={post} i={i} />)}
+        <div className="max-w-[1400px] mx-auto">
+          {filtered.map((post, i) => <PostCard key={`${active}-${post.title}`} post={post} i={i} />)}
+          {filtered.length === 0 && (
+            <div className="border-t border-[#2d3232]/10 py-16 px-8 text-center">
+              <p className="text-sm text-[#2d3232]/45 mb-6">No posts match your filter.</p>
+              <button onClick={() => setActive('View All')}
+                className="text-[10px] uppercase tracking-[0.16em] border-b border-[#2d3232]/25 pb-1" style={{ fontFamily: NAV_FONT }}>
+                View All
+              </button>
             </div>
-            {filtered.length === 0 && (
-              <div className="border border-[#2d3232]/10 py-16 px-8 text-center">
-                <p className="text-sm text-[#2d3232]/45 mb-6">No posts match your search.</p>
-                <button onClick={() => { setQuery(''); setActive('View All'); }}
-                  className="text-[10px] uppercase tracking-[0.16em] border-b border-[#2d3232]/25 pb-1" style={{ fontFamily: NAV_FONT }}>
-                  Clear Search
-                </button>
-              </div>
-            )}
-          </div>
-
-          <aside className="lg:sticky lg:top-40 space-y-10">
-            <FadeIn className="bg-white/65 border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
-              <div className="w-16 h-16 rounded-full bg-[#d8d8e6] flex items-center justify-center mb-6">
-                <Search className="w-5 h-5 text-[#f5f0eb]" />
-              </div>
-              <label className="block text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/45 mb-3" style={{ fontFamily: NAV_FONT }}>
-                Search Fresh Ink
-              </label>
-              <input
-                value={query}
-                onChange={event => setQuery(event.target.value)}
-                placeholder="Search ..."
-                className="w-full bg-[#f8f6f3] border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/35 transition-colors"
-              />
-            </FadeIn>
-
-            <FadeIn delay={0.1} className="bg-white/65 border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
-              <h2 className="text-3xl mb-6 leading-none" style={{ fontFamily: SERIF, fontWeight: 700 }}>About Us</h2>
-              <div className="aspect-[3/2] overflow-hidden mb-7 bg-[#e7e3de]">
-                <img src={`${CDN}/2018/11/blog-about-us.png`} alt="Hagopian Ink studio materials" className="w-full h-full object-cover" />
-              </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/35 mb-4" style={{ fontFamily: NAV_FONT }}>Make your mark</p>
-              <p className="text-[14px] leading-relaxed text-[#2d3232]/62 mb-6">
-                Hagopian Ink is a woman-owned branding agency born in New York City. We specialize in increasing value for luxury and lifestyle brands through branding, e-commerce, and email marketing.
-              </p>
-              <p className="text-[14px] leading-relaxed text-[#2d3232]/62 mb-7">
-                The ink in Hagopian Ink symbolizes many things to us. The inkwell is the endless source of inspiration, and our goal is to help you create your own unique mark on the world.
-              </p>
-              <Btn href="/about" external={false} className="w-full justify-center">
-                More About Us <ArrowRight className="w-4 h-4" />
-              </Btn>
-            </FadeIn>
-          </aside>
+          )}
+          <div className="border-t border-[#2d3232]/10" />
         </div>
       </section>
 
