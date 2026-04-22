@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
-import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
-import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
+import { CDN, CLIENT_LOGOS, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -26,24 +26,51 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'Todd + Duncan',
-    category: 'Luxury Brand Identity',
-    headline: 'An award-winning cashmere brand from the ground up',
-    result: 'When Zhongyin Cashmere acquired the 140-year-old Todd & Duncan label, they turned to us to bring the Scottish heritage brand to the US market. We developed a complete visual identity — logo, stationery, store signage, shopping bags, and custom boxes — that carried forward the quality, craftsmanship, and modern elegance of the cashmere line for a new generation of luxury consumers.',
-    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
+    client: 'La Perla',
+    category: 'Omnichannel Marketing',
+    headline: 'Campaigns that move product — and build love',
+    result: 'Precisely timed email, direct mail, and digital ad campaigns drove a 30% increase in Valentine\'s Day sales across all channels.',
+    img: `${CDN}/2018/08/Work-Thumb_laperla-293x414.jpg`,
     href: 'https://hagopianink.com/expertise/',
   },
   {
-    client: 'La Perla + Lancôme',
-    category: 'Omnichannel Campaign Marketing',
-    headline: 'Campaigns that move product — and build love',
-    result: 'For La Perla, precisely timed email, direct mail, and digital ad campaigns drove a 30% increase in Valentine\'s Day sales. For Lancôme, the Facebook House of Color interactive mirror grew the brand to 2.93 million followers and sold out a new eye palette in its first month on the market.',
-    img: `${CDN}/2022/08/HI_home2_loum.jpg`,
+    client: 'Todd + Duncan',
+    category: 'Luxury Brand Identity',
+    headline: 'An award-winning cashmere brand from the ground up',
+    result: 'Complete visual identity — logo, stationery, store signage, shopping bags, and custom boxes — for a 140-year-old Scottish cashmere label entering the US market.',
+    img: `${CDN}/2018/08/Work-Thumb_TD-293x414.jpg`,
+    href: 'https://hagopianink.com/expertise/',
+  },
+  {
+    client: 'Gwynnie Bee',
+    category: 'UX + Email Marketing',
+    headline: 'A 300% lift in subscription sign-ups',
+    result: 'Redesigned acquisition funnel and subscription landing experience delivered a 300% increase in new member sign-ups for the fashion rental platform.',
+    img: `${CDN}/2018/08/Work-Thumb_gwynnie-293x414.jpg`,
+    href: 'https://hagopianink.com/works/gwynnie-bee-subscription-acquisition-email/',
+  },
+  {
+    client: 'Loum Beauty',
+    category: 'Brand + UX Redesign',
+    headline: 'Clarifying a complex clean-beauty story',
+    result: 'Redesigned the digital experience to simplify Loum\'s clean-beauty narrative, improve navigation, and drive conversions across mobile and desktop.',
+    img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
     href: 'https://hagopianink.com/expertise/',
   },
 ];
 
+const LUXURY_LOGOS = CLIENT_LOGOS.filter(l =>
+  ['La Perla', 'Lancôme', 'Burberry', 'Armani', 'Frette', 'MSG', 'Gwynnie Bee',
+   'Aston Martin', 'Condé Nast', 'Estée Lauder'].includes(l.alt)
+);
+
 export function LuxuryLifestylePage() {
+  const cardBg     = '#343a3a';
+  const cardBorder = '#424848';
+  const textColor  = '#f5f0eb';
+  const mutedColor = 'rgba(245,240,235,0.5)';
+  const borderColor = 'rgba(245,240,235,0.1)';
+
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -121,44 +148,53 @@ export function LuxuryLifestylePage() {
         </div>
       </section>
 
-      {/* FEATURED WORK */}
+      {/* FEATURED WORK — card style matching Work page */}
       <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel light>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Luxury + lifestyle in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.15} className="group">
-                <div className="overflow-hidden mb-6">
+              <FadeIn key={i} delay={i * 0.1} className="group flex flex-col"
+                style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
+                {/* Image — tall portrait 293×414 */}
+                <div className="overflow-hidden aspect-[293/414]">
                   <img src={p.img} alt={p.client}
-                    className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700" />
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
                 </div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>{p.category}</p>
-                <h3 className="text-2xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.headline}</h3>
-                <p className="text-[14px] text-[#f5f0eb]/60 leading-relaxed mb-5">{p.result}</p>
-                <a href={p.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#f5f0eb]/50 hover:text-[#f5f0eb] border-b border-[#f5f0eb]/20 hover:border-[#f5f0eb] pb-1 transition-all duration-300"
-                  style={{ fontFamily: NAV_FONT }}>
-                  View Project <ArrowRight className="w-3 h-3" />
-                </a>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-[9px] uppercase tracking-[0.2em] mb-3"
+                    style={{ color: mutedColor, fontFamily: NAV_FONT }}>{p.category}</p>
+                  <h3 className="text-lg mb-3 leading-snug flex-1"
+                    style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>{p.headline}</h3>
+                  <p className="text-[12px] leading-relaxed mb-5"
+                    style={{ color: mutedColor }}>{p.result}</p>
+                  <a href={p.href} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
+                    style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
+                    View Work <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
               </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CLIENTS */}
+      {/* BRANDS WHO TRUST US — logo grid */}
       <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-10">
-            <SectionLabel light>Clients We've Served</SectionLabel>
+            <SectionLabel light>Brands Who Trust Us</SectionLabel>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Burberry', 'La Perla', 'Lancôme', 'Frette', 'Todd + Duncan', 'Madison Square Garden', 'Couture Show Las Vegas', 'Cuvée Beauty'].map((c, i) => (
-              <FadeIn key={i} delay={i * 0.06} className="border-t border-[#474d4d] pt-5">
-                <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-x-10 gap-y-8 items-center">
+            {LUXURY_LOGOS.map((logo, i) => (
+              <FadeIn key={i} delay={i * 0.05} className="flex items-center justify-center">
+                <img src={logo.src} alt={logo.alt}
+                  className="max-h-8 w-auto object-contain opacity-50 hover:opacity-80 transition-opacity duration-300 filter brightness-0 invert" />
               </FadeIn>
             ))}
           </div>
