@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, BookOpen } from 'lucide-react';
+import { ArrowRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, BookOpen, ExternalLink, Newspaper } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -9,68 +9,74 @@ import { CDN, VIDEO_ABOUT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, CL
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const VALUES = [
-  {
-    icon: Target,
-    title: 'Strategy First',
-    desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.',
-  },
-  {
-    icon: Gem,
-    title: 'Craft Without Compromise',
-    desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.',
-  },
-  {
-    icon: Heart,
-    title: 'Relationships Over Transactions',
-    desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Results Are the Measure',
-    desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.',
-  },
-  {
-    icon: Star,
-    title: 'Woman-Owned, Creatively Driven',
-    desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.',
-  },
-  {
-    icon: Users,
-    title: 'Curated Teams, by Design',
-    desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.',
-  },
+  { icon: Target,    title: 'Strategy First',                  desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.' },
+  { icon: Gem,       title: 'Craft Without Compromise',         desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.' },
+  { icon: Heart,     title: 'Relationships Over Transactions',  desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.' },
+  { icon: TrendingUp,title: 'Results Are the Measure',          desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.' },
+  { icon: Star,      title: 'Woman-Owned, Creatively Driven',   desc: 'As a woman-owned business, we bring a unique perspective to every engagement — and we believe diverse leadership builds stronger brands.' },
+  { icon: Users,     title: 'Curated Teams, by Design',         desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.' },
 ];
 
 const AWARDS = [
-  { name: 'FSEA Gold Leaf Award',                     org: 'Foil & Specialty Effects Association' },
-  { name: 'Healthcare Marketing IMPACT Award',         org: 'Winner — Direct Marketing' },
-  { name: 'GDUSA American Packaging Design Award',     org: 'Graphic Design USA' },
-  { name: 'GDUSA American Web Design Award',           org: 'Graphic Design USA — Honorable Mention' },
-  { name: 'Stevie Award for Women Entrepreneurs',      org: 'Finalist' },
-  { name: 'Best of New England Award',                 org: 'BoNE — Creative Excellence' },
-  { name: 'HOW International Annual Award',            org: 'Business Communications' },
+  { name: 'FSEA Gold Leaf Award',                           org: 'Foil & Specialty Effects Association — Best use of Foil/Embossing, Greeting Card',    href: 'https://fsea.com/gold-leaf-awards-2022/' },
+  { name: 'Healthcare Marketing IMPACT Award Winner',       org: 'Modern Healthcare — Direct Mail Campaign of the Year',                                   href: 'https://www.modernhealthcare.com/awards/2016-healthcare-marketing-impact-awards-hagopian-ink' },
+  { name: 'Healthcare Marketing IMPACT Award Winner',       org: 'Modern Healthcare — Direct Mail Campaign of the Year',                                   href: 'https://www.modernhealthcare.com/awards/2016-healthcare-marketing-impact-awards-hagopian-ink' },
+  { name: 'GDUSA American Packaging Design Award',          org: 'Graphic Design USA',                                                                     href: null },
+  { name: 'GDUSA American Web Design Awards',               org: 'Honorable Mention — Responsive design for Todd & Duncan e-commerce',                     href: 'https://www.awwwards.com/sites/todd-duncan-1' },
+  { name: 'Vmarketics Top 100 Greeting Card Makers',        org: 'Vmarketics',                                                                             href: null },
+  { name: 'STEP Inside Design: 10 Women to Watch',          org: 'STEP Inside Design',                                                                     href: null },
+  { name: 'Stevie Award for Women Entrepreneurs',           org: 'Finalist',                                                                               href: null },
+  { name: 'Print Regional Design Annual',                   org: 'Print Magazine',                                                                         href: null },
+  { name: 'AIGA Best of New England Award',                 org: 'BoNE — Creative Excellence',                                                             href: null },
+  { name: 'HOW International Annual Award for Business',    org: 'HOW Magazine',                                                                           href: null },
 ];
 
-const PRESS = [
+const BOOKS = [
   {
-    icon: BookOpen,
-    title: 'LogoLounge Master Library, Vol. 3',
-    sub: 'Rockport Publishers',
-    desc: '3,000 Shapes and Symbol Logos — Katherine Fishel & Bill Gardner',
+    title: 'LogoLounge Master Library, Volume 3',
+    subtitle: '3,000 Shapes and Symbol Logos',
+    authors: 'Catharine Fishel, Bill Gardner',
+    publisher: 'Rockport Publishers',
+    href: 'https://www.amazon.com/LogoLounge-Master-Library-Volume-Symbols/dp/1592536905',
   },
   {
-    icon: BookOpen,
     title: '1,000 Greetings',
-    sub: 'Rockport Publishers',
-    desc: 'Creative Correspondence Designed for All Occasions',
+    subtitle: 'Creative Correspondence Designed for All Occasions',
+    authors: 'Peter King & Company',
+    publisher: 'Rockport Publishers',
+    href: 'https://www.amazon.com/000-Greetings-Creative-Correspondence-Occasions/dp/B005GNLYLU',
   },
   {
-    icon: Star,
-    title: 'Forbes',
-    sub: 'Editorial Feature',
-    desc: "Press and editorial coverage of Hagopian Ink\u2019s work and leadership",
+    title: 'Progressive Direct Mail',
+    subtitle: null,
+    authors: null,
+    publisher: 'PIE Books',
+    href: 'https://www.amazon.com/Progressive-Direct-Mail-Pie-Books/dp/4894444569',
   },
 ];
+
+const ARTICLES = [
+  { pub: 'Forbes',                    title: 'How We Learned The Real Secrets To Effective Email Marketing',                    href: 'https://www.forbes.com/sites/entrepreneursorganization/2017/12/04/how-we-learned-the-real-secrets-to-effective-email-marketing/#51d5496f2ee9' },
+  { pub: 'Carnegie Mellon University',title: 'Christina Hagopian — Inked for Success',                                          href: 'https://www.cmu.edu/homepage/society/2013/winter/inked-for-success.shtml' },
+  { pub: 'Target Marketing / AdWeek', title: 'Focus on Responsive Email to Grow Your E-Commerce Business',                      href: 'https://www.adweek.com/performance-marketing/focus-responsive-email-grow-your-e-commerce-business/' },
+  { pub: 'Luxury Daily',              title: '6 tips to maximize the potential of luxury email campaigns',                       href: 'https://www.luxurydaily.com/6-tips-to-maximize-the-potential-of-luxury-email-campaigns/' },
+];
+
+const MEDIUM = [
+  { title: 'Why Personalization Matters — And How to Get it Right',   href: 'https://medium.com/@christina.hagopian/why-personalization-matters-and-how-to-get-it-right-762bedb00c6d' },
+  { title: 'The New Burberry Logo: I Hate It! But Wait\u2026',         href: 'https://medium.com/@christina.hagopian/the-new-burberry-logo-i-hate-it-but-wait-4475e02af0c0' },
+];
+
+const PROMOTIONS = [
+  { title: 'Marble and Foil Stamped Business Cards',                                             pub: 'UnderConsideration / For Print Only',  href: 'https://www.underconsideration.com/fpo/archives/2017/03/hagopian-ink-business-cards.php' },
+  { title: 'Mayan New Year, It\u2019s Not the End of the World',                                 pub: 'UnderConsideration / For Print Only',  href: 'https://www.underconsideration.com/fpo/archives/2013/06/its-not-the-end-of-the-world-122112-mayan-promo.php' },
+  { title: 'Summer and Winter Solstice',                                                         pub: 'UnderConsideration / For Print Only',  href: 'https://www.underconsideration.com/fpo/archives/2012/02/hagopian-ink-summer-and-winter-solstice-card.php' },
+  { title: 'Very Creative Examples of Holiday Cards That Will Make Anyone Feel More Special',    pub: 'TopDesignMag.com',                     href: 'http://www.topdesignmag.com/very-creative-examples-of-holiday-cards-that-will-make-anyone-feel-more-special/' },
+];
+
+const muted   = 'rgba(245,240,235,0.5)';
+const border  = 'rgba(245,240,235,0.1)';
+const dimmed  = 'rgba(245,240,235,0.35)';
 
 export function AboutPage() {
   return (
@@ -86,16 +92,12 @@ export function AboutPage() {
           <source src={VIDEO_ABOUT} type="video/mp4" />
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5"
-            style={{ fontFamily: NAV_FONT }}>
+          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>
             About Hagopian Ink
           </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
-            className="leading-[0.9] mb-0"
-            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
+            className="leading-[0.9] mb-0" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
             We help you make<br />
             <span style={{ fontStyle: 'italic', opacity: 0.55 }}>your mark.</span>
           </motion.h1>
@@ -128,24 +130,15 @@ export function AboutPage() {
       {/* ── LEADERSHIP ────────────────────────────── */}
       <section className="bg-[#343a3a] py-28 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-16">
-            <SectionLabel light>Leadership</SectionLabel>
-          </FadeIn>
+          <FadeIn className="mb-16"><SectionLabel light>Leadership</SectionLabel></FadeIn>
           <FadeIn className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
             <div className="shrink-0">
-              <img
-                src={PHOTO_CHRISTINA}
-                alt="Christina Hagopian, President & Creative Director"
-                className="w-48 md:w-56 aspect-square object-cover object-top"
-              />
+              <img src={PHOTO_CHRISTINA} alt="Christina Hagopian, President & Creative Director"
+                className="w-48 md:w-56 aspect-square object-cover object-top" />
             </div>
             <div className="flex-1 max-w-2xl">
-              <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                Christina Hagopian
-              </h3>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>
-                President &amp; Creative Director
-              </p>
+              <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
                 Christina founded Hagopian Ink in 2002 with a clear belief that thoughtful brand strategy and exceptional creative could genuinely move people — and move business. More than two decades on, that belief shapes every brief the studio takes.
               </p>
@@ -164,10 +157,10 @@ export function AboutPage() {
       <section className="bg-[#f1efef] text-[#2d3232] py-20 px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { n: '2002',  label: 'Year founded' },
-            { n: '100+',  label: 'Brands developed' },
-            { n: '20+',   label: 'Years of partnerships' },
-            { n: 'W/O',   label: 'Woman owned, creatively driven' },
+            { n: '2002', label: 'Year founded' },
+            { n: '100+', label: 'Brands developed' },
+            { n: '20+',  label: 'Years of partnerships' },
+            { n: 'W/O',  label: 'Woman owned, creatively driven' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -182,17 +175,14 @@ export function AboutPage() {
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel light>How We Work</SectionLabel>
-            <h2 className="text-4xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Our principles.
-            </h2>
+            <h2 className="text-4xl md:text-6xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Our principles.</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
             {VALUES.map((v, i) => {
               const Icon = v.icon;
               return (
                 <FadeIn key={i} delay={i * 0.07} className="border-t border-[#474d4d] pt-8">
-                  <div className="mb-4 w-9 h-9 rounded-sm flex items-center justify-center"
-                    style={{ background: 'rgba(245,240,235,0.07)' }}>
+                  <div className="mb-4 w-9 h-9 rounded-sm flex items-center justify-center" style={{ background: 'rgba(245,240,235,0.07)' }}>
                     <Icon className="w-4 h-4" style={{ color: '#f5f0eb', opacity: 0.7 }} />
                   </div>
                   <h3 className="text-xl mb-3" style={{ fontFamily: SERIF, fontWeight: 700 }}>{v.title}</h3>
@@ -209,19 +199,26 @@ export function AboutPage() {
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel light>Recognition</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Awards &amp; honors.
-            </h2>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Awards &amp; honors.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(245,240,235,0.07)' }}>
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.07}
-                className="flex gap-4 items-start p-6 border border-[#424848]"
-                style={{ background: '#2d3232' }}>
-                <Trophy className="w-4 h-4 shrink-0 mt-0.5" style={{ color: '#f5f0eb', opacity: 0.4 }} />
-                <div>
-                  <p className="text-[15px] leading-snug mb-1" style={{ fontFamily: SERIF, fontWeight: 700 }}>{a.name}</p>
-                  <p className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>{a.org}</p>
+              <FadeIn key={i} delay={i * 0.05}
+                className="flex gap-4 items-start p-6 group"
+                style={{ background: '#343a3a' }}>
+                <Trophy className="w-3.5 h-3.5 shrink-0 mt-1" style={{ color: '#f5f0eb', opacity: 0.3 }} />
+                <div className="flex-1 min-w-0">
+                  {a.href ? (
+                    <a href={a.href} target="_blank" rel="noopener noreferrer"
+                      className="flex items-start gap-1.5 group/link">
+                      <span className="text-[15px] leading-snug group-hover/link:opacity-100 transition-opacity"
+                        style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.name}</span>
+                      <ExternalLink className="w-3 h-3 shrink-0 mt-1 opacity-0 group-hover/link:opacity-50 transition-opacity" />
+                    </a>
+                  ) : (
+                    <p className="text-[15px] leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.name}</p>
+                  )}
+                  <p className="text-[11px] uppercase tracking-[0.1em] mt-1" style={{ color: muted, fontFamily: NAV_FONT }}>{a.org}</p>
                 </div>
               </FadeIn>
             ))}
@@ -229,28 +226,86 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* ── PUBLICATIONS + PRESS ──────────────────── */}
-      <section className="bg-[#343a3a] py-16 pb-24 md:pb-36 px-8 md:px-16 border-t border-[#3a4040]">
+      {/* ── PUBLICATIONS ──────────────────────────── */}
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>In Print + Press</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Publications &amp; features.
-            </h2>
+            <SectionLabel light>In Print</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRESS.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <FadeIn key={i} delay={i * 0.1} className="border-t border-[#474d4d] pt-8">
-                  <Icon className="w-5 h-5 mb-5" style={{ color: '#f5f0eb', opacity: 0.35 }} />
-                  <h3 className="text-xl mb-1 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.title}</h3>
-                  <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40 mb-3" style={{ fontFamily: NAV_FONT }}>{p.sub}</p>
-                  <p className="text-[13px] text-[#f5f0eb]/55 leading-relaxed">{p.desc}</p>
-                </FadeIn>
-              );
-            })}
+            {BOOKS.map((b, i) => (
+              <FadeIn key={i} delay={i * 0.1} className="border-t pt-8" style={{ borderColor: border }}>
+                <BookOpen className="w-5 h-5 mb-5" style={{ color: '#f5f0eb', opacity: 0.3 }} />
+                <h3 className="text-lg leading-snug mb-1" style={{ fontFamily: SERIF, fontWeight: 700 }}>{b.title}</h3>
+                {b.subtitle && <p className="text-[13px] mb-2" style={{ color: muted }}>{b.subtitle}</p>}
+                {b.authors  && <p className="text-[12px] mb-1" style={{ color: dimmed, fontFamily: NAV_FONT }}>{b.authors}</p>}
+                <p className="text-[11px] uppercase tracking-[0.1em] mb-5" style={{ color: dimmed, fontFamily: NAV_FONT }}>{b.publisher}</p>
+                <a href={b.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] border-b pb-0.5 transition-all hover:gap-2.5"
+                  style={{ color: muted, borderColor: border, fontFamily: NAV_FONT }}>
+                  View on Amazon <ExternalLink className="w-3 h-3" />
+                </a>
+              </FadeIn>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── ARTICLES & FEATURES ───────────────────── */}
+      <section className="bg-[#343a3a] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel light>Covered By</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Articles &amp; features.</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-16" style={{ background: 'rgba(245,240,235,0.07)' }}>
+            {ARTICLES.map((a, i) => (
+              <FadeIn key={i} delay={i * 0.07}
+                className="p-6 group" style={{ background: '#343a3a' }}>
+                <p className="text-[10px] uppercase tracking-[0.18em] mb-2" style={{ color: dimmed, fontFamily: NAV_FONT }}>{a.pub}</p>
+                <a href={a.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-start gap-2 group/link">
+                  <span className="text-[16px] leading-snug" style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.9 }}>{a.title}</span>
+                  <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-1 opacity-0 group-hover/link:opacity-50 transition-opacity" />
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Medium pieces */}
+          <FadeIn className="mb-8">
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-6" style={{ color: dimmed, fontFamily: NAV_FONT }}>Medium.com — Written by Christina Hagopian</p>
+            <div className="flex flex-col gap-4">
+              {MEDIUM.map((m, i) => (
+                <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 group border-b pb-4" style={{ borderColor: border }}>
+                  <Newspaper className="w-3.5 h-3.5 shrink-0" style={{ color: '#f5f0eb', opacity: 0.3 }} />
+                  <span className="text-[15px] leading-snug group-hover:opacity-100 transition-opacity"
+                    style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.8 }}>{m.title}</span>
+                  <ExternalLink className="w-3 h-3 shrink-0 opacity-0 group-hover:opacity-40 transition-opacity ml-auto" />
+                </a>
+              ))}
+            </div>
+          </FadeIn>
+
+          {/* Promotions — For Print Only */}
+          <FadeIn>
+            <p className="text-[10px] uppercase tracking-[0.2em] mb-6" style={{ color: dimmed, fontFamily: NAV_FONT }}>Hagopian Ink Promotions — Featured Work</p>
+            <div className="flex flex-col gap-4">
+              {PROMOTIONS.map((p, i) => (
+                <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-start gap-3 group border-b pb-4" style={{ borderColor: border }}>
+                  <div className="flex-1">
+                    <span className="block text-[15px] leading-snug group-hover:opacity-100 transition-opacity"
+                      style={{ fontFamily: SERIF, fontWeight: 700, opacity: 0.8 }}>{p.title}</span>
+                    <span className="text-[10px] uppercase tracking-[0.12em] mt-1 block" style={{ color: dimmed, fontFamily: NAV_FONT }}>{p.pub}</span>
+                  </div>
+                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 opacity-0 group-hover:opacity-40 transition-opacity" />
+                </a>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
