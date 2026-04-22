@@ -206,16 +206,22 @@ export function AboutPage() {
               <FadeIn key={i} delay={i * 0.04} className="p-6 group" style={{ background: '#f1efef' }}>
                 {a.href ? (
                   <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
-                    <div>
-                      <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/60 transition-colors">{a.name}</p>
-                      <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                    <div className="flex gap-3 items-start">
+                      <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
+                      <div>
+                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/60 transition-colors">{a.name}</p>
+                        <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                      </div>
                     </div>
                     <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                   </a>
                 ) : (
-                  <div>
-                    <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
-                    <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                  <div className="flex gap-3 items-start">
+                    <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
+                    <div>
+                      <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
+                      <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                    </div>
                   </div>
                 )}
               </FadeIn>
