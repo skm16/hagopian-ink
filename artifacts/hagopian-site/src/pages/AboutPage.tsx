@@ -201,9 +201,9 @@ export function AboutPage() {
             <SectionLabel>Recognition</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Awards &amp; honors.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'rgba(45,50,50,0.08)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2">
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.04} className="p-4 group" style={{ background: 'white' }}>
+              <FadeIn key={i} delay={i * 0.04} className="py-5 border-t border-[#2d3232]/12 group">
                 {a.href ? (
                   <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                     <div className="flex gap-3 items-start">
@@ -237,9 +237,9 @@ export function AboutPage() {
             <SectionLabel>In Print</SectionLabel>
             <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3">
             {BOOKS.map((b, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="bg-white p-8 shadow-[0_2px_24px_rgba(45,50,50,0.06)] flex flex-col">
+              <FadeIn key={i} delay={i * 0.1} className="py-8 border-t border-[#2d3232]/12 flex flex-col pr-8">
                 <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
                 {b.subtitle && <p className="text-[13px] text-[#2d3232]/55 mb-3 leading-snug">{b.subtitle}</p>}
                 {b.authors  && <p className="text-[13px] text-[#2d3232]/40 mb-0.5">{b.authors}</p>}
