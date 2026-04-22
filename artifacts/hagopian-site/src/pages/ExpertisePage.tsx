@@ -278,7 +278,7 @@ export function ExpertisePage() {
       <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
-            <div className="inline-block bg-[#f5f0eb] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#f1efef] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -337,7 +337,7 @@ export function ExpertisePage() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
-            <div className="inline-block bg-[#f5f0eb] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#f1efef] text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty Practice
             </div>
             <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>

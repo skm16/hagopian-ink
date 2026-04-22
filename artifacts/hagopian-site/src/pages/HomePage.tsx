@@ -333,7 +333,7 @@ export function Homepage() {
                     )}
                   </div>
                 ))}
-                <button className="w-full py-4 bg-[#f5f0eb] text-[#2d3232] text-[11px] uppercase tracking-[0.16em] hover:bg-white transition-colors duration-300 mt-4"
+                <button className="w-full py-4 bg-[#f1efef] text-[#2d3232] text-[11px] uppercase tracking-[0.16em] hover:bg-white transition-colors duration-300 mt-4"
                   style={{ fontFamily: NAV_FONT }}>
                   Send Message
                 </button>

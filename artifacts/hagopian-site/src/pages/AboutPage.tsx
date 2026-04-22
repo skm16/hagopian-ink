@@ -231,7 +231,7 @@ export function AboutPage() {
       </section>
 
       {/* ── PUBLICATIONS ──────────────────────────── */}
-      <section className="bg-[#f5f0eb] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>In Print</SectionLabel>

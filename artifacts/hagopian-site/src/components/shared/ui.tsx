@@ -62,7 +62,7 @@ export function Btn({ href, children, variant = 'solid', external = true, classN
 export function BtnLight({ href, children, variant = 'solid', external = true, className = '' }: BtnProps) {
   const base = `inline-flex items-center gap-2 px-9 py-4 text-[11px] uppercase tracking-[0.16em] transition-all duration-300 ${className}`;
   const v = variant === 'solid'
-    ? 'bg-[#f5f0eb] text-[#2d3232] hover:bg-white'
+    ? 'bg-[#f1efef] text-[#2d3232] hover:bg-white'
     : 'border border-[#f5f0eb]/35 text-[#f5f0eb] hover:border-[#f5f0eb]';
   const style = { fontFamily: NAV_FONT };
 
