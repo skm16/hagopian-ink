@@ -73,9 +73,9 @@ export function ExpertisePage() {
               { label: 'Brand Identity',        sub: 'Services',   path: '/expertise/brand-identity',        desc: 'Logo, mark development, naming strategy & visual identity systems.' },
               { label: 'Website Design',         sub: 'Services',   path: '/expertise/ux-ui-design',          desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
               { label: 'Email Marketing',        sub: 'Services',   path: '/expertise/email-marketing',       desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
-              { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
-              { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
               { label: 'Luxury + Lifestyle',     sub: 'Industries', path: '/expertise/luxury-lifestyle',      desc: 'Fashion, beauty & luxury brand identity, campaigns & e-commerce.' },
+              { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
+              { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
                 <Link href={item.path}

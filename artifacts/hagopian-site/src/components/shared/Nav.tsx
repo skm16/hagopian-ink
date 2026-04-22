@@ -12,8 +12,9 @@ const EXPERTISE_DROPDOWN = {
     { label: 'Email Marketing',       path: '/expertise/email-marketing' },
   ],
   industries: [
-    { label: 'Nonprofit Fundraising', path: '/expertise/nonprofit-fundraising' },
+    { label: 'Luxury + Lifestyle',    path: '/expertise/luxury-lifestyle' },
     { label: 'Health + MedTech',      path: '/expertise/health-medtech' },
+    { label: 'Nonprofit Fundraising', path: '/expertise/nonprofit-fundraising' },
   ],
 };
 
