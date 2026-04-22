@@ -274,7 +274,7 @@ export function WorkPage() {
                   style={{ color: mutedColor, fontFamily: NAV_FONT }}>{ind.num}</span>
                 <span className="w-10 h-px" style={{ background: borderColor }} />
                 <span className="text-[11px] uppercase tracking-[0.18em]"
-                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>Specialty</span>
+                  style={{ color: mutedColor, fontFamily: NAV_FONT }}>Specialty: {ind.label}</span>
               </FadeIn>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
