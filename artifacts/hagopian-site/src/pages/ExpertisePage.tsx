@@ -75,6 +75,7 @@ export function ExpertisePage() {
               { label: 'Email Marketing',        sub: 'Services',   path: '/expertise/email-marketing',       desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
               { label: 'Nonprofit Fundraising',  sub: 'Industries', path: '/expertise/nonprofit-fundraising', desc: 'Donor campaigns, gala design & fundraising strategy.' },
               { label: 'Health + MedTech',       sub: 'Industries', path: '/expertise/health-medtech',        desc: 'Medical device branding, digital health UX & B2B campaigns.' },
+              { label: 'Luxury + Lifestyle',     sub: 'Industries', path: '/expertise/luxury-lifestyle',      desc: 'Fashion, beauty & luxury brand identity, campaigns & e-commerce.' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
                 <Link href={item.path}
@@ -90,8 +91,6 @@ export function ExpertisePage() {
                 </Link>
               </FadeIn>
             ))}
-            {/* spacer for grid alignment on last row */}
-            <div className="hidden lg:block bg-[#343a3a]" />
           </div>
         </div>
       </section>
@@ -232,6 +231,44 @@ export function ExpertisePage() {
             <div className="aspect-[4/5] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2018/09/pepsi-1537458269464-3078.png`} alt="Email marketing work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── LUXURY + LIFESTYLE SPECIALTY ─────────── */}
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <FadeIn>
+            <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+              Specialty Practice
+            </div>
+            <h2 className="text-4xl md:text-6xl mb-8 leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Where we started.<br />The DNA of everything<br /><span style={{ fontStyle: 'italic', opacity: 0.6 }}>we do.</span>
+            </h2>
+            <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-6">
+              Luxury and lifestyle is where Hagopian Ink was born. From Burberry's first e-commerce site to Todd &amp; Duncan's US brand launch, from La Perla's Valentine's Day campaigns to Lancôme's viral House of Color activation — we have spent over 20 years earning the trust of the world's most discerning brands.
+            </p>
+            <div className="grid grid-cols-3 gap-6 mb-12">
+              {[
+                { n: '30%',   label: 'increase in Valentine\'s Day sales — La Perla' },
+                { n: '3x',    label: 'increase in online sales — MSG Suites' },
+                { n: '2.93M', label: 'Facebook followers — Lancôme' },
+              ].map((s, i) => (
+                <div key={i} className="border-t border-[#2d3232]/15 pt-5">
+                  <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/45 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+            <Btn href="/expertise/luxury-lifestyle" external={false}>
+              Explore Luxury + Lifestyle <ArrowRight className="w-4 h-4" />
+            </Btn>
+          </FadeIn>
+          <FadeIn delay={0.2} dir="left">
+            <div className="aspect-[3/4] overflow-hidden bg-[#e0ddd9]">
+              <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Luxury brand work"
+                className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-700" />
             </div>
           </FadeIn>
         </div>

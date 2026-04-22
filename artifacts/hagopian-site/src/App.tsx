@@ -11,6 +11,7 @@ import { UxUiDesignPage } from '@/pages/UxUiDesignPage';
 import { EmailMarketingPage } from '@/pages/EmailMarketingPage';
 import { NonprofitPage } from '@/pages/NonprofitPage';
 import { HealthMedTechPage } from '@/pages/HealthMedTechPage';
+import { LuxuryLifestylePage } from '@/pages/LuxuryLifestylePage';
 
 const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/expertise/email-marketing" component={EmailMarketingPage} />
         <Route path="/expertise/nonprofit-fundraising" component={NonprofitPage} />
         <Route path="/expertise/health-medtech" component={HealthMedTechPage} />
+        <Route path="/expertise/luxury-lifestyle" component={LuxuryLifestylePage} />
         <Route path="/work" component={WorkPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/blog" component={BlogPage} />

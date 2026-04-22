@@ -1,0 +1,190 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Nav } from '@/components/shared/Nav';
+import { Footer } from '@/components/shared/Footer';
+import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
+import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+
+const ease = [0.21, 0.47, 0.32, 0.98] as const;
+
+const CAPABILITIES = [
+  { title: 'Luxury Brand Identity + Naming',    desc: 'Logo, mark development, and complete brand systems that communicate heritage, craftsmanship, and distinction for luxury and lifestyle brands.' },
+  { title: 'E-Commerce Design + UX',            desc: 'Conversion-focused digital experiences for fashion, beauty, jewelry, and lifestyle brands — built to elevate the brand while driving sales.' },
+  { title: 'Fashion + Beauty Campaigns',        desc: 'Seasonal campaigns, lookbooks, launch activations, and editorial-quality email programs that move product and deepen brand love.' },
+  { title: 'Omnichannel Marketing',             desc: 'Coordinated print, digital, email, and in-store marketing programs — timed to purchasing cycles and crafted to a luxury standard.' },
+  { title: 'Luxury Invitations + Print',        desc: 'High-end invitations, brochures, catalogues, and direct mail that make a tactile impression in a digital world.' },
+  { title: 'Brand Launch + Expansion',          desc: 'Market entry strategy, visual rollout, and ongoing brand stewardship for new luxury labels and legacy brands entering new markets.' },
+];
+
+const STATS = [
+  { n: '30%',   label: 'Increase in Valentine\'s Day sales — La Perla' },
+  { n: '3x',    label: 'Increase in online sales, 5 months — MSG Suites' },
+  { n: '2.93M', label: 'Facebook followers — Lancôme House of Color' },
+  { n: '20+',   label: 'Years in luxury + lifestyle' },
+];
+
+const PROJECTS = [
+  {
+    client: 'Todd + Duncan',
+    category: 'Luxury Brand Identity',
+    headline: 'An award-winning cashmere brand from the ground up',
+    result: 'When Zhongyin Cashmere acquired the 140-year-old Todd & Duncan label, they turned to us to bring the Scottish heritage brand to the US market. We developed a complete visual identity — logo, stationery, store signage, shopping bags, and custom boxes — that carried forward the quality, craftsmanship, and modern elegance of the cashmere line for a new generation of luxury consumers.',
+    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
+    href: 'https://hagopianink.com/expertise/',
+  },
+  {
+    client: 'La Perla + Lancôme',
+    category: 'Omnichannel Campaign Marketing',
+    headline: 'Campaigns that move product — and build love',
+    result: 'For La Perla, precisely timed email, direct mail, and digital ad campaigns drove a 30% increase in Valentine\'s Day sales. For Lancôme, the Facebook House of Color interactive mirror grew the brand to 2.93 million followers and sold out a new eye palette in its first month on the market.',
+    img: `${CDN}/2022/08/HI_home2_loum.jpg`,
+    href: 'https://hagopianink.com/expertise/',
+  },
+];
+
+export function LuxuryLifestylePage() {
+  return (
+    <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
+      <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
+      <Nav />
+
+      {/* VIDEO HERO */}
+      <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
+        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
+        <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
+          className="absolute inset-0 w-full h-full object-cover z-0">
+          <source src={VIDEO_MP4} type="video/mp4" />
+        </video>
+        <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Luxury + Lifestyle</p>
+            <h1 className="leading-[0.95] mb-6" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
+              Where we started.<br />
+              The DNA of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything we do.</span>
+            </h1>
+            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+              Luxury and lifestyle is where Hagopian Ink was born. Since 2002, we have built brands, campaigns, and digital experiences for the world's most discerning consumers — from global fashion houses to independent luxury labels.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="bg-[#2d3232] border-b border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3a4040]">
+          {STATS.map((s, i) => (
+            <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
+              <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
+              <div className="text-[10px] uppercase tracking-[0.12em] text-[#f5f0eb]/45" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* OVERVIEW */}
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <FadeIn>
+            <SectionLabel>Our Approach</SectionLabel>
+            <h2 className="text-4xl md:text-5xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Luxury brands demand<br />
+              a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>luxury standard.</span>
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
+              We understand luxury because we have lived inside it since our first day in business. Our clients have included global fashion houses, heritage cashmere labels, fine jewelry brands, beauty innovators, and lifestyle startups — each requiring the same rare combination of editorial sensibility, strategic precision, and craft.
+            </p>
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed">
+              From Burberry's first e-commerce website to Todd & Duncan's US market launch, from La Perla's Valentine's Day campaigns to Lancôme's viral House of Color activation — we bring a big-agency creative standard with the personal attention of a boutique studio that treats your brand as its own.
+            </p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* CAPABILITIES */}
+      <section className="bg-[#f1efef] text-[#2d3232] pb-24 md:pb-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel>Capabilities</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>What we deliver</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+            {CAPABILITIES.map((c, i) => (
+              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
+                <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
+                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED WORK */}
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel light>Featured Work</SectionLabel>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Luxury + lifestyle in practice</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {PROJECTS.map((p, i) => (
+              <FadeIn key={i} delay={i * 0.15} className="group">
+                <div className="overflow-hidden mb-6">
+                  <img src={p.img} alt={p.client}
+                    className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700" />
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>{p.category}</p>
+                <h3 className="text-2xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.headline}</h3>
+                <p className="text-[14px] text-[#f5f0eb]/60 leading-relaxed mb-5">{p.result}</p>
+                <a href={p.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#f5f0eb]/50 hover:text-[#f5f0eb] border-b border-[#f5f0eb]/20 hover:border-[#f5f0eb] pb-1 transition-all duration-300"
+                  style={{ fontFamily: NAV_FONT }}>
+                  View Project <ArrowRight className="w-3 h-3" />
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENTS */}
+      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-10">
+            <SectionLabel light>Clients We've Served</SectionLabel>
+          </FadeIn>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['Burberry', 'La Perla', 'Lancôme', 'Frette', 'Todd + Duncan', 'Madison Square Garden', 'Couture Show Las Vegas', 'Cuvée Beauty'].map((c, i) => (
+              <FadeIn key={i} delay={i * 0.06} className="border-t border-[#474d4d] pt-5">
+                <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
+        <FadeIn>
+          <SectionLabel>Start a Project</SectionLabel>
+          <h2 className="text-4xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            Ready to build a luxury brand<br />
+            <span style={{ fontStyle: 'italic', opacity: 0.6 }}>that endures?</span>
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Btn href="/contact" external={false}>
+              Start a Conversation <ArrowRight className="w-4 h-4" />
+            </Btn>
+            <Btn href="/work" external={false} variant="outline">
+              See All Work
+            </Btn>
+          </div>
+        </FadeIn>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
