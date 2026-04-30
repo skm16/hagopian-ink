@@ -13,6 +13,47 @@ import {
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
+function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }) {
+  const flip = i % 2 !== 0;
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  // Text card slides further than the image for a subtle parallax separation
+  const textY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
+  return (
+    <FadeIn className="mt-12 md:mt-16 px-6 md:px-10">
+      <div ref={ref} className="relative group max-w-[1400px] mx-auto">
+        <div className="overflow-hidden w-full">
+          <img src={cs.img} alt={cs.client}
+            className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
+        </div>
+        <div className={`absolute top-6 ${flip ? 'left-8' : 'right-8'} text-[11px] uppercase tracking-[0.22em] text-white/60`}
+          style={{ fontFamily: NAV_FONT }}>
+          {String(i + 1).padStart(2, '0')}
+        </div>
+        <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 w-full md:w-[38%]`}>
+          <motion.div
+            style={{ y: textY }}
+            className="bg-white px-10 py-9 shadow-[0_4px_40px_rgba(0,0,0,0.10)]">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
+            <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
+            <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-6">{cs.desc}</p>
+            <a href={cs.href} target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/50 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
+              style={{ fontFamily: NAV_FONT }}>
+              View Case Study <ArrowRight className="w-3 h-3" />
+            </a>
+          </motion.div>
+        </div>
+      </div>
+      <div className="h-28 md:h-32" />
+    </FadeIn>
+  );
+}
+
 export function Homepage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -112,7 +153,7 @@ export function Homepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
             {SERVICES.map((svc, i) => (
-              <FadeIn key={i} delay={i * 0.15} className="flex flex-col group">
+              <FadeIn key={i} delay={i * 0.15} className="flex flex-col group relative">
                 <div className="bg-white p-8 flex-grow flex flex-col shadow-[0_2px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_48px_rgba(0,0,0,0.12)] transition-shadow duration-500">
                   <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4" style={{ color: svc.color, fontFamily: NAV_FONT }}>{svc.name}</p>
                   <h3 className="text-2xl md:text-3xl mb-5 leading-snug whitespace-pre-line" style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
@@ -122,16 +163,31 @@ export function Homepage() {
                     style={{ fontFamily: NAV_FONT }}>
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
                   </a>
-                  <div className="relative">
-                    <div className="overflow-hidden bg-[#f1efef]">
-                      <img src={svc.img} alt={svc.name}
-                        className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
-                    </div>
-                    <div className="flex justify-center mt-4">
-                      <img src={svc.icon} alt="" className="h-16 w-auto object-contain opacity-65" style={svc.iconFilter ? { filter: svc.iconFilter } : undefined} />
-                    </div>
+                  <div className="overflow-hidden bg-[#f1efef]">
+                    <img src={svc.img} alt={svc.name}
+                      className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
                   </div>
                 </div>
+                {/* Ink drop icon - bottom-right, hangs below card edge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.4, y: 24 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-8%' }}
+                  transition={{ duration: 0.7, delay: 0.35 + i * 0.15, ease }}
+                  className="absolute -bottom-9 right-6 md:right-8 w-[76px] h-[76px] z-10 pointer-events-none"
+                >
+                  <div
+                    className="w-full h-full flex items-center justify-center bg-[#d8d4cd]/95 shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
+                    style={{ borderRadius: '50% 50% 50% 0', transform: 'rotate(-45deg)' }}
+                  >
+                    <img
+                      src={svc.icon}
+                      alt=""
+                      className="w-9 h-9 object-contain opacity-80"
+                      style={{ transform: 'rotate(45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
+                    />
+                  </div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
@@ -151,34 +207,9 @@ export function Homepage() {
         </FadeIn>
 
         <div className="pb-8">
-          {CASE_STUDIES.map((cs, i) => {
-            const flip = i % 2 !== 0;
-            return (
-              <FadeIn key={cs.id} className="mt-12 md:mt-16 px-6 md:px-10">
-                <div className="relative group max-w-[1400px] mx-auto">
-                  <div className="overflow-hidden w-full">
-                    <img src={cs.img} alt={cs.client}
-                      className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
-                  </div>
-                  <div className={`absolute top-6 ${flip ? 'left-8' : 'right-8'} text-[11px] uppercase tracking-[0.22em] text-white/60`}
-                    style={{ fontFamily: NAV_FONT }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </div>
-                  <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 bg-white px-10 py-9 w-full md:w-[38%] shadow-[0_4px_40px_rgba(0,0,0,0.10)]`}>
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
-                    <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
-                    <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-6">{cs.desc}</p>
-                    <a href={cs.href} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/50 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
-                      style={{ fontFamily: NAV_FONT }}>
-                      View Case Study <ArrowRight className="w-3 h-3" />
-                    </a>
-                  </div>
-                </div>
-                <div className="h-28 md:h-32" />
-              </FadeIn>
-            );
-          })}
+          {CASE_STUDIES.map((cs, i) => (
+            <CaseStudyItem key={cs.id} cs={cs} i={i} />
+          ))}
         </div>
 
         <FadeIn className="py-16 text-center border-t border-[#e0ddd9]">
