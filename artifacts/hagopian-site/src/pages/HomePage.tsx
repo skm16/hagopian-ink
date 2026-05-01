@@ -5,6 +5,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import ceciliaHeadshot from '@assets/image_1776807172711.png';
+import jenHeadshot from '@assets/image_1777600627219.png';
 import {
   CDN, LOGO, VIDEO_MP4, VIDEO_POSTER,
   SERIF, SANS, NAV_FONT, BRAND_STYLES,
@@ -267,10 +268,16 @@ export function Homepage() {
             </FadeIn>
             <FadeIn delay={0.5} className="mt-16 border-l-2 border-[#f5f0eb]/08 pl-10">
               <blockquote className="text-xl md:text-2xl leading-relaxed mb-6 italic text-[#f5f0eb]/75" style={{ fontFamily: SERIF }}>
-                “The email strategy and automated flows you created delivered a lift in our online sales by 5-10%... email now makes up 5% of all sales. The investment was well worth it.”
+                “The email strategy and automations you created delivered a 5% to 10% lift in our online sales through on-brand communications that increase the frequency of our consumer touches. It has created an annuity, regenerating revenue year after year.”
               </blockquote>
-              <cite className="not-italic">
-                <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/35" style={{ fontFamily: NAV_FONT }}>Client, Cannadips</span>
+              <cite className="not-italic flex items-center gap-4">
+                <img src={jenHeadshot} alt="Jen Pike" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
+                <span>
+                  <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Jen Pike</span>
+                  <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
+                    Chief Revenue Officer<br />Cannadips / BoltRunners
+                  </span>
+                </span>
               </cite>
             </FadeIn>
           </div>
