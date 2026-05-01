@@ -178,13 +178,13 @@ export function Homepage() {
                 >
                   <div
                     className="w-full h-full flex items-center justify-center bg-[#d8d4cd]/95 shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
-                    style={{ borderRadius: '50% 50% 50% 0', transform: 'rotate(-45deg)' }}
+                    style={{ borderRadius: '50% 0 50% 50%' }}
                   >
                     <img
                       src={svc.icon}
                       alt=""
                       className="w-9 h-9 object-contain opacity-80"
-                      style={{ transform: 'rotate(45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
+                      style={svc.iconFilter ? { filter: svc.iconFilter } : undefined}
                     />
                   </div>
                 </motion.div>
