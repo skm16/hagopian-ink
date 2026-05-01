@@ -65,9 +65,8 @@ export function UxUiDesignPage() {
 
       {/* STATS */}
       <section className="bg-[#2d3232] border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-3 divide-x divide-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 divide-x divide-[#3a4040]">
           {[
-            { n: '300%',  label: 'Increase in signup conversion — Gwynnie Bee' },
             { n: '58%',   label: 'Increase in website unique visitors — Frette' },
             { n: '12K',   label: 'New email opt-ins from UX campaign — Frette' },
           ].map((s, i) => (

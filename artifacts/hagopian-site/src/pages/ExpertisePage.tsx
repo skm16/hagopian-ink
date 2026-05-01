@@ -110,10 +110,9 @@ export function ExpertisePage() {
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-8">
               A great brand is more than a logo — it is a complete visual language that communicates your values, attracts your audience, and endures across every medium. We develop brand identity systems from the ground up: naming, mark development, typography, color, brand standards, and the collateral that brings it all to life.
             </p>
-            <div className="grid grid-cols-3 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
+            <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
                 { n: '2002', label: 'Founded in New York City' },
-                { n: '20+',  label: 'years of brand expertise' },
                 { n: 'W/O',  label: 'Woman owned, creatively driven' },
               ].map((s, i) => (
                 <div key={i}>
@@ -155,7 +154,7 @@ export function ExpertisePage() {
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
                 { n: '58%',  label: 'increase in unique visitors, Frette' },
-                { n: '300%', label: 'increase in signup conversion' },
+                { n: '12K',  label: 'new email opt-ins, Frette' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -184,8 +183,8 @@ export function ExpertisePage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '1,030%', label: 'email list growth in 6 months', client: 'P.Volve' },
+                { n: '49.5%',  label: 'average open rate',              client: 'P.Volve' },
                 { n: '$56K',   label: 'new sales from automations',     client: 'Cannadips' },
-                { n: '$54K',   label: 'in new sales, one campaign',     client: 'Frette' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/10 pt-5">
                   <div className="text-2xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>

@@ -178,13 +178,13 @@ export function Homepage() {
                 >
                   <div
                     className="w-full h-full flex items-center justify-center bg-[#d8d4cd]/95 shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
-                    style={{ borderRadius: '50% 0 50% 50%' }}
+                    style={{ borderRadius: '0 50% 50% 50%', transform: 'rotate(45deg)' }}
                   >
                     <img
                       src={svc.icon}
                       alt=""
                       className="w-9 h-9 object-contain opacity-80"
-                      style={svc.iconFilter ? { filter: svc.iconFilter } : undefined}
+                      style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
                     />
                   </div>
                 </motion.div>
@@ -288,16 +288,16 @@ export function Homepage() {
               Creative campaigns that drive results.
             </h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-l border-[#424848]">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-l border-[#424848]">
             {[
               { n: '1,030%', label: 'email list growth in 6 months',      client: 'P.Volve' },
-              { n: '300%',   label: 'increase in signup conversion',       client: 'Gwynnie Bee' },
-              { n: '40%+',   label: 'average open rate achieved',          client: 'P.Volve — 49.5%' },
+              { n: '49.5%',  label: 'average open rate achieved',          client: 'P.Volve' },
               { n: '$56K',   label: 'new sales from email automations',    client: 'Cannadips, 4 months' },
               { n: '12K',    label: 'new email opt-ins',                   client: 'Frette “Escape to Italy”' },
               { n: '58%',    label: 'increase in website unique visitors', client: 'Frette campaign' },
               { n: '329%',   label: 'more dollars raised',                 client: 'Montefiore' },
               { n: '180%',   label: 'increase in online donations',        client: 'Epilepsy Foundation' },
+              { n: '$22.2M', label: 'raised at annual gala',               client: 'Montefiore' },
             ].map((s, i) => (
               <FadeIn key={i} delay={i * 0.06}
                 className="border-r border-b border-[#424848] p-8 text-center hover:bg-[#343a3a] transition-colors duration-300">

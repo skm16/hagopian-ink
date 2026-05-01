@@ -106,10 +106,9 @@ export function AboutPage() {
 
       {/* ── STATS ─────────────────────────────────── */}
       <section className="bg-[#f1efef] text-[#2d3232] py-20 px-8 md:px-16 border-t border-[#e0ddd9]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             { n: '2002', label: 'Year founded' },
-            { n: '100+', label: 'Brands developed' },
             { n: 'W/O',  label: 'Woman owned, creatively driven' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">

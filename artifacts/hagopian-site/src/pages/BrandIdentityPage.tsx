@@ -72,21 +72,7 @@ export function BrandIdentityPage() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-[#2d3232] border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-3 divide-x divide-[#3a4040]">
-          {[
-            { n: '100+', label: 'Brand identities developed' },
-            { n: '20+',  label: 'Years of brand expertise' },
-            { n: 'F50',  label: 'Fortune 50 client experience' },
-          ].map((s, i) => (
-            <FadeIn key={i} delay={i * 0.1} className="py-10 px-8 text-center">
-              <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/45" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
+      {/* STATS — removed pending verified numbers from brand decks */}
 
       {/* OVERVIEW */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16">
