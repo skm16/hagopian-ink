@@ -271,7 +271,7 @@ export function Homepage() {
                 “The email strategy and automations you created delivered a 5% to 10% lift in our online sales through on-brand communications that increase the frequency of our consumer touches. It has created an annuity, regenerating revenue year after year.”
               </blockquote>
               <cite className="not-italic flex items-center gap-4">
-                <img src={jenHeadshot} alt="Jen Pike" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
+                <img src={jenHeadshot} alt="Jen Pike" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" style={{ filter: 'grayscale(100%)' }} />
                 <span>
                   <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Jen Pike</span>
                   <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
