@@ -191,7 +191,7 @@ export function ExpertisePage() {
                 <div key={i} className="border-t border-[#2d3232]/10 pt-5">
                   <div className="text-2xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
                   <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/50 leading-snug mb-1">{s.label}</div>
-                  <div className="text-[10px] text-[#a57b83]" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
+                  <div className="text-[10px] text-[#a57b83]" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>

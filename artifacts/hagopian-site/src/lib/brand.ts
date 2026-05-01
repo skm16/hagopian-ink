@@ -49,7 +49,7 @@ export const BRAND_STYLES = `
 
 export const SERIF   = "'Didonesque', 'Times New Roman', serif";
 export const SANS    = "'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif";
-export const NAV_FONT = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+export const NAV_FONT = "'Sackers Gothic Std', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/01_HI_logo_pepsi.png`,        alt:'Pepsi' },

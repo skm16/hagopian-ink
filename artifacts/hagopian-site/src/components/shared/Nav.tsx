@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'wouter';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import logoSrc from '@assets/Ink_logo_1776700076843.png';
-import { NAV_FONT } from '@/lib/brand';
+import { NAV_FONT, SANS } from '@/lib/brand';
 
 const EXPERTISE_DROPDOWN = {
   services: [
@@ -100,7 +100,7 @@ export function Nav() {
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
                         className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                        style={{ fontFamily: NAV_FONT }}>
+                        style={{ fontFamily: SANS }}>
                         {label}
                       </Link>
                     ))}
@@ -111,7 +111,7 @@ export function Nav() {
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
                         className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                        style={{ fontFamily: NAV_FONT }}>
+                        style={{ fontFamily: SANS }}>
                         {label}
                       </Link>
                     ))}
@@ -183,7 +183,7 @@ export function Nav() {
                         {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                           <Link key={path} href={path} onClick={closeMobile}
                             className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                            style={{ fontFamily: NAV_FONT }}>
+                            style={{ fontFamily: SANS }}>
                             {label}
                           </Link>
                         ))}
@@ -193,7 +193,7 @@ export function Nav() {
                         {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                           <Link key={path} href={path} onClick={closeMobile}
                             className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
-                            style={{ fontFamily: NAV_FONT }}>
+                            style={{ fontFamily: SANS }}>
                             {label}
                           </Link>
                         ))}
