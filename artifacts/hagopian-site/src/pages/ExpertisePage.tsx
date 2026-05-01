@@ -181,10 +181,9 @@ export function ExpertisePage() {
             <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-8">
               Flawless aesthetics and strategic messaging increase conversions and create brand loyalty. We handle every facet of email marketing — from template design and copywriting to automation flows, segmentation strategy, and program management. Our clients include Fortune 50 brands and emerging DTC companies alike.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '1,030%', label: 'email list growth in 6 months', client: 'P.Volve' },
-                { n: '40%+',   label: 'average open rate',              client: 'Multiple clients' },
                 { n: '$56K',   label: 'new sales from automations',     client: 'Cannadips' },
                 { n: '$54K',   label: 'in new sales, one campaign',     client: 'Frette' },
               ].map((s, i) => (
@@ -318,12 +317,11 @@ export function ExpertisePage() {
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
               We help nonprofits build clear, consistent brands that inspire confidence — and then we build the digital fundraising engines to put them to work. From quarterly magazines and multi-template email programs to gala invitation systems and major donor engagement campaigns.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { n: '329%',   label: 'more dollars raised', client: 'Montefiore' },
-                { n: '180%',   label: 'increase in online donations', client: 'Epilepsy Foundation' },
-                { n: '100+',   label: 'additional gala attendees', client: 'Montefiore' },
-                { n: '$22.2M', label: 'raised at Annual Gala', client: 'Montefiore' },
+                { n: '329%',   label: 'more dollars raised, Montefiore' },
+                { n: '180%',   label: 'increase in online donations, Epilepsy Foundation' },
+                { n: '$22.2M', label: 'raised at Annual Gala, Montefiore' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>

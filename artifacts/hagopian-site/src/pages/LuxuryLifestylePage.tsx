@@ -21,7 +21,6 @@ const STATS = [
   { n: '30%',   label: 'Increase in Valentine\'s Day sales — La Perla' },
   { n: '3x',    label: 'Increase in online sales, 5 months — MSG Suites' },
   { n: '2.93M', label: 'Facebook followers — Lancôme House of Color' },
-  { n: '20+',   label: 'Years in luxury + lifestyle' },
 ];
 
 const PROJECTS = [

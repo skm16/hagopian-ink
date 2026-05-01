@@ -73,12 +73,11 @@ export function EmailMarketingPage() {
 
       {/* STATS */}
       <section className="bg-[#2d3232] border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-x divide-[#3a4040]">
           {[
             { n: '1,030%', label: 'Email list growth in 6 months — P.Volve' },
             { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
             { n: '$56K',   label: 'New sales from automations in 4 months — Cannadips' },
-            { n: '5–10%',  label: 'Lift in online sales from email — Cannadips' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

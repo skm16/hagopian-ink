@@ -20,7 +20,6 @@ const CAPABILITIES = [
 const STATS = [
   { n: '6 yrs',  label: 'Viant Medical brand partnership' },
   { n: '24',     label: 'Global locations reached — Viant Medical' },
-  { n: 'B2B',    label: '+ B2C health brand experience' },
   { n: '$56K',   label: 'New sales from health email automation — Cannadips' },
 ];
 

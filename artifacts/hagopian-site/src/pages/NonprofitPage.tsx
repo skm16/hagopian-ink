@@ -20,7 +20,6 @@ const CAPABILITIES = [
 const STATS = [
   { n: '329%',   label: 'More dollars raised — Montefiore' },
   { n: '180%',   label: 'Increase in online donations — Epilepsy Foundation' },
-  { n: '100+',   label: 'Additional gala attendees — Montefiore' },
   { n: '$22.2M', label: 'Raised at annual gala — Montefiore' },
 ];
 
