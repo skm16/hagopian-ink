@@ -64,7 +64,7 @@ export function EmailMarketingPage() {
               Harness the power<br />
               of your <span style={{ fontStyle: 'italic', opacity: 0.55 }}>email sends.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               Flawless aesthetics and messaging increase conversions and create brand loyalty. See why Fortune 50 companies trust us with their email programs year after year.
             </p>
           </motion.div>

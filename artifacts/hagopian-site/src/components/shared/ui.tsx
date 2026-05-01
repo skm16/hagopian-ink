@@ -27,8 +27,8 @@ export function FadeIn({ children, delay = 0, dir = 'up', className = '' }: {
 export function SectionLabel({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <span className={`w-8 h-px ${light ? 'bg-white/40' : 'bg-current opacity-30'}`} />
-      <span className={`text-[10px] uppercase tracking-[0.22em] font-medium ${light ? 'text-white/50' : 'opacity-45'}`}
+      <span className={`w-8 h-px ${light ? 'bg-white/55' : 'bg-current opacity-45'}`} />
+      <span className={`text-[10px] uppercase tracking-[0.22em] font-medium ${light ? 'text-white/70' : 'opacity-65'}`}
         style={{ fontFamily: NAV_FONT }}>{children}</span>
     </div>
   );

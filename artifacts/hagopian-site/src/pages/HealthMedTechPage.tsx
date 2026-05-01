@@ -62,7 +62,7 @@ export function HealthMedTechPage() {
               Medical innovation<br />
               deserves a brand that <span style={{ fontStyle: 'italic', opacity: 0.55 }}>commands trust.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms to nonprofit health initiatives.
             </p>
           </motion.div>

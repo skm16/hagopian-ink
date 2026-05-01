@@ -65,7 +65,7 @@ export function BrandIdentityPage() {
               Your first impression<br />
               is <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               Leave a lasting impact that communicates the essence of your brand. Rise above the competition with award-winning logo and brand development built on strategic insight.
             </p>
           </motion.div>

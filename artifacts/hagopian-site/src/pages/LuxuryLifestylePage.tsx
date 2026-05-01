@@ -89,7 +89,7 @@ export function LuxuryLifestylePage() {
               Where we started.<br />
               The DNA of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything we do.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               Luxury and lifestyle is where Hagopian Ink was born. Since 2002, we have built brands, campaigns, and digital experiences for the world's most discerning consumers — from global fashion houses to independent luxury labels.
             </p>
           </motion.div>

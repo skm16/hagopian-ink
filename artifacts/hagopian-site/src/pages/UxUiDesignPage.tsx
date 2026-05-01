@@ -56,7 +56,7 @@ export function UxUiDesignPage() {
               Drive action with<br />
               <span style={{ fontStyle: 'italic', opacity: 0.55 }}>clear intention.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/65 max-w-2xl leading-relaxed">
+            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               We place the consumer's needs first for beautiful, effortless online experiences. From first click to checkout — designed to convert.
             </p>
           </motion.div>
