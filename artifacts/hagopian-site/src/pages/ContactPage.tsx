@@ -53,7 +53,7 @@ export function ContactPage() {
               True Partnership Starts Here
             </p>
             <p className="text-xl font-light text-[#2d3232]/55 mb-6" style={{ fontFamily: SANS }}>
-              Let us create together.
+              Let&#39;s create together.
             </p>
             <p className="text-lg text-[#2d3232]/55 leading-relaxed mb-14 max-w-lg">
               Whether you are building a new brand from the ground up, evolving an established one, or launching your next digital campaign — we would love to hear about your project.

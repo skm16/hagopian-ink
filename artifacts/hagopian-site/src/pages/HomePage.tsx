@@ -330,7 +330,7 @@ export function Homepage() {
               <h2 className="text-5xl md:text-7xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 Good design is good business.
               </h2>
-              <p className="text-2xl font-light text-[#f5f0eb]/50 mb-6" style={{ fontFamily: SERIF }}>Let us create together.</p>
+              <p className="text-xl font-light text-[#f5f0eb]/50 mb-6" style={{ fontFamily: SANS }}>Let&#39;s create together.</p>
               <p className="text-lg text-[#f5f0eb]/50 leading-relaxed mb-12 max-w-lg">
                 Whether you are building a new brand from the ground up or evolving an established one, we would love to hear about your project.
               </p>
