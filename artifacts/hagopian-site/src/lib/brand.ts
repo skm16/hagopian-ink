@@ -137,9 +137,8 @@ export const SERVICES = [
     link: 'https://hagopianink.com/work/ux-design/',
     linkText: 'View website design',
     img: `${CDN}/2018/08/1111.png`,
-    icon: '',
-    iconFilter: '',
-    svgIcon: true,
+    icon: `${CDN}/2022/08/ux_icon2.png`,
+    iconFilter: 'brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(500%) hue-rotate(212deg) brightness(85%)',
   },
   {
     name: 'Email Marketing',
