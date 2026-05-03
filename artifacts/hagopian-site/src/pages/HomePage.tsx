@@ -129,7 +129,7 @@ export function Homepage() {
         <div className="relative">
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2d3232] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2d3232] to-transparent z-10 pointer-events-none" />
-          <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
+          <div className="flex items-center w-max gap-14" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 138, height: 78 }}>
                 <img src={logo.src} alt={logo.alt}
