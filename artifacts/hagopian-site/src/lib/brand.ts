@@ -127,7 +127,7 @@ export const SERVICES = [
     linkText: 'View brand development',
     img: `${CDN}/2018/08/Bitmap-1.png`,
     icon: `${CDN}/2018/08/10-layers.png`,
-    iconFilter: 'brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(500%) hue-rotate(212deg) brightness(85%)',
+    iconFilter: 'brightness(0) invert(1)',
   },
   {
     name: 'Website Design',
@@ -139,7 +139,6 @@ export const SERVICES = [
     img: `${CDN}/2018/08/1111.png`,
     icon: `${CDN}/2022/08/ux_icon2.png`,
     iconFilter: 'brightness(0) invert(1)',
-    iconClass: 'w-8 h-8',
   },
   {
     name: 'Email Marketing',
@@ -150,6 +149,6 @@ export const SERVICES = [
     linkText: 'View email marketing',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
     icon: `${CDN}/2018/08/3-layers.png`,
-    iconFilter: 'brightness(0) saturate(100%) invert(24%) sepia(12%) saturate(500%) hue-rotate(212deg) brightness(85%)',
+    iconFilter: 'brightness(0) invert(1)',
   },
 ];

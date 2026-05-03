@@ -184,7 +184,7 @@ export function Homepage() {
                     <img
                       src={svc.icon}
                       alt=""
-                      className={`${'iconClass' in svc ? (svc as typeof svc & { iconClass: string }).iconClass : 'w-11 h-11'} object-contain opacity-80`}
+                      className="w-8 h-8 object-contain opacity-90"
                       style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
                     />
                   </div>
