@@ -131,7 +131,7 @@ export function Homepage() {
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#2d3232] to-transparent z-10 pointer-events-none" />
           <div className="flex items-center w-max gap-10" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
-              <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 160, height: 90 }}>
+              <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 144, height: 81 }}>
                 <img src={logo.src} alt={logo.alt}
                   className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
               </div>
