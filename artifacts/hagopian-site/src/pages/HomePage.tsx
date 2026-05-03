@@ -178,15 +178,27 @@ export function Homepage() {
                   className="absolute -bottom-9 right-6 md:right-8 w-[76px] h-[76px] z-10 pointer-events-none"
                 >
                   <div
-                    className="w-full h-full flex items-center justify-center bg-[#d8d4cd]/95 shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
+                    className="w-full h-full flex items-center justify-center bg-[#bfbab2] shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
                     style={{ borderRadius: '0 50% 50% 50%', transform: 'rotate(45deg)' }}
                   >
-                    <img
-                      src={svc.icon}
-                      alt=""
-                      className="w-9 h-9 object-contain opacity-80"
-                      style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
-                    />
+                    {(svc as typeof svc & { svgIcon?: boolean }).svgIcon ? (
+                      <svg
+                        viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="#4e5868"
+                        strokeLinecap="round" strokeLinejoin="round"
+                        className="w-11 h-11 opacity-85"
+                        style={{ transform: 'rotate(-45deg)' }}
+                      >
+                        <rect x="2" y="3" width="20" height="13" rx="2" />
+                        <path d="M8 21h8M12 16v5" />
+                      </svg>
+                    ) : (
+                      <img
+                        src={svc.icon}
+                        alt=""
+                        className="w-11 h-11 object-contain opacity-80"
+                        style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
+                      />
+                    )}
                   </div>
                 </motion.div>
               </FadeIn>
