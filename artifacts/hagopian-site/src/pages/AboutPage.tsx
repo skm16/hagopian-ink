@@ -13,7 +13,7 @@ const VALUES = [
   { icon: Gem,       title: 'Craft Without Compromise',         desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.' },
   { icon: Heart,     title: 'Relationships Over Transactions',  desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.' },
   { icon: TrendingUp,title: 'Results Are the Measure',          desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.' },
-  { icon: Star,      title: 'Woman-Owned, Creatively Driven',   desc: 'We lead with intention, high expectations, and a healthy dose of boss-lady energy. Woman-owned and proud. But what really drives us is an unapologetic commitment to doing exceptional work.' },
+  { icon: Star,      title: 'Where Strategy Meets Creativity',   desc: 'We lead with intention, high expectations, and a healthy dose of boss-lady energy. Woman-owned and proud — but what really drives us is an unapologetic commitment to doing exceptional work.' },
   { icon: Users,     title: 'Curated Teams, by Design',         desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.' },
 ];
 
@@ -109,7 +109,7 @@ export function AboutPage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             { n: '2002', label: 'Year founded' },
-            { n: 'W/O',  label: 'Woman owned, creatively driven' },
+            { n: 'W/O',  label: 'Where strategy meets creativity' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

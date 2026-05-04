@@ -76,7 +76,7 @@ export function ContactPage() {
             </div>
             <div className="border-t border-[#2d3232]/10 pt-10">
               <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/35 mb-4" style={{ fontFamily: NAV_FONT }}>
-                Woman Owned · Creatively Driven · Since 2002
+                Where Strategy Meets Creativity · Since 2002
               </p>
             </div>
           </FadeIn>
