@@ -80,14 +80,18 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        // slides: ties + menswear
+        // slides: ties carousel
         type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_tie_ltblue.jpg`,
           `${CDN}/2022/08/JR_tie_blue.jpg`,
           `${CDN}/2022/08/JR_tie_brown.jpg`,
-          `${CDN}/2022/08/JR_menswear_newtie.jpg`,
         ],
+      },
+      {
+        // standalone menswear accessories flat lay
+        type: 'full-image',
+        src: `${CDN}/2022/08/JR_menswear_newtie.jpg`,
       },
       {
         type: 'text',
