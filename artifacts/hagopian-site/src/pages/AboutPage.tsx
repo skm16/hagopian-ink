@@ -98,8 +98,8 @@ export function AboutPage() {
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="text-5xl md:text-7xl leading-[0.92] mb-0 text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            We help you make<br />
-            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>your mark.</span>
+            Where strategy<br />
+            <span style={{ fontStyle: 'italic', opacity: 0.55 }}>meets creativity.</span>
           </motion.h1>
         </div>
       </section>
