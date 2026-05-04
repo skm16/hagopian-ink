@@ -61,10 +61,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         image: `${CDN}/2022/08/logo-anatomy.png`,
       },
       {
-        // slider-two-slides [3]: all brand sheets + HI_josephrobert + artboards (one big carousel)
+        // standalone brand color/style guide sheet
+        type: 'full-image',
+        src: `${CDN}/2022/08/JosephRobert3.png`,
+      },
+      {
+        // slider-two-slides [3]: brand sheets + HI_josephrobert + artboards
         type: 'carousel',
         images: [
-          `${CDN}/2022/08/JosephRobert3.png`,
           `${CDN}/2022/08/JR_blue.png`,
           `${CDN}/2022/08/JosephRobert1.png`,
           `${CDN}/2022/08/JosephRobert2.png`,
