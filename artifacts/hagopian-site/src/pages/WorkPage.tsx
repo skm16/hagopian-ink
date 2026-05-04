@@ -134,7 +134,7 @@ const INDUSTRIES: Industry[] = [
         stat: 'Re-engagement',
         statLabel: 'Pre-lapse email series',
         result: 'Front-end campaign development for Audible\'s pre-lapse email series — messaging designed to re-engage new subscribers before cancellation.',
-        img: `${CDN}/2022/07/HI_Web_audible_lifestyle-scaled.jpg`,
+        img: `${BASE}audible-thumb.png`,
         href: '/work/audible-email-design',
       },
     ],

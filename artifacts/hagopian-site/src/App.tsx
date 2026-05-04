@@ -1,4 +1,5 @@
-import { Router, Route, Switch } from 'wouter';
+import { Router, Route, Switch, useLocation } from 'wouter';
+import { useEffect } from 'react';
 import { Homepage } from '@/pages/HomePage';
 import { ExpertisePage } from '@/pages/ExpertisePage';
 import { WorkPage } from '@/pages/WorkPage';
@@ -16,9 +17,18 @@ import { CaseStudyPage } from '@/pages/CaseStudyPage';
 
 const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location]);
+  return null;
+}
+
 export default function App() {
   return (
     <Router base={base}>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={Homepage} />
         <Route path="/expertise" component={ExpertisePage} />
