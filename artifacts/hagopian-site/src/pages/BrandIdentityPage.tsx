@@ -33,7 +33,7 @@ const PROJECTS = [
     headline: 'Branding the modern man',
     result: 'Built a complete brand identity for a modern menswear line — from naming and strategy through logo, packaging, and retail presence.',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: 'https://hagopianink.com/works/joseph-robert/',
+    href: '/work/joseph-robert',
   },
   {
     client: 'HubSpot',
@@ -41,7 +41,7 @@ const PROJECTS = [
     headline: 'Identity for the world\'s largest marketing conference',
     result: 'Developed a complete visual identity and brand system for a flagship HubSpot conference, applied across digital, print, and environmental design.',
     img: `${CDN}/2018/08/Bitmap-1.png`,
-    href: 'https://hagopianink.com/works/hubspot-conference-brand-identity/',
+    href: '/work/hubspot-conference-brand-identity',
   },
 ];
 
@@ -114,27 +114,25 @@ export function BrandIdentityPage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>Featured Work</SectionLabel>
+            <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Brand identity in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-2 gap-4">
             {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.15} className="group">
-                <div className="overflow-hidden mb-6">
-                  <img src={p.img} alt={p.client}
-                    className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700" />
-                </div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>{p.category}</p>
-                <h3 className="text-2xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.headline}</h3>
-                <p className="text-[14px] text-[#f5f0eb]/60 leading-relaxed mb-5">{p.result}</p>
-                <a href={p.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#f5f0eb]/50 hover:text-[#f5f0eb] border-b border-[#f5f0eb]/20 hover:border-[#f5f0eb] pb-1 transition-all duration-300"
-                  style={{ fontFamily: NAV_FONT }}>
-                  View Project <ArrowRight className="w-3 h-3" />
-                </a>
+              <FadeIn key={i} delay={i * 0.1}>
+                <Link href={p.href} className="group block">
+                  <div className="overflow-hidden aspect-[293/414]">
+                    <img src={p.img} alt={p.client}
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+                  </div>
+                  <p className="mt-3 text-[13px] leading-snug"
+                    style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
+                    {p.client}
+                  </p>
+                </Link>
               </FadeIn>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
@@ -30,7 +31,7 @@ const PROJECTS = [
     headline: 'Campaigns that move product — and build love',
     result: 'Precisely timed email, direct mail, and digital ad campaigns drove a 30% increase in Valentine\'s Day sales across all channels.',
     img: `${CDN}/2018/08/Work-Thumb_laperla-293x414.jpg`,
-    href: 'https://hagopianink.com/expertise/',
+    href: '/work/la-perla-multichannel-campaign-design',
   },
   {
     client: 'Todd + Duncan',
@@ -38,7 +39,7 @@ const PROJECTS = [
     headline: 'An award-winning cashmere brand from the ground up',
     result: 'Complete visual identity — logo, stationery, store signage, shopping bags, and custom boxes — for a 140-year-old Scottish cashmere label entering the US market.',
     img: `${CDN}/2018/08/Work-Thumb_TD-293x414.jpg`,
-    href: 'https://hagopianink.com/expertise/',
+    href: '/work/todd-duncan-cashmere-branding-design',
   },
   {
     client: 'Gwynnie Bee',
@@ -46,7 +47,7 @@ const PROJECTS = [
     headline: 'A 300% lift in subscription sign-ups',
     result: 'Redesigned acquisition funnel and subscription landing experience delivered a 300% increase in new member sign-ups for the fashion rental platform.',
     img: `${CDN}/2018/08/Work-Thumb_gwynnie-293x414.jpg`,
-    href: 'https://hagopianink.com/works/gwynnie-bee-subscription-acquisition-email/',
+    href: '/work/gwynnie-bee-subscription-acquisition-email',
   },
   {
     client: 'Loum Beauty',
@@ -54,7 +55,7 @@ const PROJECTS = [
     headline: 'Clarifying a complex clean-beauty story',
     result: 'Redesigned the digital experience to simplify Loum\'s clean-beauty narrative, improve navigation, and drive conversions across mobile and desktop.',
     img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
-    href: 'https://hagopianink.com/expertise/',
+    href: '/work/loumbeauty',
   },
 ];
 
@@ -64,12 +65,6 @@ const LUXURY_LOGOS = CLIENT_LOGOS.filter(l =>
 );
 
 export function LuxuryLifestylePage() {
-  const cardBg     = '#343a3a';
-  const cardBorder = '#424848';
-  const textColor  = '#f5f0eb';
-  const mutedColor = 'rgba(245,240,235,0.5)';
-  const borderColor = 'rgba(245,240,235,0.1)';
-
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -147,36 +142,26 @@ export function LuxuryLifestylePage() {
         </div>
       </section>
 
-      {/* FEATURED WORK — card style matching Work page */}
-      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      {/* FEATURED WORK */}
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>Featured Work</SectionLabel>
+            <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Luxury + lifestyle in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="group flex flex-col"
-                style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
-                {/* Image — tall portrait 293×414 */}
-                <div className="overflow-hidden aspect-[293/414]">
-                  <img src={p.img} alt={p.client}
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                </div>
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  <p className="text-[9px] uppercase tracking-[0.2em] mb-3"
-                    style={{ color: mutedColor, fontFamily: NAV_FONT }}>{p.category}</p>
-                  <h3 className="text-lg mb-3 leading-snug flex-1"
-                    style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>{p.headline}</h3>
-                  <p className="text-[12px] leading-relaxed mb-5"
-                    style={{ color: mutedColor }}>{p.result}</p>
-                  <a href={p.href} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
-                    style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
-                    View Work <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
+              <FadeIn key={i} delay={i * 0.1}>
+                <Link href={p.href} className="group block">
+                  <div className="overflow-hidden aspect-[293/414]">
+                    <img src={p.img} alt={p.client}
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+                  </div>
+                  <p className="mt-3 text-[13px] leading-snug"
+                    style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
+                    {p.client}
+                  </p>
+                </Link>
               </FadeIn>
             ))}
           </div>

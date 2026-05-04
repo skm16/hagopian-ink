@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -24,7 +25,7 @@ const PROJECTS = [
     headline: '1,030% email list growth in 6 months',
     result: 'Built a full email program from the ground up — welcome series, automated flows, and campaign calendar. Achieved 49.5% average open rates and 1,030% list growth in 6 months.',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
-    href: 'https://hagopianink.com/works/pepsi-email-marketing/',
+    href: '/work',
   },
   {
     client: 'Audible',
@@ -32,7 +33,7 @@ const PROJECTS = [
     headline: 'Reactivating a waning subscriber base',
     result: 'Re-engaged an audience with declining engagement through a strategic win-back campaign — restoring subscriber activity and reinforcing ongoing subscription value.',
     img: `${CDN}/2022/09/HI_case3_audible.jpg`,
-    href: 'https://hagopianink.com/works/audible-email-design/',
+    href: '/work/audible-email-design',
   },
   {
     client: 'Cannadips',
@@ -40,7 +41,7 @@ const PROJECTS = [
     headline: '$56K in new sales from automated flows',
     result: 'Designed and deployed a suite of automated email flows for a DTC brand — generating $56K in attributable new sales within the first 4 months of deployment.',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: 'https://hagopianink.com/blog/',
+    href: '/work',
   },
 ];
 
@@ -127,27 +128,25 @@ export function EmailMarketingPage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
-            <SectionLabel light>Featured Work</SectionLabel>
+            <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Email programs that deliver</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.12} className="group">
-                <div className="overflow-hidden mb-6">
-                  <img src={p.img} alt={p.client}
-                    className="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-700" />
-                </div>
-                <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/40 mb-2" style={{ fontFamily: NAV_FONT }}>{p.category}</p>
-                <h3 className="text-xl mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{p.headline}</h3>
-                <p className="text-[13px] text-[#f5f0eb]/60 leading-relaxed mb-5">{p.result}</p>
-                <a href={p.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#f5f0eb]/50 hover:text-[#f5f0eb] border-b border-[#f5f0eb]/20 hover:border-[#f5f0eb] pb-1 transition-all duration-300"
-                  style={{ fontFamily: NAV_FONT }}>
-                  View Project <ArrowRight className="w-3 h-3" />
-                </a>
+              <FadeIn key={i} delay={i * 0.1}>
+                <Link href={p.href} className="group block">
+                  <div className="overflow-hidden aspect-[293/414]">
+                    <img src={p.img} alt={p.client}
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
+                  </div>
+                  <p className="mt-3 text-[13px] leading-snug"
+                    style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
+                    {p.client}
+                  </p>
+                </Link>
               </FadeIn>
             ))}
           </div>
