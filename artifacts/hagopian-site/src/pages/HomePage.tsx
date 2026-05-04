@@ -181,30 +181,12 @@ export function Homepage() {
                     className="w-full h-full flex items-center justify-center bg-[#bfbab2] shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
                     style={{ borderRadius: '0 50% 50% 50%', transform: 'rotate(45deg)' }}
                   >
-                    {(() => {
-                      const s = svc as typeof svc & { svgIcon?: string };
-                      const iconStyle = { transform: 'rotate(-45deg)' };
-                      if (s.svgIcon === 'branding') return (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.3} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
-                          <circle cx="12" cy="12" r="5.5" />
-                          <line x1="12" y1="3" x2="12" y2="5.5" />
-                          <line x1="12" y1="18.5" x2="12" y2="21" />
-                          <line x1="3" y1="12" x2="5.5" y2="12" />
-                          <line x1="18.5" y1="12" x2="21" y2="12" />
-                          <path d="M12 9.2C11 9.2 10.2 10.3 10.2 11.3c0 1.2 1.8 3 1.8 3s1.8-1.8 1.8-3c0-1-0.8-2.1-1.8-2.1z" fill="white" stroke="none" />
-                        </svg>
-                      );
-                      if (s.svgIcon === 'email') return (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
-                          <rect x="2" y="5" width="20" height="14" rx="2" />
-                          <path d="M2 8l10 7 10-7" />
-                        </svg>
-                      );
-                      return (
-                        <img src={svc.icon} alt="" className="w-8 h-8 object-contain opacity-90"
-                          style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }} />
-                      );
-                    })()}
+                    <img
+                      src={svc.icon}
+                      alt=""
+                      className="w-8 h-8 object-contain opacity-90"
+                      style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
+                    />
                   </div>
                 </motion.div>
               </FadeIn>
