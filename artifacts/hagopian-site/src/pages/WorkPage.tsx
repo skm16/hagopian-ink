@@ -320,7 +320,7 @@ export function WorkPage() {
             Ready to create something new?
           </h2>
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
-            Tell us about your brand, your goals, and what you need. We will take it from there.
+            You don't need to have it all figured out — that's what we're here for. Share your story, and we'll help shape the strategy.
           </p>
           <BtnLight href="/contact" external={false}>
             Get In Touch <ArrowRight className="w-4 h-4" />
