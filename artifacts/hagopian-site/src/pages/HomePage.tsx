@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
+import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -42,11 +43,11 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
             <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
             <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
             <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-6">{cs.desc}</p>
-            <a href={cs.href} target="_blank" rel="noopener noreferrer"
+            <Link href={cs.href}
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/50 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
               style={{ fontFamily: NAV_FONT }}>
               View Case Study <ArrowRight className="w-3 h-3" />
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

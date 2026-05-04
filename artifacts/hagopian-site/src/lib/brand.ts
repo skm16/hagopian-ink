@@ -86,7 +86,7 @@ export const CASE_STUDIES = [
     title: 'Branding the modern man',
     desc: 'Developing a menswear line with timeless, distinctive style from the ground up',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: 'https://hagopianink.com/works/joseph-robert/',
+    href: '/work/joseph-robert',
   },
   {
     id: 'cs-2',
@@ -95,7 +95,7 @@ export const CASE_STUDIES = [
     title: 'Luxury e-Commerce design',
     desc: 'Clarifying a brand story to decrease bounce rates and increase consumer connection',
     img: `${CDN}/2022/08/HI_home2_loum.jpg`,
-    href: 'https://hagopianink.com/works/loumbeauty/',
+    href: '/work/loumbeauty',
   },
   {
     id: 'cs-3',
@@ -104,7 +104,7 @@ export const CASE_STUDIES = [
     title: 'Reactivating email subscribers',
     desc: 'Re-engaging an audience with waning interest to ensure an ongoing subscription',
     img: `${CDN}/2022/09/HI_case3_audible.jpg`,
-    href: 'https://hagopianink.com/works/audible-email-design/',
+    href: '/work/audible-email-design',
   },
   {
     id: 'cs-4',
@@ -113,7 +113,7 @@ export const CASE_STUDIES = [
     title: 'Fundraising with purpose',
     desc: 'Email messages that inspire donations through education and activism',
     img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: 'https://hagopianink.com/works/black-lives-matter-canada/',
+    href: '/work/black-lives-matter-canada',
   },
 ];
 
