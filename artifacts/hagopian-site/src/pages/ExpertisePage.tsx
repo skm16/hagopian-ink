@@ -45,7 +45,7 @@ export function ExpertisePage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
             <h1 className="leading-[0.95] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
-              Built on brand.<br />
+              Built by design.<br />
               Driven by <span style={{ fontStyle: 'italic', opacity: 0.55 }}>results.</span>
             </h1>
             <p className="text-xl text-[#f5f0eb]/60 max-w-2xl leading-relaxed">

@@ -255,7 +255,7 @@ export function WorkPage() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-6" style={{ fontFamily: NAV_FONT }}>Selected Work</p>
             <h1 className="text-6xl md:text-8xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Our Work.
+              Design that<br />creates impact.
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}

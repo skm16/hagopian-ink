@@ -451,7 +451,7 @@ function RelatedCard({ cs }: { cs: CaseStudy }) {
           <img src={cs.thumb} alt={cs.client}
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
         </div>
-        <p className="mt-4 text-[15px] leading-snug"
+        <p className="mt-3 text-[13px] leading-snug"
           style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
           {cs.client}
         </p>
@@ -496,7 +496,7 @@ export function CaseStudyPage() {
   const related = CASE_STUDIES
     .filter(c => c.slug !== cs.slug)
     .sort((a, b) => relatedScore(cs, b) - relatedScore(cs, a))
-    .slice(0, 3);
+    .slice(0, 4);
 
   return (
     <div style={{ fontFamily: SANS }}>
@@ -558,12 +558,19 @@ export function CaseStudyPage() {
       {related.length > 0 && (
         <section style={{ background: '#f1efef', borderTop: '1px solid rgba(45,50,50,0.08)' }}>
           <div className="px-8 md:px-16 py-20 md:py-28 max-w-[1400px] mx-auto">
-            <FadeIn className="flex items-center gap-3 mb-10">
-              <span className="w-8 h-px bg-[#2d3232]/25" />
-              <p className="text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: 'rgba(45,50,50,0.4)', fontFamily: NAV_FONT }}>Related Work</p>
+            <FadeIn className="flex items-center justify-between mb-10">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-px bg-[#2d3232]/25" />
+                <p className="text-[10px] uppercase tracking-[0.22em]"
+                  style={{ color: 'rgba(45,50,50,0.4)', fontFamily: NAV_FONT }}>Related Work</p>
+              </div>
+              <Link href="/work"
+                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 opacity-50 hover:opacity-100 transition-opacity"
+                style={{ color: '#2d3232', borderColor: 'rgba(45,50,50,0.2)', fontFamily: NAV_FONT }}>
+                View All Work <ArrowRight className="w-3 h-3" />
+              </Link>
             </FadeIn>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {related.map(other => <RelatedCard key={other.slug} cs={other} />)}
             </div>
           </div>
@@ -580,18 +587,14 @@ export function CaseStudyPage() {
             Good design is good business.
           </h2>
           <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
-            Tell us about your brand, your goals, and what you need. We will take it from there.
+            Tell us about your brand, your goals, and what you need.<br />
+            We will take it from there.
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+          <div className="flex justify-center">
             <Link href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 text-[11px] uppercase tracking-[0.18em] bg-[#f1efef] text-[#2d3232] hover:bg-white transition-colors duration-300"
               style={{ fontFamily: NAV_FONT }}>
               Get In Touch <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/work"
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] border-b pb-1 opacity-40 hover:opacity-100 transition-opacity"
-              style={{ color: '#f1efef', borderColor: 'rgba(241,239,239,0.3)', fontFamily: NAV_FONT }}>
-              <ArrowLeft className="w-3.5 h-3.5" /> All Work
             </Link>
           </div>
         </FadeIn>
