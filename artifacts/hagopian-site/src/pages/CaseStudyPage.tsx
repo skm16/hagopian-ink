@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link, useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -20,10 +20,18 @@ const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 ───────────────────────────────────────────────────────── */
 function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }) {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const n = images.length;
 
-  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
   const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
+  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
+
+  // Auto-advance every 3 s; pause on hover
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(next, 3000);
+    return () => clearInterval(timer);
+  }, [next, paused]);
 
   const bg        = dark ? '#2d3232' : '#f1efef';
   const arrowBg   = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
@@ -33,7 +41,11 @@ function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }
   const dotInact  = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
 
   return (
-    <div style={{ background: bg }}>
+    <div
+      style={{ background: bg }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="relative overflow-hidden">
         {/* ── Image row ── */}
         <div className="flex">

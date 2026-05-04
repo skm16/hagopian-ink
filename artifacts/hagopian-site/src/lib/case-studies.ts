@@ -34,7 +34,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         type: 'text',
         label: 'Challenge',
-        body: 'Joseph Robert is a new consumer brand intended to reach men who are fashionable, stylish and sleek. The brand needed to attract men who are also drawn to well-designed products and care about value. Joseph Roberts launched as a modern, high quality, yet affordable brand with products sold wholesale, on Amazon, and direct to consumer on Shopify.',
+        body: 'Joseph Robert is a new consumer brand intended to reach men who are fashionable, stylish and sleek. The brand needed to attract men who are also drawn to well-designed products and care about value. Joseph Roberts will launch as a modern, high quality, yet affordable brand with products sold wholesale, on amazon and direct to consumer on Shopify.',
       },
       {
         type: 'carousel',
@@ -48,7 +48,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         type: 'text',
         label: 'Letterforms',
-        body: 'While monograms are a timeless application of two letterforms, reinventing a modern application takes care and craft. The logo for Joseph Robert has both strength and energy with the J and R reaching and expanding beyond the limits of its boundaries — just like every successful man must do in life. That reach and expansion is what defines the Joseph Robert brand.',
+        body: 'While monograms are a timeless application of two letterforms, reinventing a modern application takes care and craft. The logo for Joseph Robert has both strength and energy with the J and R reaching and expanding beyond the limits of its boundaries - just like every successful man must do in life. That reach and expansion is what defines the Joseph Robert brand.',
       },
       {
         type: 'full-image',
@@ -79,7 +79,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'text',
         label: 'Solution',
         dark: true,
-        body: 'We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men\'s apparel and accessories.',
+        body: "We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men's apparel and accessories.",
       },
       {
         type: 'full-image',
@@ -104,8 +104,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         type: 'text',
-        label: 'Result',
-        body: 'The new logo established a unique brand presence using a modern JR monogram. The wordmark and icon created versatility — used with text or independently as a symbol — allowing for endless possibilities across a branded line of accessories. Logo applications included stamped in leather, embroidered on apparel, and printed in patterns.',
+        label: 'A masculine seal',
+        body: 'The new logo established a unique brand presence using a modern JR monogram. The wordmark and icon created versatility to use both with text or independently as a symbol, allowing for endless possibilities for a branded line of accessories. Logo applications included - stamped in leather, embroidered on apparel, and printed in patterns.',
       },
     ],
     thumb: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle-scaled.jpg`,
@@ -118,13 +118,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'UX Design',
     tags: ['Fashion', 'Beauty', 'Luxury', 'Lifestyle'],
     tagline: 'Clean beauty is calm beauty.',
-    intro: 'Loum Beauty launched with a goal to be the first complete skincare line to reverse the effects of stress on skin. The website needed to act as the leading tool to sell their line of unique products — and it was falling short in conversions. Our job was to clarify the complex brand story, connect with their audience and solve Loum\'s UX challenges.',
+    intro: 'Loum Beauty launched with a goal to be the first complete skincare line to reverse the effects of stress on skin. The website needed to act as the leading tool to sell their line of unique products and it was falling short in conversions. Our job was to clarify the complex brand story, connect with their audience and solve Loum\'s UX challenges.',
     hero: `${CDN}/2022/08/Loum_stress_header2.gif`,
     sections: [
       {
         type: 'text',
         label: 'Challenge',
-        body: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. The goal was to improve both the brand story and the usability of the site by implementing key strategic design and messaging changes.',
+        body: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. Our goal was to improve both the brand story and the usability of the site by implementing several key strategic design and messaging changes.',
       },
       {
         type: 'carousel',
@@ -153,7 +153,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'text-image',
         label: 'Messaging Transformed',
         title: 'The New Loum Beauty Brand Story',
-        body: 'We simplified the language used to describe the brand with new illustrations, charts and a brand voice manifesto. These elements communicated the complex science behind the products in an easy to understand way.',
+        body: 'We simplified the language used to describe the brand with new illustrations, charts and a brand voice manifesto. These elements communicated the complex science behind the products in an easy to understand way.\n\nThe new Loum manifesto included these concepts, simplified:\n\nThink of us as an "OM" in a jar\n\nWe believe in moments of calm, for well-being for health and happiness for ourselves and our communities\n\nWe understand how mind affects skin And skin affects mind And share that science To uplift, inspire, and empower\n\nWe advocate to build better, more beautiful lives For the millions affected by stress and burnout. Our mission is to spread LOUMinosity to all.',
         image: `${CDN}/2022/08/loum_petri.png`,
         imageLeft: true,
       },
@@ -165,12 +165,12 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'text',
         label: 'Solution',
         dark: true,
-        body: 'We reviewed the research findings and drafted new copy to better explain the company, products and vision. We evolved the brand messaging and brand voice to better communicate with Loum\'s audience and create an emotional connection. Usability improvements included intuitive navigation and a seamless customer experience for both mobile and desktop devices.',
+        body: "We reviewed the research findings and drafted new copy to better explain the company, products and vision. We evolved the brand messaging and brand voice to better communicate with Loum's audience and create an emotional connection.",
       },
       {
         type: 'text',
-        label: 'Result',
-        body: 'We created a comprehensive digital experience focusing on usability best practices and intuitive navigation. We illustrated the effects of stress on skin visually and highlighted how Loum\'s key ingredients and formulas provide undeniable benefits. The new simplified messaging and imagery communicated serenity with clarity.',
+        label: 'Clarifying a complex brand story',
+        body: "We created a comprehensive digital experience focusing on usability best practices, intuitive navigation, and a seamless customer experience for both mobile and desktop devices. We illustrated the effects of stress on skin visually and highlighted how Loum's key ingredients and formulas provide undeniable benefits. The new simplified messaging and imagery communicated serenity with clarity.",
       },
     ],
     thumb: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
@@ -183,13 +183,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Email Marketing',
     tags: ['Subscription', 'Technology'],
     tagline: 'Re-engaging an inactive email audience.',
-    intro: 'Audible, the largest seller and producer of spoken audio media, needed a partner to perform all elements of front-end campaign development for their pre-lapse email series — and trusted Hagopian Ink to get the job done.',
+    intro: 'Audible, the largest seller and producer of spoken audio media, needed a partner to perform all elements of front-end campaign development for their pre-lapse email series and trusted Hagopian Ink to get the job done.',
     hero: `${CDN}/2022/07/HI_Web_audible_lifestyle-scaled.jpg`,
     sections: [
       {
         type: 'text',
         label: 'Challenge',
-        body: 'Audible knew that if a new member doesn\'t listen to their first audio book within a certain period of time, they are much more likely to cancel their subscription. The goal was to help re-engage new subscribers who were not listening to their audio books, help them find another book, or guide them to find new ways to listen.',
+        body: "Audible knew that if a new member doesn't listen to their first audio book within a certain period of time, they are much more likely to cancel their subscription. Our goal was to help re-engage new subscribers who were not listening to their new audio books, help them find another book or guide them to find new ways to listen.",
       },
       {
         type: 'carousel',
@@ -203,8 +203,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         type: 'text',
-        label: 'Understanding the Subscriber Lifecycle',
-        body: 'Defining your customer journey and creating targeted messages to address each life-stage is essential for your subscription emails. The emails created for Audible addressed the 4th stage — reactivating a waning audience. By addressing each stage of the subscriber lifecycle, Hagopian Ink helped Audible build a cohesive and effective re-engagement series.',
+        label: 'Understanding the life-cycle of an email subscriber',
+        body: 'Defining your customer journey and creating targeted messages to address each life-stage is essential for your subscription emails. The emails created for Audible addressed the 4th stage - Reactivating a waning audience.\n\n1. Acquisition\n• Acquire more subscribers\n\n2. Conversion\n• Convert subscribers into buyers\n• Convert cart abandoners into buyers\n• Convert one time buyers into loyal, repeat buyers\n\n3. Retention\n• Increase lifetime value of each subscriber\n\n4. Reactivation\n• Reactivate lapsed subscribers or buyers',
       },
       {
         type: 'full-image',
@@ -229,11 +229,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'text',
         label: 'Solution',
         dark: true,
-        body: 'We created messaging by appealing to the unique benefits of Audible and created emotional connections. Hagopian Ink collaborated with Audible\'s digital marketing team to complete email templates for this vital pre-lapse series — addressing the fourth stage of the subscriber lifecycle: reactivation.',
+        body: "We created messaging by appealing to the unique benefits of Audible and created emotional connections. Hagopian Ink collaborated with Audible's digital marketing team to complete email templates for this vital series.",
       },
       {
         type: 'text',
-        label: 'Result',
+        label: 'Increase active subscribers, decrease cancellation.',
         body: 'The re-engagement series was essential to decreasing cancellation and increasing subscribers who thoroughly enjoy listening to their audio books on an ongoing basis. Prompts to stimulate usage through the email flow encouraged subscriptions to stay in force.',
       },
     ],
@@ -247,7 +247,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Email Marketing',
     tags: ['Community', 'Nonprofit'],
     tagline: 'Drive to donate. Call for change.',
-    intro: 'Black Lives Matter Canada is growing their donor base to further fund their important mission. The organization needed a timely way to thank current donors, activate new donors, and encourage ongoing support through a comprehensive email program. As strong allies, we wanted to be a part of the cause for change.',
+    intro: 'Black Lives Matter Canada is growing their donor base to further fund their important mission. The organization needed a timely way to thank current donors, activate new donors and encourage ongoing support through a comprehensive email program. As strong allies, we wanted to be a part of the cause for change.',
     hero: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
     sections: [
       {
@@ -293,17 +293,17 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'text',
         label: 'Solution',
         dark: true,
-        body: 'We composed messages together that promoted action to achieve the goal of additional fundraising. Automated emails were created for a welcome series, donor thank you series, and a weekly series. We shared how the money would be used, informed on the work still needed, created announcements for new initiatives and showcased community events.',
+        body: 'We composed messages together that promoted action to achieve the goal of additional fundraising. Automated emails were created for a welcome series, donor thank you series, and a weekly Black Friday series. We shared how the money will be used, informed on the work still needed, created announcements for new initiatives and showcased community events.',
+      },
+      {
+        type: 'text',
+        label: 'Empower, unify and inspire change',
+        body: 'As a young organization, we set up the email program for long term success through a system of templates and email automations. All of our messages were crafted in the right tone to increase action for Black Lives Matter Canada - empowering, honest, current, aspirational and unified. A donor sent a six figure gift within the first month of the program.',
       },
       {
         type: 'text',
         label: 'Showing Gratitude for a Donation',
-        body: 'Thanking your donors is the most important message in any fundraising campaign. We created a series of thank you emails that were warm, personal and visually striking — reinforcing the impact of each donation and encouraging continued support for the movement.',
-      },
-      {
-        type: 'text',
-        label: 'Result',
-        body: 'As a young organization, we set up the email program for long-term success through a system of templates that could be easily maintained by the team. The email design empowered, unified, and inspired change — connecting a global movement to individual action and measurable charitable giving.',
+        body: 'Thanking your donors. The most important part of gift acknowledgement for any nonprofit is to thank your donors promptly and sincerely. Be sure to answer the unspoken question that every donor has, "What have you done with my money?" Illustrate how generous giving has resulted in the support for so many. Always try to bring in the stories behind the story and the personal impact for the community. Communicate how their ongoing donations make your collective work possible.',
       },
     ],
     thumb: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
