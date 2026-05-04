@@ -391,10 +391,20 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
-   LOGO CAROUSEL  — 4-up per slide, full-width, auto-play
+   LOGO SHOWCASE
+   • Top: 3-across carousel, edge-to-edge, no white border
+   • Below: all images in a 3-col grid at full size
 ───────────────────────────────────────────────────────── */
-function LogoGrid({ images, bg = '#ffffff' }: { images: string[]; bg?: string }) {
-  const n = images.length;
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+function LogoGrid({ images }: { images: string[] }) {
+  const PER_SLIDE = 3;
+  const slides = chunkArray(images, PER_SLIDE);
+  const n = slides.length;
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -408,118 +418,82 @@ function LogoGrid({ images, bg = '#ffffff' }: { images: string[]; bg?: string })
   }, [next, paused]);
 
   return (
-    <div
-      style={{ background: bg }}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* Full-width single-logo slide */}
+    <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+
+      {/* ── CAROUSEL: 3 across, edge-to-edge ── */}
       <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <div
-          style={{
-            display: 'flex',
-            transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
-            transform: `translateX(-${idx * 100}%)`,
-          }}
-        >
-          {images.map((src, i) => (
-            <div
-              key={i}
-              style={{
-                flexShrink: 0,
-                width: '100%',
-                background: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: 'clamp(48px,8vw,100px) clamp(48px,12vw,180px)',
-              }}
-            >
-              <img
-                src={src}
-                alt=""
-                style={{
-                  display: 'block',
-                  width: '100%',
-                  height: 'auto',
-                  maxHeight: '60vh',
-                  objectFit: 'contain',
-                }}
-              />
+        <div style={{
+          display: 'flex',
+          transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
+          transform: `translateX(-${idx * 100}%)`,
+        }}>
+          {slides.map((group, si) => (
+            <div key={si} style={{
+              flexShrink: 0,
+              width: '100%',
+              display: 'grid',
+              gridTemplateColumns: `repeat(${PER_SLIDE}, 1fr)`,
+              gap: 2,
+            }}>
+              {group.map((src, i) => (
+                <img key={i} src={src} alt=""
+                  style={{ display: 'block', width: '100%', height: 'auto' }} />
+              ))}
+              {Array.from({ length: PER_SLIDE - group.length }).map((_, i) => (
+                <div key={`e-${i}`} style={{ background: '#2d3232' }} />
+              ))}
             </div>
           ))}
         </div>
 
-        {/* Prev */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          style={{
-            position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)',
-            zIndex: 10, background: 'rgba(45,50,50,0.07)', border: '1px solid rgba(45,50,50,0.1)',
-            width: 48, height: 48, display: 'flex', alignItems: 'center',
-            justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
-            transition: 'background 0.2s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.14)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.07)')}
-        >
-          <ChevronLeft style={{ width: 22, height: 22 }} />
-        </button>
-
-        {/* Next */}
-        <button
-          onClick={next}
-          aria-label="Next"
-          style={{
-            position: 'absolute', right: 24, top: '50%', transform: 'translateY(-50%)',
-            zIndex: 10, background: 'rgba(45,50,50,0.07)', border: '1px solid rgba(45,50,50,0.1)',
-            width: 48, height: 48, display: 'flex', alignItems: 'center',
-            justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
-            transition: 'background 0.2s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.14)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.07)')}
-        >
-          <ChevronRight style={{ width: 22, height: 22 }} />
-        </button>
+        {/* Arrows */}
+        {[{ side: 'left' as const, fn: prev, Icon: ChevronLeft },
+          { side: 'right' as const, fn: next, Icon: ChevronRight }].map(({ side, fn, Icon }) => (
+          <button key={side} onClick={fn} aria-label={side}
+            style={{
+              position: 'absolute', [side]: 16, top: '50%', transform: 'translateY(-50%)',
+              zIndex: 10, background: 'rgba(255,255,255,0.85)', border: 'none',
+              width: 44, height: 44, display: 'flex', alignItems: 'center',
+              justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
+              transition: 'background 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = '#fff')}
+            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.85)')}
+          >
+            <Icon style={{ width: 20, height: 20 }} />
+          </button>
+        ))}
       </div>
 
-      {/* Counter + dots */}
+      {/* Dots nav */}
       <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        gap: 10, padding: '20px 0', background: '#f4f2f2',
+        display: 'flex', justifyContent: 'center', alignItems: 'center',
+        gap: 6, padding: '14px 0', background: '#2d3232',
       }}>
-        <span style={{
-          fontFamily: 'var(--font-nav, sans-serif)', fontSize: 10,
-          letterSpacing: '0.18em', color: 'rgba(45,50,50,0.35)',
-          textTransform: 'uppercase', minWidth: 48, textAlign: 'right',
-        }}>
-          {String(idx + 1).padStart(2, '0')}
-        </span>
-        <div style={{ display: 'flex', gap: 5 }}>
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Logo ${i + 1}`}
-              style={{
-                width: i === idx ? 20 : 5, height: 5, borderRadius: 3,
-                background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.2)',
-                border: 'none', padding: 0, cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }}
-            />
-          ))}
-        </div>
-        <span style={{
-          fontFamily: 'var(--font-nav, sans-serif)', fontSize: 10,
-          letterSpacing: '0.18em', color: 'rgba(45,50,50,0.35)',
-          textTransform: 'uppercase', minWidth: 48,
-        }}>
-          / {String(n).padStart(2, '0')}
-        </span>
+        {slides.map((_, i) => (
+          <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
+            style={{
+              width: i === idx ? 22 : 6, height: 6, borderRadius: 3,
+              background: i === idx ? '#f5f0eb' : 'rgba(245,240,235,0.25)',
+              border: 'none', padding: 0, cursor: 'pointer',
+              transition: 'all 0.3s ease',
+            }} />
+        ))}
       </div>
+
+      {/* ── ALL IMAGES: 3-col grid, full size, edge-to-edge ── */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: 2,
+        background: '#2d3232',
+      }}>
+        {images.map((src, i) => (
+          <img key={i} src={src} alt=""
+            style={{ display: 'block', width: '100%', height: 'auto' }} />
+        ))}
+      </div>
+
     </div>
   );
 }
