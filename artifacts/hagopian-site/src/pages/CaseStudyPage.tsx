@@ -391,9 +391,10 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
-   LOGO SHOWCASE
-   • Top: 3-across carousel, edge-to-edge, no white border
-   • Below: all images in a 3-col grid at full size
+   LOGO CAROUSEL
+   • 3 images visible side-by-side at full size
+   • Slides advance in groups of 3
+   • No thumbnails, no cropping
 ───────────────────────────────────────────────────────── */
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const out: T[][] = [];
@@ -403,97 +404,96 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 
 function LogoGrid({ images }: { images: string[] }) {
   const PER_SLIDE = 3;
-  const slides = chunkArray(images, PER_SLIDE);
-  const n = slides.length;
-  const [idx, setIdx] = useState(0);
+  const pages = chunkArray(images, PER_SLIDE);
+  const n = pages.length;
+  const [page, setPage] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
-  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
+  const next = useCallback(() => setPage(p => (p + 1) % n), [n]);
+  const prev = useCallback(() => setPage(p => (p - 1 + n) % n), [n]);
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(next, 3500);
+    const t = setInterval(next, 5000);
     return () => clearInterval(t);
   }, [next, paused]);
 
   return (
-    <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-
-      {/* ── CAROUSEL: 3 across, edge-to-edge ── */}
-      <div style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{
-          display: 'flex',
-          transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
-          transform: `translateX(-${idx * 100}%)`,
-        }}>
-          {slides.map((group, si) => (
-            <div key={si} style={{
-              flexShrink: 0,
-              width: '100%',
-              display: 'grid',
-              gridTemplateColumns: `repeat(${PER_SLIDE}, 1fr)`,
-              gap: 2,
-            }}>
-              {group.map((src, i) => (
-                <img key={i} src={src} alt=""
-                  style={{ display: 'block', width: '100%', height: 'auto' }} />
-              ))}
-              {Array.from({ length: PER_SLIDE - group.length }).map((_, i) => (
-                <div key={`e-${i}`} style={{ background: '#2d3232' }} />
-              ))}
-            </div>
-          ))}
-        </div>
-
-        {/* Arrows */}
-        {[{ side: 'left' as const, fn: prev, Icon: ChevronLeft },
-          { side: 'right' as const, fn: next, Icon: ChevronRight }].map(({ side, fn, Icon }) => (
-          <button key={side} onClick={fn} aria-label={side}
-            style={{
-              position: 'absolute', [side]: 16, top: '50%', transform: 'translateY(-50%)',
-              zIndex: 10, background: 'rgba(255,255,255,0.85)', border: 'none',
-              width: 44, height: 44, display: 'flex', alignItems: 'center',
-              justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
-              transition: 'background 0.2s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.background = '#fff')}
-            onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.85)')}
-          >
-            <Icon style={{ width: 20, height: 20 }} />
-          </button>
+    <div
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      style={{ position: 'relative', overflow: 'hidden', background: '#fff' }}
+    >
+      {/* Sliding track — each slide is a 3-col grid of full-size images */}
+      <div style={{
+        display: 'flex',
+        transition: 'transform 0.6s cubic-bezier(0.21,0.47,0.32,0.98)',
+        transform: `translateX(-${page * 100}%)`,
+      }}>
+        {pages.map((group, pi) => (
+          <div key={pi} style={{
+            flexShrink: 0,
+            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: `repeat(${PER_SLIDE}, 1fr)`,
+          }}>
+            {group.map((src, i) => (
+              <img key={i} src={src} alt=""
+                style={{ display: 'block', width: '100%', height: 'auto' }} />
+            ))}
+            {/* Fill empty slots in the last page */}
+            {Array.from({ length: PER_SLIDE - group.length }).map((_, i) => (
+              <div key={`fill-${i}`} style={{ background: '#f5f0eb' }} />
+            ))}
+          </div>
         ))}
       </div>
 
-      {/* Dots nav */}
+      {/* Prev arrow */}
+      <button onClick={prev} aria-label="Previous"
+        style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0,
+          zIndex: 10, background: 'rgba(245,240,235,0.7)', border: 'none',
+          width: 48, cursor: 'pointer', color: '#2d3232',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transition: 'background 0.2s',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.95)')}
+        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.7)')}
+      >
+        <ChevronLeft style={{ width: 22, height: 22 }} />
+      </button>
+
+      {/* Next arrow */}
+      <button onClick={next} aria-label="Next"
+        style={{
+          position: 'absolute', right: 0, top: 0, bottom: 0,
+          zIndex: 10, background: 'rgba(245,240,235,0.7)', border: 'none',
+          width: 48, cursor: 'pointer', color: '#2d3232',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transition: 'background 0.2s',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.95)')}
+        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.7)')}
+      >
+        <ChevronRight style={{ width: 22, height: 22 }} />
+      </button>
+
+      {/* Page dots */}
       <div style={{
-        display: 'flex', justifyContent: 'center', alignItems: 'center',
-        gap: 6, padding: '14px 0', background: '#2d3232',
+        position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', gap: 6, zIndex: 10,
       }}>
-        {slides.map((_, i) => (
-          <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
+        {pages.map((_, i) => (
+          <button key={i} onClick={() => setPage(i)} aria-label={`Page ${i + 1}`}
             style={{
-              width: i === idx ? 22 : 6, height: 6, borderRadius: 3,
-              background: i === idx ? '#f5f0eb' : 'rgba(245,240,235,0.25)',
+              width: i === page ? 20 : 6, height: 6, borderRadius: 3,
+              background: i === page ? '#2d3232' : 'rgba(45,50,50,0.3)',
               border: 'none', padding: 0, cursor: 'pointer',
               transition: 'all 0.3s ease',
             }} />
         ))}
       </div>
-
-      {/* ── ALL IMAGES: 3-col grid, full size, edge-to-edge ── */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: 2,
-        background: '#2d3232',
-      }}>
-        {images.map((src, i) => (
-          <img key={i} src={src} alt=""
-            style={{ display: 'block', width: '100%', height: 'auto' }} />
-        ))}
-      </div>
-
     </div>
   );
 }
