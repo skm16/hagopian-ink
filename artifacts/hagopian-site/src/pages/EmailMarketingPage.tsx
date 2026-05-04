@@ -8,8 +8,6 @@ import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
-const BASE = import.meta.env.BASE_URL;
-
 const CAPABILITIES = [
   { title: 'Email Strategy + Planning',       desc: 'Audience segmentation, send cadence, lifecycle mapping, and content calendars that maximize every send.' },
   { title: 'Welcome + Onboarding Series',     desc: 'First impressions matter. We build welcome flows that convert new subscribers into loyal customers.' },
@@ -20,22 +18,6 @@ const CAPABILITIES = [
 ];
 
 const PROJECTS = [
-  {
-    client: 'P.Volve',
-    category: 'Email Marketing + List Growth',
-    headline: '1,030% email list growth in 6 months',
-    result: 'Built a full email program from the ground up — welcome series, automated flows, and campaign calendar. Achieved 49.5% average open rates and 1,030% list growth in 6 months.',
-    img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
-    href: '/work/pvolve-email-marketing',
-  },
-  {
-    client: 'Audible',
-    category: 'Email Marketing + Reactivation',
-    headline: 'Reactivating a waning subscriber base',
-    result: 'Re-engaged an audience with declining engagement through a strategic win-back campaign — restoring subscriber activity and reinforcing ongoing subscription value.',
-    img: `${BASE}case-studies/audible-headphones.png`,
-    href: '/work/audible-email-design',
-  },
   {
     client: 'Pepsi',
     category: 'Fortune 50 Email Marketing',
@@ -51,6 +33,22 @@ const PROJECTS = [
     result: 'Crafted mobile-optimized email campaigns for Sesame Street — translating a beloved children\'s brand into engaging digital communications that delighted subscribers of all ages.',
     img: `${CDN}/2018/08/Work-Thumb_sesame-293x414.jpg`,
     href: '/work/sesame-street-mobile-email',
+  },
+  {
+    client: 'Audible',
+    category: 'Email Marketing + Reactivation',
+    headline: 'Reactivating a waning subscriber base',
+    result: 'Re-engaged an audience with declining engagement through a strategic win-back campaign — restoring subscriber activity and reinforcing ongoing subscription value.',
+    img: `${CDN}/2022/07/Work-Thumb_audible-293x414.jpg`,
+    href: '/work/audible-email-design',
+  },
+  {
+    client: 'Melissa Kaye Jewelry',
+    category: 'Luxury Email Marketing',
+    headline: 'Jewelry as beautiful as the emails that sell it.',
+    result: 'Designed an elevated email program for Melissa Kaye — a New York fine jewelry brand — pairing editorial-quality imagery with campaign strategy to engage discerning luxury buyers.',
+    img: `${CDN}/2018/08/Work-Thumb_melissa-293x414.jpg`,
+    href: '/work/melissa-kaye-luxury-jewelry-email-design',
   },
 ];
 

@@ -27,28 +27,36 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'Viant Medical',
-    category: 'Medical Device Brand + Campaign',
-    headline: '"In It for Life" — a 6-year brand partnership',
-    result: 'Built and sustained the "In It for Life" campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
-    img: `${BASE}case-studies/viant/hero.png`,
-    href: '/work/viant-medical-brand-campaign',
-  },
-  {
-    client: 'P.Volve',
-    category: 'Digital Health UX + Email Marketing',
-    headline: 'From 0 to 1,030% email list growth',
-    result: 'Launched a complete digital health brand program — including UX design, welcome series, and email campaigns — for a groundbreaking functional fitness platform. Achieved 49.5% average open rates.',
-    img: `${BASE}case-studies/pvolve/hero.png`,
-    href: '/work/pvolve-email-marketing',
-  },
-  {
     client: 'RecoveryPlus',
     category: 'Brand Identity + UX Design',
     headline: 'Recover your health. Reclaim your life.',
     result: 'Created complete brand identity, mobile app UX/UI, and marketing website for RecoveryPlus.health — a clinically proven remote cardiac rehab platform bringing home-based recovery to patients nationwide.',
     img: `${BASE}case-studies/recoveryplus/hero.png`,
     href: '/work/recoveryplus-health-brand',
+  },
+  {
+    client: 'BeWELL',
+    category: 'Brand Identity',
+    headline: 'A wellness brand rooted in possibility.',
+    result: 'Developed a complete brand identity system for a health and wellness platform — including a distinctive wordmark, flexible visual language, and brand patterns communicating both clinical credibility and optimism.',
+    img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
+    href: '/work/bewell',
+  },
+  {
+    client: 'Montefiore Einstein',
+    category: 'Healthcare Fundraising Design',
+    headline: '329% more dollars raised — and $22.2M at a single gala.',
+    result: 'Designed a multi-year fundraising program for one of New York\'s most respected health systems — spanning donor emails, gala invitations, newsletters, and event branding.',
+    img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
+    href: '/work/montefiore-healthcare-design',
+  },
+  {
+    client: 'Audible',
+    category: 'Email Marketing + Reactivation',
+    headline: 'Reactivating a waning subscriber base.',
+    result: 'Re-engaged an audience with declining engagement through a strategic win-back campaign — restoring subscriber activity and reinforcing ongoing subscription value.',
+    img: `${CDN}/2022/07/Work-Thumb_audible-293x414.jpg`,
+    href: '/work/audible-email-design',
   },
 ];
 
@@ -137,7 +145,7 @@ export function HealthMedTechPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Health + MedTech in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">

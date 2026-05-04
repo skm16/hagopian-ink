@@ -26,20 +26,36 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'Epilepsy Foundation',
-    category: 'National Brand Campaign + Nonprofit',
-    headline: '180% increase in online donations',
-    result: 'Developed a national multi-channel campaign, updated brand identity, and 2.5-year partnership with the Epilepsy Foundation — including Times Square digital billboards, fundraising materials, and a new visual identity system.',
-    img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: '/work/epilepsy-foundation-brand-campaign',
+    client: 'Montefiore Einstein',
+    category: 'Healthcare Fundraising Design',
+    headline: '329% more dollars raised — and $22.2M at a single gala.',
+    result: 'Designed a multi-year fundraising program for one of New York\'s most respected health systems — spanning donor emails, gala invitations, newsletters, and event branding that raised $22.2M.',
+    img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
+    href: '/work/montefiore-healthcare-design',
   },
   {
-    client: 'Malala Fund',
-    category: 'Email Design + Nonprofit',
-    headline: 'Storytelling that stands up for girls\' education',
-    result: 'Volunteered responsive email templates for The Malala Fund — designed to increase open and click rates, drive donations, and amplify the global mission to give every girl 12 years of quality education.',
-    img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: '/work/malala-fund-email-design',
+    client: 'Black Lives Matter Canada',
+    category: 'Email Marketing + Community',
+    headline: 'Urgent storytelling. Immediate action.',
+    result: 'Designed a high-impact email campaign for Black Lives Matter Canada that drove immediate community engagement and donations — balancing urgency with humanity in every send.',
+    img: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
+    href: '/work/black-lives-matter-canada',
+  },
+  {
+    client: 'Award-Winning Logos',
+    category: 'Nonprofit + Brand Identity',
+    headline: 'Make your mark.',
+    result: '24 award-winning logo designs for organizations across sectors — including nonprofits, health systems, and mission-driven brands built to endure.',
+    img: `${CDN}/2018/08/Work-Thumb_logos-293x414.jpg`,
+    href: '/work/award-winning-logos',
+  },
+  {
+    client: 'Christopher Street Financial',
+    category: 'Brand Identity + Website',
+    headline: 'Financial planning with a personal philosophy.',
+    result: 'Built a distinctive brand identity and marketing website for an LGBTQ-focused financial planning firm — a community-driven practice with a mission to serve with dignity and care.',
+    img: `${CDN}/2022/08/Work-Thumb_CSF_2-724x1024-1-293x414.jpg`,
+    href: '/work/christopher-street-financial',
   },
 ];
 
@@ -128,7 +144,7 @@ export function NonprofitPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Campaigns that moved people — and dollars</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">

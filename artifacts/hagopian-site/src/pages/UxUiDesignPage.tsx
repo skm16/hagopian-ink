@@ -18,13 +18,15 @@ const CAPABILITIES = [
   { title: 'Brand-to-Web Translation',       desc: 'Every visual identity we build is designed to extend seamlessly into the digital environment.' },
 ];
 
+const BASE = import.meta.env.BASE_URL;
+
 const PROJECTS = [
   {
     client: 'Loum Beauty',
     category: 'Website Design',
     headline: 'Luxury e-commerce that converts',
     result: "Clarified brand story, reduced bounce rate, and increased consumer connection for a premium beauty brand — creating an e-commerce experience that matched the product's quality.",
-    img: `${CDN}/2022/08/HI_home2_loum.jpg`,
+    img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
     href: '/work/loumbeauty',
   },
   {
@@ -32,8 +34,24 @@ const PROJECTS = [
     category: 'Subscription Acquisition + UX',
     headline: '300% increase in signup conversion',
     result: 'Redesigned the acquisition funnel and landing experience for a subscription fashion service, delivering a 300% lift in new member sign-ups.',
-    img: `${CDN}/2018/08/1111.png`,
+    img: `${CDN}/2018/08/Work-Thumb_gwynnie-293x414.jpg`,
     href: '/work/gwynnie-bee-subscription-acquisition-email',
+  },
+  {
+    client: 'Diamonds In Glass',
+    category: 'Luxury Jewelry Website',
+    headline: 'A luxury experience for luxury diamonds.',
+    result: 'Designed and built an immersive digital experience for a premier luxury jewelry concept — refined, conversion-focused, and built to match the caliber of the product.',
+    img: `${CDN}/2018/08/Work-Thumb_DIG-293x414.jpg`,
+    href: '/work/diamonds-in-glass-luxury-jewelry-website',
+  },
+  {
+    client: 'RecoveryPlus',
+    category: 'Brand Identity + Mobile App UX',
+    headline: 'Recover your health. Reclaim your life.',
+    result: 'Designed the complete mobile app UX/UI and marketing website for a clinically proven remote cardiac rehab platform — guiding patients from diagnosis through active recovery.',
+    img: `${BASE}case-studies/recoveryplus/hero.png`,
+    href: '/work/recoveryplus-health-brand',
   },
 ];
 
@@ -125,7 +143,7 @@ export function UxUiDesignPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>UX design in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">

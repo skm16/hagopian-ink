@@ -30,18 +30,34 @@ const PROJECTS = [
   {
     client: 'Joseph Robert',
     category: 'Brand Identity',
-    headline: 'Branding the modern man',
+    headline: 'A modern monogram for menswear.',
     result: 'Built a complete brand identity for a modern menswear line — from naming and strategy through logo, packaging, and retail presence.',
-    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
+    img: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle-scaled.jpg`,
     href: '/work/joseph-robert',
   },
   {
-    client: 'HubSpot',
+    client: 'Hubspot Inbound',
     category: 'Conference Brand Identity',
-    headline: 'Identity for the world\'s largest marketing conference',
-    result: 'Developed a complete visual identity and brand system for a flagship HubSpot conference, applied across digital, print, and environmental design.',
-    img: `${CDN}/2018/08/Bitmap-1.png`,
+    headline: 'A conference brand built for a movement.',
+    result: 'Developed a complete visual identity and brand system for HubSpot\'s flagship INBOUND conference — applied across digital, print, signage, and environmental design for tens of thousands of attendees.',
+    img: `${CDN}/2018/09/Work-Thumb_hubspot2-293x414.jpg`,
     href: '/work/hubspot-conference-brand-identity',
+  },
+  {
+    client: 'Award-Winning Logos',
+    category: 'Brand Identity',
+    headline: 'Make your mark.',
+    result: '24 award-winning logo designs across sectors — each a mark built on strategic insight and crafted to endure.',
+    img: `${CDN}/2018/08/Work-Thumb_logos-293x414.jpg`,
+    href: '/work/award-winning-logos',
+  },
+  {
+    client: 'BeWELL',
+    category: 'Brand Identity',
+    headline: 'A wellness brand rooted in possibility.',
+    result: 'Developed a complete brand identity system for a health and wellness platform — distinctive wordmark, flexible visual language, and brand patterns balancing clinical credibility with warmth.',
+    img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
+    href: '/work/bewell',
   },
 ];
 
@@ -120,7 +136,7 @@ export function BrandIdentityPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Brand identity in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">
