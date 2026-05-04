@@ -391,26 +391,18 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
-   LOGO CAROUSEL
-   • 3 images visible side-by-side at full size
-   • Slides advance in groups of 3
-   • No thumbnails, no cropping
+   LOGO SLIDER
+   • ONE image at a time, full container width, height: auto
+   • Slides left → right with prev / next arrows
+   • Counter + dot nav, auto-advances every 5s
 ───────────────────────────────────────────────────────── */
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  const out: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
-
 function LogoGrid({ images }: { images: string[] }) {
-  const PER_SLIDE = 3;
-  const pages = chunkArray(images, PER_SLIDE);
-  const n = pages.length;
-  const [page, setPage] = useState(0);
+  const n = images.length;
+  const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => setPage(p => (p + 1) % n), [n]);
-  const prev = useCallback(() => setPage(p => (p - 1 + n) % n), [n]);
+  const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
+  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
 
   useEffect(() => {
     if (paused) return;
@@ -422,77 +414,64 @@ function LogoGrid({ images }: { images: string[] }) {
     <div
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      style={{ position: 'relative', overflow: 'hidden', background: '#fff' }}
+      style={{ background: '#fff' }}
     >
-      {/* Sliding track — each slide is a 3-col grid of full-size images */}
-      <div style={{
-        display: 'flex',
-        transition: 'transform 0.6s cubic-bezier(0.21,0.47,0.32,0.98)',
-        transform: `translateX(-${page * 100}%)`,
-      }}>
-        {pages.map((group, pi) => (
-          <div key={pi} style={{
-            flexShrink: 0,
-            width: '100%',
-            display: 'grid',
-            gridTemplateColumns: `repeat(${PER_SLIDE}, 1fr)`,
-          }}>
-            {group.map((src, i) => (
-              <img key={i} src={src} alt=""
+      {/* Sliding track */}
+      <div style={{ overflow: 'hidden', position: 'relative' }}>
+        <div style={{
+          display: 'flex',
+          transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
+          transform: `translateX(-${idx * 100}%)`,
+        }}>
+          {images.map((src, i) => (
+            <div key={i} style={{ flexShrink: 0, width: '100%' }}>
+              <img src={src} alt=""
                 style={{ display: 'block', width: '100%', height: 'auto' }} />
-            ))}
-            {/* Fill empty slots in the last page */}
-            {Array.from({ length: PER_SLIDE - group.length }).map((_, i) => (
-              <div key={`fill-${i}`} style={{ background: '#f5f0eb' }} />
-            ))}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Prev arrow */}
-      <button onClick={prev} aria-label="Previous"
-        style={{
-          position: 'absolute', left: 0, top: 0, bottom: 0,
-          zIndex: 10, background: 'rgba(245,240,235,0.7)', border: 'none',
-          width: 48, cursor: 'pointer', color: '#2d3232',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'background 0.2s',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.95)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.7)')}
-      >
-        <ChevronLeft style={{ width: 22, height: 22 }} />
-      </button>
-
-      {/* Next arrow */}
-      <button onClick={next} aria-label="Next"
-        style={{
-          position: 'absolute', right: 0, top: 0, bottom: 0,
-          zIndex: 10, background: 'rgba(245,240,235,0.7)', border: 'none',
-          width: 48, cursor: 'pointer', color: '#2d3232',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          transition: 'background 0.2s',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.95)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(245,240,235,0.7)')}
-      >
-        <ChevronRight style={{ width: 22, height: 22 }} />
-      </button>
-
-      {/* Page dots */}
+      {/* Controls bar */}
       <div style={{
-        position: 'absolute', bottom: 12, left: '50%', transform: 'translateX(-50%)',
-        display: 'flex', gap: 6, zIndex: 10,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        background: '#2d3232',
+        padding: '0 8px',
       }}>
-        {pages.map((_, i) => (
-          <button key={i} onClick={() => setPage(i)} aria-label={`Page ${i + 1}`}
-            style={{
-              width: i === page ? 20 : 6, height: 6, borderRadius: 3,
-              background: i === page ? '#2d3232' : 'rgba(45,50,50,0.3)',
-              border: 'none', padding: 0, cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }} />
-        ))}
+        {/* Prev */}
+        <button onClick={prev} aria-label="Previous"
+          style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            color: '#f5f0eb', padding: '14px 12px',
+            display: 'flex', alignItems: 'center',
+          }}>
+          <ChevronLeft style={{ width: 22, height: 22 }} />
+        </button>
+
+        {/* Dots */}
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          {images.map((_, i) => (
+            <button key={i} onClick={() => setIdx(i)} aria-label={`Image ${i + 1}`}
+              style={{
+                width: i === idx ? 18 : 6, height: 6, borderRadius: 3,
+                background: i === idx ? '#f5f0eb' : 'rgba(245,240,235,0.3)',
+                border: 'none', padding: 0, cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }} />
+          ))}
+        </div>
+
+        {/* Next */}
+        <button onClick={next} aria-label="Next"
+          style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            color: '#f5f0eb', padding: '14px 12px',
+            display: 'flex', alignItems: 'center',
+          }}>
+          <ChevronRight style={{ width: 22, height: 22 }} />
+        </button>
       </div>
     </div>
   );
