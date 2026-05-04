@@ -32,7 +32,7 @@ export function ContactPage() {
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
-            className="text-6xl md:text-8xl leading-[0.92] text-white"
+            className="text-5xl md:text-7xl leading-[0.92] text-white"
             style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Let's partner.
           </motion.h1>

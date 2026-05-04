@@ -136,7 +136,7 @@ export function BlogPage() {
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-6" style={{ fontFamily: NAV_FONT }}>Blog</p>
-            <h1 className="text-6xl md:text-8xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h1 className="text-5xl md:text-7xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Fresh Ink.
             </h1>
           </motion.div>
