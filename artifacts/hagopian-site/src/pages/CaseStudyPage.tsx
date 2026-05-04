@@ -404,6 +404,24 @@ function FullImg({ src }: { src: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────
+   CONTAINED IMAGE  — centered, max-width constrained,
+   with padding + gray bg so it reads as "presented" work
+   (used for PDF page screenshots, email screenshots, etc.)
+───────────────────────────────────────────────────────── */
+function ContainedImg({ src, maxWidth = 860, bg = '#f4f2f2' }: { src: string; maxWidth?: number; bg?: string }) {
+  return (
+    <FadeIn>
+      <div style={{ background: bg, padding: 'clamp(32px,5vw,72px) clamp(20px,5vw,60px)' }}>
+        <div style={{ maxWidth, margin: '0 auto' }}>
+          <img src={src} alt=""
+            style={{ display: 'block', width: '100%', height: 'auto', boxShadow: '0 8px 40px rgba(0,0,0,0.13)' }} />
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
    SECTION DISPATCHER
 ───────────────────────────────────────────────────────── */
 function RenderSection({ section }: { section: Section }) {
@@ -420,6 +438,8 @@ function RenderSection({ section }: { section: Section }) {
       );
     case 'full-image':
       return <FullImg src={section.src} />;
+    case 'contained-image':
+      return <ContainedImg src={section.src} maxWidth={section.maxWidth} bg={section.bg} />;
     case 'carousel':
       return <FadeIn><Carousel images={section.images} dark={section.dark} /></FadeIn>;
     case 'desktop-frames':
@@ -547,7 +567,10 @@ export function CaseStudyPage() {
       </section>
 
       {/* ── HERO IMAGE ── */}
-      <FullImg src={cs.hero} />
+      {cs.heroContained
+        ? <ContainedImg src={cs.hero} maxWidth={900} />
+        : <FullImg src={cs.hero} />
+      }
 
       {/* ── SECTIONS ── */}
       {cs.sections.map((section, i) => (

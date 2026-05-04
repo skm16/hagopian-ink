@@ -2,12 +2,13 @@ const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 const BASE = import.meta.env.BASE_URL;
 
 export type Section =
-  | { type: 'text';           label: string; body: string; dark?: boolean }
-  | { type: 'text-image';     label: string; title: string; body: string; image: string; imageLeft?: boolean; bg?: string }
-  | { type: 'full-image';     src: string }
-  | { type: 'carousel';       images: string[]; dark?: boolean }
-  | { type: 'desktop-frames'; images: string[]; navBar?: 'silver' | 'black' }
-  | { type: 'mobile-frames';  images: string[] }
+  | { type: 'text';             label: string; body: string; dark?: boolean }
+  | { type: 'text-image';       label: string; title: string; body: string; image: string; imageLeft?: boolean; bg?: string }
+  | { type: 'full-image';       src: string }
+  | { type: 'contained-image';  src: string; maxWidth?: number; bg?: string }
+  | { type: 'carousel';         images: string[]; dark?: boolean }
+  | { type: 'desktop-frames';   images: string[]; navBar?: 'silver' | 'black' }
+  | { type: 'mobile-frames';    images: string[] }
   | {
       type: 'columns-three';
       challenge: string;
@@ -24,6 +25,7 @@ export type CaseStudy = {
   tagline: string;
   intro: string;
   hero: string;
+  heroContained?: boolean;
   sections: Section[];
   thumb: string;
 };
@@ -864,6 +866,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: '"In it for Life" — a campaign built to last.',
     intro: 'Viant, a global leader in medical device design and manufacturing, partnered with Hagopian Ink and Reinvent the World over six years to strengthen and unify their brand voice. Together, we developed the "I\'m in it for life" campaign — an impactful narrative that built credibility, increased industry awareness, and clearly defined Viant\'s unique value.',
     hero: `${BASE}case-studies/viant/hero.png`,
+    heroContained: true,
     sections: [
       {
         type: 'columns-three',
@@ -873,16 +876,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The result was a cohesive, resonant campaign that elevated Viant\'s visibility and forged a lasting connection with its executive audience. The partnership spanned 6 years across 24 global locations, reaching 6,000 worldwide employees and reinforcing Viant\'s position as the most trusted name in medical device manufacturing.',
       },
       {
-        type: 'full-image',
-        src: `${BASE}case-studies/viant/hero.png`,
-      },
-      {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/viant/emails.png`,
+        maxWidth: 960,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/viant/ads.png`,
+        maxWidth: 960,
       },
     ],
     thumb: `${BASE}case-studies/viant/hero.png`,
@@ -897,6 +898,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: '1,030% list growth in six months.',
     intro: 'Fitness trainer and p.volve founder Stephen Pasterino created a line of fitness products and streaming workouts to reach a wider audience. P.volve was looking to grow their business and we partnered to perform all elements of email campaign development and execution for subscriber acquisition.',
     hero: `${BASE}case-studies/pvolve/hero.png`,
+    heroContained: true,
     sections: [
       {
         type: 'columns-three',
@@ -906,12 +908,9 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The email program delivered a 1,030% increase in list growth within 6 months and achieved a 49.5% open rate high — a remarkable result in the competitive fitness subscription market. The scalable template system Hagopian Ink built allowed the internal team to maintain the program with confidence.',
       },
       {
-        type: 'full-image',
-        src: `${BASE}case-studies/pvolve/hero.png`,
-      },
-      {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/pvolve/emails.png`,
+        maxWidth: 900,
       },
     ],
     thumb: `${BASE}case-studies/pvolve/hero.png`,
@@ -926,6 +925,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: 'Let\'s use our brains to END EPILEPSY.',
     intro: 'The Epilepsy Foundation exists to increase awareness and change the conversation around epilepsy, improving and saving lives through care, advocacy, research and new therapies, and education. Hagopian Ink worked with the Foundation for 2.5 years to help them reinvent and unify their organization with a new national brand, visual identity, and awareness campaign.',
     hero: `${BASE}case-studies/epilepsy/hero.png`,
+    heroContained: true,
     sections: [
       {
         type: 'columns-three',
@@ -935,20 +935,19 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The 2019 Holiday Appeal campaign delivered a 180% increase in online donations. The campaign ran on Times Square digital billboards, across national print and digital media, and through a powerful storytelling approach that gave faces and names to the epilepsy community — positioning the Epilepsy Foundation for a bold next chapter.',
       },
       {
-        type: 'full-image',
-        src: `${BASE}case-studies/epilepsy/hero.png`,
-      },
-      {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/epilepsy/case.png`,
+        maxWidth: 820,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/epilepsy/posters.png`,
+        maxWidth: 960,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/epilepsy/collateral.png`,
+        maxWidth: 900,
       },
     ],
     thumb: `${BASE}case-studies/epilepsy/hero.png`,
@@ -963,6 +962,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: 'Storytelling that stands up for girls\' education.',
     intro: 'After attending a screening of the movie He Named Me Malala featuring Nobel Peace Prize Laureate Malala Yousafzai, we were so moved that we vowed to help. With our experience in nonprofit email design, Hagopian Ink volunteered to create fluid responsive email templates for The Malala Fund to help spread their mission and raise funds.',
     hero: `${BASE}case-studies/malala/hero.png`,
+    heroContained: true,
     sections: [
       {
         type: 'columns-three',
@@ -972,16 +972,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'As a woman-owned business, Hagopian Ink was honored to give their services to help the organization spread awareness for the education and freedom of all women. The email template system continues to be used to communicate with millions of Malala Fund supporters around the world.',
       },
       {
-        type: 'full-image',
-        src: `${BASE}case-studies/malala/hero.png`,
-      },
-      {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/malala/case.png`,
+        maxWidth: 760,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/malala/desktop.png`,
+        maxWidth: 880,
       },
     ],
     thumb: `${BASE}case-studies/malala/hero.png`,
@@ -996,6 +994,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tagline: 'Recover your health. Reclaim your life.',
     intro: 'RecoveryPlus.health is a clinically proven remote cardiac rehab platform that provides easy and accessible home-based recovery for patients with chronic heart conditions. Hagopian Ink partnered with RecoveryPlus to shape their brand identity, design their mobile app experience, and build their marketing website — bringing a life-changing service to market.',
     hero: `${BASE}case-studies/recoveryplus/hero.png`,
+    heroContained: true,
     sections: [
       {
         type: 'columns-three',
@@ -1005,24 +1004,24 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The RecoveryPlus brand launched with a compelling identity that positioned it as the human, accessible face of cardiac care. The mobile app design made the recovery journey intuitive and motivating, while the website clearly communicated the clinical benefits and drove patient and provider enrollment.',
       },
       {
-        type: 'full-image',
-        src: `${BASE}case-studies/recoveryplus/hero.png`,
-      },
-      {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/recoveryplus/brand.png`,
+        maxWidth: 860,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/recoveryplus/app.png`,
+        maxWidth: 960,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/recoveryplus/app2.png`,
+        maxWidth: 960,
       },
       {
-        type: 'full-image',
+        type: 'contained-image',
         src: `${BASE}case-studies/recoveryplus/web.png`,
+        maxWidth: 960,
       },
     ],
     thumb: `${BASE}case-studies/recoveryplus/hero.png`,
