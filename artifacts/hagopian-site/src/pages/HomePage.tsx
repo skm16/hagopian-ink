@@ -185,9 +185,13 @@ export function Homepage() {
                       const s = svc as typeof svc & { svgIcon?: string };
                       const iconStyle = { transform: 'rotate(-45deg)' };
                       if (s.svgIcon === 'branding') return (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
-                          <path d="M12 2C9.2 2 7 4.7 7 8c0 3.5 5 12 5 12s5-8.5 5-12c0-3.3-2.2-6-5-6z" />
-                          <circle cx="12" cy="8" r="1.5" fill="white" stroke="none" />
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.3} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
+                          <circle cx="12" cy="12" r="5.5" />
+                          <line x1="12" y1="3" x2="12" y2="5.5" />
+                          <line x1="12" y1="18.5" x2="12" y2="21" />
+                          <line x1="3" y1="12" x2="5.5" y2="12" />
+                          <line x1="18.5" y1="12" x2="21" y2="12" />
+                          <path d="M12 9.2C11 9.2 10.2 10.3 10.2 11.3c0 1.2 1.8 3 1.8 3s1.8-1.8 1.8-3c0-1-0.8-2.1-1.8-2.1z" fill="white" stroke="none" />
                         </svg>
                       );
                       if (s.svgIcon === 'email') return (
