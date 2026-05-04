@@ -1,4 +1,5 @@
 const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
+const BASE = import.meta.env.BASE_URL;
 
 export type Section =
   | { type: 'text';           label: string; body: string; dark?: boolean }
@@ -58,7 +59,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         type: 'full-image',
-        src: `${CDN}/2022/08/JosephRobert3.png`,
+        src: `${BASE}jr-brand-identity.png`,
       },
       {
         type: 'text-image',
@@ -71,6 +72,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_blue.png`,
+          `${BASE}jr-hat-portrait.png`,
           `${CDN}/2022/08/JosephRobert1.png`,
           `${CDN}/2022/08/JosephRobert2.png`,
           `${CDN}/2022/08/JosephRobert10.png`,
