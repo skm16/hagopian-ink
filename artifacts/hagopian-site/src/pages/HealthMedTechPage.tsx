@@ -8,6 +8,7 @@ import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+const BASE = import.meta.env.BASE_URL;
 
 const CAPABILITIES = [
   { title: 'Medical Device Brand Identity',    desc: 'Brand systems for device manufacturers, diagnostics companies, and life science innovators that command trust in every market.' },
@@ -21,16 +22,16 @@ const CAPABILITIES = [
 const STATS = [
   { n: '6 yrs',  label: 'Viant Medical brand partnership' },
   { n: '24',     label: 'Global locations reached — Viant Medical' },
-  { n: '$56K',   label: 'New sales from health email automation — Cannadips' },
+  { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
 ];
 
 const PROJECTS = [
   {
     client: 'Viant Medical',
     category: 'Medical Device Brand + Campaign',
-    headline: '“In It for Life” — a 6-year brand partnership',
-    result: 'Built and sustained the “In It for Life” campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
-    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
+    headline: '"In It for Life" — a 6-year brand partnership',
+    result: 'Built and sustained the "In It for Life" campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
+    img: `${BASE}case-studies/viant/hero.png`,
     href: '/work/viant-medical-brand-campaign',
   },
   {
@@ -38,8 +39,16 @@ const PROJECTS = [
     category: 'Digital Health UX + Email Marketing',
     headline: 'From 0 to 1,030% email list growth',
     result: 'Launched a complete digital health brand program — including UX design, welcome series, and email campaigns — for a groundbreaking functional fitness platform. Achieved 49.5% average open rates.',
-    img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
+    img: `${BASE}case-studies/pvolve/hero.png`,
     href: '/work/pvolve-email-marketing',
+  },
+  {
+    client: 'RecoveryPlus',
+    category: 'Brand Identity + UX Design',
+    headline: 'Recover your health. Reclaim your life.',
+    result: 'Created complete brand identity, mobile app UX/UI, and marketing website for RecoveryPlus.health — a clinically proven remote cardiac rehab platform bringing home-based recovery to patients nationwide.',
+    img: `${BASE}case-studies/recoveryplus/hero.png`,
+    href: '/work/recoveryplus-health-brand',
   },
 ];
 
@@ -128,7 +137,7 @@ export function HealthMedTechPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Health + MedTech in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">
@@ -154,7 +163,7 @@ export function HealthMedTechPage() {
             <SectionLabel light>Clients We've Served</SectionLabel>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Viant Medical', 'P.Volve', 'Cannadips', 'Montefiore Health System'].map((c, i) => (
+            {['Viant Medical', 'P.Volve', 'RecoveryPlus', 'Montefiore Health System'].map((c, i) => (
               <FadeIn key={i} delay={i * 0.08} className="border-t border-[#474d4d] pt-5">
                 <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
               </FadeIn>

@@ -8,6 +8,7 @@ import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+const BASE = import.meta.env.BASE_URL;
 
 const CAPABILITIES = [
   { title: 'Email Strategy + Planning',       desc: 'Audience segmentation, send cadence, lifecycle mapping, and content calendars that maximize every send.' },
@@ -25,23 +26,31 @@ const PROJECTS = [
     headline: '1,030% email list growth in 6 months',
     result: 'Built a full email program from the ground up — welcome series, automated flows, and campaign calendar. Achieved 49.5% average open rates and 1,030% list growth in 6 months.',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
-    href: '/work',
+    href: '/work/pvolve-email-marketing',
   },
   {
     client: 'Audible',
     category: 'Email Marketing + Reactivation',
     headline: 'Reactivating a waning subscriber base',
     result: 'Re-engaged an audience with declining engagement through a strategic win-back campaign — restoring subscriber activity and reinforcing ongoing subscription value.',
-    img: `${CDN}/2022/09/HI_case3_audible.jpg`,
+    img: `${BASE}case-studies/audible-headphones.png`,
     href: '/work/audible-email-design',
   },
   {
-    client: 'Cannadips',
-    category: 'Email Automation',
-    headline: '$56K in new sales from automated flows',
-    result: 'Designed and deployed a suite of automated email flows for a DTC brand — generating $56K in attributable new sales within the first 4 months of deployment.',
-    img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: '/work',
+    client: 'Pepsi',
+    category: 'Fortune 50 Email Marketing',
+    headline: 'Enterprise email for one of the world\'s biggest brands',
+    result: 'Designed and produced high-volume email campaigns for PepsiCo — balancing strict brand governance with creative engagement across millions of subscribers.',
+    img: `${CDN}/2018/08/Work-Thumb_pepsi-293x414.jpg`,
+    href: '/work/pepsi-email-marketing',
+  },
+  {
+    client: 'Sesame Street',
+    category: 'Mobile Email Design',
+    headline: 'Mobile-first email for an iconic brand',
+    result: 'Crafted mobile-optimized email campaigns for Sesame Street — translating a beloved children\'s brand into engaging digital communications that delighted subscribers of all ages.',
+    img: `${CDN}/2018/08/Work-Thumb_sesame-293x414.jpg`,
+    href: '/work/sesame-street-mobile-email',
   },
 ];
 
@@ -78,7 +87,7 @@ export function EmailMarketingPage() {
           {[
             { n: '1,030%', label: 'Email list growth in 6 months — P.Volve' },
             { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
-            { n: '$56K',   label: 'New sales from automations in 4 months — Cannadips' },
+            { n: '20+ yrs', label: 'Designing email for Fortune 50 brands' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -134,7 +143,7 @@ export function EmailMarketingPage() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Email programs that deliver</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {PROJECTS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <Link href={p.href} className="group block">
