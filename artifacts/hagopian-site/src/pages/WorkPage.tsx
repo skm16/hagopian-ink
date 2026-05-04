@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
@@ -10,9 +10,6 @@ import { CASE_STUDIES } from '@/lib/case-studies';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
-/*
-  Case studies excluded until their pages are fully authored and reviewed.
-*/
 const HIDDEN_SLUGS = new Set([
   'viant-medical-brand-campaign',
   'pvolve-email-marketing',
@@ -20,31 +17,17 @@ const HIDDEN_SLUGS = new Set([
   'malala-fund-email-design',
 ]);
 
-/*
-  Group assignments — ordered within each group.
-  Using explicit slug lists rather than raw category strings
-  (which are inconsistent across case studies).
-*/
 type Group = {
   label: string;
   desc: string;
   slugs: string[];
 };
 
+/*
+  Groups ordered to match the Expertise dropdown:
+  Brand Identity → Website Design → Email Marketing → Campaigns + Fundraising
+*/
 const GROUPS: Group[] = [
-  {
-    label: 'Email Marketing',
-    desc: 'From single sends to complex automation sequences — every email is designed to feel like a personal conversation at scale.',
-    slugs: [
-      'pepsi-email-marketing',
-      'sesame-street-mobile-email',
-      'gwynnie-bee-subscription-acquisition-email',
-      'audible-email-design',
-      'sobe-fluid-responsive-email',
-      'melissa-kaye-luxury-jewelry-email-design',
-      'black-lives-matter-canada',
-    ],
-  },
   {
     label: 'Brand Identity',
     desc: 'Logos, marks, visual systems, and brand standards built to endure — across every medium and every moment.',
@@ -59,12 +42,25 @@ const GROUPS: Group[] = [
     ],
   },
   {
-    label: 'Website + UX Design',
+    label: 'Website Design',
     desc: 'Digital experiences designed around how people actually move through your content — built to convert and built to last.',
     slugs: [
       'loumbeauty',
       'diamonds-in-glass-luxury-jewelry-website',
       'recoveryplus-health-brand',
+    ],
+  },
+  {
+    label: 'Email Marketing',
+    desc: 'From single sends to complex automation sequences — every email is designed to feel like a personal conversation at scale.',
+    slugs: [
+      'pepsi-email-marketing',
+      'sesame-street-mobile-email',
+      'gwynnie-bee-subscription-acquisition-email',
+      'audible-email-design',
+      'sobe-fluid-responsive-email',
+      'melissa-kaye-luxury-jewelry-email-design',
+      'black-lives-matter-canada',
     ],
   },
   {
@@ -77,10 +73,139 @@ const GROUPS: Group[] = [
   },
 ];
 
+/* slug → anchor id */
+function toAnchor(label: string) {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
 /* Build a slug → CaseStudy lookup */
 const BY_SLUG = Object.fromEntries(
   CASE_STUDIES.filter(cs => !HIDDEN_SLUGS.has(cs.slug)).map(cs => [cs.slug, cs])
 );
+
+/* ─────────────────────────────────────────────────────────
+   CATEGORY NAV BAR  — sticky anchor tabs
+───────────────────────────────────────────────────────── */
+function CategoryNav({ groups }: { groups: Group[] }) {
+  const [active, setActive] = useState<string | null>(null);
+  const [stuck, setStuck] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => setStuck(!e.isIntersecting),
+      { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  /* Highlight active section as user scrolls */
+  useEffect(() => {
+    function onScroll() {
+      for (let i = groups.length - 1; i >= 0; i--) {
+        const id = toAnchor(groups[i].label);
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 120) {
+          setActive(id);
+          return;
+        }
+      }
+      setActive(null);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [groups]);
+
+  function scrollTo(anchor: string) {
+    const el = document.getElementById(anchor);
+    if (el) {
+      const offset = 72; // nav height approx
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    setActive(anchor);
+  }
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 40,
+        background: stuck ? 'rgba(45,50,50,0.97)' : '#f1efef',
+        borderBottom: stuck
+          ? '1px solid rgba(245,240,235,0.1)'
+          : '1px solid rgba(45,50,50,0.1)',
+        backdropFilter: stuck ? 'blur(12px)' : 'none',
+        transition: 'background 0.35s ease, border-color 0.35s ease',
+      }}
+    >
+      <div
+        className="px-8 md:px-16 max-w-[1400px] mx-auto"
+        style={{ overflowX: 'auto' }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {groups.map((g, i) => {
+            const anchor = toAnchor(g.label);
+            const isActive = active === anchor;
+            const textCol = stuck
+              ? (isActive ? '#f5f0eb' : 'rgba(245,240,235,0.45)')
+              : (isActive ? '#2d3232' : 'rgba(45,50,50,0.4)');
+            const borderCol = stuck
+              ? (isActive ? '#f5f0eb' : 'transparent')
+              : (isActive ? '#2d3232' : 'transparent');
+            return (
+              <button
+                key={anchor}
+                onClick={() => scrollTo(anchor)}
+                style={{
+                  fontFamily: NAV_FONT,
+                  fontSize: '10px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: textCol,
+                  background: 'none',
+                  border: 'none',
+                  borderBottom: `2px solid ${borderCol}`,
+                  padding: '18px 20px 16px',
+                  cursor: 'pointer',
+                  transition: 'color 0.2s ease, border-color 0.2s ease',
+                  flexShrink: 0,
+                }}
+                onMouseEnter={e => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLButtonElement).style.color = stuck
+                      ? 'rgba(245,240,235,0.8)'
+                      : 'rgba(45,50,50,0.75)';
+                  }
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLButtonElement).style.color = textCol;
+                }}
+              >
+                <span style={{ marginRight: 8, opacity: 0.35 }}>
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {g.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function WorkPage() {
   return (
@@ -113,6 +238,9 @@ export function WorkPage() {
         </div>
       </section>
 
+      {/* ── CATEGORY NAV ───────────────────── */}
+      <CategoryNav groups={GROUPS} />
+
       {/* ── GROUPED PORTFOLIO ──────────────── */}
       {GROUPS.map((group, gi) => {
         const cases = group.slugs.map(s => BY_SLUG[s]).filter(Boolean);
@@ -127,7 +255,11 @@ export function WorkPage() {
         const categoryColor = dark ? 'rgba(245,240,235,0.35)' : 'rgba(45,50,50,0.35)';
 
         return (
-          <section key={group.label} style={{ background: bg }}>
+          <section
+            key={group.label}
+            id={toAnchor(group.label)}
+            style={{ background: bg, scrollMarginTop: 50 }}
+          >
             <div className="px-8 md:px-16 pt-20 md:pt-28 pb-4 max-w-[1400px] mx-auto">
               <FadeIn>
                 <div className="flex items-center gap-4 mb-8">
