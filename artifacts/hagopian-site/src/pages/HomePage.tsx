@@ -184,8 +184,13 @@ export function Homepage() {
                     <img
                       src={svc.icon}
                       alt=""
-                      className="w-8 h-8 object-contain opacity-90"
-                      style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
+                      className="object-contain opacity-90"
+                      style={{
+                        width: (svc as typeof svc & { iconSize?: string }).iconSize ?? '32px',
+                        height: (svc as typeof svc & { iconSize?: string }).iconSize ?? '32px',
+                        transform: 'rotate(-45deg)',
+                        ...(svc.iconFilter ? { filter: svc.iconFilter } : {}),
+                      }}
                     />
                   </div>
                 </motion.div>

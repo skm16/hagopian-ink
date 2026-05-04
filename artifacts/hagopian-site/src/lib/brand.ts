@@ -128,6 +128,7 @@ export const SERVICES = [
     img: `${CDN}/2018/08/Bitmap-1.png`,
     icon: `${import.meta.env.BASE_URL}images/icon-branding.png`,
     iconFilter: '',
+    iconSize: '38px',
   },
   {
     name: 'Website Design',
@@ -150,5 +151,6 @@ export const SERVICES = [
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
     icon: `${import.meta.env.BASE_URL}images/icon-email.png`,
     iconFilter: '',
+    iconSize: '38px',
   },
 ];
