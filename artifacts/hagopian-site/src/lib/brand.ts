@@ -126,8 +126,8 @@ export const SERVICES = [
     link: 'https://hagopianink.com/work/design-branding/',
     linkText: 'View brand development',
     img: `${CDN}/2018/08/Bitmap-1.png`,
-    icon: `${CDN}/2018/08/10-layers.png`,
-    iconFilter: 'brightness(0) invert(1)',
+    icon: `${import.meta.env.BASE_URL}images/icon-branding.png`,
+    iconFilter: '',
   },
   {
     name: 'Website Design',
@@ -148,7 +148,7 @@ export const SERVICES = [
     link: 'https://hagopianink.com/work/email/',
     linkText: 'View email marketing',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
-    icon: `${CDN}/2018/08/3-layers.png`,
-    iconFilter: 'brightness(0) invert(1)',
+    icon: `${import.meta.env.BASE_URL}images/icon-email.png`,
+    iconFilter: '',
   },
 ];
