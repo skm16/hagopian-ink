@@ -10,6 +10,8 @@ import { getCaseStudy, CASE_STUDIES, type CaseStudy, type Section } from '@/lib/
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 const SILVER_NAV = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/silver-nav-bar.png';
+const BLACK_NAV  = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/black-nav-bar.png';
+const PHONE_PNG  = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/3252351.png';
 
 /* ─────────────────────────────────────────────────────────
    CAROUSEL  (1-at-a-time advance, loops, auto-play, 2-up desktop)
@@ -87,42 +89,59 @@ function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }
 }
 
 /* ─────────────────────────────────────────────────────────
-   DESKTOP FRAMES  (browser chrome + screenshot)
-   Layout: 1 img → full-width | 2 imgs → 2-col | 3 imgs → 1 full + 2-col
+   DESKTOP FRAMES
+   Matches live-site .desctop-pages CSS exactly:
+   background:#f4f2f2, padding:90px 0, width-90 container,
+   box-shadow:0 20px 50px rgba(0,0,0,.3) on images.
+   Layout: 2 imgs → side-by-side 50/50
+           3 imgs → 1 full-width (mb 90px) + 2 half-width
 ───────────────────────────────────────────────────────── */
-function BrowserFrame({ src }: { src: string }) {
-  return (
-    <div style={{ background: '#fff', overflow: 'hidden' }}>
-      <img src={SILVER_NAV} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
-      <img src={src} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
+const IMG_SHADOW: React.CSSProperties = {
+  boxShadow: '0 20px 50px rgba(0,0,0,.3)',
+  display: 'block',
+  width: '100%',
+  height: 'auto',
+  lineHeight: 0,
+};
+
+function DesktopFrames({ images, navBar = 'silver' }: { images: string[]; navBar?: 'silver' | 'black' }) {
+  const nav = navBar === 'black' ? BLACK_NAV : SILVER_NAV;
+
+  const Col = ({ src }: { src: string }) => (
+    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 0 }}>
+      <img src={nav} alt="" style={{ ...IMG_SHADOW, boxShadow: 'none' }} />
+      <img src={src} alt="" style={IMG_SHADOW} />
     </div>
   );
-}
 
-function DesktopFrames({ images }: { images: string[] }) {
-  if (images.length === 1) {
-    return (
-      <FadeIn>
-        <BrowserFrame src={images[0]} />
-      </FadeIn>
-    );
-  }
-  if (images.length === 2) {
-    return (
-      <FadeIn>
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          {images.map((src, i) => <BrowserFrame key={i} src={src} />)}
-        </div>
-      </FadeIn>
-    );
-  }
-  // 3+ images: first full-width, rest in 2-col grid
   return (
     <FadeIn>
-      <div>
-        <BrowserFrame src={images[0]} />
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          {images.slice(1).map((src, i) => <BrowserFrame key={i} src={src} />)}
+      {/* .template-part.desctop-pages */}
+      <div style={{ background: '#f4f2f2', padding: 'clamp(40px,6vw,90px) 0', lineHeight: 0 }}>
+        {/* .width-90 container */}
+        <div style={{ width: '90%', margin: '0 auto' }}>
+          {images.length === 3 ? (
+            <>
+              {/* First image: full-width, margin-bottom 90px */}
+              <div style={{ marginBottom: 'clamp(40px,6vw,90px)', lineHeight: 0 }}>
+                <Col src={images[0]} />
+              </div>
+              {/* Two half-width columns */}
+              <div style={{ display: 'flex' }}>
+                <div style={{ flex: '0 0 50%', lineHeight: 0 }}><Col src={images[1]} /></div>
+                <div style={{ flex: '0 0 50%', lineHeight: 0 }}><Col src={images[2]} /></div>
+              </div>
+            </>
+          ) : (
+            /* 2 images side-by-side */
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+              {images.map((src, i) => (
+                <div key={i} style={{ flex: '0 0 50%', minWidth: 0, lineHeight: 0 }}>
+                  <Col src={src} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </FadeIn>
@@ -130,42 +149,14 @@ function DesktopFrames({ images }: { images: string[] }) {
 }
 
 /* ─────────────────────────────────────────────────────────
-   MOBILE FRAMES  (phone outline carousel, auto-play, 2-up desktop)
+   MOBILE FRAMES
+   Matches live-site .mobile-pages CSS exactly:
+   background:#f4f2f2, padding:140px 0
+   .slider: width:265px, height:520px, padding:33px 10px 53px
+   .phone: 3252351.png absolute overlay, z-index:1000, bg-pos-x:-26px
+   .slide img: width:245px, height:434px
 ───────────────────────────────────────────────────────── */
-function PhoneFrame({ src }: { src: string }) {
-  return (
-    <div style={{
-      margin: '0 auto',
-      maxWidth: 280,
-      border: '10px solid #1a1a1a',
-      borderRadius: 36,
-      overflow: 'hidden',
-      background: '#1a1a1a',
-      boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
-    }}>
-      {/* Speaker notch */}
-      <div style={{
-        background: '#1a1a1a', height: 22,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <div style={{ width: 44, height: 6, background: '#333', borderRadius: 3 }} />
-      </div>
-      {/* Screen */}
-      <div style={{ background: '#fff', overflow: 'hidden' }}>
-        <img src={src} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
-      </div>
-      {/* Home bar */}
-      <div style={{
-        background: '#1a1a1a', height: 18,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <div style={{ width: 36, height: 4, background: '#444', borderRadius: 2 }} />
-      </div>
-    </div>
-  );
-}
-
-function MobileFrames({ images, dark = false }: { images: string[]; dark?: boolean }) {
+function MobileFrames({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const n = images.length;
@@ -179,61 +170,66 @@ function MobileFrames({ images, dark = false }: { images: string[]; dark?: boole
     return () => clearInterval(t);
   }, [next, paused]);
 
-  const bg      = dark ? '#2d3232' : '#f1efef';
-  const arrowBg  = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
-  const arrowHov = dark ? 'rgba(241,239,239,0.22)' : 'rgba(45,50,50,0.16)';
-  const arrowCol = dark ? '#f1efef' : '#2d3232';
-  const dotAct   = dark ? '#f1efef' : '#2d3232';
-  const dotInact = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
-
   return (
+    /* .template-part.mobile-pages */
     <div
-      style={{ background: bg }}
+      style={{ background: '#f4f2f2', padding: '140px 0', position: 'relative', overflow: 'hidden' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative px-12 py-10">
-        {/* Phone display area */}
-        <div className="flex gap-6 justify-center items-start">
-          {/* Primary phone */}
-          <div className="w-full sm:w-1/2 max-w-[280px]">
-            <PhoneFrame src={images[idx]} />
-          </div>
-          {/* Secondary phone — desktop only */}
-          <div className="hidden sm:block w-1/2 max-w-[280px]">
-            <PhoneFrame src={images[(idx + 1) % n]} />
-          </div>
-        </div>
-
-        <button onClick={prev} aria-label="Previous"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
-          style={{ background: arrowBg, color: arrowCol }}
-          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
-          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button onClick={next} aria-label="Next"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
-          style={{ background: arrowBg, color: arrowCol }}
-          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
-          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
-          <ChevronRight className="w-5 h-5" />
-        </button>
+      {/* .slider — exact dimensions from live CSS */}
+      <div style={{
+        width: 265, height: 520,
+        margin: '0 auto',
+        padding: '33px 10px 53px',
+        borderRadius: 10,
+        position: 'relative',
+      }}>
+        {/* .phone — phone frame PNG absolutely overlaid */}
+        <div style={{
+          backgroundImage: `url(${PHONE_PNG})`,
+          backgroundPositionX: -26,
+          backgroundSize: 'auto 100%',
+          backgroundRepeat: 'no-repeat',
+          borderRadius: 10,
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '100%', height: '100%',
+          zIndex: 1000,
+          pointerEvents: 'none',
+        }} />
+        {/* Current slide image — 245×434 matching live .slide img */}
+        <img
+          key={idx}
+          src={images[idx]}
+          alt=""
+          style={{ width: 245, height: 434, display: 'block', objectFit: 'cover', objectPosition: 'top' }}
+        />
       </div>
 
-      {n > 1 && (
-        <div className="flex justify-center gap-2 pb-5">
+      {/* Prev / Next arrows — outside phone, below it */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 32, position: 'relative', zIndex: 10 }}>
+        <button onClick={prev} aria-label="Previous"
+          style={{ background: 'rgba(45,50,50,0.1)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2d3232' }}>
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+        {/* Dots */}
+        <div style={{ display: 'flex', gap: 6 }}>
           {images.map((_, i) => (
             <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
               style={{
                 width: i === idx ? 20 : 6, height: 6, borderRadius: 3,
-                background: i === idx ? dotAct : dotInact,
+                background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.18)',
                 border: 'none', padding: 0, cursor: 'pointer',
                 transition: 'all 0.3s ease',
               }} />
           ))}
         </div>
-      )}
+        <button onClick={next} aria-label="Next"
+          style={{ background: 'rgba(45,50,50,0.1)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2d3232' }}>
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
     </div>
   );
 }
@@ -342,9 +338,9 @@ function RenderSection({ section }: { section: Section }) {
     case 'carousel':
       return <FadeIn><Carousel images={section.images} dark={section.dark} /></FadeIn>;
     case 'desktop-frames':
-      return <DesktopFrames images={section.images} />;
+      return <DesktopFrames images={section.images} navBar={section.navBar} />;
     case 'mobile-frames':
-      return <MobileFrames images={section.images} dark={section.dark} />;
+      return <MobileFrames images={section.images} />;
     default:
       return null;
   }

@@ -5,8 +5,8 @@ export type Section =
   | { type: 'text-image';     label: string; title: string; body: string; image: string; imageLeft?: boolean; bg?: string }
   | { type: 'full-image';     src: string }
   | { type: 'carousel';       images: string[]; dark?: boolean }
-  | { type: 'desktop-frames'; images: string[] }
-  | { type: 'mobile-frames';  images: string[]; dark?: boolean };
+  | { type: 'desktop-frames'; images: string[]; navBar?: 'silver' | 'black' }
+  | { type: 'mobile-frames';  images: string[] };
 
 export type CaseStudy = {
   slug: string;
@@ -124,8 +124,9 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. Our goal was to improve both the brand story and the usability of the site by implementing several key strategic design and messaging changes.',
       },
       {
-        // desctop-pages disable-auto-width: 3 website screenshots in browser frames
+        // desctop-pages: 3 website screenshots — Loum uses black nav bar
         type: 'desktop-frames',
+        navBar: 'black',
         images: [
           `${CDN}/2022/08/Loum_Home_final_cropped-scaled.jpg`,
           `${CDN}/2022/08/Loum_Home_final_cropped3-scaled.jpg`,
@@ -206,18 +207,21 @@ export const CASE_STUDIES: CaseStudy[] = [
         bg: '#ffffff',
       },
       {
-        // desctop-pages [3]: 3 images in browser frames
+        // desctop-pages [3]: exactly 2 images side-by-side
         type: 'desktop-frames',
         images: [
           `${CDN}/2022/07/image_waning1.jpg`,
           `${CDN}/2022/07/image_waning2.jpg`,
-          `${CDN}/2022/07/HI_Web_audible_lifestyle2-scaled.jpg`,
         ],
+      },
+      {
+        // full-image-single-work (separate section on live site)
+        type: 'full-image',
+        src: `${CDN}/2022/07/HI_Web_audible_lifestyle2-scaled.jpg`,
       },
       {
         // mobile-pages: phone frames
         type: 'mobile-frames',
-        dark: true,
         images: [
           `${CDN}/2022/07/HI_Web_audible_mobile_1.jpg`,
           `${CDN}/2022/07/HI_Web_audible_mobile_8.jpg`,
@@ -282,7 +286,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         // mobile-pages: donor email phone frames
         type: 'mobile-frames',
-        dark: true,
         images: [
           `${CDN}/2022/08/BLMC_DonorEmail_mobile3.jpg`,
           `${CDN}/2022/08/BLMC_DonorEmail_mobile4.jpg`,
