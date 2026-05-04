@@ -9,6 +9,7 @@ export type Section =
   | { type: 'carousel';         images: string[]; dark?: boolean }
   | { type: 'desktop-frames';   images: string[]; navBar?: 'silver' | 'black' }
   | { type: 'mobile-frames';    images: string[] }
+  | { type: 'logo-grid';        images: string[]; bg?: string }
   | {
       type: 'columns-three';
       challenge: string;
@@ -642,23 +643,41 @@ export const CASE_STUDIES: CaseStudy[] = [
   /* ─── AWARD WINNING LOGOS ────────────────────────────── */
   {
     slug: 'award-winning-logos',
-    client: 'Award Winning Logos',
+    client: 'Award Winning Logos & Brand Development',
     category: 'Brand Identity',
-    tags: ['Branding', 'Luxury', 'Consumer Goods'],
-    tagline: 'Logos that define brands. Recognized by the industry.',
-    intro: 'Over 20 years, Hagopian Ink has developed award-winning logo marks for brands across luxury, consumer goods, entertainment, and nonprofit sectors. This collection represents our most celebrated identity work — marks that have stood the test of time.',
+    tags: ['Branding', 'Luxury', 'Consumer Goods', 'Nonprofit', 'Technology'],
+    tagline: 'Make your mark.',
+    intro: 'What makes a great brand? A distinctive and memorable logo is the cornerstone of your company image. It communicates your core values and attributes and is a visual representation of all the qualities you wish to express. Using type, shape and color, a great logo is your mark on the world — it is bold, simple, expressive, flexible, scalable and clear. This collection is a sample of some of our favorite logo creations.',
     hero: `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
     sections: [
       {
-        type: 'columns-three',
-        challenge: 'Every logo project begins with the same challenge: create a mark that is distinctive, memorable, versatile, and timeless. Across industries and brand scales, the bar is always the same — the logo must work in every context it will ever appear.',
-        solution: 'Our process combines strategic brand thinking with meticulous craft. We research the competitive landscape, define the brand\'s positioning, and then explore dozens of directions before refining the strongest candidates. Every mark is tested at every scale.',
-        resultTitle: 'Marks that stand the test of time',
-        result: 'Our logo work has earned recognition from design industry awards programs and — more importantly — has stood the test of time in market. These marks appear on products, signage, websites, and packaging that reach millions of consumers every day.',
-      },
-      {
-        type: 'full-image',
-        src: `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
+        type: 'logo-grid',
+        images: [
+          `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_ToddAndDuncan.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_lala.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_joseph_robert.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_engage_women.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_weleague.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_BeWell.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_personalbest2.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Worldtowning.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Pictales.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_potoo.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_NYCSEM.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_epilepsy_carecure.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Owl.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_ChristopherStreet.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Inbound.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_aleka.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_michael_sowers-e1658281340493.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Greenspun.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_starbridge2.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_Martafy.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_TMN.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_iKidNY.jpg`,
+          `${CDN}/2018/08/HI-Web_Logos_MHA.jpg`,
+        ],
       },
     ],
     thumb: `${CDN}/2018/08/Work-Thumb_logos-293x414.jpg`,

@@ -391,6 +391,40 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
+   LOGO GRID  — responsive grid of logo images, white cards,
+   neutral background — matches live site logo showcase page
+───────────────────────────────────────────────────────── */
+function LogoGrid({ images, bg = '#f4f2f2' }: { images: string[]; bg?: string }) {
+  return (
+    <div style={{ background: bg, padding: 'clamp(40px,6vw,80px) clamp(20px,5vw,60px)' }}>
+      <div style={{ maxWidth: 1170, margin: '0 auto' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: 2,
+        }}>
+          {images.map((src, i) => (
+            <FadeIn key={i} delay={Math.min(i * 0.03, 0.4)}>
+              <div style={{
+                background: '#ffffff',
+                padding: 'clamp(24px,4vw,48px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minHeight: 200,
+              }}>
+                <img src={src} alt=""
+                  style={{ display: 'block', width: '100%', height: 'auto', maxHeight: 180, objectFit: 'contain' }} />
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
    FULL-WIDTH IMAGE
 ───────────────────────────────────────────────────────── */
 function FullImg({ src }: { src: string }) {
@@ -446,6 +480,8 @@ function RenderSection({ section }: { section: Section }) {
       return <DesktopFrames images={section.images} navBar={section.navBar} />;
     case 'mobile-frames':
       return <MobileFrames images={section.images} />;
+    case 'logo-grid':
+      return <LogoGrid images={section.images} bg={section.bg} />;
     case 'columns-three':
       return (
         <ColumnsThree
