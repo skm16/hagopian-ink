@@ -107,41 +107,50 @@ const IMG_SHADOW: React.CSSProperties = {
 function DesktopFrames({ images, navBar = 'silver' }: { images: string[]; navBar?: 'silver' | 'black' }) {
   const nav = navBar === 'black' ? BLACK_NAV : SILVER_NAV;
 
-  const Col = ({ src }: { src: string }) => (
-    <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 0 }}>
-      <img src={nav} alt="" style={{ ...IMG_SHADOW, boxShadow: 'none' }} />
-      <img src={src} alt="" style={IMG_SHADOW} />
+  /* Each column: nav bar (full-width) stacked on screenshot (full-width) */
+  const Col = ({ src, fullWidth = false }: { src: string; fullWidth?: boolean }) => (
+    <div style={{ lineHeight: 0 }}>
+      <img src={nav} alt=""
+        style={{ display: 'block', width: '100%', height: 'auto' }} />
+      <img src={src} alt=""
+        style={{ display: 'block', width: '100%', height: 'auto', ...IMG_SHADOW }} />
     </div>
   );
 
   return (
     <FadeIn>
-      {/* .template-part.desctop-pages */}
+      {/* .template-part.desctop-pages — matches live site exactly */}
       <div style={{ background: '#f4f2f2', padding: 'clamp(40px,6vw,90px) 0', lineHeight: 0 }}>
-        {/* .width-90 container */}
-        <div style={{ width: '90%', margin: '0 auto' }}>
-          {images.length === 3 ? (
-            <>
-              {/* First image: full-width, margin-bottom 90px */}
-              <div style={{ marginBottom: 'clamp(40px,6vw,90px)', lineHeight: 0 }}>
-                <Col src={images[0]} />
-              </div>
-              {/* Two half-width columns */}
-              <div style={{ display: 'flex' }}>
-                <div style={{ flex: '0 0 50%', lineHeight: 0 }}><Col src={images[1]} /></div>
-                <div style={{ flex: '0 0 50%', lineHeight: 0 }}><Col src={images[2]} /></div>
-              </div>
-            </>
-          ) : (
-            /* 2 images side-by-side */
-            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-              {images.map((src, i) => (
-                <div key={i} style={{ flex: '0 0 50%', minWidth: 0, lineHeight: 0 }}>
-                  <Col src={src} />
+        {/* Bootstrap .container (max-width: 1170px) → .row.width-90 (90% width) */}
+        <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
+          <div style={{ width: '90%', margin: '0 auto' }}>
+            {images.length === 3 ? (
+              <>
+                {/* col-sm-12: full-width first image, margin-bottom 90px */}
+                <div style={{ marginBottom: 'clamp(40px,6vw,90px)', lineHeight: 0 }}>
+                  <Col src={images[0]} fullWidth />
                 </div>
-              ))}
-            </div>
-          )}
+                {/* Two col-sm-6 columns — 15px padding each = 30px gap */}
+                <div style={{ display: 'flex', margin: '0 -15px' }}>
+                  <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                    <Col src={images[1]} />
+                  </div>
+                  <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                    <Col src={images[2]} />
+                  </div>
+                </div>
+              </>
+            ) : (
+              /* Two col-sm-6 columns — 15px padding each = 30px gap */
+              <div style={{ display: 'flex', margin: '0 -15px' }}>
+                {images.map((src, i) => (
+                  <div key={i} style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                    <Col src={src} />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </FadeIn>
