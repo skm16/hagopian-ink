@@ -225,12 +225,16 @@ function DesktopFrames({ images, navBar = 'silver' }: { images: string[]; navBar
    .slide img: width:245px, height:434px
 ───────────────────────────────────────────────────────── */
 /*
-  Live-site mobile slider mechanics (from page JS):
-    var width = 265 + 55;  // = 320px per slide step
-    slides strip: all images float-left, each img is 245px + 75px margin-right = 320px
-    transform: translate3d(-index * 320px, 0, 0)  with CSS transition: 1s
+  Live-site mobile slider mechanics:
+    .slider (265×520): position:relative — NO overflow:hidden — slides extend beyond
+    .slides strip: position:absolute, top:33, left:10, explicit width = n * 320
+    .slide img: 245×434, margin-right:75 → SLIDE_STEP = 320
+    .phone: position:absolute, z-index:10 — phone PNG has transparent screen area;
+            slides show through the transparent part; bezel covers the border areas
+    Adjacent slides peek outside the 265px slider into the outer section
+    Outer .mobile-pages: overflow:hidden keeps everything within page bounds
 */
-const SLIDE_STEP = 265 + 55; // 320px — matches live site JS exactly
+const SLIDE_STEP = 320; // 245px image + 75px margin-right
 
 function MobileFrames({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
@@ -238,7 +242,6 @@ function MobileFrames({ images }: { images: string[] }) {
   const n = images.length;
 
   const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
-  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
 
   useEffect(() => {
     if (paused) return;
@@ -247,36 +250,46 @@ function MobileFrames({ images }: { images: string[] }) {
   }, [next, paused]);
 
   return (
-    /* .template-part.mobile-pages */
+    /* .template-part.mobile-pages — outer clip, NO overflow clip needed on .slider */
     <div
       style={{ background: '#f4f2f2', padding: '140px 0', position: 'relative', overflow: 'hidden' }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       {/*
-        Live-site structure exactly:
-          .slider (265×520, position:relative, padding:33px 10px 53px, overflow:hidden)
-            .slides (position:relative, translates horizontally)
-              .slide × N
-                img (245×434, margin-right:75px)
-            .phone (position:ABSOLUTE, z-index:1000 — phone PNG is transparent in screen
-                    area so slides show through; bezel overlays the padding areas)
+        .slider — 265×520, position:relative, NO overflow:hidden
+        Slides extend beyond this box; adjacent slides peek out to left/right
+        .phone overlay covers only this 265px area with the phone bezel PNG
+        (PNG has transparent screen so slides behind it show through)
       */}
       <div style={{
         width: 265,
         height: 520,
         margin: '0 auto',
         position: 'relative',
-        padding: '33px 10px 53px',
-        overflow: 'hidden',
-        borderRadius: 10,
       }}>
-        {/* .slides — horizontal strip inside the padded screen area */}
+        {/* .phone — absolute overlay, on top; PNG transparent in screen area */}
         <div style={{
-          position: 'relative',
-          display: 'flex',
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '100%', height: '100%',
+          zIndex: 10,
+          backgroundImage: `url(${PHONE_PNG})`,
+          backgroundPositionX: -26,
+          backgroundSize: 'auto 100%',
+          backgroundRepeat: 'no-repeat',
+          pointerEvents: 'none',
+        }} />
+
+        {/* .slides — absolute strip; extends beyond slider so adjacent slides peek in */}
+        <div style={{
+          position: 'absolute',
+          top: 33,
+          left: 10,
+          width: n * SLIDE_STEP,
           transform: `translate3d(-${idx * SLIDE_STEP}px, 0, 0)`,
           transition: 'transform 1s',
+          display: 'flex',
         }}>
           {images.map((src, i) => (
             <div key={i} style={{ flexShrink: 0, marginRight: 75 }}>
@@ -287,22 +300,9 @@ function MobileFrames({ images }: { images: string[] }) {
             </div>
           ))}
         </div>
-
-        {/* .phone — absolute overlay; PNG has transparent screen so images show through */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          zIndex: 1000,
-          backgroundImage: `url(${PHONE_PNG})`,
-          backgroundPositionX: -26,
-          backgroundSize: 'auto 100%',
-          backgroundRepeat: 'no-repeat',
-          pointerEvents: 'none',
-        }} />
       </div>
 
-      {/* Navigation dots — below the phone, matching live site .slides-button */}
+      {/* .slides-button — dot navigation below the phone */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, marginTop: 28, position: 'relative', zIndex: 10 }}>
         {images.map((_, i) => (
           <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}

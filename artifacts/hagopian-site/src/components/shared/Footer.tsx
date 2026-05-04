@@ -31,14 +31,15 @@ export function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-5" style={{ fontFamily: NAV_FONT }}>Services</p>
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5f0eb]/35 mb-5" style={{ fontFamily: NAV_FONT }}>Expertise</p>
             <div className="space-y-3">
               {[
-                ['Brand Identity', '/expertise'],
-                ['UX/UI Design', '/expertise'],
-                ['Email Marketing', '/expertise'],
-                ['Nonprofit Campaigns', '/expertise'],
-                ['Health + MedTech', '/expertise'],
+                ['Brand Identity',        '/expertise/brand-identity'],
+                ['Website Design',        '/expertise/ux-ui-design'],
+                ['Email Marketing',       '/expertise/email-marketing'],
+                ['Luxury + Lifestyle',    '/expertise/luxury-lifestyle'],
+                ['Health + MedTech',      '/expertise/health-medtech'],
+                ['Nonprofit Fundraising', '/expertise/nonprofit-fundraising'],
               ].map(([label, path]) => (
                 <Link key={label} href={path}
                   className="block text-[13px] text-[#f5f0eb]/50 hover:text-[#f5f0eb] transition-colors cursor-pointer"
