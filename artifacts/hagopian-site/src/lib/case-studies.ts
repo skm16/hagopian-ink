@@ -854,6 +854,180 @@ export const CASE_STUDIES: CaseStudy[] = [
     thumb: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
   },
 
+
+  /* ─── VIANT MEDICAL ──────────────────────────────────── */
+  {
+    slug: 'viant-medical-brand-campaign',
+    client: 'Viant Medical',
+    category: 'Brand Campaign',
+    tags: ['Branding', 'Email Marketing', 'Healthcare', 'Campaign'],
+    tagline: '"In it for Life" — a campaign built to last.',
+    intro: 'Viant, a global leader in medical device design and manufacturing, partnered with Hagopian Ink and Reinvent the World over six years to strengthen and unify their brand voice. Together, we developed the "I\'m in it for life" campaign — an impactful narrative that built credibility, increased industry awareness, and clearly defined Viant\'s unique value.',
+    hero: `${BASE}case-studies/viant/hero.png`,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'Viant needed a campaign that could cut through the noise in a crowded medical device manufacturing space and speak directly to their executive audience — OEM partners and procurement leaders who needed to trust Viant with the lives of patients.',
+        solution: 'We brought the "I\'m in it for life" campaign to life across print trade media, targeted email marketing, and digital display ads. A storytelling-focused email series welcomed new contacts with a white paper download and introduced them to Viant\'s mission, while ongoing emails used custom visuals and concise messaging to deepen engagement.',
+        resultTitle: 'A cohesive campaign that elevated Viant\'s visibility',
+        result: 'The result was a cohesive, resonant campaign that elevated Viant\'s visibility and forged a lasting connection with its executive audience. The partnership spanned 6 years across 24 global locations, reaching 6,000 worldwide employees and reinforcing Viant\'s position as the most trusted name in medical device manufacturing.',
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/viant/hero.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/viant/emails.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/viant/ads.png`,
+      },
+    ],
+    thumb: `${BASE}case-studies/viant/hero.png`,
+  },
+
+  /* ─── P.VOLVE ────────────────────────────────────────── */
+  {
+    slug: 'pvolve-email-marketing',
+    client: 'P.Volve',
+    category: 'Email Marketing',
+    tags: ['Email Marketing', 'Fitness', 'Subscription', 'Health'],
+    tagline: '1,030% list growth in six months.',
+    intro: 'Fitness trainer and p.volve founder Stephen Pasterino created a line of fitness products and streaming workouts to reach a wider audience. P.volve was looking to grow their business and we partnered to perform all elements of email campaign development and execution for subscriber acquisition.',
+    hero: `${BASE}case-studies/pvolve/hero.png`,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'P.volve needed to rapidly build their subscriber list and establish an email marketing engine that could scale with their growing product line — spanning streaming workouts, signature fitness equipment, and a loyal community of dedicated members.',
+        solution: 'We created a wide range of designs to accommodate announcements, events, news, testimonials, products and streaming services. We crafted a welcome series, app onboarding, winback series and upsell strategies. Mailchimp implementation enabled the P.volve team to take over design and development over time.',
+        resultTitle: '1,030% increase in list growth within 6 months',
+        result: 'The email program delivered a 1,030% increase in list growth within 6 months and achieved a 49.5% open rate high — a remarkable result in the competitive fitness subscription market. The scalable template system Hagopian Ink built allowed the internal team to maintain the program with confidence.',
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/pvolve/hero.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/pvolve/emails.png`,
+      },
+    ],
+    thumb: `${BASE}case-studies/pvolve/hero.png`,
+  },
+
+  /* ─── EPILEPSY FOUNDATION ────────────────────────────── */
+  {
+    slug: 'epilepsy-foundation-brand-campaign',
+    client: 'Epilepsy Foundation',
+    category: 'Brand Campaign',
+    tags: ['Branding', 'Nonprofit', 'Campaign', 'Fundraising'],
+    tagline: 'Let\'s use our brains to END EPILEPSY.',
+    intro: 'The Epilepsy Foundation exists to increase awareness and change the conversation around epilepsy, improving and saving lives through care, advocacy, research and new therapies, and education. Hagopian Ink worked with the Foundation for 2.5 years to help them reinvent and unify their organization with a new national brand, visual identity, and awareness campaign.',
+    hero: `${BASE}case-studies/epilepsy/hero.png`,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'The Epilepsy Foundation needed to modernize a fragmented brand system across a massive national chapter and affiliate network, and launch a powerful awareness campaign during National Epilepsy Awareness Month to change public perception and drive donations.',
+        solution: 'We launched "Let\'s Use Our Brains to END EPILEPSY" during National Epilepsy Awareness Month in 2018 and worked in depth with national chapter and affiliate networks to deliver creative assets and fundraising materials. Over the following 18 months, we rolled out an updated logo and new brand system to help bring their 5-year strategic plan to life.',
+        resultTitle: '180% increase in online donations',
+        result: 'The 2019 Holiday Appeal campaign delivered a 180% increase in online donations. The campaign ran on Times Square digital billboards, across national print and digital media, and through a powerful storytelling approach that gave faces and names to the epilepsy community — positioning the Epilepsy Foundation for a bold next chapter.',
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/epilepsy/hero.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/epilepsy/case.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/epilepsy/posters.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/epilepsy/collateral.png`,
+      },
+    ],
+    thumb: `${BASE}case-studies/epilepsy/hero.png`,
+  },
+
+  /* ─── MALALA FUND ────────────────────────────────────── */
+  {
+    slug: 'malala-fund-email-design',
+    client: 'Malala Fund',
+    category: 'Email Design',
+    tags: ['Email Marketing', 'Nonprofit', 'Education', 'Community'],
+    tagline: 'Storytelling that stands up for girls\' education.',
+    intro: 'After attending a screening of the movie He Named Me Malala featuring Nobel Peace Prize Laureate Malala Yousafzai, we were so moved that we vowed to help. With our experience in nonprofit email design, Hagopian Ink volunteered to create fluid responsive email templates for The Malala Fund to help spread their mission and raise funds.',
+    hero: `${BASE}case-studies/malala/hero.png`,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'The Malala Fund needed a flexible, scalable email template system that their internal team could easily update and send for frequent mailings — engaging supporters, increasing open and click rates, and driving donations for the global movement to stand #withMalala.',
+        solution: 'We created a flexible template for Malala\'s internal team to easily update and send frequent mailings to engage and communicate with supporters. Our new Welcome email was designed to increase open and click rates and increase donations. Each subsequent email followed the template including a warm color palette, strong messaging and clear calls to action.',
+        resultTitle: 'Pro bono work with global impact',
+        result: 'As a woman-owned business, Hagopian Ink was honored to give their services to help the organization spread awareness for the education and freedom of all women. The email template system continues to be used to communicate with millions of Malala Fund supporters around the world.',
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/malala/hero.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/malala/case.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/malala/desktop.png`,
+      },
+    ],
+    thumb: `${BASE}case-studies/malala/hero.png`,
+  },
+
+  /* ─── RECOVERYPLUS ───────────────────────────────────── */
+  {
+    slug: 'recoveryplus-health-brand',
+    client: 'RecoveryPlus',
+    category: 'Brand & UX Design',
+    tags: ['Branding', 'Healthcare', 'Mobile App', 'Website/UX'],
+    tagline: 'Recover your health. Reclaim your life.',
+    intro: 'RecoveryPlus.health is a clinically proven remote cardiac rehab platform that provides easy and accessible home-based recovery for patients with chronic heart conditions. Hagopian Ink partnered with RecoveryPlus to shape their brand identity, design their mobile app experience, and build their marketing website — bringing a life-changing service to market.',
+    hero: `${BASE}case-studies/recoveryplus/hero.png`,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'RecoveryPlus needed to launch an entirely new brand in the medtech space — creating trust with both patients and healthcare providers while communicating the clinical rigor and accessibility of home-based cardiac rehabilitation. The brand had to feel warm, empowering, and medically credible at the same time.',
+        solution: 'We developed a complete brand system for RecoveryPlus including logo, color system, and brand identity. We then translated the brand into a full mobile app UI/UX design and built out a patient-facing marketing website — all designed to guide patients from diagnosis through enrollment to active recovery.',
+        resultTitle: 'A brand that makes cardiac rehab accessible',
+        result: 'The RecoveryPlus brand launched with a compelling identity that positioned it as the human, accessible face of cardiac care. The mobile app design made the recovery journey intuitive and motivating, while the website clearly communicated the clinical benefits and drove patient and provider enrollment.',
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/recoveryplus/hero.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/recoveryplus/brand.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/recoveryplus/app.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/recoveryplus/app2.png`,
+      },
+      {
+        type: 'full-image',
+        src: `${BASE}case-studies/recoveryplus/web.png`,
+      },
+    ],
+    thumb: `${BASE}case-studies/recoveryplus/hero.png`,
+  },
+
 ];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {

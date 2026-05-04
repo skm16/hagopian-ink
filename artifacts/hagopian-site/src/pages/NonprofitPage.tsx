@@ -26,20 +26,20 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'Montefiore Health System',
-    category: 'Nonprofit Fundraising + Gala Design',
-    headline: '329% more dollars raised',
-    result: 'Multi-year fundraising program spanning donor email, gala invitations, event branding, and impact reporting. The annual gala raised $22.2M and added over 100 new attendees.',
+    client: 'Epilepsy Foundation',
+    category: 'National Brand Campaign + Nonprofit',
+    headline: '180% increase in online donations',
+    result: 'Developed a national multi-channel campaign, updated brand identity, and 2.5-year partnership with the Epilepsy Foundation — including Times Square digital billboards, fundraising materials, and a new visual identity system.',
     img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: '/work/montefiore-healthcare-design',
+    href: '/work/epilepsy-foundation-brand-campaign',
   },
   {
-    client: 'Black Lives Matter Canada',
-    category: 'Fundraising Email + Activism Design',
-    headline: 'Fundraising with purpose',
-    result: 'Email messages that inspire donations through education and activism — connecting a global movement to individual action and measurable giving.',
+    client: 'Malala Fund',
+    category: 'Email Design + Nonprofit',
+    headline: 'Storytelling that stands up for girls\' education',
+    result: 'Volunteered responsive email templates for The Malala Fund — designed to increase open and click rates, drive donations, and amplify the global mission to give every girl 12 years of quality education.',
     img: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
-    href: '/work/black-lives-matter-canada',
+    href: '/work/malala-fund-email-design',
   },
 ];
 

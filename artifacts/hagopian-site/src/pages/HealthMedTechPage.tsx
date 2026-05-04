@@ -31,7 +31,7 @@ const PROJECTS = [
     headline: '“In It for Life” — a 6-year brand partnership',
     result: 'Built and sustained the “In It for Life” campaign for Viant Medical — a global leader in medical device design and manufacturing — across print trade media, targeted email, and digital display across 24 global locations.',
     img: `${CDN}/2022/08/HI_case1_JosephRobert.jpg`,
-    href: '/work',
+    href: '/work/viant-medical-brand-campaign',
   },
   {
     client: 'P.Volve',
@@ -39,7 +39,7 @@ const PROJECTS = [
     headline: 'From 0 to 1,030% email list growth',
     result: 'Launched a complete digital health brand program — including UX design, welcome series, and email campaigns — for a groundbreaking functional fitness platform. Achieved 49.5% average open rates.',
     img: `${CDN}/2018/09/pepsi-1537458269464-3078.png`,
-    href: '/work',
+    href: '/work/pvolve-email-marketing',
   },
 ];
 
