@@ -186,8 +186,8 @@ export function Homepage() {
                       alt=""
                       className="object-contain opacity-90"
                       style={{
-                        width: (svc as typeof svc & { iconSize?: string }).iconSize ?? '32px',
-                        height: (svc as typeof svc & { iconSize?: string }).iconSize ?? '32px',
+                        width: svc.iconSize,
+                        height: svc.iconSize,
                         transform: 'rotate(-45deg)',
                         ...(svc.iconFilter ? { filter: svc.iconFilter } : {}),
                       }}

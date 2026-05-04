@@ -140,6 +140,7 @@ export const SERVICES = [
     img: `${CDN}/2018/08/1111.png`,
     icon: `${CDN}/2022/08/ux_icon2.png`,
     iconFilter: 'brightness(0) invert(1)',
+    iconSize: '32px',
   },
   {
     name: 'Email Marketing',
