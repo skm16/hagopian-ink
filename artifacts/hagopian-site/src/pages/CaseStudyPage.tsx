@@ -8,6 +8,67 @@ import { FadeIn } from '@/components/shared/ui';
 import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import { getCaseStudy, CASE_STUDIES, type CaseStudy, type Section } from '@/lib/case-studies';
 
+/* ─────────────────────────────────────────────────────────
+   COLUMNS THREE  (columns-single-work with width-80 row)
+   Live site: 3 × col-sm-4, part-name in rose, part-title italic serif,
+   description in Fira Sans. padding: 90px 0, bg: white.
+───────────────────────────────────────────────────────── */
+function ColumnsThree({ challenge, solution, resultTitle, result }: {
+  challenge: string; solution: string; resultTitle: string; result: string;
+}) {
+  const partNameStyle: React.CSSProperties = {
+    color: '#a57b83',
+    fontFamily: NAV_FONT,
+    fontSize: 13,
+    fontWeight: 500,
+    letterSpacing: '0.47px',
+    textTransform: 'uppercase',
+    marginBottom: 16,
+  };
+  const descStyle: React.CSSProperties = {
+    color: '#2e2e2e',
+    fontSize: 16,
+    lineHeight: 1.7,
+  };
+  const resultTitleStyle: React.CSSProperties = {
+    fontFamily: SERIF,
+    fontStyle: 'italic',
+    fontSize: 22,
+    lineHeight: 1.3,
+    color: '#2d3232',
+    marginBottom: 14,
+  };
+
+  return (
+    <section style={{ background: '#ffffff', padding: '90px 0' }}>
+      {/* Bootstrap .container → .row.width-80 */}
+      <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
+        <div style={{
+          width: '80%', margin: '0 auto',
+          display: 'flex', justifyContent: 'space-between', gap: 40,
+        }}>
+          {/* Challenge */}
+          <div style={{ maxWidth: 279, flex: '1 1 0' }}>
+            <p style={partNameStyle}>Challenge</p>
+            <p style={descStyle}>{challenge}</p>
+          </div>
+          {/* Solution */}
+          <div style={{ maxWidth: 279, flex: '1 1 0' }}>
+            <p style={partNameStyle}>Solution</p>
+            <p style={descStyle}>{solution}</p>
+          </div>
+          {/* Result */}
+          <div style={{ flex: '1.4 1 0' }}>
+            <p style={partNameStyle}>Result</p>
+            <p style={resultTitleStyle}>{resultTitle}</p>
+            <p style={descStyle}>{result}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 const SILVER_NAV = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/silver-nav-bar.png';
 const BLACK_NAV  = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/black-nav-bar.png';
@@ -117,43 +178,41 @@ function DesktopFrames({ images, navBar = 'silver' }: { images: string[]; navBar
     </div>
   );
 
+  /* No FadeIn — desktop frames are always visible, matching live site behavior */
   return (
-    <FadeIn>
-      {/* .template-part.desctop-pages — matches live site exactly */}
-      <div style={{ background: '#f4f2f2', padding: 'clamp(40px,6vw,90px) 0', lineHeight: 0 }}>
-        {/* Bootstrap .container (max-width: 1170px) → .row.width-90 (90% width) */}
-        <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
-          <div style={{ width: '90%', margin: '0 auto' }}>
-            {images.length === 3 ? (
-              <>
-                {/* col-sm-12: full-width first image, margin-bottom 90px */}
-                <div style={{ marginBottom: 'clamp(40px,6vw,90px)', lineHeight: 0 }}>
-                  <Col src={images[0]} fullWidth />
-                </div>
-                {/* Two col-sm-6 columns — 15px padding each = 30px gap */}
-                <div style={{ display: 'flex', margin: '0 -15px' }}>
-                  <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
-                    <Col src={images[1]} />
-                  </div>
-                  <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
-                    <Col src={images[2]} />
-                  </div>
-                </div>
-              </>
-            ) : (
-              /* Two col-sm-6 columns — 15px padding each = 30px gap */
-              <div style={{ display: 'flex', margin: '0 -15px' }}>
-                {images.map((src, i) => (
-                  <div key={i} style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
-                    <Col src={src} />
-                  </div>
-                ))}
+    <div style={{ background: '#f4f2f2', padding: 'clamp(40px,6vw,90px) 0', lineHeight: 0 }}>
+      {/* Bootstrap .container (max-width: 1170px) → .row.width-90 (90% width) */}
+      <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
+        <div style={{ width: '90%', margin: '0 auto' }}>
+          {images.length === 3 ? (
+            <>
+              {/* col-sm-12: full-width first image, margin-bottom 90px */}
+              <div style={{ marginBottom: 'clamp(40px,6vw,90px)', lineHeight: 0 }}>
+                <Col src={images[0]} fullWidth />
               </div>
-            )}
-          </div>
+              {/* Two col-sm-6 columns — 15px padding each = 30px gap */}
+              <div style={{ display: 'flex', margin: '0 -15px' }}>
+                <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                  <Col src={images[1]} />
+                </div>
+                <div style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                  <Col src={images[2]} />
+                </div>
+              </div>
+            </>
+          ) : (
+            /* Two col-sm-6 columns — 15px padding each = 30px gap */
+            <div style={{ display: 'flex', margin: '0 -15px' }}>
+              {images.map((src, i) => (
+                <div key={i} style={{ flex: '0 0 50%', padding: '0 15px', lineHeight: 0, minWidth: 0 }}>
+                  <Col src={src} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-    </FadeIn>
+    </div>
   );
 }
 
@@ -371,6 +430,15 @@ function RenderSection({ section }: { section: Section }) {
       return <DesktopFrames images={section.images} navBar={section.navBar} />;
     case 'mobile-frames':
       return <MobileFrames images={section.images} />;
+    case 'columns-three':
+      return (
+        <ColumnsThree
+          challenge={section.challenge}
+          solution={section.solution}
+          resultTitle={section.resultTitle}
+          result={section.result}
+        />
+      );
     default:
       return null;
   }

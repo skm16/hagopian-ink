@@ -6,7 +6,14 @@ export type Section =
   | { type: 'full-image';     src: string }
   | { type: 'carousel';       images: string[]; dark?: boolean }
   | { type: 'desktop-frames'; images: string[]; navBar?: 'silver' | 'black' }
-  | { type: 'mobile-frames';  images: string[] };
+  | { type: 'mobile-frames';  images: string[] }
+  | {
+      type: 'columns-three';
+      challenge: string;
+      solution: string;
+      resultTitle: string;
+      result: string;
+    };
 
 export type CaseStudy = {
   slug: string;
@@ -32,12 +39,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     hero: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle-scaled.jpg`,
     sections: [
       {
-        type: 'text',
-        label: 'Challenge',
-        body: 'Joseph Robert is a new consumer brand intended to reach men who are fashionable, stylish and sleek. The brand needed to attract men who are also drawn to well-designed products and care about value. Joseph Roberts will launch as a modern, high quality, yet affordable brand with products sold wholesale, on amazon and direct to consumer on Shopify.',
-      },
-      {
-        // slider-two-slides [1]: briefcases + lifestyle5
+        // slider-two-slides [1]: briefcases carousel — comes BEFORE Challenge on live site
         type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_briefcase.jpg`,
@@ -48,9 +50,17 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        type: 'text',
-        label: 'Letterforms',
-        body: 'While monograms are a timeless application of two letterforms, reinventing a modern application takes care and craft. The logo for Joseph Robert has both strength and energy with the J and R reaching and expanding beyond the limits of its boundaries - just like every successful man must do in life. That reach and expansion is what defines the Joseph Robert brand.',
+        // columns-single-work [4]: 3-col Challenge / Solution / Result
+        type: 'columns-three',
+        challenge: 'Joseph Robert is a new consumer brand intended to reach men who are fashionable, stylish and sleek. The brand needed to attract men who are also drawn to well-designed products and care about value. Joseph Roberts will launch as a modern, high quality, yet affordable brand with products sold wholesale, on amazon and direct to consumer on Shopify.',
+        solution: "We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men's apparel and accessories.",
+        resultTitle: 'A masculine seal',
+        result: 'The new logo established a unique brand presence using a modern JR monogram. The wordmark and icon created versatility to use both with text or independently as a symbol, allowing for endless possibilities for a branded line of accessories. Logo applications included - stamped in leather, embroidered on apparel, and printed in patterns.',
+      },
+      {
+        // standalone brand sheet full-image
+        type: 'full-image',
+        src: `${CDN}/2022/08/JosephRobert3.png`,
       },
       {
         // our-work bg-default column-reverse-no
@@ -61,12 +71,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         image: `${CDN}/2022/08/logo-anatomy.png`,
       },
       {
-        // standalone brand color/style guide sheet
-        type: 'full-image',
-        src: `${CDN}/2022/08/JosephRobert3.png`,
-      },
-      {
-        // slider-two-slides [3]: brand sheets + HI_josephrobert + artboards
+        // slider-two-slides [3]: brand sheets + artboards
         type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_blue.png`,
@@ -84,6 +89,17 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
+        // columns-single-work [8]: letterforms separator text
+        type: 'text',
+        label: 'Letterforms',
+        body: 'While monograms are a timeless application of two letterforms, reinventing a modern application takes care and craft. The logo for Joseph Robert has both strength and energy with the J and R reaching and expanding beyond the limits of its boundaries - just like every successful man must do in life. That reach and expansion is what defines the Joseph Robert brand.',
+      },
+      {
+        // gallery: HI_josephrobert.jpg full image
+        type: 'full-image',
+        src: `${CDN}/2022/08/HI_josephrobert.jpg`,
+      },
+      {
         // slides: ties carousel
         type: 'carousel',
         images: [
@@ -96,17 +112,6 @@ export const CASE_STUDIES: CaseStudy[] = [
         // standalone menswear accessories flat lay
         type: 'full-image',
         src: `${CDN}/2022/08/JR_menswear_newtie.jpg`,
-      },
-      {
-        type: 'text',
-        label: 'Solution',
-        dark: true,
-        body: "We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men's apparel and accessories.",
-      },
-      {
-        type: 'text',
-        label: 'A masculine seal',
-        body: 'The new logo established a unique brand presence using a modern JR monogram. The wordmark and icon created versatility to use both with text or independently as a symbol, allowing for endless possibilities for a branded line of accessories. Logo applications included - stamped in leather, embroidered on apparel, and printed in patterns.',
       },
     ],
     thumb: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle-scaled.jpg`,
@@ -123,9 +128,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     hero: `${CDN}/2022/08/Loum_stress_header2.gif`,
     sections: [
       {
-        type: 'text',
-        label: 'Challenge',
-        body: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. Our goal was to improve both the brand story and the usability of the site by implementing several key strategic design and messaging changes.',
+        // columns-single-work [2]: 3-col Challenge / Solution / Result
+        type: 'columns-three',
+        challenge: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. Our goal was to improve both the brand story and the usability of the site by implementing several key strategic design and messaging changes.',
+        solution: "We reviewed the research findings and drafted new copy to better explain the company, products and vision. We evolved the brand messaging and brand voice to better communicate with Loum's audience and create an emotional connection.",
+        resultTitle: 'Clarifying a complex brand story',
+        result: "We created a comprehensive digital experience focusing on usability best practices, intuitive navigation, and a seamless customer experience for both mobile and desktop devices. We illustrated the effects of stress on skin visually and highlighted how Loum's key ingredients and formulas provide undeniable benefits. The new simplified messaging and imagery communicated serenity with clarity.",
       },
       {
         // desctop-pages: 3 website screenshots — Loum uses black nav bar
@@ -138,7 +146,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        // slider-two-slides: grid photos + chart (all in one carousel)
+        // slider-two-slides: grid photos + chart
         type: 'carousel',
         images: [
           `${CDN}/2022/08/HI_Web_Loum_grid_purple.jpg`,
@@ -151,6 +159,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
+        // full-image-single-work: rollover
+        type: 'full-image',
+        src: `${CDN}/2022/08/HI_Web_loum_rollover-1-scaled.jpg`,
+      },
+      {
         // our-work bg-default column-reverse-no: Messaging Transformed text + petri image
         type: 'text-image',
         label: 'Messaging Transformed',
@@ -160,19 +173,9 @@ export const CASE_STUDIES: CaseStudy[] = [
         imageLeft: true,
       },
       {
+        // full-image-single-work: another lifestyle image
         type: 'full-image',
         src: `${CDN}/2022/08/HI_Web_loum_rollover-1-scaled.jpg`,
-      },
-      {
-        type: 'text',
-        label: 'Solution',
-        dark: true,
-        body: "We reviewed the research findings and drafted new copy to better explain the company, products and vision. We evolved the brand messaging and brand voice to better communicate with Loum's audience and create an emotional connection.",
-      },
-      {
-        type: 'text',
-        label: 'Clarifying a complex brand story',
-        body: "We created a comprehensive digital experience focusing on usability best practices, intuitive navigation, and a seamless customer experience for both mobile and desktop devices. We illustrated the effects of stress on skin visually and highlighted how Loum's key ingredients and formulas provide undeniable benefits. The new simplified messaging and imagery communicated serenity with clarity.",
       },
     ],
     thumb: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
@@ -189,9 +192,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     hero: `${CDN}/2022/07/HI_Web_audible_lifestyle-scaled.jpg`,
     sections: [
       {
-        type: 'text',
-        label: 'Challenge',
-        body: "Audible knew that if a new member doesn't listen to their first audio book within a certain period of time, they are much more likely to cancel their subscription. Our goal was to help re-engage new subscribers who were not listening to their new audio books, help them find another book or guide them to find new ways to listen.",
+        // columns-single-work [2]: 3-col Challenge / Solution / Result — immediately after hero
+        type: 'columns-three',
+        challenge: "Audible knew that if a new member doesn't listen to their first audio book within a certain period of time, they are much more likely to cancel their subscription. Our goal was to help re-engage new subscribers who were not listening to their new audio books, help them find another book or guide them to find new ways to listen.",
+        solution: "We created messaging by appealing to the unique benefits of Audible and created emotional connections. Hagopian Ink collaborated with Audible's digital marketing team to complete email templates for this vital series.",
+        resultTitle: 'Increase active subscribers, decrease cancellation.',
+        result: 'The re-engagement series was essential to decreasing cancellation and increasing subscribers who thoroughly enjoy listening to their audio books on an ongoing basis. Prompts to stimulate usage through the email flow encouraged subscriptions to stay in force.',
       },
       {
         // desctop-pages [1]: 2 email screenshots in browser frames
@@ -219,7 +225,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        // full-image-single-work (separate section on live site)
+        // full-image-single-work
         type: 'full-image',
         src: `${CDN}/2022/07/HI_Web_audible_lifestyle2-scaled.jpg`,
       },
@@ -237,23 +243,12 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        // desctop-pages [5]: 2 waning lifestyle photos
+        // desctop-pages [5]: 2 waning lifestyle photos in browser frames
         type: 'desktop-frames',
         images: [
           `${CDN}/2022/07/Audible_Emails_waning_photo3.jpg`,
           `${CDN}/2022/07/Audible_Emails_waning_photo4-1-scaled.jpg`,
         ],
-      },
-      {
-        type: 'text',
-        label: 'Solution',
-        dark: true,
-        body: "We created messaging by appealing to the unique benefits of Audible and created emotional connections. Hagopian Ink collaborated with Audible's digital marketing team to complete email templates for this vital series.",
-      },
-      {
-        type: 'text',
-        label: 'Increase active subscribers, decrease cancellation.',
-        body: 'The re-engagement series was essential to decreasing cancellation and increasing subscribers who thoroughly enjoy listening to their audio books on an ongoing basis. Prompts to stimulate usage through the email flow encouraged subscriptions to stay in force.',
       },
     ],
     thumb: `${CDN}/2022/07/HI_Web_audible_lifestyle-scaled.jpg`,
@@ -270,20 +265,25 @@ export const CASE_STUDIES: CaseStudy[] = [
     hero: `${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`,
     sections: [
       {
-        type: 'text',
-        label: 'Challenge',
-        body: 'Black Lives Matter Canada needed a comprehensive strategic plan and a system of messages to help raise additional funds. Email was an essential tool to illustrate where the money was going and properly thank each donor for their contribution to the cause.',
-      },
-      {
-        // header-single-work also contains these 3 full-width images
+        // full-image-single-work [3]
         type: 'full-image',
         src: `${CDN}/2022/08/HI_Web_BLM_header3-scaled.jpg`,
       },
       {
+        // full-image-single-work [4]
         type: 'full-image',
         src: `${CDN}/2022/08/HI_Web_BLM_lifestyle-scaled.jpg`,
       },
       {
+        // columns-single-work [5]: 3-col Challenge / Solution / Result
+        type: 'columns-three',
+        challenge: 'Black Lives Matter Canada needed a comprehensive strategic plan and a system of messages to help raise additional funds. Email was an essential tool to illustrate where the money was going and properly thank each donor for their contribution to the cause.',
+        solution: 'We composed messages together that promoted action to achieve the goal of additional fundraising. Automated emails were created for a welcome series, donor thank you series, and a weekly Black Friday series. We shared how the money will be used, informed on the work still needed, created announcements for new initiatives and showcased community events.',
+        resultTitle: 'Empower, unify and inspire change',
+        result: 'As a young organization, we set up the email program for long term success through a system of templates and email automations. All of our messages were crafted in the right tone to increase action for Black Lives Matter Canada - empowering, honest, current, aspirational and unified. A donor sent a six figure gift within the first month of the program.',
+      },
+      {
+        // full-image-single-work [6]: anatomy of a successful donation email
         type: 'full-image',
         src: `${CDN}/2022/08/BLM_anatomy_successful_donation_email.png`,
       },
@@ -304,29 +304,13 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        // desctop-pages: desktop email designs in browser frames
+        // desctop-pages [8]: desktop email designs in browser frames
         type: 'desktop-frames',
         images: [
           `${CDN}/2022/08/BLMC_Welcome-2_V2-2.png`,
           `${CDN}/2022/08/BLMC_DonorEmail_1_CH_cropped-scaled.jpg`,
           `${CDN}/2022/08/BLMC_DonorEmail_2_BlackFriday_week1-scaled.jpg`,
         ],
-      },
-      {
-        type: 'text',
-        label: 'Solution',
-        dark: true,
-        body: 'We composed messages together that promoted action to achieve the goal of additional fundraising. Automated emails were created for a welcome series, donor thank you series, and a weekly Black Friday series. We shared how the money will be used, informed on the work still needed, created announcements for new initiatives and showcased community events.',
-      },
-      {
-        type: 'text',
-        label: 'Empower, unify and inspire change',
-        body: 'As a young organization, we set up the email program for long term success through a system of templates and email automations. All of our messages were crafted in the right tone to increase action for Black Lives Matter Canada - empowering, honest, current, aspirational and unified. A donor sent a six figure gift within the first month of the program.',
-      },
-      {
-        type: 'text',
-        label: 'Showing Gratitude for a Donation',
-        body: 'Thanking your donors. The most important part of gift acknowledgement for any nonprofit is to thank your donors promptly and sincerely. Be sure to answer the unspoken question that every donor has, "What have you done with my money?" Illustrate how generous giving has resulted in the support for so many. Always try to bring in the stories behind the story and the personal impact for the community. Communicate how their ongoing donations make your collective work possible.',
       },
     ],
     thumb: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
