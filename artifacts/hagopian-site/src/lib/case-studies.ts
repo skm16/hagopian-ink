@@ -1,12 +1,12 @@
 const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 
 export type Section =
-  | { type: 'text';       label: string; body: string; dark?: boolean }
-  | { type: 'text-image'; label: string; title: string; body: string; image: string; imageLeft?: boolean }
-  | { type: 'full-image'; src: string }
-  | { type: 'carousel';   images: string[]; dark?: boolean }
-  | { type: 'gallery';    images: string[] }
-  | { type: 'grid3';      images: string[] };
+  | { type: 'text';           label: string; body: string; dark?: boolean }
+  | { type: 'text-image';     label: string; title: string; body: string; image: string; imageLeft?: boolean; bg?: string }
+  | { type: 'full-image';     src: string }
+  | { type: 'carousel';       images: string[]; dark?: boolean }
+  | { type: 'desktop-frames'; images: string[] }
+  | { type: 'mobile-frames';  images: string[]; dark?: boolean };
 
 export type CaseStudy = {
   slug: string;
@@ -37,12 +37,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: 'Joseph Robert is a new consumer brand intended to reach men who are fashionable, stylish and sleek. The brand needed to attract men who are also drawn to well-designed products and care about value. Joseph Roberts will launch as a modern, high quality, yet affordable brand with products sold wholesale, on amazon and direct to consumer on Shopify.',
       },
       {
+        // slider-two-slides [1]: briefcases + lifestyle5
         type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_briefcase.jpg`,
           `${CDN}/2022/08/JR_briefcase2.jpg`,
           `${CDN}/2022/08/JR_leather_2.jpg`,
           `${CDN}/2022/08/JR_briefcase3.jpg`,
+          `${CDN}/2022/08/HI_Web_josephrobert_lifestyle5.jpg`,
         ],
       },
       {
@@ -51,10 +53,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: 'While monograms are a timeless application of two letterforms, reinventing a modern application takes care and craft. The logo for Joseph Robert has both strength and energy with the J and R reaching and expanding beyond the limits of its boundaries - just like every successful man must do in life. That reach and expansion is what defines the Joseph Robert brand.',
       },
       {
-        type: 'full-image',
-        src: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle5.jpg`,
-      },
-      {
+        // our-work bg-default column-reverse-no
         type: 'text-image',
         label: 'Brand Identity & Structure',
         title: 'Balance and harmony',
@@ -62,8 +61,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         image: `${CDN}/2022/08/logo-anatomy.png`,
       },
       {
+        // slider-two-slides [3]: all brand sheets + HI_josephrobert + artboards (one big carousel)
         type: 'carousel',
-        dark: true,
         images: [
           `${CDN}/2022/08/JosephRobert3.png`,
           `${CDN}/2022/08/JR_blue.png`,
@@ -73,21 +72,7 @@ export const CASE_STUDIES: CaseStudy[] = [
           `${CDN}/2022/08/JosephRobert8.png`,
           `${CDN}/2022/08/JosephRobert9.png`,
           `${CDN}/2022/08/JosephRobert12.png`,
-        ],
-      },
-      {
-        type: 'text',
-        label: 'Solution',
-        dark: true,
-        body: "We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men's apparel and accessories.",
-      },
-      {
-        type: 'full-image',
-        src: `${CDN}/2022/08/HI_josephrobert.jpg`,
-      },
-      {
-        type: 'gallery',
-        images: [
+          `${CDN}/2022/08/HI_josephrobert.jpg`,
           `${CDN}/2022/08/Artboard-10@4x.png`,
           `${CDN}/2022/08/Artboard-5@4x.png`,
           `${CDN}/2022/08/Artboard-6@4x.png`,
@@ -95,12 +80,20 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
-        type: 'grid3',
+        // slides: ties + menswear
+        type: 'carousel',
         images: [
           `${CDN}/2022/08/JR_tie_ltblue.jpg`,
           `${CDN}/2022/08/JR_tie_blue.jpg`,
           `${CDN}/2022/08/JR_tie_brown.jpg`,
+          `${CDN}/2022/08/JR_menswear_newtie.jpg`,
         ],
+      },
+      {
+        type: 'text',
+        label: 'Solution',
+        dark: true,
+        body: "We created a brand strategy, new logo mark, pattern and style guide to launch the Joseph Roberts collection. Rich blues, a distinctive symbol, and repeatable pattern allowed for flexibility throughout the brand system. The monogram created a sophisticated, approachable design to apply across the line of men's apparel and accessories.",
       },
       {
         type: 'text',
@@ -118,7 +111,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'UX Design',
     tags: ['Fashion', 'Beauty', 'Luxury', 'Lifestyle'],
     tagline: 'Clean beauty is calm beauty.',
-    intro: 'Loum Beauty launched with a goal to be the first complete skincare line to reverse the effects of stress on skin. The website needed to act as the leading tool to sell their line of unique products and it was falling short in conversions. Our job was to clarify the complex brand story, connect with their audience and solve Loum\'s UX challenges.',
+    intro: "Loum Beauty launched with a goal to be the first complete skincare line to reverse the effects of stress on skin. The website needed to act as the leading tool to sell their line of unique products and it was falling short in conversions. Our job was to clarify the complex brand story, connect with their audience and solve Loum's UX challenges.",
     hero: `${CDN}/2022/08/Loum_stress_header2.gif`,
     sections: [
       {
@@ -127,7 +120,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: 'Several findings were determined to be causing user confusion, a high bounce rate and lack of clarity through recent research. Our goal was to improve both the brand story and the usability of the site by implementing several key strategic design and messaging changes.',
       },
       {
-        type: 'carousel',
+        // desctop-pages disable-auto-width: 3 website screenshots in browser frames
+        type: 'desktop-frames',
         images: [
           `${CDN}/2022/08/Loum_Home_final_cropped-scaled.jpg`,
           `${CDN}/2022/08/Loum_Home_final_cropped3-scaled.jpg`,
@@ -135,6 +129,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       },
       {
+        // slider-two-slides: grid photos + chart (all in one carousel)
         type: 'carousel',
         images: [
           `${CDN}/2022/08/HI_Web_Loum_grid_purple.jpg`,
@@ -143,13 +138,11 @@ export const CASE_STUDIES: CaseStudy[] = [
           `${CDN}/2022/08/HI_Web_Loum_grid_petri.jpg`,
           `${CDN}/2022/08/HI_Web_Loum_grid_green.jpg`,
           `${CDN}/2022/08/HI_Web_Loum_grid_weed.jpg`,
+          `${CDN}/2022/08/HI_Web_loum_chart_smaller-scaled.jpg`,
         ],
       },
       {
-        type: 'full-image',
-        src: `${CDN}/2022/08/HI_Web_loum_chart_smaller-scaled.jpg`,
-      },
-      {
+        // our-work bg-default column-reverse-no: Messaging Transformed text + petri image
         type: 'text-image',
         label: 'Messaging Transformed',
         title: 'The New Loum Beauty Brand Story',
@@ -192,26 +185,34 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: "Audible knew that if a new member doesn't listen to their first audio book within a certain period of time, they are much more likely to cancel their subscription. Our goal was to help re-engage new subscribers who were not listening to their new audio books, help them find another book or guide them to find new ways to listen.",
       },
       {
-        type: 'carousel',
+        // desctop-pages [1]: 2 email screenshots in browser frames
+        type: 'desktop-frames',
         images: [
           `${CDN}/2022/07/Audible_Emails_waning_image1.gif`,
           `${CDN}/2022/07/Audible_Emails_waning_image2-scaled.jpg`,
-          `${CDN}/2022/07/audible_animation1.gif`,
-          `${CDN}/2022/07/image_waning1.jpg`,
-          `${CDN}/2022/07/image_waning2.jpg`,
         ],
       },
       {
-        type: 'text',
+        // our-work bg-white column-reverse-no: Understanding the lifecycle text + animation
+        type: 'text-image',
         label: 'Understanding the life-cycle of an email subscriber',
+        title: 'Increase active subscribers, decrease cancellation.',
         body: 'Defining your customer journey and creating targeted messages to address each life-stage is essential for your subscription emails. The emails created for Audible addressed the 4th stage - Reactivating a waning audience.\n\n1. Acquisition\n• Acquire more subscribers\n\n2. Conversion\n• Convert subscribers into buyers\n• Convert cart abandoners into buyers\n• Convert one time buyers into loyal, repeat buyers\n\n3. Retention\n• Increase lifetime value of each subscriber\n\n4. Reactivation\n• Reactivate lapsed subscribers or buyers',
+        image: `${CDN}/2022/07/audible_animation1.gif`,
+        bg: '#ffffff',
       },
       {
-        type: 'full-image',
-        src: `${CDN}/2022/07/HI_Web_audible_lifestyle2-scaled.jpg`,
+        // desctop-pages [3]: 3 images in browser frames
+        type: 'desktop-frames',
+        images: [
+          `${CDN}/2022/07/image_waning1.jpg`,
+          `${CDN}/2022/07/image_waning2.jpg`,
+          `${CDN}/2022/07/HI_Web_audible_lifestyle2-scaled.jpg`,
+        ],
       },
       {
-        type: 'carousel',
+        // mobile-pages: phone frames
+        type: 'mobile-frames',
         dark: true,
         images: [
           `${CDN}/2022/07/HI_Web_audible_mobile_1.jpg`,
@@ -221,6 +222,12 @@ export const CASE_STUDIES: CaseStudy[] = [
           `${CDN}/2022/07/HI_Web_audible_mobile_4.jpg`,
           `${CDN}/2022/07/HI_Web_audible_mobile_5.jpg`,
           `${CDN}/2022/07/HI_Web_audible_mobile_2.jpg`,
+        ],
+      },
+      {
+        // desctop-pages [5]: 2 waning lifestyle photos
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2022/07/Audible_Emails_waning_photo3.jpg`,
           `${CDN}/2022/07/Audible_Emails_waning_photo4-1-scaled.jpg`,
         ],
@@ -256,6 +263,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         body: 'Black Lives Matter Canada needed a comprehensive strategic plan and a system of messages to help raise additional funds. Email was an essential tool to illustrate where the money was going and properly thank each donor for their contribution to the cause.',
       },
       {
+        // header-single-work also contains these 3 full-width images
         type: 'full-image',
         src: `${CDN}/2022/08/HI_Web_BLM_header3-scaled.jpg`,
       },
@@ -268,7 +276,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2022/08/BLM_anatomy_successful_donation_email.png`,
       },
       {
-        type: 'carousel',
+        // mobile-pages: donor email phone frames
+        type: 'mobile-frames',
         dark: true,
         images: [
           `${CDN}/2022/08/BLMC_DonorEmail_mobile3.jpg`,
@@ -279,10 +288,13 @@ export const CASE_STUDIES: CaseStudy[] = [
           `${CDN}/2022/08/BLMC_DonorEmail_mobile2.jpg`,
           `${CDN}/2022/08/BLMC_DonorEmail_mobile10.jpg`,
           `${CDN}/2022/08/BLMC_DonorEmail_mobile9.jpg`,
+          `${CDN}/2022/08/BLMC_DonorEmail_mobile14.png`,
+          `${CDN}/2022/08/BLMC_DonorEmail_mobile13.png`,
         ],
       },
       {
-        type: 'carousel',
+        // desctop-pages: desktop email designs in browser frames
+        type: 'desktop-frames',
         images: [
           `${CDN}/2022/08/BLMC_Welcome-2_V2-2.png`,
           `${CDN}/2022/08/BLMC_DonorEmail_1_CH_cropped-scaled.jpg`,

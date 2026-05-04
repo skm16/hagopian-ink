@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link, useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -9,14 +9,10 @@ import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import { getCaseStudy, CASE_STUDIES, type CaseStudy, type Section } from '@/lib/case-studies';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
-const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
+const SILVER_NAV = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/silver-nav-bar.png';
 
 /* ─────────────────────────────────────────────────────────
-   CAROUSEL
-   • Advances one image at a time (not one pair)
-   • Always loops — no disabled arrows
-   • Desktop: shows current + next side-by-side (2-up)
-   • Mobile: shows current only (1-up)
+   CAROUSEL  (1-at-a-time advance, loops, auto-play, 2-up desktop)
 ───────────────────────────────────────────────────────── */
 function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }) {
   const [idx, setIdx] = useState(0);
@@ -26,19 +22,18 @@ function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }
   const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
   const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
 
-  // Auto-advance every 3 s; pause on hover
   useEffect(() => {
     if (paused) return;
-    const timer = setInterval(next, 3000);
-    return () => clearInterval(timer);
+    const t = setInterval(next, 3000);
+    return () => clearInterval(t);
   }, [next, paused]);
 
-  const bg        = dark ? '#2d3232' : '#f1efef';
-  const arrowBg   = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
-  const arrowHov  = dark ? 'rgba(241,239,239,0.22)' : 'rgba(45,50,50,0.16)';
-  const arrowCol  = dark ? '#f1efef' : '#2d3232';
-  const dotActive = dark ? '#f1efef' : '#2d3232';
-  const dotInact  = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
+  const bg       = dark ? '#2d3232' : '#f1efef';
+  const arrowBg  = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
+  const arrowHov = dark ? 'rgba(241,239,239,0.22)' : 'rgba(45,50,50,0.16)';
+  const arrowCol = dark ? '#f1efef' : '#2d3232';
+  const dotAct   = dark ? '#f1efef' : '#2d3232';
+  const dotInact = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
 
   return (
     <div
@@ -47,72 +42,195 @@ function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }
       onMouseLeave={() => setPaused(false)}
     >
       <div className="relative overflow-hidden">
-        {/* ── Image row ── */}
         <div className="flex">
-          {/* Primary image — full width on mobile, half on desktop */}
-          <div className="w-full sm:w-1/2 flex-shrink-0">
-            <img
-              key={`main-${idx}`}
-              src={images[idx]}
-              alt=""
-              style={{ display: 'block', width: '100%', height: 'auto' }}
-            />
+          {/* Primary — full on mobile, half on desktop */}
+          <div className="w-full sm:w-1/2 flex-shrink-0" style={{ background: '#fff' }}>
+            <img src={images[idx]} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
           </div>
-          {/* Secondary image — hidden on mobile, shown on desktop */}
-          <div className="hidden sm:block w-1/2 flex-shrink-0">
-            <img
-              key={`sec-${idx}`}
-              src={images[(idx + 1) % n]}
-              alt=""
-              style={{ display: 'block', width: '100%', height: 'auto' }}
-            />
+          {/* Secondary — hidden on mobile */}
+          <div className="hidden sm:block w-1/2 flex-shrink-0" style={{ background: '#fff' }}>
+            <img src={images[(idx + 1) % n]} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
           </div>
         </div>
 
-        {/* ── Prev arrow ── */}
-        <button
-          onClick={prev}
-          aria-label="Previous"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 transition-colors duration-200"
+        <button onClick={prev} aria-label="Previous"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
           style={{ background: arrowBg, color: arrowCol }}
           onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
-          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}
-        >
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
           <ChevronLeft className="w-5 h-5" />
         </button>
-
-        {/* ── Next arrow ── */}
-        <button
-          onClick={next}
-          aria-label="Next"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 transition-colors duration-200"
+        <button onClick={next} aria-label="Next"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
           style={{ background: arrowBg, color: arrowCol }}
           onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
-          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}
-        >
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
 
-      {/* ── Dots — one per image ── */}
       {n > 1 && (
         <div className="flex justify-center gap-2 py-4">
           {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Image ${i + 1}`}
+            <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
               style={{
-                width: i === idx ? 20 : 6,
-                height: 6,
-                borderRadius: 3,
-                background: i === idx ? dotActive : dotInact,
-                border: 'none',
-                padding: 0,
-                cursor: 'pointer',
+                width: i === idx ? 20 : 6, height: 6, borderRadius: 3,
+                background: i === idx ? dotAct : dotInact,
+                border: 'none', padding: 0, cursor: 'pointer',
                 transition: 'all 0.3s ease',
-              }}
-            />
+              }} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   DESKTOP FRAMES  (browser chrome + screenshot)
+   Layout: 1 img → full-width | 2 imgs → 2-col | 3 imgs → 1 full + 2-col
+───────────────────────────────────────────────────────── */
+function BrowserFrame({ src }: { src: string }) {
+  return (
+    <div style={{ background: '#fff', overflow: 'hidden' }}>
+      <img src={SILVER_NAV} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
+      <img src={src} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
+    </div>
+  );
+}
+
+function DesktopFrames({ images }: { images: string[] }) {
+  if (images.length === 1) {
+    return (
+      <FadeIn>
+        <BrowserFrame src={images[0]} />
+      </FadeIn>
+    );
+  }
+  if (images.length === 2) {
+    return (
+      <FadeIn>
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          {images.map((src, i) => <BrowserFrame key={i} src={src} />)}
+        </div>
+      </FadeIn>
+    );
+  }
+  // 3+ images: first full-width, rest in 2-col grid
+  return (
+    <FadeIn>
+      <div>
+        <BrowserFrame src={images[0]} />
+        <div className="grid grid-cols-1 sm:grid-cols-2">
+          {images.slice(1).map((src, i) => <BrowserFrame key={i} src={src} />)}
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE FRAMES  (phone outline carousel, auto-play, 2-up desktop)
+───────────────────────────────────────────────────────── */
+function PhoneFrame({ src }: { src: string }) {
+  return (
+    <div style={{
+      margin: '0 auto',
+      maxWidth: 280,
+      border: '10px solid #1a1a1a',
+      borderRadius: 36,
+      overflow: 'hidden',
+      background: '#1a1a1a',
+      boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+    }}>
+      {/* Speaker notch */}
+      <div style={{
+        background: '#1a1a1a', height: 22,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
+        <div style={{ width: 44, height: 6, background: '#333', borderRadius: 3 }} />
+      </div>
+      {/* Screen */}
+      <div style={{ background: '#fff', overflow: 'hidden' }}>
+        <img src={src} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
+      </div>
+      {/* Home bar */}
+      <div style={{
+        background: '#1a1a1a', height: 18,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>
+        <div style={{ width: 36, height: 4, background: '#444', borderRadius: 2 }} />
+      </div>
+    </div>
+  );
+}
+
+function MobileFrames({ images, dark = false }: { images: string[]; dark?: boolean }) {
+  const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const n = images.length;
+
+  const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
+  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(next, 3000);
+    return () => clearInterval(t);
+  }, [next, paused]);
+
+  const bg      = dark ? '#2d3232' : '#f1efef';
+  const arrowBg  = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
+  const arrowHov = dark ? 'rgba(241,239,239,0.22)' : 'rgba(45,50,50,0.16)';
+  const arrowCol = dark ? '#f1efef' : '#2d3232';
+  const dotAct   = dark ? '#f1efef' : '#2d3232';
+  const dotInact = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
+
+  return (
+    <div
+      style={{ background: bg }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="relative px-12 py-10">
+        {/* Phone display area */}
+        <div className="flex gap-6 justify-center items-start">
+          {/* Primary phone */}
+          <div className="w-full sm:w-1/2 max-w-[280px]">
+            <PhoneFrame src={images[idx]} />
+          </div>
+          {/* Secondary phone — desktop only */}
+          <div className="hidden sm:block w-1/2 max-w-[280px]">
+            <PhoneFrame src={images[(idx + 1) % n]} />
+          </div>
+        </div>
+
+        <button onClick={prev} aria-label="Previous"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
+          style={{ background: arrowBg, color: arrowCol }}
+          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button onClick={next} aria-label="Next"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10"
+          style={{ background: arrowBg, color: arrowCol }}
+          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}>
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {n > 1 && (
+        <div className="flex justify-center gap-2 pb-5">
+          {images.map((_, i) => (
+            <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
+              style={{
+                width: i === idx ? 20 : 6, height: 6, borderRadius: 3,
+                background: i === idx ? dotAct : dotInact,
+                border: 'none', padding: 0, cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }} />
           ))}
         </div>
       )}
@@ -124,9 +242,9 @@ function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }
    TEXT SECTION
 ───────────────────────────────────────────────────────── */
 function TextSection({ label, body, dark = false }: { label: string; body: string; dark?: boolean }) {
-  const bg         = dark ? '#2d3232' : '#f1efef';
-  const textColor  = dark ? '#f1efef' : '#2d3232';
-  const mutedColor = dark ? 'rgba(241,239,239,0.45)' : 'rgba(45,50,50,0.4)';
+  const bg    = dark ? '#2d3232' : '#f1efef';
+  const col   = dark ? '#f1efef' : '#2d3232';
+  const muted = dark ? 'rgba(241,239,239,0.45)' : 'rgba(45,50,50,0.4)';
 
   return (
     <section style={{ background: bg }}>
@@ -135,12 +253,12 @@ function TextSection({ label, body, dark = false }: { label: string; body: strin
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div className="lg:col-span-2">
               <p className="text-[10px] uppercase tracking-[0.22em] mt-1"
-                style={{ color: mutedColor, fontFamily: NAV_FONT }}>
+                style={{ color: muted, fontFamily: NAV_FONT }}>
                 {label}
               </p>
             </div>
             <div className="lg:col-span-9">
-              <p className="text-[17px] leading-relaxed" style={{ color: textColor }}>
+              <p className="text-[17px] leading-relaxed whitespace-pre-line" style={{ color: col }}>
                 {body}
               </p>
             </div>
@@ -152,41 +270,29 @@ function TextSection({ label, body, dark = false }: { label: string; body: strin
 }
 
 /* ─────────────────────────────────────────────────────────
-   TEXT + IMAGE SECTION (2-col: text one side, image other)
+   TEXT + IMAGE  (2-col)
 ───────────────────────────────────────────────────────── */
-function TextImageSection({ label, title, body, image, imageLeft = false, dark = false }: {
-  label: string;
-  title: string;
-  body: string;
-  image: string;
-  imageLeft?: boolean;
-  dark?: boolean;
+function TextImageSection({ label, title, body, image, imageLeft = false, bg: bgProp }: {
+  label: string; title: string; body: string; image: string; imageLeft?: boolean; bg?: string;
 }) {
-  const bg         = dark ? '#2d3232' : '#f1efef';
-  const textColor  = dark ? '#f1efef' : '#2d3232';
-  const mutedColor = dark ? 'rgba(241,239,239,0.4)' : 'rgba(45,50,50,0.4)';
-  const accentColor = dark ? 'rgba(241,239,239,0.6)' : 'rgba(45,50,50,0.7)';
+  const bg    = bgProp ?? '#f1efef';
+  const col   = '#2d3232';
+  const muted = 'rgba(45,50,50,0.4)';
 
   const textBlock = (
     <div className="flex flex-col justify-center gap-4 py-8 lg:py-0">
       <p className="text-[10px] uppercase tracking-[0.22em]"
-        style={{ color: mutedColor, fontFamily: NAV_FONT }}>
-        {label}
-      </p>
+        style={{ color: muted, fontFamily: NAV_FONT }}>{label}</p>
       <h3 className="text-2xl md:text-3xl leading-snug"
-        style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
-        {title}
-      </h3>
-      <p className="text-[16px] leading-relaxed" style={{ color: accentColor }}>
-        {body}
-      </p>
+        style={{ fontFamily: SERIF, fontWeight: 700, color: col }}>{title}</h3>
+      <p className="text-[16px] leading-relaxed whitespace-pre-line"
+        style={{ color: 'rgba(45,50,50,0.7)' }}>{body}</p>
     </div>
   );
 
   const imgBlock = (
-    <div className="overflow-hidden">
-      <img src={image} alt={title}
-        style={{ display: 'block', width: '100%', height: 'auto' }} />
+    <div style={{ background: '#fff', overflow: 'hidden' }}>
+      <img src={image} alt={title} style={{ display: 'block', width: '100%', height: 'auto' }} />
     </div>
   );
 
@@ -195,11 +301,7 @@ function TextImageSection({ label, title, body, image, imageLeft = false, dark =
       <div className="px-8 md:px-16 py-16 md:py-24 max-w-[1400px] mx-auto">
         <FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {imageLeft ? (
-              <>{imgBlock}{textBlock}</>
-            ) : (
-              <>{textBlock}{imgBlock}</>
-            )}
+            {imageLeft ? <>{imgBlock}{textBlock}</> : <>{textBlock}{imgBlock}</>}
           </div>
         </FadeIn>
       </div>
@@ -213,51 +315,39 @@ function TextImageSection({ label, title, body, image, imageLeft = false, dark =
 function FullImg({ src }: { src: string }) {
   return (
     <FadeIn>
-      <div>
-        <img src={src} alt=""
-          style={{ display: 'block', width: '100%', height: 'auto' }} />
+      <div style={{ background: '#fff' }}>
+        <img src={src} alt="" style={{ display: 'block', width: '100%', height: 'auto' }} />
       </div>
     </FadeIn>
   );
 }
 
 /* ─────────────────────────────────────────────────────────
-   GALLERY — 4-col grid of background-image tiles
+   SECTION DISPATCHER
 ───────────────────────────────────────────────────────── */
-function Gallery({ images }: { images: string[] }) {
-  return (
-    <FadeIn>
-      <div className="grid grid-cols-2 md:grid-cols-4">
-        {images.map((src, i) => (
-          <div
-            key={i}
-            className="aspect-square"
-            style={{
-              backgroundImage: `url(${src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
-        ))}
-      </div>
-    </FadeIn>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────
-   GRID3 — 3 images side by side
-───────────────────────────────────────────────────────── */
-function Grid3({ images }: { images: string[] }) {
-  return (
-    <FadeIn>
-      <div className="grid grid-cols-1 sm:grid-cols-3">
-        {images.map((src, i) => (
-          <img key={i} src={src} alt=""
-            style={{ display: 'block', width: '100%', height: 'auto' }} />
-        ))}
-      </div>
-    </FadeIn>
-  );
+function RenderSection({ section }: { section: Section }) {
+  switch (section.type) {
+    case 'text':
+      return <TextSection label={section.label} body={section.body} dark={section.dark} />;
+    case 'text-image':
+      return (
+        <TextImageSection
+          label={section.label} title={section.title}
+          body={section.body} image={section.image}
+          imageLeft={section.imageLeft} bg={section.bg}
+        />
+      );
+    case 'full-image':
+      return <FullImg src={section.src} />;
+    case 'carousel':
+      return <FadeIn><Carousel images={section.images} dark={section.dark} /></FadeIn>;
+    case 'desktop-frames':
+      return <DesktopFrames images={section.images} />;
+    case 'mobile-frames':
+      return <MobileFrames images={section.images} dark={section.dark} />;
+    default:
+      return null;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -274,16 +364,12 @@ function RelatedCard({ cs }: { cs: CaseStudy }) {
         </div>
         <div className="p-7 flex flex-col flex-1">
           <p className="text-[9px] uppercase tracking-[0.2em] mb-3"
-            style={{ color: 'rgba(45,50,50,0.5)', fontFamily: NAV_FONT }}>
-            {cs.category}
-          </p>
+            style={{ color: 'rgba(45,50,50,0.5)', fontFamily: NAV_FONT }}>{cs.category}</p>
           <h3 className="text-xl mb-4 leading-snug"
-            style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
-            {cs.client}
-          </h3>
+            style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>{cs.client}</h3>
           <div className="flex-1" />
           <Link href={`/work/${cs.slug}`}
-            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
+            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 hover:gap-3 transition-all duration-300 self-start"
             style={{ color: '#2d3232', borderColor: 'rgba(45,50,50,0.15)', fontFamily: NAV_FONT }}>
             View Case Study <ArrowRight className="w-3 h-3" />
           </Link>
@@ -291,46 +377,6 @@ function RelatedCard({ cs }: { cs: CaseStudy }) {
       </div>
     </FadeIn>
   );
-}
-
-/* ─────────────────────────────────────────────────────────
-   SECTION RENDERER
-───────────────────────────────────────────────────────── */
-function RenderSection({ section }: { section: Section }) {
-  switch (section.type) {
-    case 'text':
-      return <TextSection label={section.label} body={section.body} dark={section.dark} />;
-
-    case 'text-image':
-      return (
-        <TextImageSection
-          label={section.label}
-          title={section.title}
-          body={section.body}
-          image={section.image}
-          imageLeft={section.imageLeft}
-        />
-      );
-
-    case 'full-image':
-      return <FullImg src={section.src} />;
-
-    case 'carousel':
-      return (
-        <FadeIn>
-          <Carousel images={section.images} dark={section.dark} />
-        </FadeIn>
-      );
-
-    case 'gallery':
-      return <Gallery images={section.images} />;
-
-    case 'grid3':
-      return <Grid3 images={section.images} />;
-
-    default:
-      return null;
-  }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -366,38 +412,37 @@ export function CaseStudyPage() {
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
       <Nav />
 
-      {/* ── HEADER — cream, text only ── */}
+      {/* ── HEADER ── */}
       <section style={{ background: '#f1efef' }}>
-        <div className="px-8 md:px-16 pt-28 pb-10 max-w-[1400px] mx-auto">
+        <div className="px-8 md:px-16 pt-28 pb-8 max-w-[1400px] mx-auto">
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }} className="mb-10">
+            transition={{ duration: 0.6, ease }} className="mb-8">
             <Link href="/work"
-              className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] opacity-45 hover:opacity-100 transition-opacity"
+              className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity"
               style={{ color: '#2d3232', fontFamily: NAV_FONT }}>
               <ArrowLeft className="w-3 h-3" /> Work
             </Link>
           </motion.div>
 
+          {/* Client name — intentionally modest size */}
           <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.08, ease }}
-            className="text-5xl md:text-7xl lg:text-8xl leading-[0.92] mb-5"
+            className="text-3xl md:text-4xl lg:text-5xl leading-tight mb-3"
             style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
             {cs.client}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18, ease }}
-            className="text-[11px] uppercase tracking-[0.22em]"
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.16, ease }}
+            className="text-[10px] uppercase tracking-[0.22em] mb-10"
             style={{ color: 'rgba(45,50,50,0.45)', fontFamily: NAV_FONT }}>
             {cs.category}{cs.tags.length > 0 && <> &bull; {cs.tags.join(' \u2022 ')}</>}
           </motion.p>
-        </div>
 
-        {/* Intro: tagline left | paragraph right */}
-        <div className="px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto">
+          {/* Tagline left | intro right */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.28, ease }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            transition={{ duration: 0.85, delay: 0.24, ease }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start pb-14 md:pb-20">
             <p className="text-3xl md:text-4xl leading-snug"
               style={{ fontFamily: SERIF, fontStyle: 'italic', color: '#2d3232' }}>
               {cs.tagline}
@@ -413,7 +458,7 @@ export function CaseStudyPage() {
       {/* ── HERO IMAGE ── */}
       <FullImg src={cs.hero} />
 
-      {/* ── CONTENT SECTIONS ── */}
+      {/* ── SECTIONS ── */}
       {cs.sections.map((section, i) => (
         <RenderSection key={i} section={section} />
       ))}
