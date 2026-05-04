@@ -181,12 +181,26 @@ export function Homepage() {
                     className="w-full h-full flex items-center justify-center bg-[#bfbab2] shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
                     style={{ borderRadius: '0 50% 50% 50%', transform: 'rotate(45deg)' }}
                   >
-                    <img
-                      src={svc.icon}
-                      alt=""
-                      className="w-8 h-8 object-contain opacity-90"
-                      style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }}
-                    />
+                    {(() => {
+                      const s = svc as typeof svc & { svgIcon?: string };
+                      const iconStyle = { transform: 'rotate(-45deg)' };
+                      if (s.svgIcon === 'branding') return (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
+                          <path d="M12 2C9.2 2 7 4.7 7 8c0 3.5 5 12 5 12s5-8.5 5-12c0-3.3-2.2-6-5-6z" />
+                          <circle cx="12" cy="8" r="1.5" fill="white" stroke="none" />
+                        </svg>
+                      );
+                      if (s.svgIcon === 'email') return (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 opacity-90" style={iconStyle}>
+                          <rect x="2" y="5" width="20" height="14" rx="2" />
+                          <path d="M2 8l10 7 10-7" />
+                        </svg>
+                      );
+                      return (
+                        <img src={svc.icon} alt="" className="w-8 h-8 object-contain opacity-90"
+                          style={{ transform: 'rotate(-45deg)', ...(svc.iconFilter ? { filter: svc.iconFilter } : {}) }} />
+                      );
+                    })()}
                   </div>
                 </motion.div>
               </FadeIn>
