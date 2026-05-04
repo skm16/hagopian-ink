@@ -500,41 +500,43 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'sesame-street-mobile-email',
     client: 'Sesame Street',
     category: 'Email Marketing',
-    tags: ['Email Marketing', 'Entertainment', 'Mobile'],
-    tagline: 'Bringing Sesame Street to life in the inbox.',
-    intro: 'Sesame Street is one of the most beloved brands in children\'s entertainment. They needed a mobile-first email program that captured the warmth, color, and educational spirit of the brand — designed to engage parents and caregivers in a fun and meaningful way.',
+    tags: ['Email Marketing', 'Community', 'Nonprofit', 'Subscription'],
+    tagline: 'Subscription Emails on the Go',
+    intro: 'When Sesame Workshop launched a new mobile application version of their current video on-demand program, Sesame Street Go, Hagopian Ink was their strategic marketing partner. We created an email communications program to interact with new and existing subscribers of Sesame Go.',
     hero: `${CDN}/2018/09/HI_Web_Sesame_lifestyle1.jpg`,
     sections: [
       {
-        type: 'columns-three',
-        challenge: 'Sesame Street needed email campaigns that resonated emotionally with parents while maintaining the playful, colorful character of the brand. The challenge was translating the magic of the show into a format that worked seamlessly across mobile and desktop.',
-        solution: 'We designed a mobile-first email template system built around the iconic characters, colors, and educational messaging of Sesame Street. Every email led with character moments and child-centric storytelling to connect with parents on a personal level.',
-        resultTitle: 'Beloved characters. Better engagement.',
-        result: 'The email program delivered consistent brand experiences across devices, earning strong open rates and click-throughs. Parents connected with the character-led storytelling, and the campaigns successfully drove awareness and action for Sesame Street initiatives.',
-      },
-      {
         type: 'full-image',
         src: `${CDN}/2018/09/HI_Web_Sesame_header2.jpg`,
+      },
+      {
+        type: 'columns-three',
+        challenge: 'Sesame Workshop established its brand identity in 1969, with distinct standards regarding look and feel that its loyal audience recognizes instantly. We needed to create a seamless experience for users exploring the online Sesame Street Go content, the mobile application, and the email creative.',
+        solution: 'Starting with a comprehensive strategy phase, we created distinctive user flows for both trial and subscriber messages. Using bold typography, playful colors, and furry characters, we created two sets of responsive email templates designed to entice recipients to sign up for new subscriptions, and to encourage subscribers to use the app more frequently. The first was more transactional and included the welcome message, password reset, subscriber status, and auto-responders. The second was a bi-weekly newsletter format to activate their current subscriber base and to engage and encourage continual app usage and learning for the child.',
+        resultTitle: 'Increasing engagement',
+        result: 'To improve unique opens and click-throughs, we refined audience segmentation and timing, and aligned copy and subject lines to more effectively stimulate recipients to take immediate action. After launching using our mobile email templates, Sesame Street Go saw a steady increase each month in the number of unique click-throughs and unique opens, with their newsletters beating statistical averages when compared with competitors in similar categories.',
       },
       {
         type: 'desktop-frames',
         images: [
           `${CDN}/2018/09/HI_Web_Sesame_email1.jpg`,
           `${CDN}/2018/09/HI_Web_Sesame_email2.jpg`,
-        ],
-      },
-      {
-        type: 'desktop-frames',
-        images: [
           `${CDN}/2018/09/HI_Web_Sesame_email4.jpg`,
-          `${CDN}/2018/09/HI_Web_Sesame_email3.jpg`,
         ],
+      },
+      {
+        type: 'text-image',
+        label: 'Transactional Emails',
+        title: 'Creative transactional messages',
+        body: 'Transactional emails showcase the Sesame Street muppets with creative copy to capture attention, elicit an emotional response and prompt clicks. From password reminders from Ernie to email cancellations from Big Bird – messages always stayed true to the brand with playful and positive feelings.',
+        image: `${CDN}/2018/09/HI_Web_Sesame_floater.png`,
       },
       {
         type: 'desktop-frames',
         images: [
-          `${CDN}/2018/09/HI_Web_Sesame_email6.jpg`,
           `${CDN}/2018/09/sesame_email_contact_cropped.jpg`,
+          `${CDN}/2018/09/HI_Web_Sesame_email3.jpg`,
+          `${CDN}/2018/09/HI_Web_Sesame_email6.jpg`,
         ],
       },
       {
