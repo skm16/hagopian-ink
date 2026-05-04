@@ -165,6 +165,14 @@ function DesktopFrames({ images, navBar = 'silver' }: { images: string[]; navBar
    .phone: 3252351.png absolute overlay, z-index:1000, bg-pos-x:-26px
    .slide img: width:245px, height:434px
 ───────────────────────────────────────────────────────── */
+/*
+  Live-site mobile slider mechanics (from page JS):
+    var width = 265 + 55;  // = 320px per slide step
+    slides strip: all images float-left, each img is 245px + 75px margin-right = 320px
+    transform: translate3d(-index * 320px, 0, 0)  with CSS transition: 1s
+*/
+const SLIDE_STEP = 265 + 55; // 320px — matches live site JS exactly
+
 function MobileFrames({ images }: { images: string[] }) {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -186,15 +194,16 @@ function MobileFrames({ images }: { images: string[] }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* .slider — exact dimensions from live CSS */}
+      {/* .slider — exact 265×520 from live CSS */}
       <div style={{
         width: 265, height: 520,
         margin: '0 auto',
         padding: '33px 10px 53px',
         borderRadius: 10,
         position: 'relative',
+        overflow: 'hidden',
       }}>
-        {/* .phone — phone frame PNG absolutely overlaid */}
+        {/* .phone — phone frame PNG absolutely overlaid at z-index 1000 */}
         <div style={{
           backgroundImage: `url(${PHONE_PNG})`,
           backgroundPositionX: -26,
@@ -207,29 +216,41 @@ function MobileFrames({ images }: { images: string[] }) {
           zIndex: 1000,
           pointerEvents: 'none',
         }} />
-        {/* Current slide image — 245×434 matching live .slide img */}
-        <img
-          key={idx}
-          src={images[idx]}
-          alt=""
-          style={{ width: 245, height: 434, display: 'block', objectFit: 'cover', objectPosition: 'top' }}
-        />
+
+        {/* .slides — horizontal strip, translate3d to slide, transition: 1s */}
+        <div style={{
+          display: 'flex',
+          width: n * SLIDE_STEP,
+          transform: `translate3d(-${idx * SLIDE_STEP}px, 0, 0)`,
+          transition: 'transform 1s ease',
+          position: 'relative',
+        }}>
+          {images.map((src, i) => (
+            /* .slide: img 245×434 + margin-right 75px = 320px per slot */
+            <div key={i} style={{ flexShrink: 0, marginRight: 75 }}>
+              <img
+                src={src} alt=""
+                style={{ width: 245, height: 434, display: 'block', objectFit: 'cover', objectPosition: 'top' }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Prev / Next arrows — outside phone, below it */}
+      {/* Navigation dots + prev/next — below the phone */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 32, position: 'relative', zIndex: 10 }}>
         <button onClick={prev} aria-label="Previous"
           style={{ background: 'rgba(45,50,50,0.1)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2d3232' }}>
           <ChevronLeft className="w-4 h-4" />
         </button>
-        {/* Dots */}
-        <div style={{ display: 'flex', gap: 6 }}>
+        <div style={{ display: 'flex', gap: 7 }}>
           {images.map((_, i) => (
             <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
               style={{
-                width: i === idx ? 20 : 6, height: 6, borderRadius: 3,
-                background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.18)',
-                border: 'none', padding: 0, cursor: 'pointer',
+                width: i === idx ? 20 : 10, height: 10, borderRadius: '50%',
+                background: i === idx ? '#2d3232' : '#ffffff',
+                border: '1px solid #828282',
+                padding: 0, cursor: 'pointer',
                 transition: 'all 0.3s ease',
               }} />
           ))}
