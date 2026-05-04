@@ -310,10 +310,16 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2018/08/DIG-Banner_2.png`,
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
+        navBar: 'black',
         images: [
           `${CDN}/2018/09/HI_Web_Diamonds_banner2.jpg`,
           `${CDN}/2018/09/DIG_Animation2.gif`,
+        ],
+      },
+      {
+        type: 'mobile-frames',
+        images: [
           `${CDN}/2018/09/HI_Web_Diamonds_mobile_home2.jpg`,
           `${CDN}/2018/09/HI_Web_Diamonds_mobile_home3.jpg`,
         ],
@@ -355,14 +361,29 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2018/08/HI_Web_Pepsi_header.jpg`,
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/08/HI_Web_Pepsi_email_welcome-1.gif`,
           `${CDN}/2018/08/HI_Web_Pepsi_email_pepsi2-1.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/08/HI_Web_Pepsi_email_pepsi3.jpg`,
           `${CDN}/2018/08/HI_Web_Pepsi_email_bday-1.gif`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/08/HI_Web_Pepsi_email_pepsi5.jpg`,
           `${CDN}/2018/08/HI_Web_Pepsi_email_pepsi4.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/08/HI_Web_Pepsi_email_amp1.jpg`,
           `${CDN}/2018/08/HI_Web_Pepsi_email_amp2.jpg`,
           `${CDN}/2018/08/HI_Web_Pepsi_email_dew1.jpg`,
@@ -443,10 +464,15 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2018/08/4-layers-2.png`,
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/08/lala_HOME_desktop.png`,
           `${CDN}/2018/08/shutterstock_tea-THE_BOX__LAYERS.png`,
+        ],
+      },
+      {
+        type: 'carousel',
+        images: [
           `${CDN}/2018/09/lala_slider_6.jpg`,
           `${CDN}/2018/09/lala_slider_4.jpg`,
           `${CDN}/2018/09/lala_slider_7.jpg`,
@@ -491,12 +517,22 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2018/09/HI_Web_Sesame_header2.jpg`,
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/09/HI_Web_Sesame_email1.jpg`,
           `${CDN}/2018/09/HI_Web_Sesame_email2.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/09/HI_Web_Sesame_email4.jpg`,
           `${CDN}/2018/09/HI_Web_Sesame_email3.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/09/HI_Web_Sesame_email6.jpg`,
           `${CDN}/2018/09/sesame_email_contact_cropped.jpg`,
         ],
@@ -644,12 +680,22 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The redesigned acquisition funnel delivered a 300% lift in new member sign-ups. The email program became a major growth driver for Gwynnie Bee, creating a scalable template system that the internal team could build on for years.',
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/10/HI_Web_GwynnieBee_email-short3-1.jpg`,
           `${CDN}/2018/10/HI_Web_GwynnieBee_email-anim2.gif`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/10/Promotional_61_Ticket124_final.gif`,
           `${CDN}/2018/10/HI_Web_GwynnieBee_email-mid7v2.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/10/HI_Web_GwynnieBee_email-mid3-1.jpg`,
           `${CDN}/2018/10/HI_Web_GwynnieBee_email-mid1.jpg`,
         ],
@@ -689,15 +735,30 @@ export const CASE_STUDIES: CaseStudy[] = [
         result: 'The responsive email program eliminated the mobile rendering issues and saw measurable improvements in mobile open and click rates. The bold creative approach earned strong brand recall among SoBe\'s loyal fanbase.',
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/10/sobe_welcome.gif`,
           `${CDN}/2018/10/HI_Web_Sobe_email5.jpg`,
           `${CDN}/2018/10/HI_Web_Sobe_email6.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/10/HI_Web_Sobe_email4.jpg`,
           `${CDN}/2018/10/HI_Web_Sobe_email3.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/10/HI_Web_Sobe_email1.gif`,
           `${CDN}/2018/10/HI_Web_Sobe_email2.gif`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/10/HI_Web_Sobe_email7.jpg`,
           `${CDN}/2018/10/HI_Web_Sobe_email8.jpg`,
           `${CDN}/2018/10/7-17-sobe_july_revised.jpg`,
@@ -733,6 +794,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         images: [
           `${CDN}/2022/07/Christopher-St-Brand.jpg`,
           `${CDN}/2022/07/Christopher-St-Stationary.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2022/07/Christopher-St-Web-Home.jpg`,
           `${CDN}/2022/07/Christopher-St-Web-Products.jpg`,
         ],
@@ -763,12 +829,22 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: `${CDN}/2018/09/HI_Web_MelissaKaye_lifestyle2.jpg`,
       },
       {
-        type: 'carousel',
+        type: 'desktop-frames',
         images: [
           `${CDN}/2018/10/HI_Web_MelissaKaye_email1-1.jpg`,
           `${CDN}/2018/09/HI_Web_MelissaKaye_email2.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/09/HI_Web_MelissaKaye_headerANIMATED.gif`,
           `${CDN}/2018/09/HI_Web_MelissaKaye_2-up-left.jpg`,
+        ],
+      },
+      {
+        type: 'desktop-frames',
+        images: [
           `${CDN}/2018/09/HI_Web_MelissaKaye_2-up-right.jpg`,
           `${CDN}/2018/10/HI_Web_MelissaKaye_3-up.jpg`,
           `${CDN}/2018/10/HI_Web_MelissaKaye_4-up-left.jpg`,
