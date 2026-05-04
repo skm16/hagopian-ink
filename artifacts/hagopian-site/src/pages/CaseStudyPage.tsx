@@ -391,34 +391,133 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
-   LOGO GRID  — responsive grid of logo images, white cards,
-   neutral background — matches live site logo showcase page
+   LOGO CAROUSEL  — 4-up per slide, full-width, auto-play
 ───────────────────────────────────────────────────────── */
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const out: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
 function LogoGrid({ images, bg = '#f4f2f2' }: { images: string[]; bg?: string }) {
+  const slides = chunkArray(images, 4);
+  const n = slides.length;
+  const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
+  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(next, 4000);
+    return () => clearInterval(t);
+  }, [next, paused]);
+
   return (
-    <div style={{ background: bg, padding: 'clamp(40px,6vw,80px) clamp(20px,5vw,60px)' }}>
-      <div style={{ maxWidth: 1170, margin: '0 auto' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-          gap: 2,
-        }}>
-          {images.map((src, i) => (
-            <FadeIn key={i} delay={Math.min(i * 0.03, 0.4)}>
-              <div style={{
-                background: '#ffffff',
-                padding: 'clamp(24px,4vw,48px)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minHeight: 200,
-              }}>
-                <img src={src} alt=""
-                  style={{ display: 'block', width: '100%', height: 'auto', maxHeight: 180, objectFit: 'contain' }} />
-              </div>
-            </FadeIn>
+    <div
+      style={{ background: bg }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Slide */}
+      <div style={{ position: 'relative', overflow: 'hidden' }}>
+        <div
+          style={{
+            display: 'flex',
+            transition: 'transform 0.6s cubic-bezier(0.21,0.47,0.32,0.98)',
+            transform: `translateX(-${idx * 100}%)`,
+          }}
+        >
+          {slides.map((group, si) => (
+            <div
+              key={si}
+              className="grid grid-cols-2 md:grid-cols-4"
+              style={{ flexShrink: 0, width: '100%', gap: 3 }}
+            >
+              {group.map((src, i) => (
+                <div
+                  key={i}
+                  style={{
+                    background: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 'clamp(28px,5vw,64px)',
+                    minHeight: 'clamp(220px,22vw,320px)',
+                  }}
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    style={{
+                      display: 'block',
+                      maxWidth: '100%',
+                      maxHeight: 'clamp(120px,12vw,200px)',
+                      width: 'auto',
+                      height: 'auto',
+                      objectFit: 'contain',
+                    }}
+                  />
+                </div>
+              ))}
+              {/* Fill empty slots so grid stays balanced */}
+              {Array.from({ length: 4 - group.length }).map((_, i) => (
+                <div key={`empty-${i}`} style={{ background: '#f4f2f2' }} />
+              ))}
+            </div>
           ))}
         </div>
+
+        {/* Prev / Next */}
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          style={{
+            position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)',
+            zIndex: 10, background: 'rgba(45,50,50,0.08)', border: 'none',
+            width: 44, height: 44, display: 'flex', alignItems: 'center',
+            justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.18)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.08)')}
+        >
+          <ChevronLeft style={{ width: 20, height: 20 }} />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next"
+          style={{
+            position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)',
+            zIndex: 10, background: 'rgba(45,50,50,0.08)', border: 'none',
+            width: 44, height: 44, display: 'flex', alignItems: 'center',
+            justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.18)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.08)')}
+        >
+          <ChevronRight style={{ width: 20, height: 20 }} />
+        </button>
+      </div>
+
+      {/* Dots + slide counter */}
+      <div style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        gap: 8, padding: '20px 0',
+      }}>
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIdx(i)}
+            aria-label={`Slide ${i + 1}`}
+            style={{
+              width: i === idx ? 24 : 7, height: 7, borderRadius: 4,
+              background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.18)',
+              border: 'none', padding: 0, cursor: 'pointer',
+              transition: 'all 0.3s ease',
+            }}
+          />
+        ))}
       </div>
     </div>
   );
