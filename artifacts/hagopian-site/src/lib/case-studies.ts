@@ -27,6 +27,7 @@ export type CaseStudy = {
   intro: string;
   hero: string;
   heroContained?: boolean;
+  noHero?: boolean;
   sections: Section[];
   thumb: string;
 };
@@ -648,6 +649,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     tags: ['Branding', 'Luxury', 'Consumer Goods', 'Nonprofit', 'Technology'],
     tagline: 'Make your mark.',
     intro: 'What makes a great brand? A distinctive and memorable logo is the cornerstone of your company image. It communicates your core values and attributes and is a visual representation of all the qualities you wish to express. Using type, shape and color, a great logo is your mark on the world — it is bold, simple, expressive, flexible, scalable and clear. This collection is a sample of some of our favorite logo creations.',
+    noHero: true,
     hero: `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
     sections: [
       {

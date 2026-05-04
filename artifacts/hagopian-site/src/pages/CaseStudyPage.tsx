@@ -393,15 +393,8 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 /* ─────────────────────────────────────────────────────────
    LOGO CAROUSEL  — 4-up per slide, full-width, auto-play
 ───────────────────────────────────────────────────────── */
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  const out: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
-}
-
-function LogoGrid({ images, bg = '#f4f2f2' }: { images: string[]; bg?: string }) {
-  const slides = chunkArray(images, 4);
-  const n = slides.length;
+function LogoGrid({ images, bg = '#ffffff' }: { images: string[]; bg?: string }) {
+  const n = images.length;
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -410,7 +403,7 @@ function LogoGrid({ images, bg = '#f4f2f2' }: { images: string[]; bg?: string })
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(next, 4000);
+    const t = setInterval(next, 3500);
     return () => clearInterval(t);
   }, [next, paused]);
 
@@ -420,104 +413,112 @@ function LogoGrid({ images, bg = '#f4f2f2' }: { images: string[]; bg?: string })
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Slide */}
+      {/* Full-width single-logo slide */}
       <div style={{ position: 'relative', overflow: 'hidden' }}>
         <div
           style={{
             display: 'flex',
-            transition: 'transform 0.6s cubic-bezier(0.21,0.47,0.32,0.98)',
+            transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
             transform: `translateX(-${idx * 100}%)`,
           }}
         >
-          {slides.map((group, si) => (
+          {images.map((src, i) => (
             <div
-              key={si}
-              className="grid grid-cols-2 md:grid-cols-4"
-              style={{ flexShrink: 0, width: '100%', gap: 3 }}
+              key={i}
+              style={{
+                flexShrink: 0,
+                width: '100%',
+                background: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 'clamp(48px,8vw,100px) clamp(48px,12vw,180px)',
+              }}
             >
-              {group.map((src, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: 'clamp(28px,5vw,64px)',
-                    minHeight: 'clamp(220px,22vw,320px)',
-                  }}
-                >
-                  <img
-                    src={src}
-                    alt=""
-                    style={{
-                      display: 'block',
-                      maxWidth: '100%',
-                      maxHeight: 'clamp(120px,12vw,200px)',
-                      width: 'auto',
-                      height: 'auto',
-                      objectFit: 'contain',
-                    }}
-                  />
-                </div>
-              ))}
-              {/* Fill empty slots so grid stays balanced */}
-              {Array.from({ length: 4 - group.length }).map((_, i) => (
-                <div key={`empty-${i}`} style={{ background: '#f4f2f2' }} />
-              ))}
+              <img
+                src={src}
+                alt=""
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: '60vh',
+                  objectFit: 'contain',
+                }}
+              />
             </div>
           ))}
         </div>
 
-        {/* Prev / Next */}
+        {/* Prev */}
         <button
           onClick={prev}
           aria-label="Previous"
           style={{
-            position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)',
-            zIndex: 10, background: 'rgba(45,50,50,0.08)', border: 'none',
-            width: 44, height: 44, display: 'flex', alignItems: 'center',
+            position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)',
+            zIndex: 10, background: 'rgba(45,50,50,0.07)', border: '1px solid rgba(45,50,50,0.1)',
+            width: 48, height: 48, display: 'flex', alignItems: 'center',
             justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
+            transition: 'background 0.2s',
           }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.18)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.08)')}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.14)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.07)')}
         >
-          <ChevronLeft style={{ width: 20, height: 20 }} />
+          <ChevronLeft style={{ width: 22, height: 22 }} />
         </button>
+
+        {/* Next */}
         <button
           onClick={next}
           aria-label="Next"
           style={{
-            position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)',
-            zIndex: 10, background: 'rgba(45,50,50,0.08)', border: 'none',
-            width: 44, height: 44, display: 'flex', alignItems: 'center',
+            position: 'absolute', right: 24, top: '50%', transform: 'translateY(-50%)',
+            zIndex: 10, background: 'rgba(45,50,50,0.07)', border: '1px solid rgba(45,50,50,0.1)',
+            width: 48, height: 48, display: 'flex', alignItems: 'center',
             justifyContent: 'center', cursor: 'pointer', color: '#2d3232',
+            transition: 'background 0.2s',
           }}
-          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.18)')}
-          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.08)')}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.14)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(45,50,50,0.07)')}
         >
-          <ChevronRight style={{ width: 20, height: 20 }} />
+          <ChevronRight style={{ width: 22, height: 22 }} />
         </button>
       </div>
 
-      {/* Dots + slide counter */}
+      {/* Counter + dots */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        gap: 8, padding: '20px 0',
+        gap: 10, padding: '20px 0', background: '#f4f2f2',
       }}>
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIdx(i)}
-            aria-label={`Slide ${i + 1}`}
-            style={{
-              width: i === idx ? 24 : 7, height: 7, borderRadius: 4,
-              background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.18)',
-              border: 'none', padding: 0, cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-          />
-        ))}
+        <span style={{
+          fontFamily: 'var(--font-nav, sans-serif)', fontSize: 10,
+          letterSpacing: '0.18em', color: 'rgba(45,50,50,0.35)',
+          textTransform: 'uppercase', minWidth: 48, textAlign: 'right',
+        }}>
+          {String(idx + 1).padStart(2, '0')}
+        </span>
+        <div style={{ display: 'flex', gap: 5 }}>
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIdx(i)}
+              aria-label={`Logo ${i + 1}`}
+              style={{
+                width: i === idx ? 20 : 5, height: 5, borderRadius: 3,
+                background: i === idx ? '#2d3232' : 'rgba(45,50,50,0.2)',
+                border: 'none', padding: 0, cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }}
+            />
+          ))}
+        </div>
+        <span style={{
+          fontFamily: 'var(--font-nav, sans-serif)', fontSize: 10,
+          letterSpacing: '0.18em', color: 'rgba(45,50,50,0.35)',
+          textTransform: 'uppercase', minWidth: 48,
+        }}>
+          / {String(n).padStart(2, '0')}
+        </span>
       </div>
     </div>
   );
@@ -702,10 +703,10 @@ export function CaseStudyPage() {
       </section>
 
       {/* ── HERO IMAGE ── */}
-      {cs.heroContained
+      {!cs.noHero && (cs.heroContained
         ? <ContainedImg src={cs.hero} maxWidth={900} />
         : <FullImg src={cs.hero} />
-      }
+      )}
 
       {/* ── SECTIONS ── */}
       {cs.sections.map((section, i) => (
