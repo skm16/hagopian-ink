@@ -95,7 +95,7 @@ export function Homepage() {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
-            className="text-base md:text-lg font-light text-[#f5f0eb]/70 mb-12 leading-relaxed sm:whitespace-nowrap">
+            className="text-[1.2rem] md:text-[1.35rem] font-light text-[#f5f0eb]/70 mb-12 leading-relaxed sm:whitespace-nowrap">
             Brand design and digital experiences that help innovative organizations grow.
           </motion.p>
 
