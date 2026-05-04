@@ -59,13 +59,13 @@ const INDUSTRIES: Industry[] = [
         href: 'https://hagopianink.com/expertise/',
       },
       {
-        client: 'Todd + Duncan',
-        category: 'Luxury Brand Identity',
-        stat: 'Award-winning',
-        statLabel: 'Brand launch for US market',
-        result: 'Complete visual identity — logo, stationery, signage, and packaging — for a 140-year-old Scottish cashmere label entering the US market.',
-        img: `${CDN}/2018/08/Work-Thumb_TD-293x414.jpg`,
-        href: 'https://hagopianink.com/expertise/',
+        client: 'Joseph Robert',
+        category: 'Brand Identity',
+        stat: 'A masculine seal',
+        statLabel: 'Modern monogram for menswear',
+        result: 'Brand strategy, logo mark, pattern and style guide for a new men\'s accessories and apparel line — rich blues, a distinctive JR monogram, and a repeatable pattern system.',
+        img: `${CDN}/2022/08/HI_Web_josephrobert_lifestyle-scaled.jpg`,
+        href: '/work/joseph-robert',
       },
       {
         client: 'Gwynnie Bee',
@@ -83,7 +83,7 @@ const INDUSTRIES: Industry[] = [
         statLabel: 'Complex brand story simplified',
         result: 'Redesigned the digital experience to clarify a complex clean-beauty story, improve navigation, and drive conversions on mobile and desktop.',
         img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
-        href: 'https://hagopianink.com/expertise/',
+        href: '/work/loumbeauty',
       },
     ],
   },
@@ -129,13 +129,13 @@ const INDUSTRIES: Industry[] = [
         href: 'https://aptyx.com',
       },
       {
-        client: 'beWELL',
-        category: 'Health App + Brand',
-        stat: 'Launch',
-        statLabel: 'End-to-end brand + digital',
-        result: 'Brand identity, UX design, and go-to-market digital presence for a health and wellness app built for everyday consumers.',
-        img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
-        href: 'https://hagopianink.com/expertise/',
+        client: 'Audible',
+        category: 'Email Marketing',
+        stat: 'Re-engagement',
+        statLabel: 'Pre-lapse email series',
+        result: 'Front-end campaign development for Audible\'s pre-lapse email series — messaging designed to re-engage new subscribers before cancellation.',
+        img: `${CDN}/2022/07/HI_Web_audible_lifestyle-scaled.jpg`,
+        href: '/work/audible-email-design',
       },
     ],
   },
@@ -178,7 +178,7 @@ const INDUSTRIES: Industry[] = [
         statLabel: 'Email + digital fundraising',
         result: 'Email messages that connected a global movement to individual action and measurable charitable giving.',
         img: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
-        href: 'https://hagopianink.com/works/black-lives-matter-canada/',
+        href: '/work/black-lives-matter-canada',
       },
       {
         client: 'Malala Fund',
@@ -219,11 +219,19 @@ function CaseCard({ c, dark }: { c: Case; dark: boolean }) {
         <p className="text-[13px] leading-relaxed flex-1 mb-6" style={{ color: mutedColor }}>
           {c.result}
         </p>
-        <a href={c.href} target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
-          style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
-          View Work <ExternalLink className="w-3 h-3" />
-        </a>
+        {c.href.startsWith('/') ? (
+          <Link href={c.href}
+            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
+            style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
+            View Case Study <ArrowRight className="w-3 h-3" />
+          </Link>
+        ) : (
+          <a href={c.href} target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 transition-all duration-300 hover:gap-3 self-start"
+            style={{ color: textColor, borderColor, fontFamily: NAV_FONT }}>
+            View Work <ExternalLink className="w-3 h-3" />
+          </a>
+        )}
       </div>
     </FadeIn>
   );
