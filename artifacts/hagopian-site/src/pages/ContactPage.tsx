@@ -34,7 +34,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="text-5xl md:text-7xl leading-[0.92] text-white"
             style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            Let's partner.
+            Let's create together.
           </motion.h1>
         </div>
       </section>
@@ -45,16 +45,10 @@ export function ContactPage() {
 
           {/* Left — info */}
           <FadeIn>
-            <SectionLabel>Start a Conversation</SectionLabel>
+            <SectionLabel>True Partnership starts here.</SectionLabel>
             <h2 className="text-3xl md:text-5xl mb-8 leading-[1.02] text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Good design is good business.
             </h2>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/35 mb-5" style={{ fontFamily: NAV_FONT }}>
-              True Partnership Starts Here
-            </p>
-            <p className="text-xl font-light text-[#2d3232]/55 mb-6" style={{ fontFamily: SANS }}>
-              Let&#39;s create together.
-            </p>
             <p className="text-lg text-[#2d3232]/55 leading-relaxed mb-14 max-w-lg">
               Whether you are building a new brand from the ground up, evolving an established one, or launching your next digital campaign — we would love to hear about your project.
             </p>
