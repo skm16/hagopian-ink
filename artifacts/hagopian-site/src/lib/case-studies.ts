@@ -66,7 +66,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         label: 'Brand Identity & Structure',
         title: 'Balance and harmony',
         body: 'Maintaining a balance in the spacing of the logo allows each element of the mark to create a sense of symmetry and harmony. The circle frame creates unity while the strong horizontal lines of the J and R letterforms interrupt the shape in an interlocking modern twist.',
-        image: `${CDN}/2022/08/logo-anatomy.png`,
+        image: `${BASE}jr-logo-anatomy.png`,
       },
       {
         type: 'carousel',
