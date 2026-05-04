@@ -1,123 +1,100 @@
 import React, { useState, useCallback } from 'react';
 import { Link, useParams } from 'wouter';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn } from '@/components/shared/ui';
 import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
-import { getCaseStudy, CASE_STUDIES, type CaseStudy } from '@/lib/case-studies';
+import { getCaseStudy, CASE_STUDIES, type CaseStudy, type Section } from '@/lib/case-studies';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 
 /* ─────────────────────────────────────────────────────────
-   CAROUSEL  — 2-up on desktop, 1-up on mobile
-   Images at their natural proportions — no cropping
+   CAROUSEL
+   • Advances one image at a time (not one pair)
+   • Always loops — no disabled arrows
+   • Desktop: shows current + next side-by-side (2-up)
+   • Mobile: shows current only (1-up)
 ───────────────────────────────────────────────────────── */
-function Carousel({ images, bg = '#e8e4e0', dark = false }: {
-  images: string[];
-  bg?: string;
-  dark?: boolean;
-}) {
+function Carousel({ images, dark = false }: { images: string[]; dark?: boolean }) {
   const [idx, setIdx] = useState(0);
-  const [dir, setDir] = useState(1);
+  const n = images.length;
 
-  // Group images into pairs for 2-up display
-  const pairs: string[][] = [];
-  for (let i = 0; i < images.length; i += 2) {
-    pairs.push(images.slice(i, i + 2));
-  }
+  const prev = useCallback(() => setIdx(i => (i - 1 + n) % n), [n]);
+  const next = useCallback(() => setIdx(i => (i + 1) % n), [n]);
 
-  const prev = useCallback(() => {
-    setDir(-1);
-    setIdx(i => Math.max(0, i - 1));
-  }, []);
-
-  const next = useCallback(() => {
-    setDir(1);
-    setIdx(i => Math.min(pairs.length - 1, i + 1));
-  }, [pairs.length]);
-
-  const btnBase = `absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 transition-all duration-200`;
-  const btnColor = dark
-    ? 'bg-[#2d3232]/80 hover:bg-[#2d3232] text-[#f1efef]'
-    : 'bg-white/90 hover:bg-white text-[#2d3232]';
+  const bg        = dark ? '#2d3232' : '#f1efef';
+  const arrowBg   = dark ? 'rgba(241,239,239,0.12)' : 'rgba(45,50,50,0.08)';
+  const arrowHov  = dark ? 'rgba(241,239,239,0.22)' : 'rgba(45,50,50,0.16)';
+  const arrowCol  = dark ? '#f1efef' : '#2d3232';
   const dotActive = dark ? '#f1efef' : '#2d3232';
-  const dotInactive = dark ? 'rgba(241,239,239,0.25)' : 'rgba(45,50,50,0.2)';
-
-  const variants = {
-    enter: (d: number) => ({ x: d > 0 ? '30%' : '-30%', opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit:  (d: number) => ({ x: d > 0 ? '-30%' : '30%', opacity: 0 }),
-  };
+  const dotInact  = dark ? 'rgba(241,239,239,0.2)' : 'rgba(45,50,50,0.15)';
 
   return (
     <div style={{ background: bg }}>
-      {/* Slide area */}
       <div className="relative overflow-hidden">
-        <AnimatePresence custom={dir} mode="wait">
-          <motion.div
-            key={idx}
-            custom={dir}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: [0.32, 0, 0.67, 0] }}
-            className="flex"
-            style={{ gap: '2px' }}
-          >
-            {pairs[idx].map((src, i) => (
-              <div
-                key={i}
-                style={{ width: pairs[idx].length === 2 ? '50%' : '100%', flexShrink: 0 }}
-              >
-                <img
-                  src={src}
-                  alt=""
-                  style={{ display: 'block', width: '100%', height: 'auto' }}
-                />
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        {/* ── Image row ── */}
+        <div className="flex">
+          {/* Primary image — full width on mobile, half on desktop */}
+          <div className="w-full sm:w-1/2 flex-shrink-0">
+            <img
+              key={`main-${idx}`}
+              src={images[idx]}
+              alt=""
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+            />
+          </div>
+          {/* Secondary image — hidden on mobile, shown on desktop */}
+          <div className="hidden sm:block w-1/2 flex-shrink-0">
+            <img
+              key={`sec-${idx}`}
+              src={images[(idx + 1) % n]}
+              alt=""
+              style={{ display: 'block', width: '100%', height: 'auto' }}
+            />
+          </div>
+        </div>
 
-        {/* Prev arrow */}
-        {idx > 0 && (
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className={`${btnBase} left-3 shadow-md ${btnColor}`}
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-        )}
+        {/* ── Prev arrow ── */}
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 transition-colors duration-200"
+          style={{ background: arrowBg, color: arrowCol }}
+          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-        {/* Next arrow */}
-        {idx < pairs.length - 1 && (
-          <button
-            onClick={next}
-            aria-label="Next"
-            className={`${btnBase} right-3 shadow-md ${btnColor}`}
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        )}
+        {/* ── Next arrow ── */}
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 transition-colors duration-200"
+          style={{ background: arrowBg, color: arrowCol }}
+          onMouseEnter={e => (e.currentTarget.style.background = arrowHov)}
+          onMouseLeave={e => (e.currentTarget.style.background = arrowBg)}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
 
-      {/* Dots */}
-      {pairs.length > 1 && (
-        <div className="flex justify-center gap-2 py-5">
-          {pairs.map((_, i) => (
+      {/* ── Dots — one per image ── */}
+      {n > 1 && (
+        <div className="flex justify-center gap-2 py-4">
+          {images.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setDir(i > idx ? 1 : -1); setIdx(i); }}
-              aria-label={`Slide ${i + 1}`}
+              onClick={() => setIdx(i)}
+              aria-label={`Image ${i + 1}`}
               style={{
                 width: i === idx ? 20 : 6,
                 height: 6,
                 borderRadius: 3,
-                background: i === idx ? dotActive : dotInactive,
+                background: i === idx ? dotActive : dotInact,
                 border: 'none',
                 padding: 0,
                 cursor: 'pointer',
@@ -132,18 +109,10 @@ function Carousel({ images, bg = '#e8e4e0', dark = false }: {
 }
 
 /* ─────────────────────────────────────────────────────────
-   LABELLED TEXT SECTION
+   TEXT SECTION
 ───────────────────────────────────────────────────────── */
-function TextSection({
-  label,
-  children,
-  bg = '#f1efef',
-}: {
-  label: string;
-  children: React.ReactNode;
-  bg?: string;
-}) {
-  const dark = bg === '#2d3232';
+function TextSection({ label, body, dark = false }: { label: string; body: string; dark?: boolean }) {
+  const bg         = dark ? '#2d3232' : '#f1efef';
   const textColor  = dark ? '#f1efef' : '#2d3232';
   const mutedColor = dark ? 'rgba(241,239,239,0.45)' : 'rgba(45,50,50,0.4)';
 
@@ -160,7 +129,7 @@ function TextSection({
             </div>
             <div className="lg:col-span-9">
               <p className="text-[17px] leading-relaxed" style={{ color: textColor }}>
-                {children}
+                {body}
               </p>
             </div>
           </div>
@@ -171,25 +140,122 @@ function TextSection({
 }
 
 /* ─────────────────────────────────────────────────────────
-   FULL-WIDTH SINGLE IMAGE — natural proportions, no crop
+   TEXT + IMAGE SECTION (2-col: text one side, image other)
 ───────────────────────────────────────────────────────── */
-function FullImg({ src, alt, bg = '#e8e4e0' }: { src: string; alt: string; bg?: string }) {
+function TextImageSection({ label, title, body, image, imageLeft = false, dark = false }: {
+  label: string;
+  title: string;
+  body: string;
+  image: string;
+  imageLeft?: boolean;
+  dark?: boolean;
+}) {
+  const bg         = dark ? '#2d3232' : '#f1efef';
+  const textColor  = dark ? '#f1efef' : '#2d3232';
+  const mutedColor = dark ? 'rgba(241,239,239,0.4)' : 'rgba(45,50,50,0.4)';
+  const accentColor = dark ? 'rgba(241,239,239,0.6)' : 'rgba(45,50,50,0.7)';
+
+  const textBlock = (
+    <div className="flex flex-col justify-center gap-4 py-8 lg:py-0">
+      <p className="text-[10px] uppercase tracking-[0.22em]"
+        style={{ color: mutedColor, fontFamily: NAV_FONT }}>
+        {label}
+      </p>
+      <h3 className="text-2xl md:text-3xl leading-snug"
+        style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
+        {title}
+      </h3>
+      <p className="text-[16px] leading-relaxed" style={{ color: accentColor }}>
+        {body}
+      </p>
+    </div>
+  );
+
+  const imgBlock = (
+    <div className="overflow-hidden">
+      <img src={image} alt={title}
+        style={{ display: 'block', width: '100%', height: 'auto' }} />
+    </div>
+  );
+
+  return (
+    <section style={{ background: bg }}>
+      <div className="px-8 md:px-16 py-16 md:py-24 max-w-[1400px] mx-auto">
+        <FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {imageLeft ? (
+              <>{imgBlock}{textBlock}</>
+            ) : (
+              <>{textBlock}{imgBlock}</>
+            )}
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   FULL-WIDTH IMAGE
+───────────────────────────────────────────────────────── */
+function FullImg({ src }: { src: string }) {
   return (
     <FadeIn>
-      <div style={{ background: bg }}>
-        <img src={src} alt={alt} style={{ display: 'block', width: '100%', height: 'auto' }} />
+      <div>
+        <img src={src} alt=""
+          style={{ display: 'block', width: '100%', height: 'auto' }} />
       </div>
     </FadeIn>
   );
 }
 
 /* ─────────────────────────────────────────────────────────
-   RELATED WORK CARD — portrait 293/414, matches WorkPage
+   GALLERY — 4-col grid of background-image tiles
+───────────────────────────────────────────────────────── */
+function Gallery({ images }: { images: string[] }) {
+  return (
+    <FadeIn>
+      <div className="grid grid-cols-2 md:grid-cols-4">
+        {images.map((src, i) => (
+          <div
+            key={i}
+            className="aspect-square"
+            style={{
+              backgroundImage: `url(${src})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+        ))}
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   GRID3 — 3 images side by side
+───────────────────────────────────────────────────────── */
+function Grid3({ images }: { images: string[] }) {
+  return (
+    <FadeIn>
+      <div className="grid grid-cols-1 sm:grid-cols-3">
+        {images.map((src, i) => (
+          <img key={i} src={src} alt=""
+            style={{ display: 'block', width: '100%', height: 'auto' }} />
+        ))}
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
+   RELATED WORK CARD
 ───────────────────────────────────────────────────────── */
 function RelatedCard({ cs }: { cs: CaseStudy }) {
   return (
     <FadeIn>
-      <div className="group flex flex-col" style={{ background: '#ffffff', border: '1px solid #e8e4e0' }}>
+      <div className="group flex flex-col"
+        style={{ background: '#ffffff', border: '1px solid #e8e4e0' }}>
         <div className="overflow-hidden aspect-[293/414]">
           <img src={cs.thumb} alt={cs.client}
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
@@ -213,6 +279,46 @@ function RelatedCard({ cs }: { cs: CaseStudy }) {
       </div>
     </FadeIn>
   );
+}
+
+/* ─────────────────────────────────────────────────────────
+   SECTION RENDERER
+───────────────────────────────────────────────────────── */
+function RenderSection({ section }: { section: Section }) {
+  switch (section.type) {
+    case 'text':
+      return <TextSection label={section.label} body={section.body} dark={section.dark} />;
+
+    case 'text-image':
+      return (
+        <TextImageSection
+          label={section.label}
+          title={section.title}
+          body={section.body}
+          image={section.image}
+          imageLeft={section.imageLeft}
+        />
+      );
+
+    case 'full-image':
+      return <FullImg src={section.src} />;
+
+    case 'carousel':
+      return (
+        <FadeIn>
+          <Carousel images={section.images} dark={section.dark} />
+        </FadeIn>
+      );
+
+    case 'gallery':
+      return <Gallery images={section.images} />;
+
+    case 'grid3':
+      return <Grid3 images={section.images} />;
+
+    default:
+      return null;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -284,44 +390,21 @@ export function CaseStudyPage() {
               style={{ fontFamily: SERIF, fontStyle: 'italic', color: '#2d3232' }}>
               {cs.tagline}
             </p>
-            <p className="text-[17px] leading-relaxed" style={{ color: 'rgba(45,50,50,0.65)' }}>
+            <p className="text-[17px] leading-relaxed"
+              style={{ color: 'rgba(45,50,50,0.65)' }}>
               {cs.intro}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── HERO IMAGE — full width, natural height ── */}
-      <FullImg src={cs.hero} alt={cs.client} bg="#e8e4e0" />
+      {/* ── HERO IMAGE ── */}
+      <FullImg src={cs.hero} />
 
-      {/* ── CHALLENGE ── */}
-      <TextSection label="Challenge" bg="#f1efef">
-        {cs.challenge}
-      </TextSection>
-
-      {/* ── CAROUSEL 1 — after challenge ── */}
-      {cs.carousel1.length > 0 && (
-        <FadeIn>
-          <Carousel images={cs.carousel1} bg="#f1efef" dark={false} />
-        </FadeIn>
-      )}
-
-      {/* ── SOLUTION ── */}
-      <TextSection label="Solution" bg="#2d3232">
-        {cs.solution}
-      </TextSection>
-
-      {/* ── CAROUSEL 2 — after solution ── */}
-      {cs.carousel2.length > 0 && (
-        <FadeIn>
-          <Carousel images={cs.carousel2} bg="#2d3232" dark={true} />
-        </FadeIn>
-      )}
-
-      {/* ── RESULT ── */}
-      <TextSection label="Result" bg="#f1efef">
-        {cs.result}
-      </TextSection>
+      {/* ── CONTENT SECTIONS ── */}
+      {cs.sections.map((section, i) => (
+        <RenderSection key={i} section={section} />
+      ))}
 
       {/* ── RELATED WORK ── */}
       {related.length > 0 && (
