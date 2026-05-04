@@ -24,22 +24,23 @@ const OTHER_LINKS = [
   { label: 'Blog',  path: '/blog' },
 ];
 
-export function Nav() {
+export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
   const [location] = useLocation();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expertiseExpanded, setExpertiseExpanded] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(alwaysVisible);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const expertiseActive = location.startsWith('/expertise');
 
   useEffect(() => {
+    if (alwaysVisible) return;
     const handleScroll = () => setHasScrolled(window.scrollY > 24);
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [alwaysVisible]);
 
   function handleMouseEnter() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);

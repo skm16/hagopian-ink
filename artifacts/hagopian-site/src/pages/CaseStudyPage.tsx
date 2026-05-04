@@ -253,39 +253,32 @@ function MobileFrames({ images }: { images: string[] }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* .slider — exact 265×520 from live CSS */}
+      {/*
+        Live-site structure exactly:
+          .slider (265×520, position:relative, padding:33px 10px 53px, overflow:hidden)
+            .slides (position:relative, translates horizontally)
+              .slide × N
+                img (245×434, margin-right:75px)
+            .phone (position:ABSOLUTE, z-index:1000 — phone PNG is transparent in screen
+                    area so slides show through; bezel overlays the padding areas)
+      */}
       <div style={{
-        width: 265, height: 520,
+        width: 265,
+        height: 520,
         margin: '0 auto',
-        padding: '33px 10px 53px',
-        borderRadius: 10,
         position: 'relative',
+        padding: '33px 10px 53px',
         overflow: 'hidden',
+        borderRadius: 10,
       }}>
-        {/* .phone — phone frame PNG absolutely overlaid at z-index 1000 */}
+        {/* .slides — horizontal strip inside the padded screen area */}
         <div style={{
-          backgroundImage: `url(${PHONE_PNG})`,
-          backgroundPositionX: -26,
-          backgroundSize: 'auto 100%',
-          backgroundRepeat: 'no-repeat',
-          borderRadius: 10,
-          position: 'absolute',
-          top: 0, left: 0,
-          width: '100%', height: '100%',
-          zIndex: 1000,
-          pointerEvents: 'none',
-        }} />
-
-        {/* .slides — horizontal strip, translate3d to slide, transition: 1s */}
-        <div style={{
-          display: 'flex',
-          width: n * SLIDE_STEP,
-          transform: `translate3d(-${idx * SLIDE_STEP}px, 0, 0)`,
-          transition: 'transform 1s ease',
           position: 'relative',
+          display: 'flex',
+          transform: `translate3d(-${idx * SLIDE_STEP}px, 0, 0)`,
+          transition: 'transform 1s',
         }}>
           {images.map((src, i) => (
-            /* .slide: img 245×434 + margin-right 75px = 320px per slot */
             <div key={i} style={{ flexShrink: 0, marginRight: 75 }}>
               <img
                 src={src} alt=""
@@ -294,30 +287,33 @@ function MobileFrames({ images }: { images: string[] }) {
             </div>
           ))}
         </div>
+
+        {/* .phone — absolute overlay; PNG has transparent screen so images show through */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 0,
+          width: '100%', height: '100%',
+          zIndex: 1000,
+          backgroundImage: `url(${PHONE_PNG})`,
+          backgroundPositionX: -26,
+          backgroundSize: 'auto 100%',
+          backgroundRepeat: 'no-repeat',
+          pointerEvents: 'none',
+        }} />
       </div>
 
-      {/* Navigation dots + prev/next — below the phone */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginTop: 32, position: 'relative', zIndex: 10 }}>
-        <button onClick={prev} aria-label="Previous"
-          style={{ background: 'rgba(45,50,50,0.1)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2d3232' }}>
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        <div style={{ display: 'flex', gap: 7 }}>
-          {images.map((_, i) => (
-            <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
-              style={{
-                width: i === idx ? 20 : 10, height: 10, borderRadius: '50%',
-                background: i === idx ? '#2d3232' : '#ffffff',
-                border: '1px solid #828282',
-                padding: 0, cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }} />
-          ))}
-        </div>
-        <button onClick={next} aria-label="Next"
-          style={{ background: 'rgba(45,50,50,0.1)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2d3232' }}>
-          <ChevronRight className="w-4 h-4" />
-        </button>
+      {/* Navigation dots — below the phone, matching live site .slides-button */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, marginTop: 28, position: 'relative', zIndex: 10 }}>
+        {images.map((_, i) => (
+          <button key={i} onClick={() => setIdx(i)} aria-label={`Slide ${i + 1}`}
+            style={{
+              width: 10, height: 10, borderRadius: '50%',
+              background: i === idx ? '#828282' : '#ffffff',
+              border: '1px solid #828282',
+              padding: 0, cursor: 'pointer',
+              transition: 'background 0.3s ease',
+            }} />
+        ))}
       </div>
     </div>
   );
@@ -445,32 +441,30 @@ function RenderSection({ section }: { section: Section }) {
 }
 
 /* ─────────────────────────────────────────────────────────
-   RELATED WORK CARD
+   RELATED WORK CARD  — thumbnail + client name only
 ───────────────────────────────────────────────────────── */
 function RelatedCard({ cs }: { cs: CaseStudy }) {
   return (
     <FadeIn>
-      <div className="group flex flex-col"
-        style={{ background: '#ffffff', border: '1px solid #e8e4e0' }}>
+      <Link href={`/work/${cs.slug}`} className="group block">
         <div className="overflow-hidden aspect-[293/414]">
           <img src={cs.thumb} alt={cs.client}
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
         </div>
-        <div className="p-7 flex flex-col flex-1">
-          <p className="text-[9px] uppercase tracking-[0.2em] mb-3"
-            style={{ color: 'rgba(45,50,50,0.5)', fontFamily: NAV_FONT }}>{cs.category}</p>
-          <h3 className="text-xl mb-4 leading-snug"
-            style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>{cs.client}</h3>
-          <div className="flex-1" />
-          <Link href={`/work/${cs.slug}`}
-            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] border-b pb-0.5 hover:gap-3 transition-all duration-300 self-start"
-            style={{ color: '#2d3232', borderColor: 'rgba(45,50,50,0.15)', fontFamily: NAV_FONT }}>
-            View Case Study <ArrowRight className="w-3 h-3" />
-          </Link>
-        </div>
-      </div>
+        <p className="mt-4 text-[15px] leading-snug"
+          style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
+          {cs.client}
+        </p>
+      </Link>
     </FadeIn>
   );
+}
+
+/* Score two case studies by tag + category overlap */
+function relatedScore(a: CaseStudy, b: CaseStudy): number {
+  const sharedTags = a.tags.filter(t => b.tags.includes(t)).length;
+  const sameCategory = a.category === b.category ? 2 : 0;
+  return sharedTags + sameCategory;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -499,12 +493,15 @@ export function CaseStudyPage() {
     );
   }
 
-  const related = CASE_STUDIES.filter(c => c.slug !== cs.slug).slice(0, 4);
+  const related = CASE_STUDIES
+    .filter(c => c.slug !== cs.slug)
+    .sort((a, b) => relatedScore(cs, b) - relatedScore(cs, a))
+    .slice(0, 3);
 
   return (
     <div style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
-      <Nav />
+      <Nav alwaysVisible />
 
       {/* ── HEADER ── */}
       <section style={{ background: '#f1efef' }}>
@@ -530,7 +527,7 @@ export function CaseStudyPage() {
             transition={{ duration: 0.7, delay: 0.16, ease }}
             className="text-[10px] uppercase tracking-[0.22em] mb-10"
             style={{ color: 'rgba(45,50,50,0.45)', fontFamily: NAV_FONT }}>
-            {cs.category}{cs.tags.length > 0 && <> &bull; {cs.tags.join(' \u2022 ')}</>}
+            {cs.category}{cs.tags.filter(t => t !== cs.category).length > 0 && <> &bull; {cs.tags.filter(t => t !== cs.category).join(' \u2022 ')}</>}
           </motion.p>
 
           {/* Tagline left | intro right */}
@@ -564,9 +561,9 @@ export function CaseStudyPage() {
             <FadeIn className="flex items-center gap-3 mb-10">
               <span className="w-8 h-px bg-[#2d3232]/25" />
               <p className="text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: 'rgba(45,50,50,0.4)', fontFamily: NAV_FONT }}>More Work</p>
+                style={{ color: 'rgba(45,50,50,0.4)', fontFamily: NAV_FONT }}>Related Work</p>
             </FadeIn>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {related.map(other => <RelatedCard key={other.slug} cs={other} />)}
             </div>
           </div>
