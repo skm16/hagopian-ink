@@ -308,6 +308,7 @@ export function Homepage() {
               { n: '$56K',   label: 'new sales from email automations',    client: 'Cannadips, 4 months' },
               { n: '12K',    label: 'new email opt-ins',                   client: 'Frette “Escape to Italy”' },
               { n: '58%',    label: 'increase in website unique visitors', client: 'Frette campaign' },
+              { n: '300%',   label: 'increase in signup conversion',       client: 'Gwynnie Bee' },
               { n: '329%',   label: 'more dollars raised',                 client: 'Montefiore' },
               { n: '180%',   label: 'increase in online donations',        client: 'Epilepsy Foundation' },
               { n: '$22.2M', label: 'raised at annual gala',               client: 'Montefiore' },
