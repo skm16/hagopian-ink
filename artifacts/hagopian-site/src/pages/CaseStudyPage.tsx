@@ -391,10 +391,10 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
 }
 
 /* ─────────────────────────────────────────────────────────
-   LOGO SLIDER
-   • ONE image at a time, full container width, height: auto
-   • Slides left → right with prev / next arrows
-   • Counter + dot nav, auto-advances every 5s
+   LOGO GALLERY
+   • Horizontal slider: 1 image at a time, full width
+   • Below: all images stacked vertically, full width
+     → naturally ~3 visible at once as you scroll
 ───────────────────────────────────────────────────────── */
 function LogoGrid({ images }: { images: string[] }) {
   const n = images.length;
@@ -411,68 +411,73 @@ function LogoGrid({ images }: { images: string[] }) {
   }, [next, paused]);
 
   return (
-    <div
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      style={{ background: '#fff' }}
-    >
-      {/* Sliding track */}
-      <div style={{ overflow: 'hidden', position: 'relative' }}>
+    <div style={{ background: '#fff' }}>
+
+      {/* ── Horizontal slider: 1 image at a time ── */}
+      <div
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div style={{ overflow: 'hidden' }}>
+          <div style={{
+            display: 'flex',
+            transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
+            transform: `translateX(-${idx * 100}%)`,
+          }}>
+            {images.map((src, i) => (
+              <div key={i} style={{ flexShrink: 0, width: '100%' }}>
+                <img src={src} alt=""
+                  style={{ display: 'block', width: '100%', height: 'auto' }} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Controls */}
         <div style={{
-          display: 'flex',
-          transition: 'transform 0.55s cubic-bezier(0.21,0.47,0.32,0.98)',
-          transform: `translateX(-${idx * 100}%)`,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          background: '#2d3232', padding: '0 8px',
         }}>
-          {images.map((src, i) => (
-            <div key={i} style={{ flexShrink: 0, width: '100%' }}>
-              <img src={src} alt=""
-                style={{ display: 'block', width: '100%', height: 'auto' }} />
-            </div>
-          ))}
+          <button onClick={prev} aria-label="Previous"
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: '#f5f0eb', padding: '14px 12px',
+              display: 'flex', alignItems: 'center',
+            }}>
+            <ChevronLeft style={{ width: 22, height: 22 }} />
+          </button>
+
+          <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+            {images.map((_, i) => (
+              <button key={i} onClick={() => setIdx(i)} aria-label={`Image ${i + 1}`}
+                style={{
+                  width: i === idx ? 18 : 6, height: 6, borderRadius: 3,
+                  background: i === idx ? '#f5f0eb' : 'rgba(245,240,235,0.3)',
+                  border: 'none', padding: 0, cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                }} />
+            ))}
+          </div>
+
+          <button onClick={next} aria-label="Next"
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: '#f5f0eb', padding: '14px 12px',
+              display: 'flex', alignItems: 'center',
+            }}>
+            <ChevronRight style={{ width: 22, height: 22 }} />
+          </button>
         </div>
       </div>
 
-      {/* Controls bar */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        background: '#2d3232',
-        padding: '0 8px',
-      }}>
-        {/* Prev */}
-        <button onClick={prev} aria-label="Previous"
-          style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            color: '#f5f0eb', padding: '14px 12px',
-            display: 'flex', alignItems: 'center',
-          }}>
-          <ChevronLeft style={{ width: 22, height: 22 }} />
-        </button>
-
-        {/* Dots */}
-        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-          {images.map((_, i) => (
-            <button key={i} onClick={() => setIdx(i)} aria-label={`Image ${i + 1}`}
-              style={{
-                width: i === idx ? 18 : 6, height: 6, borderRadius: 3,
-                background: i === idx ? '#f5f0eb' : 'rgba(245,240,235,0.3)',
-                border: 'none', padding: 0, cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }} />
-          ))}
-        </div>
-
-        {/* Next */}
-        <button onClick={next} aria-label="Next"
-          style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            color: '#f5f0eb', padding: '14px 12px',
-            display: 'flex', alignItems: 'center',
-          }}>
-          <ChevronRight style={{ width: 22, height: 22 }} />
-        </button>
+      {/* ── Vertical stack: scroll to see ~3 at a time ── */}
+      <div style={{ background: '#fff' }}>
+        {images.map((src, i) => (
+          <img key={i} src={src} alt=""
+            style={{ display: 'block', width: '100%', height: 'auto' }} />
+        ))}
       </div>
+
     </div>
   );
 }
