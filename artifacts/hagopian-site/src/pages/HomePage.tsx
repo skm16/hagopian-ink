@@ -160,11 +160,11 @@ export function Homepage() {
                   <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4" style={{ color: svc.color, fontFamily: NAV_FONT }}>{svc.name}</p>
                   <h3 className="text-2xl md:text-3xl mb-5 leading-snug whitespace-pre-line" style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
                   <p className="text-[#2d3232]/60 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
-                  <a href={svc.link} target="_blank" rel="noopener noreferrer"
+                  <Link href={svc.link}
                     className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/50 hover:text-[#2d3232] transition-colors border-b border-[#2d3232]/15 pb-1 self-start mb-8"
                     style={{ fontFamily: NAV_FONT }}>
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
-                  </a>
+                  </Link>
                   <div className="overflow-hidden bg-[#f1efef]">
                     <img src={svc.img} alt={svc.name}
                       className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
