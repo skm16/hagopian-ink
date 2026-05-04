@@ -34,7 +34,7 @@ export function ContactPage() {
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
             className="text-5xl md:text-7xl leading-[0.92] text-white"
             style={{ fontFamily: SERIF, fontWeight: 700 }}>
-            Let's create together.
+            Let's create <span style={{ fontStyle: 'italic', opacity: 0.55 }}>together.</span>
           </motion.h1>
         </div>
       </section>
