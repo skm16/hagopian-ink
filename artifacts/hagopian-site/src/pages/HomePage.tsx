@@ -318,7 +318,7 @@ export function Homepage() {
                 className="border-r border-b border-[#424848] p-8 text-center hover:bg-[#343a3a] transition-colors duration-300">
                 <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
                 <div className="text-[13px] text-[#f5f0eb]/60 mb-2 leading-snug">{s.label}</div>
-                <div className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
+                <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{s.client}</div>
               </FadeIn>
             ))}
           </div>

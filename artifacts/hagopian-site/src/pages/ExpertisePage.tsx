@@ -153,12 +153,13 @@ export function ExpertisePage() {
             </p>
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
-                { n: '58%',  label: 'increase in unique visitors, Frette' },
-                { n: '3x',   label: 'increase in online sales, MSG Suites' },
+                { n: '58%',  label: 'increase in unique visitors', client: 'Frette' },
+                { n: '3x',   label: 'increase in online sales',    client: 'MSG Suites' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
@@ -221,13 +222,14 @@ export function ExpertisePage() {
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { n: '30%',   label: 'increase in Valentine\'s Day sales — La Perla' },
-                { n: '12K',   label: 'new email opt-ins — Frette' },
-                { n: '2.93M', label: 'Facebook followers — Lancôme' },
+                { n: '30%',   label: "increase in Valentine's Day sales", client: 'La Perla' },
+                { n: '12K',   label: 'new email opt-ins',                 client: 'Frette' },
+                { n: '2.93M', label: 'Facebook followers',                client: 'Lancôme' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[10px] text-[#2d3232]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
@@ -262,13 +264,14 @@ export function ExpertisePage() {
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { n: '6 yrs', label: 'Viant Medical partnership' },
-                { n: '24',    label: 'global locations reached' },
-                { n: 'B2B',   label: '+ B2C health brands' },
+                { n: '6 yrs', label: 'brand partnership',        client: 'Viant Medical' },
+                { n: '24',    label: 'global locations reached',  client: 'Viant Medical' },
+                { n: 'B2B',   label: '+ B2C health brands served' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  {'client' in s && <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{(s as { client: string }).client}</div>}
                 </div>
               ))}
             </div>
@@ -318,13 +321,14 @@ export function ExpertisePage() {
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { n: '329%',   label: 'more dollars raised, Montefiore' },
-                { n: '180%',   label: 'increase in online donations, Epilepsy Foundation' },
-                { n: '$22.2M', label: 'raised at Annual Gala, Montefiore' },
+                { n: '329%',   label: 'more dollars raised',         client: 'Montefiore' },
+                { n: '180%',   label: 'increase in online donations', client: 'Epilepsy Foundation' },
+                { n: '$22.2M', label: 'raised at Annual Gala',        client: 'Montefiore' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/60 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
