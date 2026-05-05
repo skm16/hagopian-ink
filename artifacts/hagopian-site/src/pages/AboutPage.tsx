@@ -155,7 +155,7 @@ export function AboutPage() {
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                A graduate of Carnegie Mellon University's School of Design, Christina has spent more than two decades partnering with visionary leaders and organizations at pivotal moments of growth, change, and reinvention — helping them clarify who they are and how they show up in the world.
+                Christina has spent more than two decades partnering with visionary leaders and organizations at pivotal moments of growth, change, and reinvention — helping them clarify who they are and how they show up in the world. A graduate of Carnegie Mellon University's School of Design, she brings both rigorous creative training and real-world strategic instinct to every engagement.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
                 Known for her hands-on leadership style and sharp creative instincts, she guides brand evolution from strategy through execution — spanning identity, rebranding, websites, and communication systems. Her work bridges clarity and craft, aligning vision, messaging, and design into brands that feel grounded, confident, and memorable.
