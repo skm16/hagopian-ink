@@ -76,7 +76,7 @@ export function BrandIdentityPage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Brand Identity</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>Brand Identity</p>
             <h1 className="leading-[0.95] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Your first impression<br />
               is <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything.</span>
@@ -122,7 +122,7 @@ export function BrandIdentityPage() {
             {CAPABILITIES.map((c, i) => (
               <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
-                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
+                <p className="text-[14px] text-[#2d3232]/70 leading-relaxed">{c.desc}</p>
               </FadeIn>
             ))}
           </div>
@@ -167,9 +167,9 @@ export function BrandIdentityPage() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-x-8">
             {PROCESS.map((step, i) => (
               <FadeIn key={i} delay={i * 0.1} className="border-t-2 border-[#2d3232]/10 pt-8 hover:border-[#2d3232]/40 transition-colors duration-300">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-[#2d3232]/30 mb-4" style={{ fontFamily: NAV_FONT }}>{step.num}</div>
+                <div className="text-[11px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>{step.num}</div>
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{step.title}</h3>
-                <p className="text-[#2d3232]/55 text-[13px] leading-relaxed">{step.desc}</p>
+                <p className="text-[#2d3232]/70 text-[13px] leading-relaxed">{step.desc}</p>
               </FadeIn>
             ))}
           </div>

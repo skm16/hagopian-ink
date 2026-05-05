@@ -78,14 +78,14 @@ function PostCard({ post, i }: { post: typeof POSTS[number]; i: number }) {
           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
       </div>
       <div className="flex-1 flex flex-col justify-center">
-        <p className="text-[9px] uppercase tracking-[0.2em] text-[#2d3232]/40 mb-3" style={{ fontFamily: NAV_FONT }}>
+        <p className="text-[9px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-3" style={{ fontFamily: NAV_FONT }}>
           {post.category}
         </p>
         <h3 className="text-xl md:text-2xl leading-[1.1] mb-4 group-hover:opacity-55 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
           {post.title}
         </h3>
-        <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-5">{post.excerpt}</p>
-        <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
+        <p className="text-[14px] text-[#2d3232]/70 leading-relaxed mb-5">{post.excerpt}</p>
+        <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.14em] text-[#2d3232]/70 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
           Read More <ArrowRight className="w-3 h-3" />
         </span>
       </div>
@@ -135,7 +135,7 @@ export function BlogPage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-6" style={{ fontFamily: NAV_FONT }}>Blog</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6" style={{ fontFamily: NAV_FONT }}>Blog</p>
             <h1 className="text-5xl md:text-7xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Fresh Ink.
             </h1>
@@ -172,7 +172,7 @@ export function BlogPage() {
             {paginated.map((post, i) => <PostCard key={`${active}-${query}-${page}-${post.title}`} post={post} i={i} />)}
             {filtered.length === 0 && (
               <div className="border-t border-[#2d3232]/10 py-16 px-8 text-center">
-                <p className="text-sm text-[#2d3232]/45 mb-6">No posts match your search.</p>
+                <p className="text-sm text-[#2d3232]/70 mb-6">No posts match your search.</p>
                 <button onClick={() => { setQuery(''); setActive('View All'); }}
                   className="text-[10px] uppercase tracking-[0.16em] border-b border-[#2d3232]/25 pb-1" style={{ fontFamily: NAV_FONT }}>
                   Clear Search
@@ -186,7 +186,7 @@ export function BlogPage() {
                 <button
                   onClick={() => setPage(p => Math.max(1, p - 1))}
                   disabled={page === 1}
-                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/40 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
+                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/70 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
                   aria-label="Previous page">
                   <ArrowRight className="w-3.5 h-3.5 rotate-180" />
                 </button>
@@ -207,7 +207,7 @@ export function BlogPage() {
                 <button
                   onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
-                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/40 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
+                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/70 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
                   aria-label="Next page">
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -220,7 +220,7 @@ export function BlogPage() {
               <div className="w-16 h-16 rounded-full bg-[#d8d8e6] flex items-center justify-center mb-6">
                 <Search className="w-5 h-5 text-[#f5f0eb]" />
               </div>
-              <label className="block text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/45 mb-3" style={{ fontFamily: NAV_FONT }}>
+              <label className="block text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-3" style={{ fontFamily: NAV_FONT }}>
                 Search Fresh Ink
               </label>
               <input
@@ -236,11 +236,11 @@ export function BlogPage() {
               <div className="aspect-[3/2] overflow-hidden mb-7 bg-[#e7e3de]">
                 <img src={`${CDN}/2018/11/blog-about-us.png`} alt="Hagopian Ink studio materials" className="w-full h-full object-cover" />
               </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/35 mb-4" style={{ fontFamily: NAV_FONT }}>Make your mark</p>
-              <p className="text-[14px] leading-relaxed text-[#2d3232]/62 mb-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>Make your mark</p>
+              <p className="text-[14px] leading-relaxed text-[#2d3232]/70 mb-6">
                 Hagopian Ink is a woman-owned branding agency born in New York City. We specialize in increasing value for luxury and lifestyle brands through branding, e-commerce, and email marketing.
               </p>
-              <p className="text-[14px] leading-relaxed text-[#2d3232]/62 mb-7">
+              <p className="text-[14px] leading-relaxed text-[#2d3232]/70 mb-7">
                 The ink in Hagopian Ink symbolizes many things to us. The inkwell is the endless source of inspiration, and our goal is to help you create your own unique mark on the world.
               </p>
               <Btn href="/about" external={false} className="w-full justify-center">
@@ -253,7 +253,7 @@ export function BlogPage() {
 
       <section className="bg-[#2d3232] py-24 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Fresh Ink</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6" style={{ fontFamily: NAV_FONT }}>Fresh Ink</p>
           <h2 className="text-3xl md:text-5xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ideas that help brands make their mark.
           </h2>

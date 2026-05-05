@@ -697,13 +697,13 @@ export function CaseStudyPage() {
       {/* ── CTA ── */}
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6"
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6"
             style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-3xl md:text-5xl mb-4 leading-[0.95] text-[#f1efef]"
             style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Good design is good business.
           </h2>
-          <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#f5f0eb]/60 mb-12 max-w-xl mx-auto leading-relaxed">
             You don't need to have it all figured out — that's what we're here for.<br />
             Share your story, and we'll help shape the strategy.
           </p>

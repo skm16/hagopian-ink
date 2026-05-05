@@ -79,7 +79,7 @@ export function LuxuryLifestylePage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>Luxury + Lifestyle</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>Luxury + Lifestyle</p>
             <h1 className="leading-[0.95] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(2.5rem, 6vw, 6rem)' }}>
               Where we started.<br />
               The DNA of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything we do.</span>
@@ -97,7 +97,7 @@ export function LuxuryLifestylePage() {
           {STATS.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[10px] uppercase tracking-[0.12em] text-[#f5f0eb]/45" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+              <div className="text-[10px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
             </FadeIn>
           ))}
         </div>
@@ -135,7 +135,7 @@ export function LuxuryLifestylePage() {
             {CAPABILITIES.map((c, i) => (
               <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
-                <p className="text-[14px] text-[#2d3232]/60 leading-relaxed">{c.desc}</p>
+                <p className="text-[14px] text-[#2d3232]/70 leading-relaxed">{c.desc}</p>
               </FadeIn>
             ))}
           </div>

@@ -26,7 +26,7 @@ export function ContactPage() {
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto w-full">
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5"
+            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5"
             style={{ fontFamily: NAV_FONT }}>
             Get in Touch
           </motion.p>
@@ -49,25 +49,25 @@ export function ContactPage() {
             <h2 className="text-3xl md:text-5xl mb-8 leading-[1.02] text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Good design is good business.
             </h2>
-            <p className="text-lg text-[#2d3232]/55 leading-relaxed mb-14 max-w-lg">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-14 max-w-lg">
               Whether you are building a new brand from the ground up, evolving an established one, or launching your next digital campaign — we would love to hear about your project.
             </p>
             <div className="flex flex-col gap-5 mb-14">
               <a href="mailto:info@HagopianInk.com"
-                className="flex items-center gap-4 text-[14px] text-[#2d3232]/60 hover:text-[#2d3232] transition-colors duration-250">
+                className="flex items-center gap-4 text-[14px] text-[#2d3232]/70 hover:text-[#2d3232] transition-colors duration-250">
                 <div className="w-10 h-10 border border-[#2d3232]/15 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 opacity-60" />
                 </div>
                 info@HagopianInk.com
               </a>
               <a href="tel:2123271445"
-                className="flex items-center gap-4 text-[14px] text-[#2d3232]/60 hover:text-[#2d3232] transition-colors duration-250">
+                className="flex items-center gap-4 text-[14px] text-[#2d3232]/70 hover:text-[#2d3232] transition-colors duration-250">
                 <div className="w-10 h-10 border border-[#2d3232]/15 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-4 h-4 opacity-60" />
                 </div>
                 212-327-1445
               </a>
-              <div className="flex items-center gap-4 text-[14px] text-[#2d3232]/40">
+              <div className="flex items-center gap-4 text-[14px] text-[#2d3232]/70">
                 <div className="w-10 h-10 border border-[#2d3232]/15 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 opacity-60" />
                 </div>
@@ -75,7 +75,7 @@ export function ContactPage() {
               </div>
             </div>
             <div className="border-t border-[#2d3232]/10 pt-10">
-              <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/35 mb-4" style={{ fontFamily: NAV_FONT }}>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>
                 Where Strategy Meets Creativity · Since 2002
               </p>
             </div>
@@ -86,13 +86,13 @@ export function ContactPage() {
             {submitted ? (
               <div className="text-center py-16">
                 <div className="text-4xl mb-6 text-[#2d3232]" style={{ fontFamily: SERIF }}>Thank you.</div>
-                <p className="text-[#2d3232]/55 text-lg leading-relaxed">
+                <p className="text-[#2d3232]/70 text-lg leading-relaxed">
                   We have received your message and will be in touch within one business day.
                 </p>
               </div>
             ) : (
               <>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/50 mb-8" style={{ fontFamily: NAV_FONT }}>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-8" style={{ fontFamily: NAV_FONT }}>
                   Send us a message
                 </p>
                 <form className="space-y-5" onSubmit={e => { e.preventDefault(); setSubmitted(true); }}>
@@ -103,8 +103,8 @@ export function ContactPage() {
                     { label: 'Phone',                  placeholder: '212-555-0000',         type: 'tel',   required: false },
                   ].map((field, i) => (
                     <div key={i}>
-                      <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/55 mb-2" style={{ fontFamily: NAV_FONT }}>
-                        {field.label}{field.required && <span className="text-[#2d3232]/40 ml-1">*</span>}
+                      <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
+                        {field.label}{field.required && <span className="text-[#2d3232]/70 ml-1">*</span>}
                       </label>
                       <input type={field.type} required={field.required}
                         className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/30 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 transition-colors"
@@ -112,7 +112,7 @@ export function ContactPage() {
                     </div>
                   ))}
                   <div>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/55 mb-2" style={{ fontFamily: NAV_FONT }}>
+                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       Service of Interest
                     </label>
                     <select className="w-full bg-white border border-[#d4cfc9] text-[#2d3232]/70 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 transition-colors appearance-none"
@@ -127,8 +127,8 @@ export function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/55 mb-2" style={{ fontFamily: NAV_FONT }}>
-                      How Can We Help? <span className="text-[#2d3232]/40">*</span>
+                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
+                      How Can We Help? <span className="text-[#2d3232]/70">*</span>
                     </label>
                     <textarea rows={4} required
                       className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/30 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 resize-none transition-colors"

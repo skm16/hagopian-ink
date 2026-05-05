@@ -93,7 +93,7 @@ export function AboutPage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>
+            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>
             About Hagopian Ink
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.15, ease }}
@@ -113,7 +113,7 @@ export function AboutPage() {
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[11px] uppercase tracking-[0.14em] text-[#2d3232]/50" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#2d3232]/70" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
             </FadeIn>
           ))}
         </div>
@@ -153,7 +153,7 @@ export function AboutPage() {
             </div>
             <div className="flex-1 max-w-2xl">
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
-              <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
                 Christina has spent more than two decades partnering with visionary leaders and organizations at pivotal moments of growth, change, and reinvention — helping them clarify who they are and how they show up in the world. A graduate of Carnegie Mellon University's School of Design, she brings both rigorous creative training and real-world strategic instinct to every engagement.
               </p>
@@ -207,8 +207,8 @@ export function AboutPage() {
                     <div className="flex gap-3 items-start">
                       <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
                       <div>
-                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/60 transition-colors">{a.name}</p>
-                        <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/70 transition-colors">{a.name}</p>
+                        <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
                       </div>
                     </div>
                     <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
@@ -218,7 +218,7 @@ export function AboutPage() {
                     <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
                     <div>
                       <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
-                      <p className="text-[13px] text-[#2d3232]/45 mt-1 leading-snug">{a.org}</p>
+                      <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
                     </div>
                   </div>
                 )}
@@ -239,11 +239,11 @@ export function AboutPage() {
             {BOOKS.map((b, i) => (
               <FadeIn key={i} delay={i * 0.1} className="py-8 border-t border-[#2d3232]/12 flex flex-col pr-8">
                 <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
-                {b.subtitle && <p className="text-[13px] text-[#2d3232]/55 mb-3 leading-snug">{b.subtitle}</p>}
-                {b.authors  && <p className="text-[13px] text-[#2d3232]/40 mb-0.5">{b.authors}</p>}
-                <p className="text-[13px] text-[#2d3232]/40 mb-5">{b.publisher}</p>
+                {b.subtitle && <p className="text-[13px] text-[#2d3232]/70 mb-3 leading-snug">{b.subtitle}</p>}
+                {b.authors  && <p className="text-[13px] text-[#2d3232]/70 mb-0.5">{b.authors}</p>}
+                <p className="text-[13px] text-[#2d3232]/70 mb-5">{b.publisher}</p>
                 <a href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/50 hover:text-[#2d3232]/80 transition-colors mt-auto">
+                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/70 hover:text-[#2d3232]/80 transition-colors mt-auto">
                   View on Amazon <ExternalLink className="w-3 h-3" />
                 </a>
               </FadeIn>
@@ -265,8 +265,8 @@ export function AboutPage() {
               <FadeIn key={i} delay={i * 0.07} className="py-5 border-t border-[#2d3232]/12 pr-8">
                 <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                   <div>
-                    <p className="text-[12px] text-[#2d3232]/40 mb-1.5">{a.pub}</p>
-                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover/link:text-[#2d3232]/60 transition-colors">{a.title}</p>
+                    <p className="text-[12px] text-[#2d3232]/70 mb-1.5">{a.pub}</p>
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover/link:text-[#2d3232]/70 transition-colors">{a.title}</p>
                   </div>
                   <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
                 </a>
@@ -277,12 +277,12 @@ export function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Medium pieces */}
             <FadeIn>
-              <p className="text-[12px] text-[#2d3232]/40 mb-0 border-t border-[#2d3232]/12 pt-5">Medium — Written by Christina Hagopian</p>
+              <p className="text-[12px] text-[#2d3232]/70 mb-0 border-t border-[#2d3232]/12 pt-5">Medium — Written by Christina Hagopian</p>
               <div className="flex flex-col">
                 {MEDIUM.map((m, i) => (
                   <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
                     className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
-                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{m.title}</p>
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/70 transition-colors">{m.title}</p>
                     <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
                 ))}
@@ -291,14 +291,14 @@ export function AboutPage() {
 
             {/* Promotions */}
             <FadeIn delay={0.1}>
-              <p className="text-[12px] text-[#2d3232]/40 mb-0 border-t border-[#2d3232]/12 pt-5">Hagopian Ink Promotions — Featured Work</p>
+              <p className="text-[12px] text-[#2d3232]/70 mb-0 border-t border-[#2d3232]/12 pt-5">Hagopian Ink Promotions — Featured Work</p>
               <div className="flex flex-col">
                 {PROMOTIONS.map((p, i) => (
                   <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
                     className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
                     <div>
-                      <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/60 transition-colors">{p.title}</p>
-                      <p className="text-[12px] text-[#2d3232]/40 mt-1">{p.pub}</p>
+                      <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/70 transition-colors">{p.title}</p>
+                      <p className="text-[12px] text-[#2d3232]/70 mt-1">{p.pub}</p>
                     </div>
                     <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </a>
@@ -334,7 +334,7 @@ export function AboutPage() {
       {/* ── CTA ───────────────────────────────────── */}
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Work With Us</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6" style={{ fontFamily: NAV_FONT }}>Work With Us</p>
           <h2 className="text-3xl md:text-5xl mb-8 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to make your mark?
           </h2>

@@ -91,12 +91,12 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#343a3a] border border-[#474d4d] shadow-2xl overflow-hidden">
                   <Link href="/expertise"
                     onClick={() => setOpen(false)}
-                    className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
+                    className="block px-5 py-3.5 text-[#f5f0eb]/60 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
                     style={{ fontFamily: NAV_FONT }}>
                     All Expertise
                   </Link>
                   <div className="px-5 pt-4 pb-1">
-                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Services</p>
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-2.5" style={{ fontFamily: NAV_FONT }}>Services</p>
                     {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
@@ -107,7 +107,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                     ))}
                   </div>
                   <div className="px-5 pt-3 pb-4 border-t border-[#424848] mt-1">
-                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
+                    <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
                     {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
@@ -175,12 +175,12 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                     className="overflow-hidden">
                     <div className="mb-4 bg-[#343a3a] border border-[#474d4d]">
                       <Link href="/expertise" onClick={closeMobile}
-                        className="block px-5 py-3.5 text-[#f5f0eb]/50 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
+                        className="block px-5 py-3.5 text-[#f5f0eb]/60 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
                         style={{ fontFamily: NAV_FONT }}>
                         All Expertise
                       </Link>
                       <div className="px-5 pt-4 pb-1">
-                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Services</p>
+                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-2.5" style={{ fontFamily: NAV_FONT }}>Services</p>
                         {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                           <Link key={path} href={path} onClick={closeMobile}
                             className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
@@ -190,7 +190,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                         ))}
                       </div>
                       <div className="px-5 pt-3 pb-4 border-t border-[#424848] mt-1">
-                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/28 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
+                        <p className="text-[9px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-2.5" style={{ fontFamily: NAV_FONT }}>Industries</p>
                         {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                           <Link key={path} href={path} onClick={closeMobile}
                             className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}

@@ -222,7 +222,7 @@ export function WorkPage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-20 max-w-[1400px] mx-auto w-full flex flex-col md:flex-row md:items-end justify-between gap-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-6" style={{ fontFamily: NAV_FONT }}>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6" style={{ fontFamily: NAV_FONT }}>
               Selected Work
             </p>
             <h1 className="text-5xl md:text-7xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -319,7 +319,7 @@ export function WorkPage() {
             style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Ready to create something new?
           </h2>
-          <p className="text-lg text-[#f5f0eb]/50 mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-[#f5f0eb]/60 mb-12 max-w-xl mx-auto leading-relaxed">
             You don't need to have it all figured out — that's what we're here for. Share your story, and we'll help shape the strategy.
           </p>
           <BtnLight href="/contact" external={false}>

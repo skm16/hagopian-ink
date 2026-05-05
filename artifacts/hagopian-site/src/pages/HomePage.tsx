@@ -40,11 +40,11 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
           <motion.div
             style={{ y: textY }}
             className="bg-white px-10 py-9 shadow-[0_4px_40px_rgba(0,0,0,0.10)]">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/40 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
             <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
-            <p className="text-[14px] text-[#2d3232]/55 leading-relaxed mb-6">{cs.desc}</p>
+            <p className="text-[14px] text-[#2d3232]/70 leading-relaxed mb-6">{cs.desc}</p>
             <Link href={cs.href}
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/50 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/70 hover:text-[#2d3232] border-b border-[#2d3232]/20 hover:border-[#2d3232] pb-1 transition-all duration-300"
               style={{ fontFamily: NAV_FONT }}>
               View Case Study <ArrowRight className="w-3 h-3" />
             </Link>
@@ -82,7 +82,7 @@ export function Homepage() {
 
         <motion.div className="relative z-10 px-6 md:px-16 max-w-6xl mx-auto text-center mt-16" style={{ opacity: heroOpacity }}>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-8"
+            className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-8"
             style={{ fontFamily: NAV_FONT }}>
             Evolving the world's leading brands since 2002
           </motion.p>
@@ -160,9 +160,9 @@ export function Homepage() {
                 <div className="bg-white p-8 flex-grow flex flex-col shadow-[0_2px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_48px_rgba(0,0,0,0.12)] transition-shadow duration-500">
                   <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4" style={{ color: svc.color, fontFamily: NAV_FONT }}>{svc.name}</p>
                   <h3 className="text-2xl md:text-3xl mb-5 leading-snug whitespace-pre-line" style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
-                  <p className="text-[#2d3232]/60 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
+                  <p className="text-[#2d3232]/70 leading-relaxed mb-8 flex-grow text-[15px]">{svc.desc}</p>
                   <Link href={svc.link}
-                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/50 hover:text-[#2d3232] transition-colors border-b border-[#2d3232]/15 pb-1 self-start mb-8"
+                    className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/70 hover:text-[#2d3232] transition-colors border-b border-[#2d3232]/15 pb-1 self-start mb-8"
                     style={{ fontFamily: NAV_FONT }}>
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
                   </Link>
@@ -209,7 +209,7 @@ export function Homepage() {
         <FadeIn className="pt-20 pb-4 px-10 md:px-16">
           <div className="flex items-center gap-3">
             <span className="w-8 h-px bg-[#2d3232]/30" />
-            <span className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 font-medium" style={{ fontFamily: NAV_FONT }}>Selected Work</span>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/70 font-medium" style={{ fontFamily: NAV_FONT }}>Selected Work</span>
           </div>
           <h2 className="text-5xl md:text-7xl mt-3 leading-none text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Case Studies</h2>
         </FadeIn>
@@ -266,7 +266,7 @@ export function Homepage() {
                   <img src={ceciliaHeadshot} alt="Cecilia Pagkalinawan" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
                   <span>
                     <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Cecilia Pagkalinawan</span>
-                    <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
+                    <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>
                       VP E-commerce &amp; Direct Marketing<br />Frette Inc &amp; La Perla Fashions Inc.
                     </span>
                   </span>
@@ -281,7 +281,7 @@ export function Homepage() {
                 <img src={jenHeadshot} alt="Jen Pike" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" style={{ filter: 'grayscale(100%)' }} />
                 <span>
                   <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Jen Pike</span>
-                  <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>
+                  <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>
                     Chief Revenue Officer<br />Cannadips / BoltRunners
                   </span>
                 </span>
@@ -318,7 +318,7 @@ export function Homepage() {
                 className="border-r border-b border-[#424848] p-8 text-center hover:bg-[#343a3a] transition-colors duration-300">
                 <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
                 <div className="text-[13px] text-[#f5f0eb]/60 mb-2 leading-snug">{s.label}</div>
-                <div className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/28" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
+                <div className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.client}</div>
               </FadeIn>
             ))}
           </div>
@@ -338,8 +338,8 @@ export function Homepage() {
               <h2 className="text-5xl md:text-7xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 Good design is good business.
               </h2>
-              <p className="text-xl font-light text-[#f5f0eb]/50 mb-6" style={{ fontFamily: SANS }}>Let&#39;s create together.</p>
-              <p className="text-lg text-[#f5f0eb]/50 leading-relaxed mb-12 max-w-lg">
+              <p className="text-xl font-light text-[#f5f0eb]/60 mb-6" style={{ fontFamily: SANS }}>Let&#39;s create together.</p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12 max-w-lg">
                 Whether you are building a new brand from the ground up or evolving an established one, we would love to hear about your project.
               </p>
               <div className="flex flex-col gap-4 mb-12">

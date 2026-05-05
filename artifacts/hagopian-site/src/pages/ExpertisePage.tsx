@@ -43,7 +43,7 @@ export function ExpertisePage() {
         </video>
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/50 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
             <h1 className="text-5xl md:text-7xl leading-[0.92] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Built by design.<br />
               Driven by <span style={{ fontStyle: 'italic', opacity: 0.55 }}>results.</span>
@@ -70,7 +70,7 @@ export function ExpertisePage() {
             {INDUSTRIES.map((area, i) => (
               <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10">
                 <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{area.industry}</h3>
-                <p className="text-[13px] text-[#2d3232]/50 leading-relaxed">{area.services}</p>
+                <p className="text-[13px] text-[#2d3232]/70 leading-relaxed">{area.services}</p>
               </FadeIn>
             ))}
           </div>
@@ -86,9 +86,9 @@ export function ExpertisePage() {
             {DISCIPLINES.map((item, i) => (
               <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10 group">
                 <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{item.title}</h3>
-                <p className="text-[13px] text-[#2d3232]/50 leading-relaxed mb-3">{item.desc}</p>
+                <p className="text-[13px] text-[#2d3232]/70 leading-relaxed mb-3">{item.desc}</p>
                 <a href={item.link} target="_blank" rel="noopener noreferrer"
-                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/35 group-hover:text-[#2d3232]/70 transition-colors"
+                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/70 group-hover:text-[#2d3232]/70 transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
                   Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </a>
@@ -117,7 +117,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -158,7 +158,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/40 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -177,7 +177,7 @@ export function ExpertisePage() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Harness the power of<br />your email sends.
             </h2>
-            <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-8">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-8">
               Flawless aesthetics and strategic messaging increase conversions and create brand loyalty. We handle every facet of email marketing — from template design and copywriting to automation flows, segmentation strategy, and program management. Our clients include Fortune 50 brands and emerging DTC companies alike.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
@@ -188,7 +188,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/10 pt-5">
                   <div className="text-2xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/50 leading-snug mb-1">{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/70 leading-snug mb-1">{s.label}</div>
                   <div className="text-[10px] text-[#a57b83]" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
@@ -216,7 +216,7 @@ export function ExpertisePage() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Where we started.<br />The DNA of everything<br /><span style={{ fontStyle: 'italic', opacity: 0.6 }}>we do.</span>
             </h2>
-            <p className="text-lg text-[#2d3232]/65 leading-relaxed mb-6">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
               Luxury and lifestyle is where Hagopian Ink was born. From Burberry's first e-commerce site to Todd &amp; Duncan's US brand launch, from La Perla's Valentine's Day campaigns to Lancôme's viral House of Color activation — we have spent over 20 years earning the trust of the world's most discerning brands.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
@@ -227,7 +227,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/45 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -268,7 +268,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/40" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -285,7 +285,7 @@ export function ExpertisePage() {
                 <p className="text-xl italic text-[#f5f0eb]" style={{ fontFamily: SERIF }}>
                   “My speed to market can help speed her recovery. I'm in it for life.”
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/50 mt-3" style={{ fontFamily: NAV_FONT }}>— Viant Medical campaign</p>
+                <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60 mt-3" style={{ fontFamily: NAV_FONT }}>— Viant Medical campaign</p>
               </div>
             </div>
           </FadeIn>
@@ -324,7 +324,7 @@ export function ExpertisePage() {
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/45 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/60 leading-snug" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -354,11 +354,11 @@ export function ExpertisePage() {
                 <Link href={item.path}
                   className="group flex flex-col justify-between bg-[#343a3a] hover:bg-[#3a4040] transition-colors duration-300 p-8 h-full cursor-pointer">
                   <div>
-                    <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/30 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
+                    <p className="text-[9px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-3" style={{ fontFamily: NAV_FONT }}>{item.sub}</p>
                     <h3 className="text-xl mb-3 leading-snug group-hover:text-white transition-colors" style={{ fontFamily: SERIF, fontWeight: 700 }}>{item.label}</h3>
-                    <p className="text-[13px] text-[#f5f0eb]/50 leading-relaxed">{item.desc}</p>
+                    <p className="text-[13px] text-[#f5f0eb]/60 leading-relaxed">{item.desc}</p>
                   </div>
-                  <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/30 group-hover:text-[#f5f0eb]/70 transition-colors" style={{ fontFamily: NAV_FONT }}>
+                  <div className="mt-8 flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/60 group-hover:text-[#f5f0eb]/70 transition-colors" style={{ fontFamily: NAV_FONT }}>
                     Explore <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-200" />
                   </div>
                 </Link>
@@ -371,7 +371,7 @@ export function ExpertisePage() {
       {/* ── CTA ───────────────────────────────────── */}
       <section className="bg-[#2d3232] py-28 px-6 text-center border-t border-[#3a4040]">
         <FadeIn>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-6" style={{ fontFamily: NAV_FONT }}>Start a Conversation</p>
           <h2 className="text-5xl md:text-7xl mb-10 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Good design is<br />good business.
           </h2>

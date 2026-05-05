@@ -23,11 +23,11 @@ export function BlogPostPage() {
         <section className="pt-36 md:pt-44 pb-20 md:pb-28 px-6 md:px-12 bg-white">
           <div className="max-w-[1100px] mx-auto text-center">
             <FadeIn>
-              <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/45 hover:text-[#2d3232] mb-12" style={{ fontFamily: NAV_FONT }}>
+              <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 hover:text-[#2d3232] mb-12" style={{ fontFamily: NAV_FONT }}>
                 <ArrowLeft className="w-3 h-3" /> Back to Fresh Ink
               </Link>
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/45 mb-5" style={{ fontFamily: NAV_FONT }}>Fresh Ink</p>
-              <div className="text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/45 mb-10" style={{ fontFamily: NAV_FONT }}>
+              <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/70 mb-5" style={{ fontFamily: NAV_FONT }}>Fresh Ink</p>
+              <div className="text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-10" style={{ fontFamily: NAV_FONT }}>
                 Studio News&nbsp;&nbsp;|&nbsp;&nbsp;September 21, 2022&nbsp;&nbsp;|&nbsp;&nbsp;Author: Christina Hagopian
               </div>
               <h1 className="text-5xl md:text-7xl leading-[0.98] max-w-4xl mx-auto text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
@@ -43,12 +43,12 @@ export function BlogPostPage() {
             <blockquote className="text-2xl md:text-3xl leading-relaxed text-[#2d3232]/72 mb-8" style={{ fontFamily: SERIF }}>
               When I was 5 years old, I was caught drawing on my bed sheets with a ballpoint pen. My mom had to explain that not all surfaces were made for drawing.
             </blockquote>
-            <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/45" style={{ fontFamily: NAV_FONT }}>Christina Hagopian</p>
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70" style={{ fontFamily: NAV_FONT }}>Christina Hagopian</p>
           </FadeIn>
         </section>
 
         <section className="px-6 md:px-12 pb-24 bg-white">
-          <div className="max-w-[900px] mx-auto space-y-7 text-lg leading-relaxed text-[#2d3232]/68">
+          <div className="max-w-[900px] mx-auto space-y-7 text-lg leading-relaxed text-[#2d3232]/70">
             <FadeIn>
               <p>
                 What a wild ride the last 20 years has been. Christina started the business with just a phone and laptop after the dot-com layoffs ran across the agency world after 9/11. It was a turbulent time to be an agency designer, with so many unemployed creatives in the field and a market that felt precarious.
@@ -70,7 +70,7 @@ export function BlogPostPage() {
         <section className="bg-[#2d3232] px-6 md:px-12 py-24 md:py-32 text-[#f5f0eb]">
           <div className="max-w-[1200px] mx-auto">
             <FadeIn className="mb-12">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/42 mb-5" style={{ fontFamily: NAV_FONT }}>Archive Images</p>
+              <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>Archive Images</p>
               <h2 className="text-3xl md:text-4xl leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
                 The same story, reframed in the new system.
               </h2>
@@ -93,7 +93,7 @@ export function BlogPostPage() {
 
         <section className="bg-[#f1efef] px-6 md:px-12 py-24 text-center border-t border-[#e0ddd9]">
           <FadeIn>
-            <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/40 mb-6" style={{ fontFamily: NAV_FONT }}>Keep Reading</p>
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#2d3232]/70 mb-6" style={{ fontFamily: NAV_FONT }}>Keep Reading</p>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.0]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               More Fresh Ink.
             </h2>
