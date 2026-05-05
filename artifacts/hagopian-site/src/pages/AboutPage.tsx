@@ -201,7 +201,7 @@ export function AboutPage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2">
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.04} className="py-5 border-t border-[#2d3232]/12 group">
+              <FadeIn key={i} delay={i * 0.04} className="py-5 border-t border-[#2d3232]/12 pr-8">
                 {a.href ? (
                   <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                     <div className="flex gap-3 items-start">
@@ -214,15 +214,12 @@ export function AboutPage() {
                     <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover/link:text-[#2d3232] transition-colors" />
                   </a>
                 ) : (
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex gap-3 items-start">
-                      <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
-                      <div>
-                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
-                        <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
-                      </div>
+                  <div className="flex gap-3 items-start">
+                    <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
+                    <div>
+                      <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
+                      <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
                     </div>
-                    <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/20" />
                   </div>
                 )}
               </FadeIn>
