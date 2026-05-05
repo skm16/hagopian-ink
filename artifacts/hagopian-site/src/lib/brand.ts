@@ -1,3 +1,7 @@
+import _epilepsyLogo from '@assets/image_1778015575326.jpeg';
+import _susanKomenLogo from '@assets/image_1778015601091.png';
+import _blmLogo from '@assets/image_1778015628909.png';
+
 export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
 const _BASE = import.meta.env.BASE_URL; // e.g. "/hagopian-site/"
@@ -76,6 +80,9 @@ export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/22_HI_logo_condenast.png`,    alt:'Condé Nast' },
   { src:`${CDN}/2018/09/23_HI_logo_tedx.png`,         alt:'TEDx' },
   { src:`${CDN}/2018/09/24_HI_logo_montefiore.png`,   alt:'Montefiore' },
+  { src: _epilepsyLogo,   alt: 'Epilepsy Foundation' },
+  { src: _susanKomenLogo, alt: 'Susan G. Komen' },
+  { src: _blmLogo,        alt: 'Black Lives Matter' },
 ];
 
 export const CASE_STUDIES = [
