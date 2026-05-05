@@ -314,7 +314,7 @@ export function ExpertisePage() {
               Building bold brands<br />for a new era of impact.
             </h2>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
-              We help nonprofits build clear, consistent brands that inspire confidence — and then we build the digital fundraising engines to put them to work. From quarterly magazines and multi-template email programs to gala invitation systems and major donor engagement campaigns.
+              We help nonprofits build the brands that inspire confidence — and the fundraising programs that inspire giving. Our job is to earn the first gift, motivate continued giving, and create life-long advocates: through cohesive messaging, strategic campaigns tied to revenue outcomes, and design that connects every donor to the impact of their gift.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[

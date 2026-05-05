@@ -6,8 +6,19 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import logoEpilepsy from '@assets/logo_epilepsy_foundation.png';
+import logoKomen    from '@assets/logo_susan_g_komen.png';
+import logoBLM      from '@assets/logo_blm.png';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+
+const NONPROFIT_LOGOS = [
+  { src: `${CDN}/2018/09/24_HI_logo_montefiore.png`, alt: 'Montefiore',               small: false },
+  { src: logoEpilepsy,                               alt: 'Epilepsy Foundation',       small: true  },
+  { src: `${CDN}/2018/09/21_HI_logo_malala.png`,     alt: 'Malala Fund',               small: false },
+  { src: logoKomen,                                  alt: 'Susan G. Komen',            small: true  },
+  { src: logoBLM,                                    alt: 'Black Lives Matter Canada', small: true  },
+];
 
 const CAPABILITIES = [
   { title: 'Nonprofit Brand Identity',         desc: 'Clear, credible brand systems that inspire donor confidence and differentiate your mission in a crowded space.' },
@@ -59,6 +70,21 @@ const PROJECTS = [
   },
 ];
 
+const PHILOSOPHY = [
+  {
+    word: 'Connect.',
+    desc: 'Tell stories that create an emotional bond. Use powerful imagery, human voices, and compelling calls to action — meeting donors where they are and educating them at every touchpoint.',
+  },
+  {
+    word: 'Inspire.',
+    desc: 'Show how a small gift combines with others to create large-scale impact. Tie every donation tier to the lives it changes. Make impact tangible, immediate, and personal.',
+  },
+  {
+    word: 'Thank.',
+    desc: 'Show gratitude at every step — on behalf of the organization and the people it serves. Cultivate advocates, not transactions. Build donors for a lifetime.',
+  },
+];
+
 export function NonprofitPage() {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
@@ -88,7 +114,7 @@ export function NonprofitPage() {
 
       {/* STATS */}
       <section className="bg-[#2d3232] border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-x divide-[#3a4040]">
           {STATS.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -110,10 +136,10 @@ export function NonprofitPage() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
-              We understand that nonprofits operate under unique pressures: limited budgets, high accountability, and an audience whose trust must be earned with every communication. That's why every piece of work we produce for the nonprofit sector is built on strategic clarity and emotional resonance.
+              We understand that nonprofits operate under unique pressures: limited budgets, high accountability, and an audience whose trust must be earned with every communication. That is why everything we design is built on strategic clarity and emotional resonance — a clear, consistent brand that inspires confidence, paired with a modern fundraising engine that puts it to work.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              From multi-year fundraising programs for health systems to urgent activist campaigns for social justice organizations, we bring the same level of strategic rigor and creative craft that we apply to our Fortune 50 clients — because your mission deserves nothing less.
+              Our job is to inspire the first gift, motivate continued giving, and create life-long advocates. We do it through cohesive messaging across every channel, donor stories tied to real impact, and campaign strategy built around your revenue goals — not just your creative brief.
             </p>
           </FadeIn>
         </div>
@@ -134,6 +160,28 @@ export function NonprofitPage() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CONNECT. INSPIRE. THANK. */}
+      <section className="bg-[#2d3232] py-24 md:py-36 px-8 md:px-16 border-t border-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-16">
+            <SectionLabel light>How We Inspire Giving</SectionLabel>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-10">
+            {PHILOSOPHY.map((p, i) => (
+              <FadeIn key={i} delay={i * 0.1} className="border-t border-[#f5f0eb]/15 pt-8">
+                <div className="text-4xl mb-5 font-light italic text-[#f5f0eb]" style={{ fontFamily: SERIF }}>{p.word}</div>
+                <p className="text-[15px] text-[#f5f0eb]/60 leading-relaxed">{p.desc}</p>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={0.5} className="mt-20 text-right overflow-hidden">
+            <span className="text-5xl md:text-7xl font-light italic text-[#f5f0eb]/10 tracking-tight" style={{ fontFamily: SERIF }}>
+              inspire. elevate. change.
+            </span>
+          </FadeIn>
         </div>
       </section>
 
@@ -163,16 +211,20 @@ export function NonprofitPage() {
         </div>
       </section>
 
-      {/* CLIENTS */}
+      {/* CLIENT LOGOS */}
       <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
         <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-10">
+          <FadeIn className="mb-12">
             <SectionLabel light>Clients We've Served</SectionLabel>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Montefiore Health System', 'Epilepsy Foundation', 'Black Lives Matter Canada', 'Malala Fund'].map((c, i) => (
-              <FadeIn key={i} delay={i * 0.08} className="border-t border-[#474d4d] pt-5">
-                <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-10 items-center">
+            {NONPROFIT_LOGOS.map((logo, i) => (
+              <FadeIn key={i} delay={i * 0.08} className="flex items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={`object-contain brightness-0 invert opacity-70 w-full ${logo.small ? 'max-h-7' : 'max-h-10'}`}
+                />
               </FadeIn>
             ))}
           </div>
