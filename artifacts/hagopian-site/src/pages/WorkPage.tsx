@@ -30,12 +30,12 @@ const GROUPS: Group[] = [
     desc: 'Logos, marks, visual systems, and brand standards built to endure — across every medium and every moment.',
     slugs: [
       'joseph-robert',
+      'todd-duncan-cashmere-branding-design',
+      'lalalife-subscription-box-branding-and-website-design',
       'award-winning-logos',
       'christopher-street-financial',
       'hubspot-conference-brand-identity',
       'bewell',
-      'todd-duncan-cashmere-branding-design',
-      'lalalife-subscription-box-branding-and-website-design',
     ],
   },
   {
