@@ -10,12 +10,12 @@ import { CDN, VIDEO_EXPERTISE, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const DISCIPLINES = [
-  { title: 'Brand Identity + Positioning',      desc: 'Logo, mark development, brand standards, naming strategy, and visual identity systems that endure.', link: 'https://hagopianink.com/work/design-branding/' },
-  { title: 'Omnichannel Campaign Marketing',    desc: 'Integrated campaigns across email, print, digital, and social — strategically connected to your goals.', link: 'https://hagopianink.com/expertise/' },
-  { title: 'Web Design + Development',          desc: 'UX/UI design for e-commerce and marketing sites — built to convert, easy to manage, and built to last.', link: 'https://hagopianink.com/work/ux-design/' },
-  { title: 'Email Marketing + Strategy',        desc: 'Welcome series, drip campaigns, win-back flows, segmentation, and acquisition programs that deliver.', link: 'https://hagopianink.com/work/email/' },
-  { title: 'Donation + Fundraising Strategy',   desc: 'Email, direct mail, and event campaign design for nonprofits — connecting giving to impact.', link: 'https://hagopianink.com/expertise/' },
-  { title: 'Direct Mail + Print Media',         desc: 'From luxury look-books and annual reports to mailers that stop people in their tracks.', link: 'https://hagopianink.com/expertise/' },
+  { title: 'Brand Identity + Positioning',      desc: 'Logo, mark development, brand standards, naming strategy, and visual identity systems that endure.', link: '/expertise/brand-identity' },
+  { title: 'Omnichannel Campaign Marketing',    desc: 'Integrated campaigns across email, print, digital, and social — strategically connected to your goals.', link: '/work' },
+  { title: 'Web Design + Development',          desc: 'UX/UI design for e-commerce and marketing sites — built to convert, easy to manage, and built to last.', link: '/expertise/ux-ui-design' },
+  { title: 'Email Marketing + Strategy',        desc: 'Welcome series, drip campaigns, win-back flows, segmentation, and acquisition programs that deliver.', link: '/expertise/email-marketing' },
+  { title: 'Donation + Fundraising Strategy',   desc: 'Email, direct mail, and event campaign design for nonprofits — connecting giving to impact.', link: '/expertise/nonprofit-fundraising' },
+  { title: 'Direct Mail + Print Media',         desc: 'From luxury look-books and annual reports to mailers that stop people in their tracks.', link: '/work' },
 ];
 
 const INDUSTRIES = [
@@ -87,11 +87,11 @@ export function ExpertisePage() {
               <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10 group">
                 <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{item.title}</h3>
                 <p className="text-[13px] text-[#2d3232]/70 leading-relaxed mb-3">{item.desc}</p>
-                <a href={item.link} target="_blank" rel="noopener noreferrer"
+                <Link href={item.link}
                   className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/70 group-hover:text-[#2d3232]/70 transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
                   Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+                </Link>
               </FadeIn>
             ))}
           </div>
@@ -375,7 +375,7 @@ export function ExpertisePage() {
           <h2 className="text-5xl md:text-7xl mb-10 leading-[0.95]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
             Good design is<br />good business.
           </h2>
-          <BtnLight href="https://hagopianink.com/contact/">
+          <BtnLight href="/contact" external={false}>
             Get in Touch <ArrowRight className="w-4 h-4" />
           </BtnLight>
         </FadeIn>
