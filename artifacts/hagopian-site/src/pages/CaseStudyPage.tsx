@@ -17,7 +17,7 @@ function ColumnsThree({ challenge, solution, resultTitle, result }: {
   challenge: string; solution: string; resultTitle: string; result: string;
 }) {
   const partNameStyle: React.CSSProperties = {
-    color: '#a57b83',
+    color: 'rgba(45,50,50,0.45)',
     fontFamily: NAV_FONT,
     fontSize: 13,
     fontWeight: 500,

@@ -154,7 +154,7 @@ export function ExpertisePage() {
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
                 { n: '58%',  label: 'increase in unique visitors, Frette' },
-                { n: '12K',  label: 'new email opt-ins from UX campaign — Frette' },
+                { n: '300%', label: 'increase in signup conversion, Gwynnie Bee' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -189,7 +189,7 @@ export function ExpertisePage() {
                 <div key={i} className="border-t border-[#2d3232]/10 pt-5">
                   <div className="text-2xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
                   <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/70 leading-snug mb-1">{s.label}</div>
-                  <div className="text-[10px] text-[#a57b83]" style={{ fontFamily: SANS }}>{s.client}</div>
+                  <div className="text-[10px] text-[#2d3232]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
