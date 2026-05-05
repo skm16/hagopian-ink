@@ -323,6 +323,7 @@ export function AboutPage() {
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 138, height: 78 }}>
                 <img src={logo.src} alt={logo.alt}
+                  style={logo.small ? { maxWidth: '80%', maxHeight: '80%' } : undefined}
                   className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
               </div>
             ))}

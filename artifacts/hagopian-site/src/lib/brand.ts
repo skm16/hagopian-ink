@@ -80,9 +80,9 @@ export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/22_HI_logo_condenast.png`,    alt:'Condé Nast' },
   { src:`${CDN}/2018/09/23_HI_logo_tedx.png`,         alt:'TEDx' },
   { src:`${CDN}/2018/09/24_HI_logo_montefiore.png`,   alt:'Montefiore' },
-  { src: _epilepsyLogo,   alt: 'Epilepsy Foundation' },
-  { src: _susanKomenLogo, alt: 'Susan G. Komen' },
-  { src: _blmLogo,        alt: 'Black Lives Matter' },
+  { src: _epilepsyLogo,   alt: 'Epilepsy Foundation', small: true },
+  { src: _susanKomenLogo, alt: 'Susan G. Komen',      small: true },
+  { src: _blmLogo,        alt: 'Black Lives Matter',  small: true },
 ];
 
 export const CASE_STUDIES = [
