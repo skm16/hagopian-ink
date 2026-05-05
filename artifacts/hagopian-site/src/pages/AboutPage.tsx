@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, BookOpen, ExternalLink, Newspaper } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, BookOpen, ExternalLink, Newspaper } from 'lucide-react';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -207,11 +207,11 @@ export function AboutPage() {
                     <div className="flex gap-3 items-start">
                       <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
                       <div>
-                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:text-[#2d3232]/70 transition-colors">{a.name}</p>
+                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232] group-hover/link:underline group-hover/link:text-[#2d3232]/70 transition-colors">{a.name}</p>
                         <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
                       </div>
                     </div>
-                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover/link:text-[#2d3232] transition-colors" />
                   </a>
                 ) : (
                   <div className="flex gap-3 items-start">
@@ -266,9 +266,9 @@ export function AboutPage() {
                 <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                   <div>
                     <p className="text-[12px] text-[#2d3232]/70 mb-1.5">{a.pub}</p>
-                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover/link:text-[#2d3232]/70 transition-colors">{a.title}</p>
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover/link:underline group-hover/link:text-[#2d3232]/70 transition-colors">{a.title}</p>
                   </div>
-                  <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover/link:opacity-100 transition-opacity" />
+                  <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover/link:text-[#2d3232] transition-colors" />
                 </a>
               </FadeIn>
             ))}
@@ -282,8 +282,8 @@ export function AboutPage() {
                 {MEDIUM.map((m, i) => (
                   <a key={i} href={m.href} target="_blank" rel="noopener noreferrer"
                     className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
-                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/70 transition-colors">{m.title}</p>
-                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:underline group-hover:text-[#2d3232]/70 transition-colors">{m.title}</p>
+                    <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors" />
                   </a>
                 ))}
               </div>
@@ -297,10 +297,10 @@ export function AboutPage() {
                   <a key={i} href={p.href} target="_blank" rel="noopener noreferrer"
                     className="flex items-start justify-between gap-3 group py-5 border-t border-[#2d3232]/12 mt-5">
                     <div>
-                      <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:text-[#2d3232]/70 transition-colors">{p.title}</p>
+                      <p className="text-[15px] font-semibold text-[#2d3232] leading-snug group-hover:underline group-hover:text-[#2d3232]/70 transition-colors">{p.title}</p>
                       <p className="text-[12px] text-[#2d3232]/70 mt-1">{p.pub}</p>
                     </div>
-                    <ExternalLink className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/25 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover:text-[#2d3232] transition-colors" />
                   </a>
                 ))}
               </div>
