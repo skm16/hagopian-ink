@@ -27,7 +27,7 @@ type Group = {
 const GROUPS: Group[] = [
   {
     label: 'Brand Identity',
-    desc: 'Logos, marks, visual systems, and brand standards built to endure — across every medium and every moment.',
+    desc: 'Logos, marks, visual systems, and brand standards designed to endure across every medium and every moment.',
     slugs: [
       'joseph-robert',
       'todd-duncan-cashmere-branding-design',
@@ -40,7 +40,7 @@ const GROUPS: Group[] = [
   },
   {
     label: 'Website Design',
-    desc: 'Digital experiences designed around how people actually move through your content — built to convert and built to last.',
+    desc: 'Digital experiences built around how people actually move through content. Designed to convert, and built to last.',
     slugs: [
       'loumbeauty',
       'diamonds-in-glass-luxury-jewelry-website',
@@ -49,7 +49,7 @@ const GROUPS: Group[] = [
   },
   {
     label: 'Email Marketing',
-    desc: 'From single sends to complex automation sequences — every email is designed to feel like a personal conversation at scale.',
+    desc: 'Whether a single send or a complex automation sequence, every email is designed to feel like a personal conversation at scale.',
     slugs: [
       'pepsi-email-marketing',
       'sesame-street-mobile-email',
@@ -62,7 +62,7 @@ const GROUPS: Group[] = [
   },
   {
     label: 'Multichannel Campaigns',
-    desc: 'From luxury brand launches to nonprofit fundraising drives — integrated campaigns across email, print, digital, and events that move people from awareness to action.',
+    desc: 'Integrated campaigns across email, print, digital, and events. For luxury brands and mission-driven organizations, we design work that moves people from awareness to action.',
     slugs: [
       'la-perla-multichannel-campaign-design',
       'montefiore-healthcare-design',
