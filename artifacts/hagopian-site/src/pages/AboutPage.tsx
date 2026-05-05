@@ -136,7 +136,7 @@ export function AboutPage() {
               We are a boutique creative studio born in New York City and now operating virtually around the globe, working with some of the world's most recognizable brands and the most ambitious organizations you have never heard of yet. Our clients include Fortune 50 companies, luxury fashion houses, medical device manufacturers, nonprofit fundraising organizations, and emerging DTC brands — and we treat every brief with the same level of care and strategic rigor.
             </p>
             <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
-              As a woman-owned business, we bring a distinctive perspective to every engagement. We have built our reputation not on size, but on the depth of our relationships and the quality of our results.
+              Woman-owned and proud — but what really drives us is an unapologetic commitment to doing exceptional work. We lead with intention, high expectations, and a healthy dose of boss-lady energy.
             </p>
           </FadeIn>
         </div>
