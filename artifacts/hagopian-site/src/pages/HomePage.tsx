@@ -101,11 +101,11 @@ export function Homepage() {
 
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.85 }}
             className="flex flex-col sm:flex-row justify-center gap-4">
-            <BtnLight href="/work" external={false}>
-              See Our Work <ArrowRight className="w-4 h-4" />
+            <BtnLight href="/expertise" external={false}>
+              Explore Expertise <ArrowRight className="w-4 h-4" />
             </BtnLight>
-            <BtnLight href="/expertise" external={false} variant="outline">
-              Explore Expertise
+            <BtnLight href="/work" external={false} variant="outline">
+              See Our Work
             </BtnLight>
           </motion.div>
         </motion.div>
