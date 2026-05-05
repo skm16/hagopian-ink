@@ -283,13 +283,6 @@ export function ExpertisePage() {
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Health + MedTech brand work"
                 className="w-full h-full object-cover opacity-65" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/70 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-xl italic text-[#f5f0eb]" style={{ fontFamily: SERIF }}>
-                  “My speed to market can help speed her recovery. I'm in it for life.”
-                </p>
-                <p className="text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60 mt-3" style={{ fontFamily: NAV_FONT }}>— Viant Medical campaign</p>
-              </div>
             </div>
           </FadeIn>
         </div>
