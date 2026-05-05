@@ -242,7 +242,7 @@ export function Homepage() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                When you work with Hagopian Ink, you work directly with senior creative talent — not account managers or junior teams. Since 2002, we have brought boutique-level attention to every project while delivering the strategic rigor and creative execution you would expect from a major agency.
+                When you work with Hagopian Ink, you work directly with senior creative talent — not account managers or junior teams. Since 2002, we have brought boutique-level attention to every project while delivering the strategic thinking and creative execution you would expect from a major agency.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12">
                 Our clients stay with us for years — because results matter, and so does the relationship. We have maintained 5-year retainers with clients like Pepsi, built 6-year campaign partnerships with Viant Medical, and spent decades growing with the brands we believe in.

@@ -102,7 +102,7 @@ export function BrandIdentityPage() {
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
-              We believe great branding begins with rigorous strategy and ends with flawless execution. Every mark we create is designed to work across every context — from a business card to a billboard — and to remain relevant not just today, but a decade from now.
+              We believe great branding begins with thoughtful strategy and ends with flawless execution. Every mark we create is designed to work across every context — from a business card to a billboard — and to remain relevant not just today, but a decade from now.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
               Our clients range from Fortune 50 companies launching new product lines to entrepreneurs building their first brand from scratch. What they share is a demand for quality, clarity, and creative work that truly reflects who they are.

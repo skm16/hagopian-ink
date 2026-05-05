@@ -258,7 +258,7 @@ export function ExpertisePage() {
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms to nonprofit health initiatives.
             </p>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
-              From multi-year campaign partnerships to launch-ready brand systems, we bring the same strategic rigor and creative precision to every health engagement — because in this space, credibility is not a nice-to-have. It is the brand.
+              From multi-year campaign partnerships to launch-ready brand systems, we bring the same strategic thinking and creative precision to every health engagement — because in this space, credibility is not a nice-to-have. It is the brand.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[

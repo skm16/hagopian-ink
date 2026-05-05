@@ -110,7 +110,7 @@ export function EmailMarketingPage() {
               We have been designing and strategizing email programs for Fortune 50 brands and fast-growing startups since 2002. Email is the highest-ROI channel in digital marketing — and the most unforgiving when it's done poorly.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              Our approach combines beautiful design with rigorous strategy: the right message, to the right audience, at exactly the right moment. Every flow we build is designed to grow with your business.
+              Our approach combines beautiful design with thoughtful strategy: the right message, to the right audience, at exactly the right moment. Every flow we build is designed to grow with your business.
             </p>
           </FadeIn>
         </div>
