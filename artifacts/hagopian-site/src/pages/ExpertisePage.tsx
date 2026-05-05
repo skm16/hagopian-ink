@@ -154,7 +154,7 @@ export function ExpertisePage() {
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
                 { n: '58%',  label: 'increase in unique visitors, Frette' },
-                { n: '12K',  label: 'new email opt-ins, Frette' },
+                { n: '3x',   label: 'increase in online sales — MSG Suites' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -222,7 +222,7 @@ export function ExpertisePage() {
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
                 { n: '30%',   label: 'increase in Valentine\'s Day sales — La Perla' },
-                { n: '3x',    label: 'increase in online sales — MSG Suites' },
+                { n: '12K',   label: 'new email opt-ins — Frette' },
                 { n: '2.93M', label: 'Facebook followers — Lancôme' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/15 pt-5">
@@ -258,7 +258,7 @@ export function ExpertisePage() {
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups, cardiac rehab platforms to nonprofit health initiatives.
             </p>
             <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
-              Our 6-year “In It for Life” campaign partnership with Viant Medical brought their brand to life across print trade media, targeted email, and digital display, building lasting credibility with an executive audience across 24 global locations.
+              From multi-year campaign partnerships to launch-ready brand systems, we bring the same strategic rigor and creative precision to every health engagement — because in this space, credibility is not a nice-to-have. It is the brand.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
