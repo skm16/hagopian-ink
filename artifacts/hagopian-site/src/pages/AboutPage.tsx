@@ -214,12 +214,15 @@ export function AboutPage() {
                     <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/40 group-hover/link:text-[#2d3232] transition-colors" />
                   </a>
                 ) : (
-                  <div className="flex gap-3 items-start">
-                    <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
-                    <div>
-                      <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
-                      <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex gap-3 items-start">
+                      <Trophy className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#2d3232]/25" />
+                      <div>
+                        <p className="text-[15px] font-semibold leading-snug text-[#2d3232]">{a.name}</p>
+                        <p className="text-[13px] text-[#2d3232]/70 mt-1 leading-snug">{a.org}</p>
+                      </div>
                     </div>
+                    <ArrowUpRight className="w-3 h-3 shrink-0 mt-1 text-[#2d3232]/20" />
                   </div>
                 )}
               </FadeIn>
