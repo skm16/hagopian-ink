@@ -1,6 +1,6 @@
-import _epilepsyLogo from '@assets/image_1778015575326.jpeg';
-import _susanKomenLogo from '@assets/image_1778015601091.png';
-import _blmLogo from '@assets/image_1778015628909.png';
+import _epilepsyLogo from '@assets/logo_epilepsy_foundation.png';
+import _susanKomenLogo from '@assets/logo_susan_g_komen.png';
+import _blmLogo from '@assets/logo_blm.png';
 
 export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
