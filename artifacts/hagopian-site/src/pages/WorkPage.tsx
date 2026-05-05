@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
 import { VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import { CASE_STUDIES } from '@/lib/case-studies';
+import type { CaseStudy } from '@/lib/case-studies';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -23,10 +24,6 @@ type Group = {
   slugs: string[];
 };
 
-/*
-  Groups ordered to match the Expertise dropdown:
-  Brand Identity → Website Design → Email Marketing → Campaigns + Fundraising
-*/
 const GROUPS: Group[] = [
   {
     label: 'Brand Identity',
@@ -73,15 +70,166 @@ const GROUPS: Group[] = [
   },
 ];
 
-/* slug → anchor id */
 function toAnchor(label: string) {
   return label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 }
 
-/* Build a slug → CaseStudy lookup */
 const BY_SLUG = Object.fromEntries(
   CASE_STUDIES.filter(cs => !HIDDEN_SLUGS.has(cs.slug)).map(cs => [cs.slug, cs])
 );
+
+/* ─────────────────────────────────────────────────────────
+   PROJECT CAROUSEL
+───────────────────────────────────────────────────────── */
+const PER_PAGE = 4;
+
+interface CarouselProps {
+  cases: CaseStudy[];
+  dark: boolean;
+  cardBg: string;
+  cardBorder: string;
+  textColor: string;
+  mutedColor: string;
+  categoryColor: string;
+}
+
+function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColor, categoryColor }: CarouselProps) {
+  const [page, setPage] = useState(0);
+  const [dir, setDir] = useState(1);
+  const needsCarousel = cases.length > PER_PAGE;
+  const totalPages = Math.ceil(cases.length / PER_PAGE);
+  const visible = cases.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+
+  function go(delta: number) {
+    const next = Math.max(0, Math.min(totalPages - 1, page + delta));
+    if (next === page) return;
+    setDir(delta);
+    setPage(next);
+  }
+
+  const arrowBase: React.CSSProperties = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 40,
+    height: 40,
+    borderRadius: '50%',
+    border: `1px solid ${dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.15)'}`,
+    background: 'transparent',
+    cursor: 'pointer',
+    color: dark ? '#f5f0eb' : '#2d3232',
+    transition: 'background 0.2s ease, border-color 0.2s ease',
+  };
+
+  return (
+    <div>
+      {/* Card track */}
+      <div className="overflow-hidden">
+        <AnimatePresence initial={false} custom={dir} mode="wait">
+          <motion.div
+            key={page}
+            custom={dir}
+            variants={{
+              enter: (d: number) => ({ x: d > 0 ? '4%' : '-4%', opacity: 0 }),
+              center: { x: 0, opacity: 1 },
+              exit: (d: number) => ({ x: d > 0 ? '-4%' : '4%', opacity: 0 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+          >
+            {visible.map((cs) => (
+              <Link
+                key={cs.slug}
+                href={`/work/${cs.slug}`}
+                className="group block"
+                style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
+              >
+                <div className="overflow-hidden aspect-[293/414]">
+                  <img
+                    src={cs.thumb}
+                    alt={cs.client}
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-5">
+                  <p
+                    className="text-[9px] uppercase tracking-[0.2em] mb-1.5"
+                    style={{ color: categoryColor, fontFamily: NAV_FONT }}
+                  >
+                    {cs.category}
+                  </p>
+                  <h3
+                    className="text-[16px] leading-snug"
+                    style={{ fontFamily: SANS, fontWeight: 400, color: textColor }}
+                  >
+                    {cs.client}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Navigation — only when >4 items */}
+      {needsCarousel && (
+        <div className="flex items-center justify-between mt-8">
+          {/* Dot indicators */}
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => { setDir(i > page ? 1 : -1); setPage(i); }}
+                style={{
+                  width: i === page ? 20 : 6,
+                  height: 6,
+                  borderRadius: 3,
+                  background: i === page ? (dark ? '#f5f0eb' : '#2d3232') : (dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.18)'),
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: 0,
+                  transition: 'width 0.3s ease, background 0.2s ease',
+                }}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Prev / Next arrows */}
+          <div style={{ display: 'flex', gap: 10 }}>
+            <button
+              onClick={() => go(-1)}
+              disabled={page === 0}
+              style={{
+                ...arrowBase,
+                opacity: page === 0 ? 0.3 : 1,
+                cursor: page === 0 ? 'default' : 'pointer',
+              }}
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => go(1)}
+              disabled={page === totalPages - 1}
+              style={{
+                ...arrowBase,
+                opacity: page === totalPages - 1 ? 0.3 : 1,
+                cursor: page === totalPages - 1 ? 'default' : 'pointer',
+              }}
+              aria-label="Next"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 /* ─────────────────────────────────────────────────────────
    CATEGORY NAV BAR  — sticky anchor tabs
@@ -102,7 +250,6 @@ function CategoryNav({ groups }: { groups: Group[] }) {
     return () => obs.disconnect();
   }, []);
 
-  /* Highlight active section as user scrolls */
   useEffect(() => {
     function onScroll() {
       for (let i = groups.length - 1; i >= 0; i--) {
@@ -122,7 +269,7 @@ function CategoryNav({ groups }: { groups: Group[] }) {
   function scrollTo(anchor: string) {
     const el = document.getElementById(anchor);
     if (el) {
-      const offset = 72; // nav height approx
+      const offset = 72;
       const top = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -144,18 +291,8 @@ function CategoryNav({ groups }: { groups: Group[] }) {
         transition: 'background 0.35s ease, border-color 0.35s ease',
       }}
     >
-      <div
-        className="px-8 md:px-16 max-w-[1400px] mx-auto"
-        style={{ overflowX: 'auto' }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
+      <div className="px-8 md:px-16 max-w-[1400px] mx-auto" style={{ overflowX: 'auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 0, whiteSpace: 'nowrap' }}>
           {groups.map((g, i) => {
             const anchor = toAnchor(g.label);
             const isActive = active === anchor;
@@ -207,6 +344,9 @@ function CategoryNav({ groups }: { groups: Group[] }) {
   );
 }
 
+/* ─────────────────────────────────────────────────────────
+   WORK PAGE
+───────────────────────────────────────────────────────── */
 export function WorkPage() {
   return (
     <div style={{ fontFamily: SANS }}>
@@ -246,12 +386,12 @@ export function WorkPage() {
         const cases = group.slugs.map(s => BY_SLUG[s]).filter(Boolean);
         if (!cases.length) return null;
         const dark = gi % 2 === 1;
-        const bg        = dark ? '#2d3232' : '#f1efef';
-        const textColor = dark ? '#f5f0eb'  : '#2d3232';
-        const mutedColor = dark ? 'rgba(245,240,235,0.45)' : 'rgba(45,50,50,0.45)';
-        const borderColor = dark ? 'rgba(245,240,235,0.1)' : 'rgba(45,50,50,0.1)';
-        const cardBg = dark ? '#343a3a' : '#ffffff';
-        const cardBorder = dark ? '#424848' : '#e8e4e0';
+        const bg          = dark ? '#2d3232' : '#f1efef';
+        const textColor   = dark ? '#f5f0eb'  : '#2d3232';
+        const mutedColor  = dark ? 'rgba(245,240,235,0.45)' : 'rgba(45,50,50,0.45)';
+        const borderColor = dark ? 'rgba(245,240,235,0.1)'  : 'rgba(45,50,50,0.1)';
+        const cardBg      = dark ? '#343a3a' : '#ffffff';
+        const cardBorder  = dark ? '#424848' : '#e8e4e0';
         const categoryColor = dark ? 'rgba(245,240,235,0.35)' : 'rgba(45,50,50,0.35)';
 
         return (
@@ -283,28 +423,18 @@ export function WorkPage() {
             </div>
 
             <div className="px-8 md:px-16 pb-20 md:pb-28">
-              <div className="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                {cases.map((cs, ci) => (
-                  <FadeIn key={cs.slug} delay={Math.min(ci * 0.05, 0.3)} className="group">
-                    <Link href={`/work/${cs.slug}`} className="block"
-                      style={{ background: cardBg, border: `1px solid ${cardBorder}` }}>
-                      <div className="overflow-hidden aspect-[293/414]">
-                        <img src={cs.thumb} alt={cs.client}
-                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                      </div>
-                      <div className="p-5">
-                        <p className="text-[9px] uppercase tracking-[0.2em] mb-1.5"
-                          style={{ color: categoryColor, fontFamily: NAV_FONT }}>
-                          {cs.category}
-                        </p>
-                        <h3 className="text-[16px] leading-snug"
-                          style={{ fontFamily: SANS, fontWeight: 400, color: textColor }}>
-                          {cs.client}
-                        </h3>
-                      </div>
-                    </Link>
-                  </FadeIn>
-                ))}
+              <div className="max-w-[1400px] mx-auto">
+                <FadeIn>
+                  <ProjectCarousel
+                    cases={cases}
+                    dark={dark}
+                    cardBg={cardBg}
+                    cardBorder={cardBorder}
+                    textColor={textColor}
+                    mutedColor={mutedColor}
+                    categoryColor={categoryColor}
+                  />
+                </FadeIn>
               </div>
             </div>
           </section>
