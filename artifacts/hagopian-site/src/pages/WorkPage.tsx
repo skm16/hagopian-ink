@@ -61,8 +61,8 @@ const GROUPS: Group[] = [
     ],
   },
   {
-    label: 'Campaigns + Fundraising',
-    desc: 'Multichannel campaigns that connect brands and missions to the people who matter most.',
+    label: 'Multichannel Campaigns',
+    desc: 'From luxury brand launches to nonprofit fundraising drives — integrated campaigns across email, print, digital, and events that move people from awareness to action.',
     slugs: [
       'la-perla-multichannel-campaign-design',
       'montefiore-healthcare-design',
