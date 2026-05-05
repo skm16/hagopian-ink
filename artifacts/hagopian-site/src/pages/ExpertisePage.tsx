@@ -154,7 +154,7 @@ export function ExpertisePage() {
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
               {[
                 { n: '58%',  label: 'increase in unique visitors, Frette' },
-                { n: '3x',   label: 'increase in online sales — MSG Suites' },
+                { n: '12K',  label: 'new email opt-ins from UX campaign — Frette' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>

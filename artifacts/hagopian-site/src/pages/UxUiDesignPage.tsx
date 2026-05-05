@@ -10,11 +10,11 @@ import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } fro
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const CAPABILITIES = [
-  { title: 'UX Research + Strategy',         desc: 'User journeys, competitive benchmarking, and conversion analysis before a single wireframe is drawn.' },
+  { title: 'UX Research + Strategy',         desc: 'User journeys, competitive benchmarking, conversion analysis, and UX audits that identify friction before it costs you customers.' },
   { title: 'E-Commerce Design',              desc: 'Luxury-caliber shopping experiences that reduce bounce, increase basket size, and build brand loyalty.' },
   { title: 'Responsive Web Design',          desc: 'Pixel-perfect, mobile-first design that performs beautifully on every device and screen.' },
   { title: 'Landing Pages + Microsites',     desc: 'Focused experiences built for a single goal: sign-up, purchase, download, or contact.' },
-  { title: 'UX Audit + CX Optimization',     desc: 'We assess existing digital properties and identify friction points costing you conversions.' },
+  { title: 'App Design + Mobile UX',         desc: 'Native and cross-platform mobile app UX/UI — from concept and wireframing through polished, developer-ready designs.' },
   { title: 'Brand-to-Web Translation',       desc: 'Every visual identity we build is designed to extend seamlessly into the digital environment.' },
 ];
 
@@ -112,7 +112,7 @@ export function UxUiDesignPage() {
               We design digital experiences that feel effortless for users and perform powerfully for businesses. Every layout, every flow, every interaction is grounded in the goal: clarity, conversion, and brand alignment.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              From luxury fashion e-commerce to B2B lead-generation sites, we have designed digital properties that reduced friction, deepened engagement, and moved the needle on the metrics that matter.
+              From luxury fashion e-commerce to B2B lead-generation sites, we have designed digital properties that reduced friction, deepened engagement, and converted more browsers into buyers.
             </p>
           </FadeIn>
         </div>
