@@ -155,13 +155,13 @@ export function AboutPage() {
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/45 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                Christina founded Hagopian Ink in 2002 with a clear belief that thoughtful brand strategy and exceptional creative could genuinely move people — and move business. More than two decades on, that belief shapes every brief the studio takes.
+                A graduate of Carnegie Mellon University's School of Design, Christina has spent more than two decades partnering with visionary leaders and organizations at pivotal moments of growth, change, and reinvention — helping them clarify who they are and how they show up in the world.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                As President and Creative Director, she leads every client engagement directly — bringing a rare combination of strategic clarity and hands-on creative direction to organizations ranging from Fortune 50 companies to mission-driven nonprofits and emerging luxury brands.
+                Known for her hands-on leadership style and sharp creative instincts, she guides brand evolution from strategy through execution — spanning identity, rebranding, websites, and communication systems. Her work bridges clarity and craft, aligning vision, messaging, and design into brands that feel grounded, confident, and memorable.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
-                Her philosophy is simple: great work starts with genuine partnership. She built Hagopian Ink not on size, but on the depth of its client relationships — many spanning a decade or more.
+                Christina has led design initiatives for organizations ranging from mission-driven nonprofits to medtech innovators and global brands including PepsiCo, Lancôme, Audible, Burberry, and Madison Square Garden. She believes great branding isn't about trends — it's about truth, alignment, and momentum.
               </p>
             </div>
           </FadeIn>
