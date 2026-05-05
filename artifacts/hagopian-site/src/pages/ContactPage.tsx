@@ -47,7 +47,7 @@ export function ContactPage() {
           <FadeIn>
             <SectionLabel>Good design is good business.</SectionLabel>
             <h2 className="text-3xl md:text-5xl mb-8 leading-[1.02] text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              True partnership starts here.
+              True partnership <span className="whitespace-nowrap">starts here.</span>
             </h2>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-14 max-w-lg">
               Whether you are building a new brand from the ground up, evolving an established one, or launching your next digital campaign — we would love to hear about your project.
