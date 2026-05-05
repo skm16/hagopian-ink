@@ -27,7 +27,7 @@ type Group = {
 const GROUPS: Group[] = [
   {
     label: 'Brand Identity',
-    desc: 'Logos, marks, visual systems, and brand standards designed to endure across every medium and every moment.',
+    desc: 'A brand is more than a logo. Strategy-first identity design, styleguides, and brand standards that set the tone for every campaign — crafted to help you eclipse the competition.',
     slugs: [
       'joseph-robert',
       'todd-duncan-cashmere-branding-design',
