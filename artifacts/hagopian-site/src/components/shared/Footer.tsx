@@ -18,7 +18,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <img src={logoSrc} alt="Hagopian Ink" className="h-7 w-auto opacity-90 mb-6" />
             <p className="text-[13px] text-[#f5f0eb]/60 leading-relaxed mb-6" style={{ fontFamily: SANS }}>
-              Boutique brand design and digital experiences. Born in NYC, operating worldwide.
+              A creative studio for brand design and digital experiences. Born in NYC, operating worldwide.
             </p>
             <div className="flex gap-3">
               {SOCIAL.map(({ icon: Icon, href, label }) => (

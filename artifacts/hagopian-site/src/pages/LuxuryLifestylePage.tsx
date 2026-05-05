@@ -118,7 +118,7 @@ export function LuxuryLifestylePage() {
               We understand luxury because we have lived inside it since our first day in business. Our clients have included global fashion houses, heritage cashmere labels, fine jewelry brands, beauty innovators, and lifestyle startups — each requiring the same rare combination of editorial sensibility, strategic precision, and craft.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              From Burberry's first e-commerce website to Todd & Duncan's US market launch, from La Perla's Valentine's Day campaigns to Lancôme's viral House of Color activation — we bring a big-agency creative standard with the personal attention of a boutique studio that treats your brand as its own.
+              From Burberry's first e-commerce website to Todd & Duncan's US market launch, from La Perla's Valentine's Day campaigns to Lancôme's viral House of Color activation — we bring a big-agency creative standard with the personal attention of a creative studio that treats your brand as its own.
             </p>
           </FadeIn>
         </div>
