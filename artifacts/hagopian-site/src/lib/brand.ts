@@ -61,6 +61,7 @@ export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/03_HI_logo_mercedes.png`,     alt:'Mercedes' },
   { src:`${CDN}/2018/09/04_HI_logo_esteelauder.png`,  alt:'Estée Lauder' },
   { src:`${CDN}/2018/09/05_HI_logo_audible.png`,      alt:'Audible' },
+  { src: _epilepsyLogo,   alt: 'Epilepsy Foundation', small: true },
   { src:`${CDN}/2018/09/06_HI_logo_burberry.png`,     alt:'Burberry' },
   { src:`${CDN}/2018/09/07_HI_logo_armani.png`,       alt:'Armani' },
   { src:`${CDN}/2018/09/08_HI_logo_disney.png`,       alt:'Disney' },
@@ -71,6 +72,7 @@ export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/13_HI_logo_gwynniebee.png`,   alt:'Gwynnie Bee' },
   { src:`${CDN}/2018/09/14_HI_logo_frette.png`,       alt:'Frette' },
   { src:`${CDN}/2018/09/15_HI_logo_cuddlduds.png`,    alt:'Cuddl Duds' },
+  { src: _susanKomenLogo, alt: 'Susan G. Komen',      small: true },
   { src:`${CDN}/2018/09/16_HI_logo_astonmartin.png`,  alt:'Aston Martin' },
   { src:`${CDN}/2018/09/17_HI_logo_brides.png`,       alt:'Brides' },
   { src:`${CDN}/2018/09/18_HI_logo_mtndew.png`,       alt:'Mountain Dew' },
@@ -79,10 +81,8 @@ export const CLIENT_LOGOS = [
   { src:`${CDN}/2018/09/21_HI_logo_malala.png`,       alt:'Malala Fund' },
   { src:`${CDN}/2018/09/22_HI_logo_condenast.png`,    alt:'Condé Nast' },
   { src:`${CDN}/2018/09/23_HI_logo_tedx.png`,         alt:'TEDx' },
-  { src:`${CDN}/2018/09/24_HI_logo_montefiore.png`,   alt:'Montefiore' },
-  { src: _epilepsyLogo,   alt: 'Epilepsy Foundation', small: true },
-  { src: _susanKomenLogo, alt: 'Susan G. Komen',      small: true },
   { src: _blmLogo,        alt: 'Black Lives Matter',  small: true },
+  { src:`${CDN}/2018/09/24_HI_logo_montefiore.png`,   alt:'Montefiore' },
 ];
 
 export const CASE_STUDIES = [
