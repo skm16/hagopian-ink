@@ -298,7 +298,7 @@ export function WorkPage() {
                           {cs.category}
                         </p>
                         <h3 className="text-[16px] leading-snug"
-                          style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
+                          style={{ fontFamily: SANS, fontWeight: 400, color: textColor }}>
                           {cs.client}
                         </h3>
                       </div>

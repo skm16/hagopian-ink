@@ -566,7 +566,7 @@ function RelatedCard({ cs }: { cs: CaseStudy }) {
             className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
         </div>
         <p className="mt-3 text-[13px] leading-snug"
-          style={{ fontFamily: SERIF, fontWeight: 700, color: '#2d3232' }}>
+          style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}>
           {cs.client}
         </p>
       </Link>
