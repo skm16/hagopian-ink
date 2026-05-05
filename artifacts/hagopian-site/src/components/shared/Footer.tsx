@@ -81,7 +81,7 @@ export function Footer() {
         </div>
         <div className="border-t border-[#3a4040] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60"
           style={{ fontFamily: NAV_FONT }}>
-          <p>© 2025 Hagopian Ink. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hagopian Ink. All rights reserved.</p>
           <p>Woman-Owned Business · Since 2002</p>
         </div>
       </div>
