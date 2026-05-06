@@ -235,16 +235,16 @@ export function Homepage() {
             <FadeIn>
               <SectionLabel light>Our Approach</SectionLabel>
               <h2 className="text-3xl md:text-5xl leading-[1.05] mb-10" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                Two decades of expertise.<br />
-                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>The personal attention only a studio can give.</span>
+                Thoughtful work. Lasting relationships.<br />
+                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>Creative leadership from start to finish.</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                When you work with Hagopian Ink, you work directly with senior creative talent — not account managers or junior teams. Since 2002, we have brought focused, personal attention to every project while delivering the strategic thinking and creative execution you would expect from a major agency.
+                When you work with Hagopian Ink, you work directly with the people leading your project — not layers of account management or junior associates. Since 2002, we've partnered closely with clients to deliver thoughtful work, clear communication, and creative solutions shaped by insight, experience, and a strong understanding of audience perception.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12">
-                Our clients stay with us for years — because results matter, and so does the relationship. We have maintained 5-year retainers with clients like Pepsi, built 6-year campaign partnerships with Viant Medical, and spent decades growing with the brands we believe in.
+                Many of our client relationships span years because strong work is only part of the equation. We've maintained five-year retainers with brands like Pepsi and built six-year partnerships with Viant Medical while continuing to grow alongside the clients and organizations we believe in. Trust, reliability, and consistency are what bring clients back.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
