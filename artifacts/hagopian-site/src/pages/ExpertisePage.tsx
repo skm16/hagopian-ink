@@ -49,7 +49,7 @@ export function ExpertisePage() {
               Driven by <span style={{ fontStyle: 'italic', opacity: 0.55 }}>results.</span>
             </h1>
             <p className="text-xl text-[#f5f0eb]/60 max-w-2xl leading-relaxed">
-              Since 2002, we've combined audience insight, thoughtful creative, and strong design principles to create work that strengthens perception and supports real business goals.
+              Since 2002, we've combined audience insight, thoughtful creative, and strong design principles to develop work that strengthens perception and supports real business goals.
             </p>
           </motion.div>
         </div>
