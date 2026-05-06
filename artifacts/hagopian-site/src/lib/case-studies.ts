@@ -1,3 +1,5 @@
+import jenHeadshot from '@assets/image_1777600627219.png';
+
 const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 const BASE = import.meta.env.BASE_URL;
 
@@ -16,7 +18,8 @@ export type Section =
       solution: string;
       resultTitle: string;
       result: string;
-    };
+    }
+  | { type: 'quote'; quote: string; name: string; title: string; photo?: string };
 
 export type CaseStudy = {
   slug: string;
@@ -25,7 +28,7 @@ export type CaseStudy = {
   tags: string[];
   tagline: string;
   intro: string;
-  hero: string;
+  hero?: string;
   heroContained?: boolean;
   noHero?: boolean;
   sections: Section[];
@@ -1124,6 +1127,34 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     thumb: `${BASE}case-studies/recoveryplus/hero.png`,
+  },
+
+  /* ─── CANNADIPS ──────────────────────────────────────── */
+  {
+    slug: 'cannadips-email-marketing',
+    client: 'Cannadips',
+    category: 'Email Marketing',
+    tags: ['Email Marketing', 'E-commerce', 'DTC', 'Health'],
+    tagline: 'Automations that pay for themselves, year after year.',
+    intro: 'Cannadips engaged Hagopian Ink to build an email marketing program from the ground up — one designed to generate consistent revenue between demand peaks without constant manual effort. The result was a smart automation strategy paired with on-brand creative that converted browsers into buyers and kept them coming back.',
+    noHero: true,
+    sections: [
+      {
+        type: 'columns-three',
+        challenge: 'Cannadips needed an email marketing engine that could drive consistent online sales on its own — capturing new customers, nurturing existing ones, and generating recurring revenue without relying on one-time campaigns or heavy manual effort.',
+        solution: 'We designed a comprehensive email automation program: welcome flows, post-purchase sequences, winback campaigns, and seasonal sends — all rooted in on-brand creative that felt authentic to the Cannadips voice. Every touchpoint was built to convert and retain.',
+        resultTitle: '$56K in new sales from automations in 4 months',
+        result: 'Within the first four months, the email automation program generated $56K in incremental new sales. The system continued to regenerate revenue year after year, delivering a 5–10% lift in online sales through high-frequency, on-brand consumer communications.',
+      },
+      {
+        type: 'quote',
+        quote: 'The email strategy and automations you created delivered a 5% to 10% lift in our online sales through on-brand communications that increase the frequency of our consumer touches. It has created an annuity, regenerating revenue year after year.',
+        name: 'Jen Pike',
+        title: 'Chief Revenue Officer, Cannadips / BoltRunners',
+        photo: jenHeadshot,
+      },
+    ],
+    thumb: `${CDN}/2018/08/Work-Thumb_cannadips-293x414.jpg`,
   },
 
 ];

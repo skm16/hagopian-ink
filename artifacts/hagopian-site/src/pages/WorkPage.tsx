@@ -51,6 +51,7 @@ const GROUPS: Group[] = [
     label: 'Email Marketing',
     desc: 'Whether a single send or a complex automation sequence, every email is designed to feel like a personal conversation at scale.',
     slugs: [
+      'cannadips-email-marketing',
       'pepsi-email-marketing',
       'sesame-street-mobile-email',
       'gwynnie-bee-subscription-acquisition-email',

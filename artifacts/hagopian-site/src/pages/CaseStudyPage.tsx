@@ -396,7 +396,7 @@ function TextImageSection({ label, title, body, image, imageLeft = false, bg: bg
    • Below: all images stacked vertically, full width
      → naturally ~3 visible at once as you scroll
 ───────────────────────────────────────────────────────── */
-function LogoGrid({ images }: { images: string[] }) {
+function LogoGrid({ images, bg: _bg }: { images: string[]; bg?: string }) {
   const n = images.length;
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -514,6 +514,37 @@ function ContainedImg({ src, maxWidth = 860, bg = '#f4f2f2' }: { src: string; ma
 }
 
 /* ─────────────────────────────────────────────────────────
+   QUOTE / TESTIMONIAL
+───────────────────────────────────────────────────────── */
+function QuoteSection({ quote, name, title, photo }: { quote: string; name: string; title: string; photo?: string }) {
+  return (
+    <section style={{ background: '#2d3232' }}>
+      <div className="px-8 md:px-16 py-20 md:py-28 max-w-[1400px] mx-auto">
+        <FadeIn>
+          <div className="border-l-2 border-[#f5f0eb]/12 pl-10 relative max-w-3xl">
+            <span className="absolute -top-12 -left-4 text-[9rem] leading-none text-[#f5f0eb]/05" style={{ fontFamily: SERIF }}>"</span>
+            <blockquote className="text-xl md:text-2xl leading-relaxed mb-8 italic text-[#f5f0eb]/75 relative" style={{ fontFamily: SERIF }}>
+              "{quote}"
+            </blockquote>
+            <cite className="not-italic flex items-center gap-4">
+              {photo && (
+                <img src={photo} alt={name}
+                  className="w-14 h-14 rounded-full object-cover border border-[#f5f0eb]/20"
+                  style={{ filter: 'grayscale(100%)' }} />
+              )}
+              <span>
+                <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">{name}</span>
+                <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{title}</span>
+              </span>
+            </cite>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
    SECTION DISPATCHER
 ───────────────────────────────────────────────────────── */
 function RenderSection({ section }: { section: Section }) {
@@ -549,6 +580,8 @@ function RenderSection({ section }: { section: Section }) {
           result={section.result}
         />
       );
+    case 'quote':
+      return <QuoteSection quote={section.quote} name={section.name} title={section.title} photo={section.photo} />;
     default:
       return null;
   }
@@ -661,7 +694,7 @@ export function CaseStudyPage() {
       </section>
 
       {/* ── HERO IMAGE ── */}
-      {!cs.noHero && (cs.heroContained
+      {!cs.noHero && cs.hero && (cs.heroContained
         ? <ContainedImg src={cs.hero} maxWidth={900} />
         : <FullImg src={cs.hero} />
       )}

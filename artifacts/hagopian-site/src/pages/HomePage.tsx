@@ -6,7 +6,6 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import ceciliaHeadshot from '@assets/image_1776807172711.png';
-import jenHeadshot from '@assets/image_1777600627219.png';
 import {
   CDN, LOGO, VIDEO_MP4, VIDEO_POSTER,
   SERIF, SANS, NAV_FONT, BRAND_STYLES,
@@ -236,8 +235,8 @@ export function Homepage() {
             <FadeIn>
               <SectionLabel light>Our Approach</SectionLabel>
               <h2 className="text-3xl md:text-5xl leading-[1.05] mb-10" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                The personal touch.<br />
-                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>Big agency results.</span>
+                Two decades of expertise.<br />
+                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>The personal attention only a studio can give.</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
@@ -259,8 +258,8 @@ export function Homepage() {
             <FadeIn delay={0.35}>
               <div className="border-l-2 border-[#f5f0eb]/12 pl-10 relative">
                 <span className="absolute -top-12 -left-4 text-[9rem] leading-none text-[#f5f0eb]/05" style={{ fontFamily: SERIF }}>“</span>
-                <blockquote className="text-3xl md:text-4xl leading-snug mb-8 relative" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                  Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas.
+                <blockquote className="text-xl md:text-2xl leading-relaxed mb-8 italic text-[#f5f0eb]/75 relative" style={{ fontFamily: SERIF }}>
+                  "Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas."
                 </blockquote>
                 <cite className="not-italic flex items-center gap-4">
                   <img src={ceciliaHeadshot} alt="Cecilia Pagkalinawan" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
@@ -272,20 +271,6 @@ export function Homepage() {
                   </span>
                 </cite>
               </div>
-            </FadeIn>
-            <FadeIn delay={0.5} className="mt-16 border-l-2 border-[#f5f0eb]/08 pl-10">
-              <blockquote className="text-xl md:text-2xl leading-relaxed mb-6 italic text-[#f5f0eb]/75" style={{ fontFamily: SERIF }}>
-                “The email strategy and automations you created delivered a 5% to 10% lift in our online sales through on-brand communications that increase the frequency of our consumer touches. It has created an annuity, regenerating revenue year after year.”
-              </blockquote>
-              <cite className="not-italic flex items-center gap-4">
-                <img src={jenHeadshot} alt="Jen Pike" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" style={{ filter: 'grayscale(100%)' }} />
-                <span>
-                  <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Jen Pike</span>
-                  <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>
-                    Chief Revenue Officer<br />Cannadips / BoltRunners
-                  </span>
-                </span>
-              </cite>
             </FadeIn>
           </div>
         </div>
