@@ -149,7 +149,7 @@ export function Homepage() {
           <FadeIn className="max-w-3xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
             <p className="text-lg md:text-xl text-[#2d3232]/70 leading-relaxed">
-              As a trusted partner for brand identity, visual communication, web design, and digital experiences, we combine consumer insights with creativity for optimal results. Our emphasis is on producing thoughtful, conceptually driven work that comes from a clear understanding of our clients and their audience.
+              As a trusted partner for brand identity, visual communication, web design, and digital experiences, we combine audience insight with creative thinking to produce thoughtful, concept-driven work. Every project is shaped by a clear understanding of our clients and the people they're trying to reach.
             </p>
           </FadeIn>
 
