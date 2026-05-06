@@ -230,7 +230,7 @@ export function Homepage() {
           BOUTIQUE DIFFERENTIATOR + TESTIMONIALS
       ═══════════════════════════════════════════════════════ */}
       <section className="bg-[#2d3232] py-32 md:py-52 px-6 md:px-12 border-t border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-8 items-start">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-8 items-center">
           <div className="lg:col-span-5">
             <FadeIn>
               <SectionLabel light>Our Approach</SectionLabel>
