@@ -1,30 +1,44 @@
 import React from 'react';
 import type { GalleryBlock } from '@/lib/work-detail-types';
 
+// Mirrors part-gallery.php + _gallery.scss: each tile is 25% wide (4 columns) at
+// 40vh tall, background-cover. With 8 images this is exactly 2 rows of 4 — the
+// canonical gallery layout. Switched from CSS background-image to <img> so
+// images contribute to the accessibility tree.
 export function Gallery({ block }: { block: GalleryBlock }) {
   const images = block.images;
   if (images.length === 0) return null;
 
   return (
-    <section style={{ background: '#ffffff', padding: '60px 0' }}>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: 4,
-        maxWidth: '100%',
-      }}>
+    <section style={{ background: '#ffffff' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: 0,
+        }}
+      >
         {images.map((src, i) => (
           <div
             key={i}
             style={{
-              backgroundImage: `url(${src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              aspectRatio: '1 / 1',
+              width: '100%',
+              height: '40vh',
+              overflow: 'hidden',
             }}
-            aria-label={`Gallery image ${i + 1}`}
-            role="img"
-          />
+          >
+            <img
+              src={src}
+              alt={`Gallery image ${i + 1}`}
+              style={{
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+            />
+          </div>
         ))}
       </div>
     </section>

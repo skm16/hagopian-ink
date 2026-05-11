@@ -13,6 +13,10 @@ import React from 'react';
  *
  * If user-submitted content is ever piped into a flex-content field, add
  * sanitization (DOMPurify) here — every caller flows through this helper.
+ *
+ * The .wp-html class lets us scope responsive overrides for embedded media
+ * (iframes, oversized images) without affecting other content on the page.
+ * See <WpHtmlStyles /> below.
  */
 export function WpHtml({
   html,
@@ -28,8 +32,34 @@ export function WpHtml({
   const Tag = as;
   // Property name built at runtime so static scanners stop flagging
   // every consumer; the trust review lives here.
-  const props: Record<string, unknown> = { style, className };
+  const props: Record<string, unknown> = {
+    style,
+    className: ['wp-html', className].filter(Boolean).join(' '),
+  };
   const danger = 'dangerously' + 'SetInnerHTML';
   props[danger] = { __html: html };
   return <Tag {...props} />;
 }
+
+/**
+ * Global stylesheet for WP-html embedded media. Mount once at the page level
+ * (CaseStudyPage already injects BRAND_STYLES via the same mechanism).
+ */
+export const WP_HTML_STYLES = `
+.wp-html { max-width: 100%; }
+.wp-html iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+.wp-html img {
+  max-width: 100%;
+  height: auto;
+}
+.wp-html p { margin: 0 0 1em; }
+.wp-html p:last-child { margin-bottom: 0; }
+`;

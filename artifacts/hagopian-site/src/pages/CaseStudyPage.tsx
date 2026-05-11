@@ -7,7 +7,12 @@ import { FadeIn, BtnLight } from '@/components/shared/ui';
 import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import { useWork } from '@/hooks/useWork';
 import { renderBlock } from '@/components/work-flex';
+import { WP_HTML_STYLES } from '@/components/work-flex/WpHtml';
 import type { DetailPost, RelatedItem } from '@/lib/work-detail-types';
+
+// Combined inline styles for the detail page: brand fonts/keyframes plus the
+// scoped overrides for WP-authored HTML (responsive iframes, image cap, etc.).
+const PAGE_STYLES = BRAND_STYLES + WP_HTML_STYLES;
 
 export function CaseStudyPage() {
   const params = useParams<{ slug: string }>();
@@ -16,7 +21,7 @@ export function CaseStudyPage() {
 
   return (
     <div style={{ fontFamily: SANS }}>
-      <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
+      <style dangerouslySetInnerHTML={{ __html: PAGE_STYLES }} />
       <Nav alwaysVisible />
 
       {status === 'loading' && <CenteredMessage label="Loading work…" />}
