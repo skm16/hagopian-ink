@@ -49,9 +49,9 @@ export const WP_HTML_STYLES = `
 .wp-html { max-width: 100%; }
 .wp-html iframe {
   display: block;
-  margin: 0 auto;
-  max-width: 100%;
+  margin: 40px auto;
   width: 100%;
+  max-width: 1000px;
   aspect-ratio: 16 / 9;
   height: auto;
   border: 0;

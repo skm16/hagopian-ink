@@ -1,32 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { MobilePagesBlock } from '@/lib/work-detail-types';
 
 const PHONE_PNG = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/3252351.png';
 
-// One image visible at a time, fully contained inside the phone bezel's
-// transparent screen window. Slides translate across the screen with a smooth
-// transition; the overflow:hidden clip ensures no part of any image extends
-// past the bezel boundary.
+// Adjacent slides peek out left and right of the phone bezel; the section's
+// overflow:hidden clips them at the page edges so they fade off to the sides.
+// The active slide sits behind the bezel and fills the screen window exactly.
 //
-// Screen-window geometry was derived by sampling the phone PNG (3252351.png,
-// natural size 320x579) for opaque vs transparent pixels. The bezel outer
-// bounds in PNG coords are x∈[27,290], the screen window in PNG coords is
-// x∈[40,279] y∈[50,500]. Scaled to display height 520 (scale 0.898) and with
-// backgroundPositionX:-26 applied, the visible screen window is approximately
-// 215x404 at (10, 45) inside the 265x520 phone container.
+// Screen-window geometry derived by pixel-sampling the phone PNG (320x579):
+//   bezel x in [27,290], screen window x in [40,279] y in [50,500].
+//   With backgroundSize:auto 100% (scale 520/579 = 0.898) and
+//   backgroundPositionX:-26, the visible screen window is 215x404 at (10,45)
+//   inside the 265x520 phone container.
 const PHONE_W = 265;
 const PHONE_H = 520;
 const SCREEN_LEFT = 10;
 const SCREEN_TOP = 45;
 const SCREEN_W = 215;
 const SCREEN_H = 404;
-const AUTOPLAY_MS = 3000;
-const TRANSITION_MS = 800;
+const SLIDE_GAP = 60; // visible gap between adjacent peeking slides
+const SLIDE_STEP = SCREEN_W + SLIDE_GAP;
+const AUTOPLAY_MS = 3500;
+const TRANSITION_MS = 900;
 
 export function MobilePages({ block }: { block: MobilePagesBlock }) {
   const images = block.images;
   const n = images.length;
-  const [idx, setIdx] = useState(0);
+  const [idx, setIdx] = useState(Math.floor(n / 2));
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (n <= 1) return;
@@ -36,68 +37,88 @@ export function MobilePages({ block }: { block: MobilePagesBlock }) {
 
   if (n === 0) return null;
 
-  const translateX = -(idx * SCREEN_W);
+  // Strip is positioned absolutely inside a wrapper whose width = section width.
+  // The strip is laid out so that the active slide (index `idx`) lands centered
+  // horizontally in the wrapper. Adjacent slides flow naturally to the sides
+  // and get clipped by section overflow:hidden.
+  //
+  // Each slide occupies SLIDE_STEP px of horizontal space. The active slide's
+  // left edge should sit at wrapperWidth/2 - SCREEN_W/2. The slide at index i
+  // starts at i*SLIDE_STEP from the strip's own left edge. Setting the strip's
+  // left to wrapperWidth/2 - SCREEN_W/2 - idx*SLIDE_STEP achieves the centering.
+  // Rather than measure wrapper width at runtime, we use a percentage-based
+  // offset on the strip: 50% (wrapper center), then translate left by the
+  // active slide's start plus half its width.
+  const translateX = -idx * SLIDE_STEP - SCREEN_W / 2;
+  const stripWidth = n * SLIDE_STEP - SLIDE_GAP; // last slide has no trailing gap
 
   return (
     <section
       style={{
         background: '#f4f2f2',
         padding: '90px 0',
+        overflow: 'hidden',
+        position: 'relative',
       }}
     >
       <div
+        ref={wrapperRef}
         style={{
           position: 'relative',
-          width: PHONE_W,
+          width: '100%',
           height: PHONE_H,
-          margin: '0 auto',
         }}
       >
-        {/* Screen clip — exactly matches the phone PNG's transparent window. */}
+        {/* Slides strip — flows full-bleed past the bezel; clipped by section overflow */}
         <div
           style={{
             position: 'absolute',
             top: SCREEN_TOP,
-            left: SCREEN_LEFT,
-            width: SCREEN_W,
+            left: '50%',
+            width: stripWidth,
             height: SCREEN_H,
-            overflow: 'hidden',
-            background: '#fff',
+            transform: `translate3d(${translateX}px, 0, 0)`,
+            transition: `transform ${TRANSITION_MS}ms ease-in-out`,
+            display: 'flex',
+            gap: SLIDE_GAP,
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              width: n * SCREEN_W,
-              height: SCREEN_H,
-              transform: `translate3d(${translateX}px, 0, 0)`,
-              transition: `transform ${TRANSITION_MS}ms ease-in-out`,
-            }}
-          >
-            {images.map((src, i) => (
+          {images.map((src, i) => (
+            <div
+              key={i}
+              style={{
+                width: SCREEN_W,
+                height: SCREEN_H,
+                flexShrink: 0,
+                background: '#fff',
+              }}
+            >
               <img
-                key={i}
                 src={src}
                 alt=""
                 style={{
                   width: SCREEN_W,
                   height: SCREEN_H,
-                  flexShrink: 0,
                   display: 'block',
                   objectFit: 'cover',
                   objectPosition: 'top center',
                 }}
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* Phone bezel overlay on top of the clipped slides. */}
+        {/* Phone bezel overlay — positioned so its screen window is centered
+            on wrapper center (matching the active slide's position). The
+            screen window starts at SCREEN_LEFT inside the bezel container and
+            is SCREEN_W wide, so the bezel itself sits at:
+              wrapperCenter - SCREEN_LEFT - SCREEN_W/2  */}
         <div
           style={{
             position: 'absolute',
             top: 0,
-            left: 0,
+            left: '50%',
+            transform: `translateX(${-(SCREEN_LEFT + SCREEN_W / 2)}px)`,
             width: PHONE_W,
             height: PHONE_H,
             backgroundImage: `url(${PHONE_PNG})`,
