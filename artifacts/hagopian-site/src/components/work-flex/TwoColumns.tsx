@@ -1,6 +1,7 @@
 import React from 'react';
 import type { TwoColumnsBlock } from '@/lib/work-detail-types';
 import { SERIF, SANS } from '@/lib/brand';
+import { WpHtml } from './WpHtml';
 
 export function TwoColumns({ block }: { block: TwoColumnsBlock }) {
   if (!block.title && !block.description) return null;
@@ -25,15 +26,15 @@ export function TwoColumns({ block }: { block: TwoColumnsBlock }) {
           </div>
           <div className="md:basis-1/3 md:flex-grow-0">
             {block.description && (
-              <p style={{
-                fontFamily: SANS,
-                fontSize: 16,
-                lineHeight: 1.7,
-                color: 'rgba(45,50,50,0.85)',
-                margin: 0,
-              }}>
-                {block.description}
-              </p>
+              <WpHtml
+                html={block.description}
+                style={{
+                  fontFamily: SANS,
+                  fontSize: 16,
+                  lineHeight: 1.7,
+                  color: 'rgba(45,50,50,0.85)',
+                }}
+              />
             )}
           </div>
         </div>

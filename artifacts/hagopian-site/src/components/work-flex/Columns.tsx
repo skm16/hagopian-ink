@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ColumnsBlock } from '@/lib/work-detail-types';
 import { SERIF, SANS, NAV_FONT } from '@/lib/brand';
+import { WpHtml } from './WpHtml';
 
 export function Columns({ block }: { block: ColumnsBlock }) {
   const cols = block.columns.filter((c) => c.name || c.title || c.description);
@@ -50,15 +51,15 @@ export function Columns({ block }: { block: ColumnsBlock }) {
                 </p>
               )}
               {col.description && (
-                <p style={{
-                  fontFamily: SANS,
-                  fontSize: 16,
-                  lineHeight: 1.7,
-                  color: '#2e2e2e',
-                  margin: 0,
-                }}>
-                  {col.description}
-                </p>
+                <WpHtml
+                  html={col.description}
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 16,
+                    lineHeight: 1.7,
+                    color: '#2e2e2e',
+                  }}
+                />
               )}
             </div>
           ))}

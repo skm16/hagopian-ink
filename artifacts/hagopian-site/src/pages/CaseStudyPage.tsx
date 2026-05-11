@@ -47,25 +47,24 @@ function Header({ post }: { post: DetailPost }) {
   return (
     <section style={{ background: '#f1efef', paddingTop: 110, paddingBottom: 90 }}>
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
-        <Link href="/work">
-          <a
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              fontFamily: NAV_FONT,
-              fontSize: 11,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'rgba(45,50,50,0.6)',
-              textDecoration: 'none',
-              marginBottom: 32,
-              cursor: 'pointer',
-            }}
-          >
-            <ArrowLeft style={{ width: 14, height: 14 }} />
-            Work
-          </a>
+        <Link
+          href="/work"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            fontFamily: NAV_FONT,
+            fontSize: 11,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'rgba(45,50,50,0.6)',
+            textDecoration: 'none',
+            marginBottom: 32,
+            cursor: 'pointer',
+          }}
+        >
+          <ArrowLeft style={{ width: 14, height: 14 }} />
+          Work
         </Link>
 
         <h1 style={{
@@ -161,24 +160,23 @@ function RelatedWork({ items }: { items: RelatedItem[] }) {
           }}>
             — Related Work
           </p>
-          <Link href="/work">
-            <a
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                fontFamily: NAV_FONT,
-                fontSize: 10,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: 'rgba(45,50,50,0.7)',
-                textDecoration: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              View All Work
-              <ArrowRight style={{ width: 12, height: 12 }} />
-            </a>
+          <Link
+            href="/work"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontFamily: NAV_FONT,
+              fontSize: 10,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'rgba(45,50,50,0.7)',
+              textDecoration: 'none',
+              cursor: 'pointer',
+            }}
+          >
+            View All Work
+            <ArrowRight style={{ width: 12, height: 12 }} />
           </Link>
         </div>
 
@@ -190,34 +188,36 @@ function RelatedWork({ items }: { items: RelatedItem[] }) {
           }}
         >
           {items.map((item) => (
-            <Link key={item.slug} href={`/work/${item.slug}`}>
-              <a style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
-                <FadeIn>
-                  <div style={{ aspectRatio: '293 / 414', overflow: 'hidden', background: '#fff' }}>
-                    {item.thumbnail && (
-                      <img
-                        src={item.thumbnail}
-                        alt={item.title}
-                        style={{
-                          display: 'block',
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                        }}
-                      />
-                    )}
-                  </div>
-                  <p style={{
-                    fontFamily: SANS,
-                    fontSize: 14,
-                    color: '#2d3232',
-                    margin: 0,
-                    marginTop: 12,
-                  }}>
-                    {item.title}
-                  </p>
-                </FadeIn>
-              </a>
+            <Link
+              key={item.slug}
+              href={`/work/${item.slug}`}
+              style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
+            >
+              <FadeIn>
+                <div style={{ aspectRatio: '293 / 414', overflow: 'hidden', background: '#fff' }}>
+                  {item.thumbnail && (
+                    <img
+                      src={item.thumbnail}
+                      alt={item.title}
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  )}
+                </div>
+                <p style={{
+                  fontFamily: SANS,
+                  fontSize: 14,
+                  color: '#2d3232',
+                  margin: 0,
+                  marginTop: 12,
+                }}>
+                  {item.title}
+                </p>
+              </FadeIn>
             </Link>
           ))}
         </div>
@@ -314,8 +314,9 @@ function NotFound({ slug }: { slug?: string }) {
       }}>
         {slug ? `No post matched "${slug}".` : 'No slug provided.'}
       </p>
-      <Link href="/work">
-        <a style={{
+      <Link
+        href="/work"
+        style={{
           fontFamily: NAV_FONT,
           fontSize: 11,
           letterSpacing: '0.18em',
@@ -325,9 +326,9 @@ function NotFound({ slug }: { slug?: string }) {
           paddingBottom: 4,
           textDecoration: 'none',
           cursor: 'pointer',
-        }}>
-          ← All Work
-        </a>
+        }}
+      >
+        ← All Work
       </Link>
     </section>
   );

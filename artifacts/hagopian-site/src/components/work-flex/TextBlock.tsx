@@ -1,6 +1,7 @@
 import React from 'react';
 import type { TextBlockBlock } from '@/lib/work-detail-types';
 import { SERIF, SANS, NAV_FONT } from '@/lib/brand';
+import { WpHtml } from './WpHtml';
 
 export function TextBlock({ block }: { block: TextBlockBlock }) {
   if (!block.name && !block.title && !block.description) return null;
@@ -43,17 +44,18 @@ export function TextBlock({ block }: { block: TextBlockBlock }) {
           </h2>
         )}
         {block.description && (
-          <p style={{
-            fontFamily: SANS,
-            fontSize: 16,
-            lineHeight: 1.7,
-            color: descColor,
-            margin: '0 auto',
-            width: descWidth,
-            maxWidth: '100%',
-          }}>
-            {block.description}
-          </p>
+          <WpHtml
+            html={block.description}
+            style={{
+              fontFamily: SANS,
+              fontSize: 16,
+              lineHeight: 1.7,
+              color: descColor,
+              margin: '0 auto',
+              width: descWidth,
+              maxWidth: '100%',
+            }}
+          />
         )}
       </div>
     </section>
