@@ -1,7 +1,7 @@
 # Single-work detail page fed from WordPress
 
 **Date:** 2026-05-11
-**Status:** Design — approved, ready for implementation plan
+**Status:** Implemented (2026-05-11)
 **Scope:** `/work/<slug>` detail page. Replaces the `CASE_STUDIES`-driven `CaseStudyPage.tsx` with a WP-fed renderer for the same posts that now feed the `/work/` listing (Tasks 1-9, ticket #1).
 
 ---
