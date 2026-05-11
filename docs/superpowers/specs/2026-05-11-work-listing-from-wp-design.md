@@ -1,7 +1,7 @@
 # /work/ listing fed from WordPress
 
 **Date:** 2026-05-11
-**Status:** Design — approved, ready for implementation plan
+**Status:** Implemented (2026-05-11)
 **Scope:** Listing page only. Detail pages (`/work/<slug>`) continue to render from `CASE_STUDIES` for this ticket; their migration is the next ticket.
 
 ---
