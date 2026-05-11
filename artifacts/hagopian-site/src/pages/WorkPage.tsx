@@ -6,8 +6,68 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
 import { VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
-import { CASE_STUDIES } from '@/lib/case-studies';
-import type { CaseStudy } from '@/lib/case-studies';
+
+interface WpWork {
+  slug: string;
+  title: string;
+  thumbnail: string | null;
+  termSlugs: string[];
+  primaryTermName: string;
+}
+
+interface WpTerm {
+  slug: string;
+  name: string;
+  count: number;
+}
+
+interface CardData {
+  slug: string;
+  client: string;
+  category: string;
+  thumb: string;
+}
+
+const FALLBACK_THUMB = 'https://hagopianink.wpenginepowered.com/wp-content/uploads/2022/09/HagopianInk_2022.png';
+
+function useWorks() {
+  const [works, setWorks] = useState<WpWork[]>([]);
+  const [terms, setTerms] = useState<WpTerm[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch('/api/works');
+        if (!res.ok) throw new Error(`/api/works returned ${res.status}`);
+        const data = (await res.json()) as { works: WpWork[]; terms: WpTerm[] };
+        if (cancelled) return;
+        setWorks(data.works);
+        setTerms(data.terms);
+      } catch (err) {
+        if (!cancelled) setError(err instanceof Error ? err.message : String(err));
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return { works, terms, loading, error };
+}
+
+function toCard(w: WpWork): CardData {
+  return {
+    slug: w.slug,
+    client: w.title,
+    category: w.primaryTermName,
+    thumb: w.thumbnail ?? FALLBACK_THUMB,
+  };
+}
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
@@ -19,55 +79,31 @@ const HIDDEN_SLUGS = new Set([
 ]);
 
 type Group = {
+  termSlug: string;
   label: string;
   desc: string;
-  slugs: string[];
 };
 
 const GROUPS: Group[] = [
   {
+    termSlug: 'design-branding',
     label: 'Brand Identity',
     desc: 'Identity design, styleguides, and brand standards built on strategy from the start. Because a great brand is far more than a logo.',
-    slugs: [
-      'joseph-robert',
-      'todd-duncan-cashmere-branding-design',
-      'lalalife-subscription-box-branding-and-website-design',
-      'award-winning-logos',
-      'christopher-street-financial',
-      'hubspot-conference-brand-identity',
-      'bewell',
-    ],
   },
   {
+    termSlug: 'ux-design',
     label: 'Website Design',
     desc: 'Digital experiences built around how people actually move through content. Designed to convert, and built to last.',
-    slugs: [
-      'loumbeauty',
-      'diamonds-in-glass-luxury-jewelry-website',
-      'recoveryplus-health-brand',
-    ],
   },
   {
+    termSlug: 'email',
     label: 'Email Marketing',
     desc: 'Whether a single send or a complex automation sequence, every email is designed to feel like a personal conversation at scale.',
-    slugs: [
-      'cannadips-email-marketing',
-      'pepsi-email-marketing',
-      'sesame-street-mobile-email',
-      'gwynnie-bee-subscription-acquisition-email',
-      'audible-email-design',
-      'sobe-fluid-responsive-email',
-      'melissa-kaye-luxury-jewelry-email-design',
-      'black-lives-matter-canada',
-    ],
   },
   {
+    termSlug: 'multichannel-campaigns',
     label: 'Multichannel Campaigns',
     desc: 'Integrated campaigns across email, print, digital, and events. For luxury brands and mission-driven organizations, we design work that moves people from awareness to action.',
-    slugs: [
-      'la-perla-multichannel-campaign-design',
-      'montefiore-healthcare-design',
-    ],
   },
 ];
 
@@ -75,9 +111,6 @@ function toAnchor(label: string) {
   return label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 }
 
-const BY_SLUG = Object.fromEntries(
-  CASE_STUDIES.filter(cs => !HIDDEN_SLUGS.has(cs.slug)).map(cs => [cs.slug, cs])
-);
 
 /* ─────────────────────────────────────────────────────────
    PROJECT CAROUSEL
@@ -85,7 +118,7 @@ const BY_SLUG = Object.fromEntries(
 const PER_PAGE = 4;
 
 interface CarouselProps {
-  cases: CaseStudy[];
+  cases: CardData[];
   dark: boolean;
   cardBg: string;
   cardBorder: string;
@@ -349,6 +382,10 @@ function CategoryNav({ groups }: { groups: Group[] }) {
    WORK PAGE
 ───────────────────────────────────────────────────────── */
 export function WorkPage() {
+  const { works, loading, error } = useWorks();
+
+  const visibleWorks = works.filter(w => !HIDDEN_SLUGS.has(w.slug));
+
   return (
     <div style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -382,9 +419,23 @@ export function WorkPage() {
       {/* ── CATEGORY NAV ───────────────────── */}
       <CategoryNav groups={GROUPS} />
 
+      {/* ── LOADING / ERROR ──────────────────── */}
+      {loading && (
+        <section className="bg-[#f1efef] py-24 px-6 text-center">
+          <p className="text-sm text-[#2d3232]/40" style={{ fontFamily: NAV_FONT }}>Loading work&hellip;</p>
+        </section>
+      )}
+      {error && !loading && (
+        <section className="bg-[#f1efef] py-24 px-6 text-center">
+          <p className="text-sm text-red-500 font-mono">{error}</p>
+        </section>
+      )}
+
       {/* ── GROUPED PORTFOLIO ──────────────── */}
-      {GROUPS.map((group, gi) => {
-        const cases = group.slugs.map(s => BY_SLUG[s]).filter(Boolean);
+      {!loading && !error && GROUPS.map((group, gi) => {
+        const cases = visibleWorks
+          .filter(w => w.termSlugs.includes(group.termSlug))
+          .map(toCard);
         if (!cases.length) return null;
         const dark = gi % 2 === 1;
         const bg          = dark ? '#2d3232' : '#f1efef';
