@@ -79,10 +79,12 @@ export async function POST(req: Request) {
       html: lines,
     });
     if (error) {
+      console.error('[/api/contact] Resend returned error:', error);
       return NextResponse.json({ error: 'Failed to send. Please email us directly.' }, { status: 502 });
     }
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (err) {
+    console.error('[/api/contact] Resend threw:', err);
     return NextResponse.json({ error: 'Failed to send. Please email us directly.' }, { status: 502 });
   }
 }
