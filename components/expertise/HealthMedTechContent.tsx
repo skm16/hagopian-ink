@@ -37,22 +37,10 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'BeWELL',
-    category: 'Brand Identity',
-    img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
-    href: '/work/bewell',
-  },
-  {
     client: 'Montefiore Einstein',
     category: 'Healthcare Fundraising Design',
     img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
     href: '/work/montefiore-healthcare-design',
-  },
-  {
-    client: 'Audible',
-    category: 'Email Marketing + Reactivation',
-    img: `${CDN}/2022/07/Work-Thumb_audible-293x414.jpg`,
-    href: '/work/audible-email-design',
   },
 ];
 
