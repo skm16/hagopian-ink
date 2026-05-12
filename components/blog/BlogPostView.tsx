@@ -29,6 +29,7 @@ const POST_STYLES = [
   '.post-content div:empty { height: 0.5em; }',
   '.post-content figure figcaption, .post-content .wp-caption-text { border-top: 1px solid #000; padding: 20px; color: #2e2e2e; font-size: 16px; font-weight: 300; line-height: 28px; letter-spacing: 0.24px; font-style: italic; text-align: left; margin-top: 10px; display: block; }',
   '.post-content blockquote { position: relative; padding: 80px 75px 100px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); background-color: #fff; border: none !important; margin: 50px 0; }',
+  '.post-content blockquote, .post-content blockquote p { font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }',
   '.post-content blockquote p { color: #2e2e2e; font-size: 24px; font-weight: 300; letter-spacing: 0.29px; line-height: 30px; }',
   '.post-pullquote { position: relative; padding: 80px 75px 100px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); background-color: #fff; border: none; margin: 50px 0; }',
   '.pullquote-text { color: #2e2e2e; font-size: 24px; font-weight: 300; letter-spacing: 0.29px; line-height: 30px; margin: 0; }',
@@ -255,10 +256,11 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
               <p style={{ fontFamily: NAV_FONT, fontSize: '12px', letterSpacing: '0.18px', textTransform: 'uppercase', color: '#2e2e2e', marginBottom: '50px' }}>
                 {post.categories.length > 0 && <>{post.categories.join(' + ')}&nbsp;&nbsp;|&nbsp;&nbsp;</>}
                 {formatDate(post.date)}
+                &nbsp;&nbsp;|&nbsp;&nbsp;Author: Christina Hagopian
               </p>
 
               <h1 className="text-[32px] md:text-[40px]"
-                style={{ fontFamily: SERIF, fontWeight: 700, lineHeight: '48px', letterSpacing: '1.5px', color: '#000', marginBottom: subtitle ? '20px' : '0' }}>
+                style={{ fontFamily: SERIF, fontWeight: 700, lineHeight: '48px', letterSpacing: '1.5px', color: '#000', marginBottom: subtitle ? '20px' : '0', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
                 {post.title}
               </h1>
 

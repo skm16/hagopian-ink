@@ -30,6 +30,7 @@ export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content
 
 export const BRAND_STYLES = `
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 @font-face {
   font-family: 'Sackers Gothic Std';
   src: url('${FONT_BASE_URL}/SackersGothicStd-Medium.otf') format('opentype');
