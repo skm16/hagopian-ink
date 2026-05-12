@@ -8,7 +8,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
-import { VIDEO_ABOUT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, CLIENT_LOGOS } from '@/lib/brand';
+import { VIDEO_ABOUT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, CLIENT_LOGOS, PHOTO_CHRISTINA } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type PMotion  = ComponentPropsWithRef<'p'>  & MotionProps;
@@ -18,9 +18,6 @@ const motion = {
   p:  _motion.p  as unknown as FC<PMotion>,
   h1: _motion.h1 as unknown as FC<H1Motion>,
 };
-
-// Image placeholder — to be supplied in Task 14
-const PHOTO_CHRISTINA = '/images/christina-hagopian.png';
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
