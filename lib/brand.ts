@@ -2,11 +2,13 @@ export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
 const _BASE = '/'; // Next.js: public/ serves at /
 export const VIDEO_MP4        = `${CDN}/2022/08/HI_InkBackground-contact.mp4`;
-export const VIDEO_ABOUT      = `${_BASE}videos/about.mp4`;
+// Hero videos: About and Blog now stream from the WP Media Library, so the
+// editor can swap them without a code deploy. The rest still live in public/.
+export const VIDEO_ABOUT      = 'https://hagopianink.com/wp-content/uploads/2026/05/about.mp4';
 export const VIDEO_CONTACT    = `${_BASE}videos/contact.mp4`;
 export const VIDEO_EXPERTISE  = `${_BASE}videos/expertise.mp4`;
 export const VIDEO_WORK       = `${_BASE}videos/work.mp4`;
-export const VIDEO_BLOG       = `${_BASE}videos/blog.mp4`;
+export const VIDEO_BLOG       = 'https://hagopianink.com/wp-content/uploads/2026/05/blog.mp4';
 export const VIDEO_POSTER      = 'https://hagopianink.com/wp-content/uploads/2022/09/contact_still.png';
 export const PHOTO_CHRISTINA  = `${_BASE}images/christina-hagopian.jpg`;
 export const VIDEO_BLOG_POSTER = 'https://hagopianink.com/wp-content/uploads/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg';
