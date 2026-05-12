@@ -18,7 +18,7 @@ COPY components ./components
 COPY lib ./lib
 COPY public ./public
 COPY scripts ./scripts
-COPY next.config.ts tsconfig.json tailwind.config.ts postcss.config.mjs next-env.d.ts ./
+COPY next.config.ts tsconfig.json tailwind.config.ts postcss.config.mjs ./
 
 ENV NEXT_BUILD_STANDALONE=1
 ENV NEXT_TELEMETRY_DISABLED=1
