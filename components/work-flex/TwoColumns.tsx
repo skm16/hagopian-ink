@@ -18,16 +18,18 @@ export function TwoColumns({ block, isFirst }: { block: TwoColumnsBlock; isFirst
         <div className="flex flex-col md:flex-row gap-10 items-start">
           <div className="md:basis-2/3 md:flex-grow-0">
             {block.title && (
-              <h2 style={{
-                fontFamily: SERIF,
-                fontStyle: 'italic',
-                fontSize: 36,
-                lineHeight: 1.2,
-                color: '#2d3232',
-                margin: 0,
-              }}>
-                {block.title}
-              </h2>
+              <WpHtml
+                as="h2"
+                html={block.title}
+                style={{
+                  fontFamily: SERIF,
+                  fontStyle: 'italic',
+                  fontSize: 36,
+                  lineHeight: 1.2,
+                  color: '#2d3232',
+                  margin: 0,
+                }}
+              />
             )}
           </div>
           <div className="md:basis-1/3 md:flex-grow-0">

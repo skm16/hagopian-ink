@@ -25,7 +25,7 @@ export function WpHtml({
   className,
 }: {
   html: string;
-  as?: 'div' | 'span' | 'p';
+  as?: 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4';
   style?: React.CSSProperties;
   className?: string;
 }) {
