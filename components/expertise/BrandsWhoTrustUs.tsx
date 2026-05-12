@@ -31,12 +31,12 @@ export function BrandsWhoTrustUs() {
         </FadeIn>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-14 items-center">
           {TRUST_LOGOS.map((logo, i) => (
-            <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center min-h-16">
+            <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center min-h-24">
               <img
                 src={logo.src}
                 alt={logo.alt}
                 className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                style={{ maxWidth: 135, maxHeight: 56 }}
+                style={{ maxWidth: 135, maxHeight: 90 }}
               />
             </FadeIn>
           ))}
