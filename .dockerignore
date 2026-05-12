@@ -1,23 +1,18 @@
-# Files NOT shipped to Railway / Nixpacks / Docker builds.
-# Keeps the build context small AND prevents nixpacks UTF-8 scan errors
-# on binary-ish files (minified vendor JS, fonts, etc.) buried in
-# reference directories.
+# Build context exclusions for Dockerfile builds.
+# Even though the Dockerfile only COPYs specific dirs, .dockerignore
+# keeps the build context small (faster uploads to Railway's builder).
 
-# --- Build artifacts ---
+# Build artifacts
 .next
 node_modules
 out
 
-# --- Legacy Vite SPA (scheduled for deletion in Task 20, not deployed) ---
+# Legacy / reference (never deployed)
 artifacts
-
-# --- WordPress source (lives in repo for plugin patching, never deployed) ---
 wordpress
-
-# --- Replit chat upload archive (large, none of it is runtime code) ---
 attached_assets
 
-# --- Local dev / OS / IDE noise ---
+# Local dev / OS / IDE
 .git
 .github
 .vscode
@@ -35,14 +30,17 @@ replit.md
 .DS_Store
 Thumbs.db
 
-# --- Env files (Railway injects real env vars) ---
+# Env files (Railway injects real env vars)
 .env
 .env.local
 .env.*.local
 
-# --- Test/dev scratch ---
+# Scratch
 .jab
 screenshots
 
-# --- Docs (won't break the build but no reason to ship them) ---
+# Docs
 docs
+
+# Editor scratch
+*.tsbuildinfo
