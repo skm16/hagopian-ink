@@ -15,6 +15,7 @@ const HIDDEN_SLUGS = new Set([
   'pvolve-email-marketing',
   'epilepsy-foundation-brand-campaign',
   'malala-fund-email-design',
+  'recoveryplus-health-brand',
 ]);
 
 interface WpWork {

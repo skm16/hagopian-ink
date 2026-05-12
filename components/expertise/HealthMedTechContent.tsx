@@ -37,12 +37,6 @@ const STATS = [
 
 const PROJECTS = [
   {
-    client: 'RecoveryPlus',
-    category: 'Brand Identity + UX Design',
-    img: '/images/case-studies/recoveryplus/hero.png',
-    href: '/work/recoveryplus-health-brand',
-  },
-  {
     client: 'BeWELL',
     category: 'Brand Identity',
     img: `${CDN}/2022/07/Work-Thumb_beWELL-724x1024-1-293x414.jpg`,
@@ -172,7 +166,7 @@ export function HealthMedTechContent() {
             <SectionLabel light>Clients We've Served</SectionLabel>
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Viant Medical', 'P.Volve', 'RecoveryPlus', 'Montefiore Health System'].map((c, i) => (
+            {['Viant Medical', 'P.Volve', 'Montefiore Health System'].map((c, i) => (
               <FadeIn key={i} delay={i * 0.08} className="border-t border-[#474d4d] pt-5">
                 <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
               </FadeIn>

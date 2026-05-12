@@ -48,12 +48,6 @@ const PROJECTS = [
     img: `${CDN}/2018/08/Work-Thumb_DIG-293x414.jpg`,
     href: '/work/diamonds-in-glass-luxury-jewelry-website',
   },
-  {
-    client: 'RecoveryPlus',
-    category: 'Brand Identity + Mobile App UX',
-    img: '/images/case-studies/recoveryplus/hero.png',
-    href: '/work/recoveryplus-health-brand',
-  },
 ];
 
 export function UxUiDesignContent() {
