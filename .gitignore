@@ -10,7 +10,10 @@ out-tsc
 
 # Next.js
 .next/
-next-env.d.ts.bak
+next-env.d.ts
+
+# local env files
+.env*.local
 
 # dependencies
 node_modules
