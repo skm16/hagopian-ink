@@ -87,6 +87,18 @@ export interface GalleryBlock {
   images: string[];
 }
 
+export interface OurWorkBlock {
+  acf_fc_layout: 'our-work';
+  name: string;                      // Small uppercase label, e.g. "BRAND IDENTITY & STRATEGY"
+  nameColor: string;                 // Hex/CSS color for the label, e.g. "#a57b83"
+  title: string;
+  description: string;
+  link: { url: string; title: string; target: string } | null;
+  image: string | null;              // Resolved URL
+  columnReverse: boolean;            // false = text left + image right (default); true = swap
+  background: 'gradient' | 'white' | 'plain';
+}
+
 export type FlexBlock =
   | TwoColumnsBlock
   | ColumnsBlock
@@ -96,7 +108,8 @@ export type FlexBlock =
   | DesktopPagesBlock
   | SliderBlock
   | SliderTwoSlidesBlock
-  | GalleryBlock;
+  | GalleryBlock
+  | OurWorkBlock;
 
 export type FlexLayout = FlexBlock['acf_fc_layout'];
 
@@ -110,4 +123,5 @@ export const KNOWN_LAYOUTS: ReadonlyArray<FlexLayout> = [
   'slider',
   'slider_two_slides',
   'gallery',
+  'our-work',
 ];

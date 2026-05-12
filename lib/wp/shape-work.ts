@@ -10,6 +10,7 @@ const KNOWN_LAYOUTS = new Set<string>([
   'slider',
   'slider_two_slides',
   'gallery',
+  'our-work',
 ]);
 
 function asString(v: unknown): string {
@@ -115,6 +116,35 @@ export function shapeBlock(raw: unknown): FlexBlock | null {
             return asImageUrl(ii.url ?? ii.image);
           })
           .filter((url) => url.length > 0),
+      };
+    }
+    case 'our-work': {
+      const nameGroup = (r.name_group ?? {}) as Record<string, unknown>;
+      const linkRaw = r.link;
+      let link: { url: string; title: string; target: string } | null = null;
+      if (linkRaw && typeof linkRaw === 'object') {
+        const l = linkRaw as { url?: unknown; title?: unknown; target?: unknown };
+        if (typeof l.url === 'string' && l.url) {
+          link = {
+            url: l.url,
+            title: typeof l.title === 'string' ? l.title : '',
+            target: typeof l.target === 'string' ? l.target : '',
+          };
+        }
+      }
+      const bgRaw = asString(r.background_color);
+      const background: 'gradient' | 'white' | 'plain' =
+        bgRaw === 'linear-gradient-dribbble' ? 'gradient' : bgRaw === 'white' ? 'white' : 'plain';
+      return {
+        acf_fc_layout: 'our-work',
+        name: asString(nameGroup.name),
+        nameColor: asString(nameGroup.color),
+        title: asString(r.title),
+        description: asString(r.description),
+        link,
+        image: asImageUrl(r.image) || null,
+        columnReverse: asString(r.column_reverse) === 'yes',
+        background,
       };
     }
     default:

@@ -9,6 +9,7 @@ import { DesktopPages } from './DesktopPages';
 import { Slider } from './Slider';
 import { SliderTwoSlides } from './SliderTwoSlides';
 import { Gallery } from './Gallery';
+import { OurWork } from './OurWork';
 
 export function renderBlock(
   block: FlexBlock,
@@ -34,5 +35,7 @@ export function renderBlock(
       return <SliderTwoSlides key={key} block={block} />;
     case 'gallery':
       return <Gallery key={key} block={block} />;
+    case 'our-work':
+      return <OurWork key={key} block={block} />;
   }
 }
