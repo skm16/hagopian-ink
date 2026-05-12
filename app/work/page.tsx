@@ -32,25 +32,34 @@ export interface WpTerm {
 }
 
 export default async function WorkPage() {
-  // Sequential — MCP init handshake is not concurrency-safe.
-  const workData = await withTags(['works'], () => getOurWork(jabClient));
-  const termData = await withTags(['works', 'work-types'], () =>
-    getWorkType(jabClient, { hide_empty: true }),
-  );
+  // Soft-fail on WP outage — render hero + empty list rather than 500.
+  // ISR will reload real data on the next successful request.
+  let works: WpWork[] = [];
+  let terms: WpTerm[] = [];
 
-  const works: WpWork[] = workData.our_work.map((w) => ({
-    slug: w.slug,
-    title: w.title,
-    thumbnail: w.featured_image?.url ?? null,
-    termSlugs: w.work.map((t) => t.slug),
-    primaryTermName: w.work[0]?.name ?? '',
-  }));
+  try {
+    // Sequential — MCP init handshake is not concurrency-safe.
+    const workData = await withTags(['works'], () => getOurWork(jabClient));
+    const termData = await withTags(['works', 'work-types'], () =>
+      getWorkType(jabClient, { hide_empty: true }),
+    );
 
-  const terms: WpTerm[] = termData.work_type.map((t) => ({
-    slug: t.slug,
-    name: t.name,
-    count: t.count,
-  }));
+    works = workData.our_work.map((w) => ({
+      slug: w.slug,
+      title: w.title,
+      thumbnail: w.featured_image?.url ?? null,
+      termSlugs: w.work.map((t) => t.slug),
+      primaryTermName: w.work[0]?.name ?? '',
+    }));
+
+    terms = termData.work_type.map((t) => ({
+      slug: t.slug,
+      name: t.name,
+      count: t.count,
+    }));
+  } catch (err) {
+    console.error('[/work] WP fetch failed, rendering empty state:', err);
+  }
 
   return (
     <>

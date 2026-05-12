@@ -15,9 +15,16 @@ import type { DetailPost, RelatedItem, FlexBlock } from '@/lib/work-detail-types
 type Params = Promise<{ slug: string }>;
 
 async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related: RelatedItem[] } | null> {
-  const detail = await withTags([`work-${slug}`, 'works'], () =>
-    getWorksBySlug(jabClient, { slug }),
-  );
+  // Wrap in try/catch so WP outages produce 404 instead of 500.
+  let detail: Awaited<ReturnType<typeof getWorksBySlug>>;
+  try {
+    detail = await withTags([`work-${slug}`, 'works'], () =>
+      getWorksBySlug(jabClient, { slug }),
+    );
+  } catch (err) {
+    console.error(`[/work/${slug}] WP fetch failed:`, err);
+    return null;
+  }
   if (!detail.our_work) return null;
 
   const w = detail.our_work;
@@ -41,16 +48,22 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
   };
 
   // Sequential — second SDK call (MCP concurrency constraint).
-  const listing = await withTags(['works'], () => getOurWork(jabClient));
-  const currentTermSlugs = new Set(w.work.map((t) => t.slug));
-  const related: RelatedItem[] = listing.our_work
-    .filter((o) => o.slug !== w.slug && o.work.some((t) => currentTermSlugs.has(t.slug)))
-    .slice(0, 4)
-    .map((o) => ({
-      slug: o.slug,
-      title: o.title,
-      thumbnail: o.featured_image?.url ?? null,
-    }));
+  // Related-items is non-critical: if it fails we still render the main post.
+  let related: RelatedItem[] = [];
+  try {
+    const listing = await withTags(['works'], () => getOurWork(jabClient));
+    const currentTermSlugs = new Set(w.work.map((t) => t.slug));
+    related = listing.our_work
+      .filter((o) => o.slug !== w.slug && o.work.some((t) => currentTermSlugs.has(t.slug)))
+      .slice(0, 4)
+      .map((o) => ({
+        slug: o.slug,
+        title: o.title,
+        thumbnail: o.featured_image?.url ?? null,
+      }));
+  } catch (err) {
+    console.error(`[/work/${slug}] related fetch failed:`, err);
+  }
 
   return { post, related };
 }

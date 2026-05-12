@@ -29,21 +29,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Sequential — two different transports (MCP for works, REST for posts).
-  const works = await withTags(['works', 'sitemap'], () => getOurWork(jabClient));
-  const posts = await fetchPosts(['posts', 'sitemap']);
+  // If WordPress is unreachable, return just the static routes rather than
+  // 500 the sitemap. Search engines will keep the previously-cached version
+  // intact and re-fetch when WP heals.
+  let workRoutes: MetadataRoute.Sitemap = [];
+  let postRoutes: MetadataRoute.Sitemap = [];
 
-  const workRoutes: MetadataRoute.Sitemap = works.our_work.map((w) => ({
-    url: `${SITE}/work/${w.slug}`,
-    priority: 0.8,
-    changeFrequency: 'monthly',
-  }));
+  try {
+    const works = await withTags(['works', 'sitemap'], () => getOurWork(jabClient));
+    workRoutes = works.our_work.map((w) => ({
+      url: `${SITE}/work/${w.slug}`,
+      priority: 0.8,
+      changeFrequency: 'monthly',
+    }));
+  } catch (err) {
+    console.error('[sitemap] works fetch failed, returning empty:', err);
+  }
 
-  const postRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
-    url: `${SITE}/blog/${p.slug}`,
-    priority: 0.6,
-    changeFrequency: 'monthly',
-    lastModified: new Date(p.date),
-  }));
+  try {
+    const posts = await fetchPosts(['posts', 'sitemap']);
+    postRoutes = posts.map((p) => ({
+      url: `${SITE}/blog/${p.slug}`,
+      priority: 0.6,
+      changeFrequency: 'monthly',
+      lastModified: new Date(p.date),
+    }));
+  } catch (err) {
+    console.error('[sitemap] posts fetch failed, returning empty:', err);
+  }
 
   return [...staticRoutes, ...workRoutes, ...postRoutes];
 }

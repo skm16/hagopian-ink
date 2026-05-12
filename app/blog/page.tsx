@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 
 import { Footer } from '@/components/shared/Footer';
 import { fetchPosts } from '@/lib/wp/fetch-posts';
+import type { ShapedPost } from '@/lib/wp/shape-post';
 import { BlogListClient } from '@/components/blog/BlogListClient';
 import { buildMetadata } from '@/lib/seo/resolve-metadata';
 
@@ -15,7 +16,13 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default async function BlogPage() {
-  const posts = await fetchPosts();
+  // Soft-fail on WP outage — render hero + empty list rather than 500.
+  let posts: ShapedPost[] = [];
+  try {
+    posts = await fetchPosts();
+  } catch (err) {
+    console.error('[/blog] WP fetch failed, rendering empty state:', err);
+  }
   return (
     <>
       <Nav />
