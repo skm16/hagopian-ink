@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   motion as _motion,
   useScroll,
@@ -31,10 +31,20 @@ import {
   CLIENT_LOGOS, CASE_STUDIES, SERVICES,
 } from '@/lib/brand';
 
-// Image assets - real files to be provided in Task 14
-const ceciliaHeadshot = '/images/cecilia-pagkalinawan.png';
+const ceciliaHeadshot = `${CDN}/2026/05/homepage-testimonial.png`;
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
+
+interface HomeFormState {
+  name: string;
+  email: string;
+  company: string;
+  message: string;
+  /** Honeypot — must remain empty for real submissions */
+  website: string;
+}
+
+const INITIAL_FORM: HomeFormState = { name: '', email: '', company: '', message: '', website: '' };
 
 function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }) {
   const flip = i % 2 !== 0;
@@ -82,6 +92,39 @@ export function HomeContent() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroScale   = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  const [form, setForm] = useState<HomeFormState>(INITIAL_FORM);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const submitted = status === 'success';
+
+  function updateField<K extends keyof HomeFormState>(key: K, value: HomeFormState[K]) {
+    setForm(f => ({ ...f, [key]: value }));
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === 'sending') return;
+    setStatus('sending');
+    setErrorMessage(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => null)) as { error?: string } | null;
+        setErrorMessage(body?.error ?? 'Something went wrong. Please email us directly.');
+        setStatus('error');
+        return;
+      }
+      setStatus('success');
+    } catch {
+      setErrorMessage('Network error. Please try again or email us directly.');
+      setStatus('error');
+    }
+  }
 
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
@@ -259,7 +302,7 @@ export function HomeContent() {
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <BtnLight href="https://hagopianink.com/wbe-branding-agency/">
+              <BtnLight href="/about" external={false}>
                 About Us <ArrowRight className="w-4 h-4" />
               </BtnLight>
             </FadeIn>
@@ -342,40 +385,91 @@ export function HomeContent() {
                   <Phone className="w-4 h-4 opacity-45" /> 212-327-1445
                 </a>
               </div>
-              <BtnLight href="https://hagopianink.com/contact/">
+              <BtnLight href="/contact" external={false}>
                 Get in Touch <ArrowRight className="w-4 h-4" />
               </BtnLight>
             </FadeIn>
 
             <FadeIn delay={0.25} className="bg-[#343a3a] border border-[#424848] p-10">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/[0.65] mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
-              <div className="space-y-5">
-                {[
-                  { label: 'Your Name',             placeholder: 'Jane Smith',           type: 'text' },
-                  { label: 'Email Address',          placeholder: 'jane@company.com',     type: 'email' },
-                  { label: 'Company / Organization', placeholder: 'Company name',         type: 'text' },
-                  { label: 'How can we help?',       placeholder: 'Tell us about your project...', type: 'textarea' },
-                ].map((field, i) => (
-                  <div key={i}>
-                    <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
-                      {field.label}
-                    </label>
-                    {field.type === 'textarea' ? (
-                      <textarea rows={4}
+              {submitted ? (
+                <div className="text-center py-16">
+                  <div className="text-4xl mb-6 text-[#f5f0eb]" style={{ fontFamily: SERIF }}>Thank you.</div>
+                  <p className="text-[#f5f0eb]/70 text-lg leading-relaxed">
+                    We have received your message and will be in touch within one business day.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/[0.65] mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
+                  <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                    {(
+                      [
+                        { key: 'name',    label: 'Your Name',              placeholder: 'Jane Smith',       type: 'text',  required: true,  autoComplete: 'name' },
+                        { key: 'email',   label: 'Email Address',          placeholder: 'jane@company.com', type: 'email', required: true,  autoComplete: 'email' },
+                        { key: 'company', label: 'Company / Organization', placeholder: 'Company name',     type: 'text',  required: false, autoComplete: 'organization' },
+                      ] as const
+                    ).map(field => (
+                      <div key={field.key}>
+                        <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
+                          {field.label}{field.required && <span className="text-[#f5f0eb]/70 ml-1">*</span>}
+                        </label>
+                        <input
+                          type={field.type}
+                          required={field.required}
+                          autoComplete={field.autoComplete}
+                          value={form[field.key]}
+                          onChange={e => updateField(field.key, e.target.value)}
+                          className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 transition-colors"
+                          placeholder={field.placeholder}
+                          style={{ fontFamily: SANS }}
+                        />
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-[10px] uppercase tracking-[0.16em] text-[#f5f0eb]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
+                        How can we help? <span className="text-[#f5f0eb]/70">*</span>
+                      </label>
+                      <textarea
+                        rows={4}
+                        required
+                        value={form.message}
+                        onChange={e => updateField('message', e.target.value)}
                         className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 resize-none transition-colors"
-                        placeholder={field.placeholder} style={{ fontFamily: SANS }} />
-                    ) : (
-                      <input type={field.type}
-                        className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/35 text-sm px-4 py-3 focus:outline-none focus:border-[#f5f0eb]/80 transition-colors"
-                        placeholder={field.placeholder} style={{ fontFamily: SANS }} />
+                        placeholder="Tell us about your project..."
+                        style={{ fontFamily: SANS }}
+                      />
+                    </div>
+
+                    {/* Honeypot — hidden from humans, bots fill it */}
+                    <div style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }} aria-hidden="true">
+                      <label>
+                        Website
+                        <input
+                          type="text"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={form.website}
+                          onChange={e => updateField('website', e.target.value)}
+                        />
+                      </label>
+                    </div>
+
+                    {status === 'error' && errorMessage && (
+                      <p className="text-sm text-red-200 bg-red-900/30 border border-red-700/40 px-4 py-3" style={{ fontFamily: SANS }}>
+                        {errorMessage}
+                      </p>
                     )}
-                  </div>
-                ))}
-                <button className="w-full py-4 bg-[#f1efef] text-[#2d3232] text-[11px] uppercase tracking-[0.16em] hover:bg-white transition-colors duration-300 mt-4"
-                  style={{ fontFamily: NAV_FONT }}>
-                  Send Message
-                </button>
-              </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === 'sending'}
+                      className="w-full py-4 bg-[#f1efef] text-[#2d3232] text-[11px] uppercase tracking-[0.16em] hover:bg-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300 mt-4"
+                      style={{ fontFamily: NAV_FONT }}>
+                      {status === 'sending' ? 'Sending…' : 'Send Message'}
+                    </button>
+                  </form>
+                </>
+              )}
             </FadeIn>
           </div>
         </div>
