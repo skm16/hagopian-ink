@@ -51,7 +51,7 @@ const FALLBACK_IMG = `${CDN}/2022/09/HagopianInk_2022.png`;
 function toWpPost(raw: ShapedPost): WpPost {
   return {
     categories: raw.categories.length ? raw.categories : ['Fresh Ink'],
-    title: raw.acf.journal_short_title || raw.title,
+    title: raw.title || raw.acf.journal_short_title || '',
     excerpt: raw.acf.journal_short_desc || raw.excerpt || raw.acf.flex_excerpt || '',
     date: formatDate(raw.date),
     img: raw.thumbnail ?? FALLBACK_IMG,
