@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { buildRedirects, buildRewrites } from './lib/seo/redirects';
 
 const config: NextConfig = {
   images: {
@@ -8,6 +9,12 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'hagopianink.wpenginepowered.com' },
       { protocol: 'https', hostname: 'hagopianink.com' },
     ],
+  },
+  async redirects() {
+    return buildRedirects();
+  },
+  async rewrites() {
+    return buildRewrites();
   },
 };
 
