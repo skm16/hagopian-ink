@@ -1,0 +1,464 @@
+.template-part.team {
+    background-color: #f3eff1;
+    padding: 100px 0 20px 0px;
+
+    .part-title {
+        margin-bottom: 60px;
+    }
+
+    .container {
+
+
+        @media only screen and ( max-width: 768px ) {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+
+            @media only screen and ( max-width: 1199px ) {
+                justify-content: space-between;
+            }
+            
+            .col-sm-12 {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            
+            
+            
+            
+            @media only screen and ( max-width: 1199px ) {
+
+                .col-sm-12.row-2 {
+                    display: block;
+                }
+                .col-sm-12.row-3:not(.row-2) {
+                    display: none;
+                }
+            }
+
+            @media only screen and ( min-width: 1200px ) {
+                .col-sm-12.row-2 {
+                    display: none;
+                }
+                .col-sm-12.row-3 {
+                    display: block;
+                }
+            }
+
+
+
+            @media only screen and ( max-width: 768px ) {
+                margin: 0px;
+            }
+
+            &:before,
+            &:after {
+                display: none;
+            }
+
+
+            @media only screen and ( min-width: 768px ) {
+                .col-md-6 {
+                    max-width: 48%;
+                }
+            }
+
+            
+            .person {
+                margin-right: 7.7%;
+            }
+            
+            @media only screen and ( max-width: 1380px ) {
+                .person {
+                    margin-right: 4.5%;
+                }
+            }
+            
+            @media only screen and ( max-width: 1199px ) {
+                .person {
+                    margin-right: 0%;
+                }
+            }
+            
+            &>.person:nth-of-type(4),
+            &>.person:nth-of-type(9),
+            &>.person:nth-of-type(15),
+            &>.person:nth-of-type(20) {
+                margin-right: 0%;
+            }
+            
+            .col-lg-4 {
+                background-color: white;
+                padding: 0px;
+                padding-top: 47px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-bottom: 80px;
+                box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+                position: static;
+
+                @media only screen and ( max-width: 768px ) {
+                    margin-bottom: 50px;
+                }
+
+                @media only screen and ( min-width: 1200px ) {
+                    max-width: 364px;
+                }
+
+                @media only screen and ( min-width: 1200px ) and ( max-width: 1380px ) {
+                    max-width: 310px;
+                }
+
+                .header {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+
+
+                    @media only screen and ( max-width: 767px ) {
+                        &>div {
+                            text-align: center;
+                        }
+                    }
+
+                    .name {
+                        color: #a57b83;
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.9px;
+                        margin-bottom: 20px;
+                        font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+                    }
+
+                    .title {
+                        font-size: 28px;
+                        font-weight: 500;
+                        color: black;
+                        line-height: 34px;
+                        margin-bottom: 20px;
+                        font-family: Paulo_Goode_Didonesque_Medium;
+                    }
+                    @media only screen and ( max-width: 768px ) {
+
+                        .title {
+                            position: relative;
+                            display: inline-block;
+                            margin: auto;
+                        }
+
+                        .title:after {
+                            border: 5px solid transparent;
+                            border-left: 6px solid #000;
+                            content: "";
+                            position: absolute;
+                            right: -20px;
+                            top: 40%;
+                        }
+                    }
+
+                    .description {
+                        color: #2e2e2e;
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 24px;
+                        letter-spacing: 0.24px;
+                        margin-bottom: 27px;
+                        font-family: Fira Sans;
+                    }
+
+                    .link {
+                        line-height: 15px;
+                        margin-bottom: 18px;
+
+                        a {
+                            /*padding-left: 42px;*/
+                            font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+                        }
+                    }
+                }
+
+                .footer {
+                    .img {
+                        img {
+                            width: 100%;
+                            -webkit-filter: grayscale(100%);
+                            -moz-filter: grayscale(100%);
+                            -ms-filter: grayscale(100%);
+                            -o-filter: grayscale(100%);
+                            filter: grayscale(100%);
+                            filter: gray; /* IE 6-9 */
+                            transition: all .9s ease;
+                            &:hover {
+                                -webkit-filter: grayscale(0%);
+                                -moz-filter: grayscale(0%);
+                                -ms-filter: grayscale(0%);
+                                -o-filter: grayscale(0%);
+                                filter: grayscale(0%);
+                                filter: none; /* IE 6-9 */
+                            }
+                        }
+                    }
+                }
+
+                .biography {
+                    position: absolute;
+                    bottom: 0px;
+                    display: none;
+
+                    @media only screen and ( min-width: 1200px ) {
+                        max-width: 666px;
+                    }
+
+                    @media only screen and ( min-width: 1381px ) {
+                        max-width: 830px;
+                    }
+                }
+
+
+
+                .icon {
+                    width: 79px;
+                    height: 91px;
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    transform: translate(50%, 50%);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+
+            }
+
+            @media only screen and ( max-width: 768px ) {
+                .col-xs-6 {
+                    flex-direction: column-reverse;
+                    padding-top: 0px;
+                    background-color: rgba(0,0,0,0);
+                    box-shadow: none;
+
+                    .header {
+                        padding: 0px 30px;
+
+                        .name {
+                            font-size: 10px;
+                            line-height: 14px;
+                        }
+
+                        .title {
+                            font-size: 24px;
+                            letter-spacing: 1.5px;
+                            text-align: center;
+                        }
+
+                        .description {
+                            display: none;
+                        }
+
+                        .link {
+                            display: none;
+                        }
+                    }
+
+                    .img {
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+
+/*            .data_biography {
+                opacity: 0;
+                height: 0px;
+                padding: 50px;
+                background-color: white;
+                position: relative;
+                top: -50px;
+                box-shadow: 0 0 50px rgba(0,0,0, .1);
+                transition: all .9s ease;
+            } */
+
+            .all_biography {
+                position: relative;
+                top: -50px;
+
+                @media only screen and ( max-width: 768px ) {
+                    top: -138px;
+                }
+
+                @media only screen and ( max-width: 572px ) {
+                    top: -172px;
+                }
+
+                @media only screen and ( max-width: 550px ) {
+                    top: -186px;
+                }
+
+                @media only screen and ( max-width: 400px ) {
+                    top: -200px;
+                }
+
+                .biography {
+                    display: none;
+                    padding: 50px;
+
+
+                    @media only screen and ( min-width: 1025px ) {
+                        max-width: 492px;
+                    }
+
+
+                    @media only screen and ( min-width: 1200px ) {
+                        max-width: 666px;
+                    }
+
+                    @media only screen and ( min-width: 1381px ) {
+                        max-width: 830px;
+                    }
+
+
+                    padding-bottom: 100px;
+                    background-color: white;
+
+                    .name {
+                        color: #a57b83;
+                        font-family: "Sackers Gothic Std";
+                        font-size: 12px;
+                        font-size: 10px;
+                        line-height: 14px;
+                        letter-spacing: .9px;
+                        margin-bottom: 20px;
+                        text-transform: uppercase;
+
+                        @media only screen and ( min-width: 769px ) {
+                            display: none;
+                        }
+                    }
+
+                    .title {
+                        color: #000;
+                        font-family: PlayfairDisplay-Regular;
+                        line-height: 34px;
+                        margin-bottom: 20px;
+                        font-size: 24px;
+                        font-weight: 700;
+                        letter-spacing: .91px;
+                        text-align: center;
+
+                        @media only screen and ( min-width: 769px ) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.template-part.team {
+
+    .person {
+        position: relative !important;
+        top: 0px;
+        transition: all .9s ease;
+    }
+
+    .person.open {
+        @media only screen and ( min-width: 769px ) {
+            top: 30px;
+        }
+
+        .footer {
+            .img {
+                img {
+                    -webkit-filter: grayscale(0%) !important;
+                    -moz-filter: grayscale(0%) !important;
+                    -ms-filter: grayscale(0%) !important;
+                    -o-filter: grayscale(0%) !important;
+                    filter: grayscale(0%)  !important;
+                }
+            }
+        }
+    }
+
+    .close_biography {
+        height: 36px;
+        opacity: .3;
+        position: relative;
+        width: 36px;
+        display: block;
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+
+    @media only screen and ( max-width: 768px ) {
+        .close_biography {
+/*            position: absolute !important;
+            right: 50px !important;*/
+            float: right;
+        }
+    }
+
+    .close_biography:hover {
+        opacity: 1;
+    }
+
+    .close_biography:before,
+    .close_biography:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close_biography:before {
+        transform: rotate(45deg);
+    }
+
+    .close_biography:after {
+        transform: rotate(-45deg);
+    }
+}
+
+
+
+
+
+.template-part.team .container .row  .person.open + .all_biography
+{
+    .biography {
+        float: right;
+    }
+}
+
+.template-part.team .container .row  .person.open + .all_biography.row-3.row-2 {
+    display: initial;
+}
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

@@ -49,7 +49,7 @@ export default async function WorkPage() {
 
   return (
     <>
-      <Nav alwaysVisible />
+      <Nav />
       <WorkListClient works={works} terms={terms} />
       <Footer />
     </>

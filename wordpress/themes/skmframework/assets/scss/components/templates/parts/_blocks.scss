@@ -1,0 +1,232 @@
+.template-part.blocks {
+    overflow: hidden;
+    
+    .container { 
+        padding-top: 133px;
+        padding-bottom: 74px;  
+        position: relative;
+        
+        
+        @media only screen and (min-width: 900px) {
+            .slides-button {
+                display: none !important;
+            }
+        }
+        
+        .slides-button {
+            display: flex;
+            justify-content: center;
+            bottom: auto;
+        }
+        
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            
+            @media only screen and ( max-width: 800px ) {
+                div.slide {
+                    flex-direction: column-reverse;
+                    padding-top: 0px;
+                    background-color: rgba(0,0,0,0);
+                    margin-bottom: 30px;
+                        
+                    .header {
+                        padding: 0px;
+                        
+                        .name {
+                            text-align: left;
+                            margin-top: 40px;
+                        }
+                        
+                        .title {
+                            font-size: 24px;
+                            line-height: 32px;
+                        }
+                    }
+                    
+                    .footer {
+                        position: relative;
+                        box-shadow: 0 15px 35px rgba(0,0,0,.2);
+                    }
+                    
+                    div.link {
+                        margin-bottom: 0px;
+                        
+                        a.link {
+                            background-color: #000;
+                            color: #fff;
+                            font-size: 13px;
+                            margin-right: 0;
+                            text-transform: uppercase;
+                            display: inline-block;
+                            padding: 10px 29px !important;
+                            margin-bottom: 0px;
+                        }
+                    
+                        a.link:after {
+                            display: none;
+                        }
+                    }
+                    
+                    .icon {
+                        bottom: 50px;
+                        
+                        @media only screen and (max-width: 900px) {
+                            bottom: 0px !important;
+                        }
+                    }
+                }
+            }
+                
+            
+            @media only screen and (max-width: 900px) {
+                justify-content: center;
+            }
+        
+            &:before,
+            &:after {
+                display: none;
+            }
+            
+            @media only screen and (max-width: 900px) {
+                &>.col-lg-4:first-child {
+                    position: relative !important;
+                }
+                
+                .col-lg-4 {
+                    position: absolute !important;
+                    opacity: 0;
+                    -webkit-transition: opacity 1s;
+                    -moz-transition: opacity 1s;
+                    -o-transition: opacity 1s;
+                    transition: opacity 1s;
+                    width: 80% !important;
+                }
+                
+                
+                .col-lg-4.showing {
+                    opacity: 1;
+                }
+            }
+            
+            @media only screen and (max-width: 1380px) {
+                .col-lg-4 {
+                    width: 30%;
+                    
+                    @media only screen and (max-width: 1200px) {
+                        width: 45%;
+                    }
+                    
+                    
+                    .link {
+                        
+                        a {
+                            /*padding-left: 20px !important;*/
+                        }
+                    }
+                }
+            }
+             
+            
+            
+            
+            
+            
+                .col-lg-4 {
+                    
+                @media only screen and (min-width: 1200px) {
+                    max-width: 364px;
+                }
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+            
+            .col-lg-4 {
+                margin-bottom: 70px;
+                background-color: white;
+                padding: 0px;
+                padding-top: 47px;
+                position: relative;
+                
+                .header {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .top {
+                        margin-bottom: 27px;
+                    }
+    
+                    .name {
+                        font-size: 13px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        letter-spacing: 0.47px;
+                        margin-bottom: 15px;
+                        font-family: "Sackers Gothic Std";
+                    }
+
+                    .title {
+                        font-size: 28px;
+                        font-weight: 500;
+                        color: black;
+                        line-height: 34px;
+                        margin-bottom: 20px;
+                        font-family: Paulo_Goode_Didonesque_Medium;
+                    }
+
+                    .description {
+                        color: #2e2e2e;
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 24px;
+                        letter-spacing: 0.24px;
+                        
+                        font-family: Fira Sans;
+                    }
+
+                    .link {
+                        line-height: 15px;
+                        margin-bottom: 18px;
+
+                        a {
+                            /*padding-left: 42px;*/
+                        }
+                    }
+                }
+                
+                .footer {
+                    .img {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+                    
+                .icon {
+                    width: 79px;
+                    height: 91px;
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    transform: translate(50%, 50%);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+                
+            }
+        }
+        
+        @media only screen and ( max-width: 800px ) {
+            .slides-button span {
+                height: 10px;
+                width: 10px;
+            }
+        }
+    }
+}

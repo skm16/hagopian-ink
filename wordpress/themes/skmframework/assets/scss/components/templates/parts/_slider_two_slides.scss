@@ -1,0 +1,26 @@
+.slider-two-slides {
+
+    .owl-dots {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        
+        .owl-dot {
+            outline: none  !important;
+            
+            span {
+                border: 1px solid #979797  !important;
+                background-color: #ffffff  !important;
+                outline: none  !important;
+            }
+        }
+        
+        .owl-dot.active {
+            
+            span {
+                background-color: #828282  !important;
+            }
+        }
+    }
+}
+

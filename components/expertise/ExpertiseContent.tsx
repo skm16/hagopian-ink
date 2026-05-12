@@ -112,7 +112,7 @@ export function ExpertiseContent() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Your first impression<br />is everything.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-8">
+            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-8">
               A great brand is more than a logo — it is a complete visual language that communicates your values, attracts your audience, and endures across every medium.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
@@ -153,7 +153,7 @@ export function ExpertiseContent() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Drive action with<br />clear intention.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-8">
+            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-8">
               We design digital experiences that put the consumer first — from the architecture of your information to the micro-interactions that guide a purchase.
             </p>
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
@@ -261,7 +261,7 @@ export function ExpertiseContent() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for the future of health.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
+            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-12">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
@@ -311,7 +311,7 @@ export function ExpertiseContent() {
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for a new era of impact.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/65 leading-relaxed mb-12">
+            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-12">
               We help nonprofits build the brands that inspire confidence and the fundraising programs that inspire giving.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">

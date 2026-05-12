@@ -1,0 +1,266 @@
+body {
+    overflow-x: hidden;
+}
+
+.container,
+.container-fluid {
+    max-width: 1292px;
+    width: 100%;
+}
+
+.container-540 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 540px;
+    width: 100%;
+}
+
+.container-600 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+.container-881 {
+    max-width: 881px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.responsive-iframe {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hidden-above-800 {
+    display:none;
+    @media screen and (max-width:800px) {
+        display:block;
+    }
+}
+
+.hidden-below-800 {
+    display:block;
+    @media screen and (max-width:800px) {
+        display:none;
+    }
+}
+
+
+@media only screen and (max-width: 1380px) {
+    .container {
+        width: 1024px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        width: 800px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        width: 80%;
+    }
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
+.part-title,
+.widgettitle {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 1.13px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Paulo_Goode_Didonesque_Medium;
+}
+
+.pllexislider-normal ul li .jr-insta-datacontainer {
+    margin-top: 10px !important;
+    padding-left: 20px;
+}
+
+#filters {
+
+    /*width: 60%;*/
+    li {
+        width: auto !important;
+        /*margin-right: 25px !important;*/
+    }
+}
+
+.widgettitle {
+    line-height: 42px;
+    margin-top: 0px;
+}
+
+.template-part {
+
+    .slides-button {
+        position: absolute;
+        z-index: 10;
+        bottom: 20px;
+        width: 100%;
+        left: 0px;
+        text-align: center;
+
+        span {
+            width: 7px;
+            height: 7px;
+            background-color: white;
+            padding: 0px;
+            border-radius: 50%;
+            border-color: #828282;
+            margin-right: 7px;
+        }
+
+        span.current {
+            background-color: #828282;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+    .container {
+        width: 100%;
+    }
+
+    .part-title {
+        font-size: 24px;
+    }
+}
+
+.part-name {
+    color: #a57b83;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.47px;
+    font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+}
+
+.part-description {
+    color: #2e2e2e;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    font-family: Fira Sans;
+}
+
+.part-subtitle {
+    color: #6f71b4;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .97px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+}
+
+.width-90 {
+    width: 90%;
+    margin: auto;
+}
+
+.width-85 {
+    width: 85%;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
+
+    margin: auto;
+}
+
+.width-80 {
+    width: 80%;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
+
+    margin: auto;
+}
+
+.width-60 {
+    width: 60%;
+
+    @media only screen and (max-width: 800px) {
+        width: 100%;
+    }
+
+    margin: auto;
+}
+
+.parallax {
+    /*    position: relative;
+    top: 0px;*/
+}
+
+#back-to-top {
+    cursor: pointer;
+    position: absolute;
+    bottom: 173px;
+    right: 16.5%;
+    z-index: 9;
+    width: 34px;
+    height: 75px;
+    width: 75px;
+    text-align: center;
+
+    &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        opacity: .25;
+        transition: ease-in-out all .7s;
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 3;
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: 300px;
+    }
+}

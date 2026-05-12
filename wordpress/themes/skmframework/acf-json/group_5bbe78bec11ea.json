@@ -1,0 +1,129 @@
+{
+    "key": "group_5bbe78bec11ea",
+    "title": "Post Type: Posts",
+    "fields": [
+        {
+            "key": "field_5bbe7906aa395",
+            "label": "Featured Image One",
+            "name": "journal_post_banner",
+            "type": "image",
+            "instructions": "Optional banner image must be in 16:9 aspect ratio.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5be340979d2e2",
+            "label": "Featured Image Two",
+            "name": "featured_image_two",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5bbe792daa396",
+            "label": "Subtitle",
+            "name": "journal_post_subtitle",
+            "type": "text",
+            "instructions": "Optional subtitle text. Ideally 110 characters or less (can fit in a tweet)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 110
+        },
+        {
+            "key": "field_5bbe7955aa397",
+            "label": "Short Title",
+            "name": "journal_short_title",
+            "type": "text",
+            "instructions": "Short descriptive title for use in previews, navigation, etc. Ideal ~40 chrs, Max 70 chrs.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 70
+        },
+        {
+            "key": "field_5bbe799baa398",
+            "label": "Short Description",
+            "name": "journal_short_desc",
+            "type": "text",
+            "instructions": "Short description text for use in previews, navigation etc. Max 80 characters.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 80
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1541620237
+}

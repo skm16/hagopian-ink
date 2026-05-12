@@ -1,0 +1,71 @@
+body.home {
+    header#masthead {
+        height: 100vh;
+
+        .top-header {
+            /*background-image: none;*/
+        }
+
+        #swipe-block {
+            cursor: pointer;
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        .header_title {
+            font-size: 72px;
+            font-family: Paulo_Goode_Didonesque_Medium_Italic;
+            color: #fff;
+
+            @media screen and (max-width: 800px) {
+                br {
+                    content: ' ';
+                }
+
+                br:after {
+                    content: ' ';
+                }
+
+                font-size:32px !important;
+                line-height:44px;
+            }
+        }
+
+        .header_subtitle {
+            color: #fff;
+            font-size: 24px;
+            margin: 10px 0 20px 0;
+            font-family: Fira-Sans-Light;
+
+            @media only screen and (max-width: 767px) {
+                font-size: 20px;
+                margin-bottom: 7vw;
+            }
+        }
+
+        .header_link {
+            a {
+                font-weight:normal !important;
+            }
+        }
+    }
+
+    .masthead_is_image,
+    .masthead_is_not_image {
+        height: 100vh;
+        position: relative;
+
+        &>.container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+        }
+    }
+}

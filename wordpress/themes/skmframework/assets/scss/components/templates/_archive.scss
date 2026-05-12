@@ -1,0 +1,22 @@
+.archive {
+    .archive-page-title {
+        margin-bottom: 30px;
+    }
+    article {
+        padding-bottom: 30px;
+        margin-bottom: 65px;
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+    .post-thumbnail-wrapper {
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    }
+    .post-roll-excerpt {
+        margin-bottom: 0;
+    }
+}

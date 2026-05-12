@@ -1,0 +1,119 @@
+#masthead:hover {
+    video {
+        filter: blur(0px);
+    }
+}
+
+body {
+    position: relative;
+}
+
+body:not(.home) {
+    #masthead {
+        #swipe-block {
+            @media only screen and ( min-width: 801px) {
+                display: none;
+            }
+            position: absolute;
+            bottom: 5%;
+            width: 100%;
+            text-align: center;
+            @media only screen and (max-width:800px) {
+                bottom:13%;
+            }
+        }
+    }
+}
+
+#masthead {
+    position: relative;
+    z-index: 999;
+    padding: 200px 0 120px 0px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+    
+    @media only screen and ( max-width: 800px) {
+        display: flex;
+        height: 100vh;
+        
+        .container.text-center {
+            margin: auto;
+        }
+    }
+    
+    video {
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: -1;
+        filter: blur(5px);
+        transition: all .25s ease;
+
+
+        @media only screen and ( max-width: 1200px) {
+            min-width: 250%;
+            transform: translateX(-40%) translateY(0%);
+        }
+
+        @media only screen and ( max-width: 450px) {
+            min-width: 400%;
+        }
+    }
+    
+    
+    h2 {
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: white;
+        letter-spacing: 0.26px;
+        font-family: "Sackers Gothic Std";
+    }
+
+    .header_title {
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 76px;
+        letter-spacing: 0.92px;
+        color: white;
+        margin-bottom: 37px;
+        font-family: Paulo_Goode_Didonesque_Medium_Italic;
+    }
+
+    @media only screen and ( max-width: 800px) {
+        .header_title {
+            font-size: 30px !important;
+            line-height: 38px;
+            margin-top:-15px;
+            margin-bottom:25px;
+            &.hidden-sm {
+                font-size: 40px !important;
+                line-height: 52px;
+            }
+        }
+
+        h2 {
+            font-size: 16px !important;
+            line-height: 30px;
+            margin-top:-125px;
+        }
+    }
+
+    .header_subtitle {
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: 0.29px;
+        color: white;
+        margin-bottom: 22px;
+        font-family: Fira Sans;
+
+        @media only screen and ( max-width: 800px) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}

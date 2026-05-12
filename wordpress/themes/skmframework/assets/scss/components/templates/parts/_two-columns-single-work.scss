@@ -1,0 +1,97 @@
+.template-part.two-columns-single-work {
+    background-color: #f4f3f3;
+    padding: 0px 0px 90px 0;
+     
+    .container {
+        
+        @media only screen and ( max-width: 650px ) {
+            padding: 0px;
+        }
+        
+        .row {
+            width: 85%;
+            margin: auto;
+            
+            @media only screen and ( max-width: 1380px ) {
+                width: 100%;
+            }
+            
+            .title {
+                .part-title {
+                    text-align: left;
+                    margin: 0px;
+                    letter-spacing: 1.43px;
+                    font-family: Paulo_Goode_Didonesque_Medium_Italic;
+                    font-size: 38px;
+                    font-weight: 500;
+                    line-height: 48px;
+                    letter-spacing: 1.43px;
+                    max-width: 564px;
+                    
+                    @media only screen and ( max-width: 1050px ) {
+                        max-width: 100%;
+                        margin-bottom: 30px;
+                    }
+                    
+                    @media only screen and ( max-width: 650px ) {
+                        font-size: 30px;
+                        font-weight: 500;
+                        line-height: 38px;
+                        letter-spacing: 1.13px;
+                    }
+                }
+            }
+            .col-sm-8.title {
+                width: 564px;
+                
+                @media only screen and ( max-width: 1050px ) {
+                    width: 100%;
+                }
+                
+                @media only screen and ( max-width: 650px ) {
+                    padding: 0px;
+                    max-width: 75%;
+                    margin: auto;
+                }
+            }
+            
+            .part-description {
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 28px;
+                letter-spacing: 0.24px;
+                width: 390px;
+                
+                @media only screen and ( max-width: 1050px ) {
+                    width: 100%;
+                }
+                
+                @media only screen and ( max-width: 650px ) {
+                    padding: 0px;
+                    max-width: 75%;
+                    margin: auto;
+                    float: none;
+                }
+            }
+            
+            .col-sm-4.description {
+                width: 395px;
+                float: right;
+                
+                @media only screen and ( min-width: 1051px ) {
+                    padding: 0px;
+                }
+                
+                @media only screen and ( max-width: 1050px ) {
+                    width: 100%;
+                }
+                
+                @media only screen and ( max-width: 650px ) {
+                    padding: 0px;
+                }
+                
+            }
+    
+        }
+    }
+}

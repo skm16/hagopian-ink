@@ -217,7 +217,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
           </div>
 
           <aside className="lg:sticky lg:top-40 space-y-10">
-            <FadeIn className="bg-white/65 border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
+            <FadeIn className="bg-white/[0.65] border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
               <div className="w-16 h-16 rounded-full bg-[#d8d8e6] flex items-center justify-center mb-6">
                 <Search className="w-5 h-5 text-[#f5f0eb]" />
               </div>
@@ -232,7 +232,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
               />
             </FadeIn>
 
-            <FadeIn delay={0.1} className="bg-white/65 border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
+            <FadeIn delay={0.1} className="bg-white/[0.65] border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
               <h2 className="text-3xl mb-6 leading-none" style={{ fontFamily: SERIF, fontWeight: 700 }}>About Us</h2>
               <div className="aspect-[3/2] overflow-hidden mb-7 bg-[#e7e3de]">
                 <img src={`${CDN}/2018/11/blog-about-us.png`} alt="Hagopian Ink studio materials" className="w-full h-full object-cover" />

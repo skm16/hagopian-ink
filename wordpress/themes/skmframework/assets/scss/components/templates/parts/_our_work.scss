@@ -1,0 +1,102 @@
+.template-part.our-work {
+    padding: 120px 0px;
+    background-color: #f3eff1;
+    overflow: hidden;
+    
+    @media only screen and ( max-width: 800px ) {
+        padding: 45px 0px 70px 0px !important;
+    }
+    
+    .container {
+        padding-left: 150px;
+        padding-right: 150px;
+                        
+        @media only screen and ( max-width: 1380px ) {
+            padding-left: 0px;
+            padding-right: 0px;
+            
+            .row {
+                margin: 0px;
+            }
+        }
+        
+        @media only screen and ( max-width: 800px ) {
+            padding-left: calc(10%);
+            padding-right: calc(10%);
+        }
+        
+        .row {
+            display: flex;
+            
+            
+            @media only screen and ( max-width: 800px ) {
+                flex-direction: column-reverse !important;
+                
+                .col-sm-5 {
+                    width: 100%;
+                }
+            }
+            
+            .col-sm-5 {
+                margin: auto;
+                
+                @media only screen and ( max-width: 800px ) {
+                    transform: none !important;
+                    transition: unset !important;
+                    will-change: unset !important;
+                    transform: translateY(0px) !important;
+                }
+                
+                .part-title {
+                    text-align: left;
+                }
+
+                .part-description {
+                    margin-bottom: 32px;
+                }
+            }
+
+            .col-sm-7 {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                
+                @media only screen and ( max-width: 800px ) {
+                    transform: none !important;
+                    transition: unset !important;
+                    will-change: unset !important;
+                    transform: translateY(0px) !important;
+                }
+            }
+        }
+        
+    }
+    
+    .image {
+        text-align: right;
+        
+        @media only screen and ( max-width: 800px ) {
+            margin-bottom: 35px;
+        }
+    }
+}
+
+.template-part.our-work.bg-linear-gradient-dribbble {
+    background: linear-gradient(white, #ebf0f8);
+}
+
+
+.template-part.our-work.column-reverse-yes {
+    .row {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    
+    .image {
+        text-align: left;
+    }
+}
+
+.full-image-single-work {
+    overflow:hidden;
+}

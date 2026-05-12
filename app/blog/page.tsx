@@ -15,7 +15,7 @@ export default async function BlogPage() {
   const posts = await fetchPosts();
   return (
     <>
-      <Nav alwaysVisible />
+      <Nav />
       <BlogListClient posts={posts} />
       <Footer />
     </>

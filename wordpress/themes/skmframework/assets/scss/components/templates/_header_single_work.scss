@@ -1,0 +1,86 @@
+#masthead.single-work-page {
+    background-color: #f4f3f3;
+    padding: 0px;
+    height: 60px;
+}
+
+
+.template-part.header-single-work {
+    padding: 125px 0px 90px 0px;
+    background-color: #f4f3f3;
+
+    @media only screen and ( max-width: 650px) {
+        padding-top: 150px;
+        padding-bottom: 60px;
+    }
+
+    .container {
+        position: relative;
+
+        .single-title {
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+            @media only screen and ( max-width: 650px) {
+                margin-bottom: 5px;
+            }
+        }
+
+
+        .single-subtitle {
+            a,
+            span {
+                position: relative;
+                color: #2e2e2e;
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 24px;
+                text-transform: uppercase;
+                letter-spacing: 0.18px;
+                font-family: "Sackers Gothic Std";
+                text-decoration: none !important;
+            }
+        }
+
+        @media only screen and ( max-width: 650px) {
+            .single-title,
+            .single-subtitle {
+                max-width: 75%;
+                margin: auto;
+                text-align: left;
+            }
+
+            a.all-our-works-link {
+                top: -100px;
+            }
+
+            .single-title {
+                margin-bottom: 50px;
+            }
+        }
+    }
+}
+
+
+
+
+
+.all-our-works-link {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 21px;
+    top: 0px;
+    right: 10px;
+    background-image: url(../img/prev.png);
+}
+
+
+.all-our-works-link:hover {
+    text-decoration: none;
+    opacity: 0.5;
+}

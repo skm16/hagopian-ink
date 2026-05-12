@@ -1,0 +1,355 @@
+@media only screen and ( max-width: 800px) {
+    .taxonomy-list {
+        overflow: hidden;
+    }
+}
+
+.taxonomy-list.open {
+    height: auto;
+}
+
+@media only screen and ( max-width: 800px) {
+
+    
+    .taxonomy-list.open {
+        height: auto;
+        
+        ul#filters {
+            margin-bottom: 40px;
+        }
+    }
+
+
+    .taxonomy-list {
+        &>ul {
+            &>li:first-child {
+                display: flex !important;
+                justify-content: center;
+                
+                a.menu-tax-work {
+                    margin-top: 5px;
+                }
+            }
+            
+            li {
+                a {
+                    padding: 0px !important;
+                }
+            }
+        }
+        
+        ul#filters {
+            /*margin-bottom: 40px;*/
+        }
+    }
+
+    .taxonomy-list:not(.open) {
+        &>ul {
+            &>li {
+                display: none !important;
+            }
+
+        }
+        
+        &>ul:not( #filters ) {
+            &>li:first-child {
+                display: flex !important;
+            }
+        }
+    }
+}
+
+@media only screen and ( max-width: 800px) {
+    .container.taxonomy-list:not(.open) {
+        margin-bottom: 40px;
+    }
+}
+
+.taxonomy-list,
+.blog-menu-categories {
+    padding: 40px 0px 0px 0px;
+    
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: auto;
+
+        @media only screen and ( min-width: 800px) {
+            min-width: 646px;
+            width: 50%;
+
+            &>li:last-child {
+                margin-right: 0px !important;
+            }
+        }
+
+        &#filters {
+            width:100%;
+        }
+
+        li {
+
+            @media only screen and ( min-width: 800px) {
+                //width: 20%;
+                margin-right: 50px;
+            }
+
+            margin-bottom: 40px;
+            
+            @media only screen and ( max-width: 800px) {
+                margin-bottom: 0px;
+            }
+
+            a {
+                display: block;
+                padding-bottom: 5px;
+                overflow: hidden;
+                position: relative;
+                color: #828282;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1.04px;
+                margin-right: 0px;
+                font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+                text-decoration: none !important;
+                &:after {
+                    background: black;
+                    bottom: 0;
+                    content: " ";
+                    display: block;
+                    height: 2px;
+                    left: -100%;
+                    position: absolute;
+                    transition: all .7s ease-out;
+                    width: 100%;
+                }
+                @media only screen and ( max-width: 800px) {
+                    margin-right: 20px;
+                }
+            }
+            a:hover {
+                color: black;
+                &:after {
+                    left: 0;
+                }
+            }
+
+            a.menu-tax-work {
+                display: none;
+                transition: all .9s ease;
+            }
+        }
+
+        li.current {
+            a {
+                color: black;
+                &:after {
+                    left: 0;
+                }
+            }
+        }
+
+        .tax-menu-work {
+            display: inherit;
+            transition: all .9s ease;
+        }
+
+        @media only screen and ( max-width: 800px) {
+            flex-direction: column;
+
+            .tax-menu-work {
+                display: none;
+            }
+
+            .tax-menu-work.open {
+                display: flex;
+                flex-direction: column;
+            }
+
+            li {
+                padding: 15px 0px;
+
+                &.current {
+                    background-color: #f3f5fa;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+                /*                span a {
+                    width: 100%;
+                    margin: 0px;
+                    padding: 15px 0px;
+                    display: inline-block;
+                }*/
+                &>a {
+                    margin-right: 10px;
+                }
+
+                a.menu-tax-work {
+                    display: inline-block;
+                    border: 5px solid transparent;
+                    border-top-color: #a57b83;
+                    border-bottom: 0;
+                    height: 8px;
+                }
+
+                a.menu-tax-work.open {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ( max-width: 800px) {
+    body.page-template-template-work {
+        .taxonomy-list {
+            ul {
+                &>li {
+                    /*background-color: #f3f5fa;*/
+                    a {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.template-part.posts {
+
+    .col-sm-4:nth-of-type(4n+1) {
+        img {
+            background-color: #B6C0D4;
+        }
+    }
+
+    .col-sm-4:nth-of-type(4n+2) {
+        img {
+            background-color: #F0E9EA;
+        }
+    }
+
+    .col-sm-4:nth-of-type(4n+3) {
+        img {
+            background-color: #D6DFEF;
+        }
+    }
+
+    .col-sm-4:nth-of-type(4n+4) {
+        img {
+            background-color: #E9E6E6;
+        }
+    }
+}
+
+body.page-template-template-work {
+    .template-part.posts {
+        .container {
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+
+
+.template-part.posts {
+    padding: 60px 0px;
+    background-color: #f5f4f4;
+
+    .container {
+        .row {
+
+            .posts-grid {
+                margin:0;
+                padding:0;
+                font-size:0;
+                & > div {
+                    display:inline-block;
+                    width:25%;
+                    vertical-align:top;
+                    padding:0 11px;
+                    @media screen and (max-width:991px) {
+                        width:33.3%;
+                    }
+                    @media screen and (max-width:768px) {
+                        width:50%;
+                    }
+                }
+            }
+            
+            .post {
+                a {
+                    .title {
+                        position:relative;
+                        color: #000000;
+                        font-size: 13px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        margin-top: 17px;
+                        letter-spacing: 0.97px;
+                        margin-bottom: 30px;
+                        font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+                        display:inline-block;
+                        padding-bottom:5px;
+                        overflow:hidden;
+                        text-decoration:none !important;
+                        &:before {
+                            background: #000;
+                            bottom: 0;
+                            content: " ";
+                            display: block;
+                            height: 2px;
+                            left: -100%;
+                            position: absolute;
+                            transition: all .7s ease-out;
+                            width: 100%;
+                        }
+                        &:hover {
+                            &:before {
+                                left:0;
+                            }
+                        }
+                    }
+
+                    img {
+                        width: 400px;
+                        /*height: 566px;*/
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .pagination {
+            a,
+            span.page-numbers.current {
+                color: #000;
+                font-size: 13px;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin-top: 17px;
+                letter-spacing: .97px;
+                font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+            }
+
+            span.page-numbers.current {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:800px) {
+    .blog-menu-categories ul li a:after, 
+    .taxonomy-list ul li a:after {
+        display:none !important;
+    }
+}

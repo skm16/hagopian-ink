@@ -387,14 +387,17 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
           .filter(w => w.termSlugs.includes(group.termSlug))
           .map(toCard);
         if (!cases.length) return null;
-        const dark = gi % 2 === 1;
-        const bg          = dark ? '#2d3232' : '#f1efef';
-        const textColor   = dark ? '#f5f0eb'  : '#2d3232';
-        const mutedColor  = dark ? 'rgba(245,240,235,0.45)' : 'rgba(45,50,50,0.45)';
-        const borderColor = dark ? 'rgba(245,240,235,0.1)'  : 'rgba(45,50,50,0.1)';
-        const cardBg      = dark ? '#343a3a' : '#ffffff';
-        const cardBorder  = dark ? '#424848' : '#e8e4e0';
-        const categoryColor = dark ? 'rgba(245,240,235,0.35)' : 'rgba(45,50,50,0.35)';
+        // Alternate light-gray and white. Cards stay white on gray, gray on white,
+        // so the card always contrasts subtly against its section.
+        const alt = gi % 2 === 1;
+        const bg          = alt ? '#ffffff' : '#f1efef';
+        const textColor   = '#2d3232';
+        const mutedColor  = 'rgba(45,50,50,0.45)';
+        const borderColor = 'rgba(45,50,50,0.1)';
+        const cardBg      = alt ? '#f1efef' : '#ffffff';
+        const cardBorder  = '#e8e4e0';
+        const categoryColor = 'rgba(45,50,50,0.35)';
+        const dark = false;
 
         return (
           <section

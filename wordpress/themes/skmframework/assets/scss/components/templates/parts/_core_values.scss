@@ -1,0 +1,56 @@
+.template-part.core-values {
+    background-color: #f3eff1;
+    padding: 100px 0px 50px 0px;
+    
+    .part-title {
+        margin-bottom: 40px;
+    }
+    
+    .core-values {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        margin: auto;
+        
+        @media only screen and ( max-width: 800px ) {
+            width: 100%;
+            flex-wrap: wrap;
+            
+            .core_value {
+                width: 50%;
+                text-align: center;
+            }
+        }
+            
+        .core_value {
+                display: flex;
+                flex-direction: column;
+    
+            .core-title {
+                color: #a57b83;
+                font-size: 13px;
+                @media only screen and ( max-width: 800px ) {
+                    font-size: 10px;
+                }
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.47px;
+                text-align: center;
+                margin-bottom: 18px;
+                font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+            }
+
+            .core-image {
+                min-height: 160px;
+                min-width: 110px;
+                background-size: contain !important;
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: auto;
+            }
+            
+        }
+    
+    }
+}

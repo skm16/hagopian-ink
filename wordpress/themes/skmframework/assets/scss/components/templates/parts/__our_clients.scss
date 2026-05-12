@@ -1,0 +1,124 @@
+.template-part.our-clients {
+    padding: 90px 0px;
+    background-color: #fbfbfb;
+    
+    .container {
+        
+        .bx-viewport {
+            
+            .slider {
+                
+                .slide {                
+                    @media only screen and ( max-width: 370px ) {
+                        width: 110px !important;  
+                    }              
+                    @media only screen and ( max-width: 370px ) {
+                        width: 110px !important;  
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        .slider {
+            display: flex;
+            flex-wrap: wrap;
+
+            .slide {
+                position: relative;
+                width: 16.6%;
+                display: flex;
+                padding: 0px !important;
+                opacity: 0.5;
+                cursor: pointer;
+                transition: all .5s ease;
+
+                @media only screen and ( min-width: 1400px ) {
+                    padding: 20px !important;
+                }
+                
+                @media only screen and ( max-width: 800px ) {
+                    width: 33% !important;  
+                }
+                
+                img {
+                    margin: auto;
+                }
+
+                div.link {
+                    position: absolute;
+                    bottom: 10px;
+                    left: 0px;
+                    width: 100%;
+                    text-align: center;
+                    display: none;
+                    transition: all .5s ease;
+                }
+            }
+
+            .slide:hover {
+                opacity: 1;
+                box-shadow: 0 20px 50px rgba(0,0,0,.1);
+                background-color: white;
+
+                div.link {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.template-part.our-clients.slider-active {
+    padding: 90px 0px 40px 0px;
+    background-color: #fbfbfb;
+    
+    .container {
+        overflow: hidden;
+
+        
+/*        .slider {
+            flex-wrap: unset;
+            
+            .slide {
+                img {
+                    margin: 0px;
+                }
+            }
+        }*/
+        
+        
+        .bx-wrapper {
+            border: 0px;
+            box-shadow: none;
+            max-width: 100% !important;
+        }
+
+        .bx-viewport {
+            background-color: #fbfbfb;
+            overflow: unset !important;
+            
+            @media only screen and ( max-width: 800px ) {
+                overflow: hidden !important;
+            }
+        }
+
+
+    /*    .slider {
+            display: flex;
+            flex-wrap: wrap;
+
+            .slide {
+                position: relative;
+                display: flex;
+                padding: 40px;
+                opacity: 0.5;
+                cursor: pointer;
+                transition: all .5s ease;
+            }
+        }*/
+    }
+}

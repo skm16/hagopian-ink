@@ -30,7 +30,12 @@ const POST_STYLES = [
   '.post-content figure figcaption, .post-content .wp-caption-text { border-top: 1px solid #000; padding: 20px; color: #2e2e2e; font-size: 16px; font-weight: 300; line-height: 28px; letter-spacing: 0.24px; font-style: italic; text-align: left; margin-top: 10px; display: block; }',
   '.post-content blockquote { position: relative; padding: 80px 75px 100px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); background-color: #fff; border: none !important; margin: 50px 0; }',
   '.post-content blockquote p { color: #2e2e2e; font-size: 24px; font-weight: 300; letter-spacing: 0.29px; line-height: 30px; }',
-  '.post-content .post-img-caption { border-top: 1px solid #000; padding: 20px; color: #2e2e2e; font-size: 16px; font-weight: 300; line-height: 28px; letter-spacing: 0.24px; font-style: italic; text-align: left; margin-top: 10px; display: block; }',
+  '.post-pullquote { position: relative; padding: 80px 75px 100px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); background-color: #fff; border: none; margin: 50px 0; }',
+  '.pullquote-text { color: #2e2e2e; font-size: 24px; font-weight: 300; letter-spacing: 0.29px; line-height: 30px; margin: 0; }',
+  `.pullquote-cite { position: absolute; bottom: 49px; left: 75px; font-family: ${NAV_FONT}; font-size: 16px; font-weight: 300; letter-spacing: 0.24px; line-height: 24px; text-transform: uppercase; font-style: normal; color: #2e2e2e; display: block; }`,
+  '.column-pullquote { margin: 0; padding: 0; }',
+  '.column-pullquote em { font-size: 30px; line-height: 1.25em; color: #2e2e2e; display: block; font-style: italic; margin: 0; }',
+  '.post-img-caption { border-top: 1px solid #000; padding: 20px; color: #2e2e2e; font-size: 16px; font-weight: 300; line-height: 28px; letter-spacing: 0.24px; font-style: italic; text-align: left; margin-top: 10px; display: block; }',
 ].join('\n');
 
 const PAGE_CSS = BRAND_STYLES + POST_STYLES;
@@ -71,12 +76,139 @@ function formatDate(iso: string): string {
 }
 
 // --------------------------------------------------------------------------
+// ACF flex block types and renderer (post_builder field on `post` CPT)
+// --------------------------------------------------------------------------
+
+interface AcfImage { url?: string; alt?: string }
+
+export type PostFlexBlock =
+  | { acf_fc_layout: 'full_width_column_wysiwyg'; wysiwyg?: string; padding?: string }
+  | { acf_fc_layout: 'large_pull_quote'; pull_quote?: string; quote_author?: string; padding?: string }
+  | { acf_fc_layout: 'image_with_caption'; image?: AcfImage; caption?: string; padding?: string }
+  | { acf_fc_layout: 'images_side_by_side'; image_left?: AcfImage; image_right?: AcfImage; caption?: string; padding?: string }
+  | { acf_fc_layout: '2_column_wysiwyg'; column_left_content?: string; column_right_content?: string; padding?: string }
+  | { acf_fc_layout: '3_column_wysiwyg'; column_left_content?: string; column_center_content?: string; column_right_content?: string; padding?: string }
+  | { acf_fc_layout: '13_pull_quote_23_wysiwyg'; pull_quote_left?: string; column_right_content?: string; padding?: string };
+
+function blockPadding(padding?: string): React.CSSProperties {
+  return { padding: padding === 'extra-padding' ? '5rem 0' : '2.5rem 0' };
+}
+
+function PostContent({ html }: { html: string }) {
+  const props: Record<string, unknown> = {};
+  props[DSIH] = { __html: html };
+  return <div className="post-content" {...(props as React.HTMLAttributes<HTMLDivElement>)} />;
+}
+
+function FullWidthWysiwyg({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: 'full_width_column_wysiwyg' }> }) {
+  if (!block.wysiwyg) return null;
+  return <div style={blockPadding(block.padding)}><PostContent html={cleanHtml(block.wysiwyg)} /></div>;
+}
+
+function LargePullQuote({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: 'large_pull_quote' }> }) {
+  if (!block.pull_quote) return null;
+  return (
+    <div style={blockPadding(block.padding)}>
+      <blockquote className="post-pullquote">
+        <p className="pullquote-text" style={{ fontFamily: SERIF }}>{block.pull_quote}</p>
+        {block.quote_author && <cite className="pullquote-cite" style={{ fontFamily: NAV_FONT }}>{block.quote_author}</cite>}
+      </blockquote>
+    </div>
+  );
+}
+
+function ImageWithCaption({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: 'image_with_caption' }> }) {
+  if (!block.image?.url) return null;
+  return (
+    <div style={blockPadding(block.padding)}>
+      <figure>
+        <img src={block.image.url} alt={block.image.alt ?? ''} className="w-full h-auto block" />
+        {block.caption && <figcaption className="post-img-caption" style={{ fontFamily: SANS }}>{block.caption}</figcaption>}
+      </figure>
+    </div>
+  );
+}
+
+function ImagesSideBySide({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: 'images_side_by_side' }> }) {
+  return (
+    <div style={blockPadding(block.padding)}>
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+        {block.image_left?.url && <div className="flex-1"><img src={block.image_left.url} alt={block.image_left.alt ?? ''} className="w-full h-auto block" /></div>}
+        {block.image_right?.url && <div className="flex-1"><img src={block.image_right.url} alt={block.image_right.alt ?? ''} className="w-full h-auto block" /></div>}
+      </div>
+      {block.caption && <p className="text-[13px] text-[#2d3232]/60 mt-3 leading-relaxed" style={{ fontFamily: SANS }}>{block.caption}</p>}
+    </div>
+  );
+}
+
+function TwoColumnWysiwyg({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: '2_column_wysiwyg' }> }) {
+  const left = cleanHtml(block.column_left_content ?? '');
+  const right = cleanHtml(block.column_right_content ?? '');
+  return (
+    <div style={blockPadding(block.padding)}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {left && <PostContent html={left} />}
+        {right && <PostContent html={right} />}
+      </div>
+    </div>
+  );
+}
+
+function ThreeColumnWysiwyg({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: '3_column_wysiwyg' }> }) {
+  const left = cleanHtml(block.column_left_content ?? '');
+  const center = cleanHtml(block.column_center_content ?? '');
+  const right = cleanHtml(block.column_right_content ?? '');
+  return (
+    <div style={blockPadding(block.padding)}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {left && <PostContent html={left} />}
+        {center && <PostContent html={center} />}
+        {right && <PostContent html={right} />}
+      </div>
+    </div>
+  );
+}
+
+function PullQuoteWithContent({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: '13_pull_quote_23_wysiwyg' }> }) {
+  const rightHtml = cleanHtml(block.column_right_content ?? '');
+  return (
+    <div style={blockPadding(block.padding)}>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {block.pull_quote_left && (
+          <div className="md:col-span-1">
+            <blockquote className="column-pullquote"><em style={{ fontFamily: SERIF }}>{block.pull_quote_left}</em></blockquote>
+          </div>
+        )}
+        {rightHtml && (
+          <div className={block.pull_quote_left ? 'md:col-span-2' : 'md:col-span-3'}>
+            <PostContent html={rightHtml} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FlexBlockRenderer({ block }: { block: PostFlexBlock }) {
+  switch (block.acf_fc_layout) {
+    case 'full_width_column_wysiwyg': return <FullWidthWysiwyg block={block} />;
+    case 'large_pull_quote':          return <LargePullQuote block={block} />;
+    case 'image_with_caption':        return <ImageWithCaption block={block} />;
+    case 'images_side_by_side':       return <ImagesSideBySide block={block} />;
+    case '2_column_wysiwyg':          return <TwoColumnWysiwyg block={block} />;
+    case '3_column_wysiwyg':          return <ThreeColumnWysiwyg block={block} />;
+    case '13_pull_quote_23_wysiwyg':  return <PullQuoteWithContent block={block} />;
+    default: return null;
+  }
+}
+
+// --------------------------------------------------------------------------
 // Props
 // --------------------------------------------------------------------------
 
 export interface BlogPostViewProps {
   post: ShapedPost;
-  /** WP REST content.rendered — cleaned and rendered via indirect innerHTML prop */
+  /** WP REST content.rendered — fallback only, used when post_builder is empty */
   content: string;
   related: Array<{ title: string; slug: string; thumbnail: string | null }>;
   /** Optional ACF fields not captured in ShapedPost */
@@ -84,6 +216,7 @@ export interface BlogPostViewProps {
     journal_post_subtitle?: string | null;
     journal_post_banner?: { url?: string; alt?: string } | null;
     featured_image_two?: { url?: string; alt?: string } | null;
+    post_builder?: PostFlexBlock[] | null;
   };
 }
 
@@ -97,6 +230,7 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
   const bannerAlt = acfExtra?.journal_post_banner?.alt ?? post.title;
   const bannerTwoUrl = acfExtra?.featured_image_two?.url ?? null;
   const bannerTwoAlt = acfExtra?.featured_image_two?.alt ?? post.title;
+  const blocks = acfExtra?.post_builder ?? [];
   const cleanedContent = cleanHtml(content);
 
   return (
@@ -155,12 +289,20 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
           </section>
         )}
 
-        {/* Post body */}
+        {/* Post body — ACF flex blocks (post_builder) preferred; fall back to content.rendered */}
         <section className="bg-white px-6 md:px-12 pb-20">
           <div className="max-w-[881px] mx-auto" style={{ color: '#2e2e2e' }}>
-            <FadeIn>
-              <WpContent html={cleanedContent} />
-            </FadeIn>
+            {blocks.length > 0 ? (
+              blocks.map((block, i) => (
+                <FadeIn key={i} delay={Math.min(i * 0.04, 0.24)}>
+                  <FlexBlockRenderer block={block} />
+                </FadeIn>
+              ))
+            ) : cleanedContent && (
+              <FadeIn>
+                <WpContent html={cleanedContent} />
+              </FadeIn>
+            )}
           </div>
         </section>
 

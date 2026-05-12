@@ -1,0 +1,56 @@
+.template-part.expertise {
+    padding: 70px 0px;
+    background-color: #f5f4f4;
+    overflow: hidden;
+    
+    .part-title {
+        margin-bottom: 50px;
+    }
+    
+    .row {
+        width: 90%;
+        margin: auto;
+    }
+    
+    .col-sm-4 {
+        display: flex;
+        
+        .icon {
+            display: inline-block;
+            width: 46px;
+            min-width: 46px;
+            margin-right: 40px;
+            height: 70px;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: contain;
+        }
+        
+        @media only screen and ( max-width: 1024px ) {
+            .icon {
+                margin-right: 15px;
+            }
+        }
+        
+        .title {
+            color: #a57b83;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.47px;
+            margin-bottom: 28px;
+            font-family: "Sackers Gothic Std";
+        }
+        
+        .description {
+            color: #2e2e2e;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 24px;
+            letter-spacing: 0.24px;
+            margin-bottom: 48px;
+            font-family: Fira Sans;
+        }
+    }
+    
+}

@@ -4,7 +4,7 @@ import { fetchPostBySlug } from '@/lib/wp/fetch-posts';
 import { shapePost } from '@/lib/wp/shape-post';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
-import { BlogPostView } from '@/components/blog/BlogPostView';
+import { BlogPostView, type PostFlexBlock } from '@/components/blog/BlogPostView';
 import { buildMetadata, pickDescription } from '@/lib/seo/resolve-metadata';
 
 type Params = Promise<{ slug: string }>;
@@ -35,10 +35,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   if (!data) notFound();
   const shaped = shapePost(data.post);
   const acfRaw = (data.post.acf ?? {}) as Record<string, unknown>;
+  const rawBuilder = acfRaw['post_builder'];
   const acfExtra = {
     journal_post_subtitle: (acfRaw['journal_post_subtitle'] as string | null) ?? null,
     journal_post_banner: acfRaw['journal_post_banner'] as { url?: string; alt?: string } | null,
     featured_image_two: acfRaw['featured_image_two'] as { url?: string; alt?: string } | null,
+    post_builder: Array.isArray(rawBuilder) ? (rawBuilder as PostFlexBlock[]) : null,
   };
   return (
     <>

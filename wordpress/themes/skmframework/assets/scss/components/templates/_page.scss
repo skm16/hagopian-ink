@@ -1,0 +1,57 @@
+#masthead + main {
+}
+
+
+
+
+html {
+    margin-top: 0px !important;
+}
+
+.sbi_load, 
+.sbi_load_btn, 
+#sb_instagram #sbi_load .sbi_follow_btn {
+	display:none !important;
+}
+
+.part-instagram h2 a {
+	display:inline-block;
+	position:relative;
+	text-decoration:none !important;
+	color:#222 !important;
+	&:after {
+		content:"";
+		position:absolute;
+		width:99%;
+		height:2px;
+		background-color:#222;
+		left:2px;
+		bottom:-10px;
+		transform:scaleX(0);
+		transition:ease all .75s;
+		transform-origin:left center;
+	}
+	&:hover {
+		&:after {
+			transform:scaleX(1);
+		}
+	}
+}
+
+@media screen and (max-width:768px) {
+	
+	.part-instagram  {
+		#sb_instagram {
+			#sbi_images {
+				.sbi_item {
+					width:25% !important;
+				}
+				.sbi_item:nth-of-type(5),
+				.sbi_item:nth-of-type(6) {
+					display:none !important;
+				}
+			}
+		}
+	}
+
+}

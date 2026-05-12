@@ -299,7 +299,7 @@ export function AboutContent() {
       {/* CLIENT LOGOS MARQUEE */}
       <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>Brands Who Trust Us</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/[0.65]" style={{ fontFamily: NAV_FONT }}>Brands Who Trust Us</p>
         </FadeIn>
         <div className="relative">
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#2d3232] to-transparent z-10 pointer-events-none" />

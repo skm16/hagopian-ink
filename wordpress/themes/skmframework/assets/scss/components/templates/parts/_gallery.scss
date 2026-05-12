@@ -1,0 +1,21 @@
+.template-part.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    div.img {
+        width: 25%;
+        display: inline-block;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+        
+        @media only screen and ( max-width: 1000px ) {
+            width: 50%;
+        }
+        
+        @media only screen and ( max-width: 600px ) {
+            width: 100%;
+        }
+    }
+}

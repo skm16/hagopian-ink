@@ -1,0 +1,121 @@
+.template-part.subscription_form:hover {
+    video {
+        filter: blur(0px);
+    }
+}
+
+.template-part.subscription_form {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    /*background-image: url(../img/ink_shutterstock_2_A.png);*/
+    background-position: right;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-color: #F8FAF8;
+    position: relative;
+    overflow: hidden;
+
+    video {
+        filter: blur(5px);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        z-index: 0;
+        /*height: 100%;*/
+        transition: all .5s ease;
+        
+        
+        @media only screen and (max-width: 675px) {
+            min-width: 150%;
+            transform: translateX(-25%) translateY(0%);
+        }
+        
+        @media only screen and (max-width: 600px) {
+            min-width: 250%;
+            transform: translateX(-40%) translateY(0%);
+        }
+        
+        @media only screen and (max-width: 490px) {
+            min-width: 350%;
+        }
+    }
+    
+    .container {
+        @media only screen and (min-width: 650px) {
+            padding: 0px;
+        }
+        
+        z-index: 2;
+        position: relative;
+        
+        .subscription_form_title {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-family: Paulo_Goode_Didonesque_Medium;
+                
+            @media only screen and (max-width: 600px) {
+                font-size: 24px;
+                line-height: 32px;
+            } 
+        
+        }
+
+        .subscription_form_subtitle {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #6f71b4;
+            letter-spacing: 0.97px;
+            margin-bottom: 35px;
+            font-family: Sackers Gothic Std;
+            
+        }
+
+        form {
+            
+            input {
+                height: 40px;
+                background-color: #ffffff;
+                padding-left: 20px;
+                border: 0px;
+                margin-right: 10px;
+                font-family: Fira-Sans-Light2;
+                border-radius: 0px !important;
+            }
+            
+            input[type='text'],
+            input[type='email'] {
+                border: 0;
+                border-radius: 0!important;
+                font-family: Fira-Sans-Light!important;
+                margin-bottom: 27px;
+                font-size: 16px;
+            }
+
+            input[type='submit'] {
+                font-size: 13px;
+                background-color: black;
+                color: white;
+                padding: 0px 29px !important;
+                margin-right: 0px;
+                font-family: Sackers Gothic Std;
+                border-radius: 0px !important;
+            }
+            
+            @media only screen and ( max-width: 650px ) {
+                .mc4wp-form-fields {
+                    display: flex;
+                    flex-direction: column;
+
+                    input {
+                        margin-right: 0px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

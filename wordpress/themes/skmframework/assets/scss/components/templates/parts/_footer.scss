@@ -1,0 +1,111 @@
+#site-footer {
+    background-color: rgba(130, 130, 130, 0.1);
+
+    &>.container {
+        padding-top: 75px;
+        padding-bottom: 75px;
+        display: flex;
+        justify-content: space-between;
+        
+        @media only screen and (min-width: 800px) {
+            .container-left,
+            .container-right {
+                display: flex;
+            }
+
+            .container-right {
+                height: 20px;
+            }
+        }
+        
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            text-align: center;
+            
+            .container-left {
+                margin-bottom: 50px;
+            }
+            
+            .container-right {
+                display: flex;
+                flex-direction: column;
+                
+                .social-link-in-footer {
+                    order: 1;
+                    margin-bottom: 50px;
+                }
+                
+                .menu-in-footer {
+                    order: 2;
+                    
+                    a {
+                        &:last-child {
+                            margin-right: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        &:before,
+        &:after {
+            display: none;
+        }
+        
+        .menu-in-footer {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 24px;
+            text-transform: uppercase;
+            display: inline-block;
+            
+            a {
+                color: #2e2e2e;
+                margin-right: 40px;
+                letter-spacing: 0.18px;
+                font-family: "Sackers Gothic Std";
+                position: relative;
+                padding-bottom:5px;
+                overflow:hidden;
+                text-decoration:none !important;
+                overflow:hidden;
+                display: inline-block !important;
+                
+                &:last-child {
+                    margin-right: 160px;
+                    
+                    @media only screen and (max-width: 1024px) {
+                        margin-right: 40px;
+                    }
+                }
+                &:before {
+                    background: #000;
+                    bottom: 0;
+                    content: " ";
+                    display: block;
+                    height: 2px;
+                    left: -100%;
+                    position: absolute;
+                    transition: all .7s ease-out;
+                    width: 100%;
+                }
+                &:hover {
+                    &:before {
+                        left:0;
+                    }
+                }
+            }
+        }
+        
+        .social-link-in-footer {
+            a {
+                display: inline-block;
+                margin-right: 42px;
+                
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+.our-clients {
+    padding: 90px 0px 60px 0px;
+    background-color: #fcfcfc;
+    
+    @media only screen and ( max-width: 1000px ) {
+        padding: 40px 0px;
+    }
+    
+    .container {
+        overflow: hidden;
+        padding: 0px 0px 35px 0px;
+    }
+    
+    
+    .part-title {
+        /*margin: 0px;*/
+    }
+    
+    .item {
+        padding: 30px;
+        
+        @media only screen and ( max-width: 1000px ) {
+            padding: 10px;
+        }
+        
+        
+        img {
+            opacity: 0.5;
+            cursor: pointer;
+            transition: all .5s ease;
+        }
+        
+        img:hover {
+            opacity: 1;
+        }
+        
+        div.link {
+            text-align: center;
+            display: none;
+            position: absolute;
+            bottom: 15px;
+            a {
+                font-size:11px;
+            }
+            
+            @media only screen and ( max-width: 1000px ) {
+                width: calc(100% - 20px) !important;
+                bottom: 5px;
+                
+                a {
+                    font-size: 9px;
+                }
+                
+                a.link:after {
+                    right: -14px !important;
+                }
+            }
+            @media only screen and ( max-width: 1000px ) {
+
+
+            }
+        }
+    }
+    
+    .item:hover {
+        background-color: white;
+        box-shadow: 20px 3px 42px rgba(0,0,0,.1);
+        
+        div.link {
+            display: block;
+            width: calc(100% - 70px);
+        }
+    }
+    
+    .owl-stage-outer {
+        overflow: initial !important;
+    }
+    
+    
+    .owl-dot span {
+        background-color: #ffffff !important;
+        border: 1px solid silver !important; 
+    }
+    
+    .owl-dot.active span {
+        background-color: #828282 !important;
+    }
+    
+    .owl-dots {
+        position: absolute;
+        width: 100%;
+    }
+    
+    .owl-dots {
+        button:focus {
+            outline: none;
+            span {
+                outline: none;
+            }
+        }
+    }
+    
+}
+
+.our-clients.slider-not-active {
+    .container {
+        padding: 0 !important;
+        overflow: initial !important;
+            
+        .owl-carousel {
+            display: flex!important;
+            flex-wrap: wrap;
+            flex-direction: row !important;
+            
+            .item {
+                width: 16.6% !important;
+                position: relative;
+                    
+                @media only screen and ( max-width: 1000px ) {
+                    width: 33.3% !important;
+                }
+            }
+            
+            .item:hover {
+                div.link {
+                    display: initial;
+                    left: 0px;
+                    @media only screen and ( max-width: 1000px ) {
+                        left: 10px;
+                    }
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

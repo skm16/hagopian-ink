@@ -138,7 +138,7 @@ export function HomeContent() {
       {/* CLIENT LOGO TRAIN */}
       <section className="bg-[#2d3232] py-16 border-b border-[#3a4040] overflow-hidden relative">
         <FadeIn className="text-center mb-10">
-          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/65" style={{ fontFamily: NAV_FONT }}>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/[0.65]" style={{ fontFamily: NAV_FONT }}>
             Trusted by world-class brands
           </p>
         </FadeIn>
@@ -267,7 +267,7 @@ export function HomeContent() {
             <FadeIn delay={0.35}>
               <div className="border-l-2 border-[#f5f0eb]/12 pl-10 relative">
                 <span className="absolute -top-12 -left-4 text-[9rem] leading-none text-[#f5f0eb]/05" style={{ fontFamily: SERIF }}>&ldquo;</span>
-                <blockquote className="text-xl md:text-2xl leading-relaxed mb-8 italic text-[#f5f0eb]/75 relative" style={{ fontFamily: SERIF }}>
+                <blockquote className="text-xl md:text-2xl leading-relaxed mb-8 italic text-[#f5f0eb]/[0.75] relative" style={{ fontFamily: SERIF }}>
                   &ldquo;Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas.&rdquo;
                 </blockquote>
                 <cite className="not-italic flex items-center gap-4">
@@ -346,7 +346,7 @@ export function HomeContent() {
             </FadeIn>
 
             <FadeIn delay={0.25} className="bg-[#343a3a] border border-[#424848] p-10">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/65 mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#f5f0eb]/[0.65] mb-8" style={{ fontFamily: NAV_FONT }}>Send us a message</p>
               <div className="space-y-5">
                 {[
                   { label: 'Your Name',             placeholder: 'Jane Smith',           type: 'text' },

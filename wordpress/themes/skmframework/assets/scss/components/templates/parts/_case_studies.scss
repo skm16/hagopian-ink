@@ -1,0 +1,399 @@
+.template-part.case-studies {
+    background-color: #e9e6e6;
+    overflow: hidden;
+
+    .top-text {
+        color: #a57b83;
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.47px;
+        text-align: center;
+        font-family: "Sackers Gothic Std"; //SackersGothicStd_Heavy
+    }
+
+    .title {
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 1.13px;
+        line-height: normal;
+        font-family: Paulo_Goode_Didonesque_Medium;
+    }
+
+    .description {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        padding: 0 45px;
+        margin: -5px auto 0 auto;
+        color: #2e2e2e;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 24px;
+        text-align: center;
+        letter-spacing: 0.24px;
+        font-family: Fira Sans;
+    }
+
+    .link {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        max-width: 155px;
+
+        :after {
+            top:27% !important;
+        }
+        
+        @media only screen and ( max-width: 870px ) {
+            display: flex !important;
+            
+            a {
+                padding: 0px;
+                margin: auto;
+                overflow: visible;
+                display: inline-block !important;
+            }
+            
+            a:before {
+                display: none;
+            }
+            
+            a:after {
+                right: -20px !important;
+                top: 30% !important;
+            }
+        }
+        
+    }
+
+    .case-1 {
+        div.img {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .1);
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .blocks {
+            max-width: 707px;
+            display: flex;
+            margin: auto;
+            /*background-color: white;*/
+            transform: translateY(-50%);
+
+
+            &:before {
+                content: "01";
+                position: absolute;
+                width: 70px;
+                height: 84px;
+                opacity: 0.3;
+                color: #a57b83;
+                font-size: 64px;
+                font-weight: 500;
+                letter-spacing: 0.81px;
+                bottom: 0px;
+                left: -100px;
+                font-family: Paulo_Goode_Didonesque_Medium_Italic;
+            }
+
+
+            &>div.first {
+                padding: 75px 30px;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+                background-color: white !important;
+                z-index: 10;
+                position: relative;
+
+                div.link {
+                    display: none;
+
+                    @media only screen and ( max-width: 870px) {
+                        display: inline-block;
+                        margin-top: 25px;
+                    }
+                }
+
+                .title {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center;
+                    }
+                }
+
+                .top-text {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center !important;
+                    }
+                }
+            }
+
+            &>div.second {
+                position: relative;
+                padding: 15px 30px 15px 30px;
+                box-shadow: 18px 30px 60px rgba(0, 0, 0, .1);
+                background-color: white !important;
+                max-width: 311px;
+            }
+
+            &>div {
+                width: 50%;
+            }
+        }
+    }
+
+    .case-2 {
+        padding-top: 60px;
+        margin-bottom: 150px;
+        position: relative;
+
+        &>div.img {
+            width: 80%;
+
+            img {
+                width: 100%;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, .1);
+            }
+        }
+
+        .blocks {
+            /*background-color: #fff;*/
+            float: right;
+            margin-right: 15%;
+            min-width: 305px;
+            width: 320px;
+            position: absolute;
+            right: 0px;
+            bottom: -60px;
+
+            &:after {
+                content: "02";
+                position: absolute;
+                width: 70px;
+                height: 84px;
+                opacity: 0.3;
+                color: #a57b83;
+                font-size: 64px;
+                font-weight: 500;
+                letter-spacing: 0.81px;
+                bottom: 0px;
+                right: -100px;
+                top: 0px;
+                font-family: Paulo_Goode_Didonesque_Medium_Italic;
+            }
+
+            &>div {
+                padding: 70px 30px;
+            }
+
+            .first {
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+                background-color: white !important;
+                z-index: 10;
+                position: relative;
+
+                .top-text {
+                    text-align: center;
+                }
+
+                .title {
+                    text-align: center;
+                }
+
+                div.link {
+                    display: none;
+
+                    @media only screen and ( max-width: 870px) {
+                        display: inline-block;
+                        margin-top: 25px;
+                    }
+                }
+
+                .title {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center;
+                    }
+                }
+
+                .top-text {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center !important;
+                    }
+                }
+            }
+
+            .second {
+                height: 197px;
+                position: relative;
+                padding: 15px 45px 15px 45px;
+                background-color: white !important;
+            }
+        }
+    }
+
+    .case-3 {
+        margin-top: 215px;
+
+        .blocks {
+            max-width: 707px;
+            display: flex;
+            transform: translateY(-30%);
+            margin-bottom: 50px;
+
+            &:before {
+                content: "03";
+                position: absolute;
+                width: 70px;
+                height: 84px;
+                opacity: 0.3;
+                color: #a57b83;
+                font-size: 64px;
+                font-weight: 500;
+                letter-spacing: 0.81px;
+                bottom: 0px;
+                right: -100px;
+                font-family: Paulo_Goode_Didonesque_Medium_Italic;
+            }
+
+            .title {
+                text-align: center;
+            }
+
+            &>div.first {
+                padding: 75px 30px;
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+                background-color: white !important;
+                z-index: 10;
+                position: relative;
+
+                div.link {
+                    display: none;
+
+                    @media only screen and ( max-width: 870px) {
+                        display: inline-block;
+                        margin-top: 25px;
+                    }
+                }
+
+                .title {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center;
+                    }
+                }
+
+                .top-text {
+                    @media only screen and ( max-width: 870px) {
+                        text-align: center !important;
+                    }
+                }
+            }
+
+            &>div.second {
+                position: relative;
+                padding: 15px 30px 15px 30px;
+                box-shadow: 18px 30px 60px rgba(0, 0, 0, .1);
+                background-color: white !important;
+                max-width: 311px;
+                padding-left: 45px;
+                padding-right: 45px;
+            }
+
+            &>div {
+                width: 50%;
+            }
+        }
+        .container {
+            max-width:1600px;
+            &.img {
+                img {
+                    width:100%;
+                }
+            }
+        }
+    }
+
+
+    @media only screen and ( max-width: 870px) {
+        .case-1,
+        .case-2,
+        .case-3 {
+            padding-top: 0px;
+            margin: 0px;
+
+            &>div.img {
+                width: 100%;
+                padding: 0px;
+
+                @media only screen and ( max-width: 600px) {
+                    min-width: 150%;
+                    transform: translateX(-25%);
+                }
+            }
+
+            .blocks {
+                position: relative;
+                left: 0px;
+                right: auto;
+                float: none;
+                display: flex;
+                flex-direction: column;
+                max-width: 250px;
+                min-width: 250px;
+                margin: 0px auto;
+
+
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+
+                &>div {
+                    width: 100%;
+                    padding: 30px !important;
+                }
+
+                .second {
+                    display: none;
+                }
+
+                .title {
+                    font-size: 24px;
+                    line-height: 28px;
+                }
+                .link {
+                    position: inherit;
+                    bottom: auto;
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+
+    .case-1,
+    .case-3 {
+        .blocks {
+            position: relative;
+            top: -30px;
+        }
+    }
+
+    .case-2 {
+        .blocks {
+            position: relative;
+            top: -90px;
+            max-width: 311px;
+        }
+    }
+
+    a.button {
+        margin-bottom: 100px;
+    }
+}

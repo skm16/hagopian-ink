@@ -63,7 +63,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 px-8 md:px-12 py-5 flex justify-between items-center transition-all duration-500 ${
         hasScrolled || mobileOpen
-          ? 'bg-[#2d3232]/88 backdrop-blur-md border-b border-white/[0.06]'
+          ? 'bg-[#2d3232]/[0.88] backdrop-blur-md border-b border-white/[0.06]'
           : 'bg-gradient-to-b from-black/45 to-transparent border-b border-transparent'
       }`}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>

@@ -1,0 +1,56 @@
+.template-part.similar-work {
+    padding: 75px 0px 50px 0px;
+    background-color: #f9f9f9;
+    
+    .part-name {
+        margin-bottom: 50px;
+    }
+    
+    .post {
+        margin-bottom: 20px;
+
+        a {
+            .title {
+                display:inline-block;
+                margin-top: 10px;
+                color: #000000;
+                font-size: 13px;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 0.97px;
+                font-family: "Sackers Gothic Std";
+                position:relative;
+                &:before {
+                    background: #000;
+                    bottom: -5px;
+                    content: " ";
+                    display: block;
+                    height: 2px;
+                    position: absolute;
+                    transition: all .7s ease-out;
+                    transform:scaleX(0);
+                    transform-origin: 0;
+                    width: 100%;
+                    opacity:0;
+                }
+            }
+            &:hover {
+                .title {
+                    &:before {
+                        opacity:1;
+                        transform:scaleX(1);
+                    }
+                }
+            }
+        }
+
+    }
+
+    .prev-cat {
+        margin-top: 30px;
+    }
+
+    a.all-our-works-link {
+        position: relative;
+    }
+}
