@@ -87,12 +87,16 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
 
             <AnimatePresence>
               {open && (
+                // Wrapper handles centering (framer-motion writes to `transform`
+                // on the inner element, which would clobber Tailwind's
+                // -translate-x-1/2 — keep the two responsibilities separate).
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64">
                 <motion.div
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-[#343a3a] border border-[#474d4d] shadow-2xl overflow-hidden">
+                  className="bg-[#343a3a] border border-[#474d4d] shadow-2xl overflow-hidden">
                   <Link href="/expertise"
                     onClick={() => setOpen(false)}
                     className="block px-5 py-3.5 text-[#f5f0eb]/60 hover:text-[#f5f0eb] hover:bg-[#3a4040] transition-colors border-b border-[#424848] text-[11px] uppercase tracking-[0.14em]"
@@ -122,6 +126,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                     ))}
                   </div>
                 </motion.div>
+                </div>
               )}
             </AnimatePresence>
           </div>
