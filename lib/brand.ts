@@ -20,7 +20,7 @@ export const VIDEO_MP4        = `${CDN}/2022/08/HI_InkBackground-contact.mp4`;
 // can swap them without a code deploy. The rest still live in public/.
 export const VIDEO_ABOUT      = `${WP_MEDIA_UPLOADS}/2026/05/about.mp4`;
 export const VIDEO_CONTACT    = `${WP_MEDIA_UPLOADS}/2026/05/contact.mp4`;
-export const VIDEO_EXPERTISE  = `${_BASE}videos/expertise.mp4`;
+export const VIDEO_EXPERTISE  = `${WP_MEDIA_UPLOADS}/2026/05/expertise.mp4`;
 export const VIDEO_WORK       = `${WP_MEDIA_UPLOADS}/2026/05/work.mp4`;
 export const VIDEO_BLOG       = `${WP_MEDIA_UPLOADS}/2026/05/blog.mp4`;
 export const VIDEO_POSTER      = `${WP_MEDIA_UPLOADS}/2022/09/contact_still.png`;
