@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
+import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -88,7 +89,7 @@ export function NonprofitContent() {
 
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
+        <HeroOverlay />
         <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />

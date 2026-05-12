@@ -24,6 +24,7 @@ import Link from 'next/link';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
+import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import {
   CDN, LOGO, VIDEO_MP4, VIDEO_POSTER,
   SERIF, SANS, NAV_FONT, BRAND_STYLES,
@@ -90,12 +91,13 @@ export function HomeContent() {
       {/* HERO */}
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex flex-col justify-center items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ scale: heroScale as unknown as number }}>
-          <div className="absolute inset-0 bg-[#2d3232]/12 z-10" />
           <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
             className="w-full h-full object-cover">
             <source src={VIDEO_MP4} type="video/mp4" />
           </video>
         </motion.div>
+
+        <HeroOverlay />
 
         <motion.div className="relative z-10 px-6 md:px-16 max-w-6xl mx-auto text-center mt-16" style={{ opacity: heroOpacity as unknown as number }}>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}

@@ -6,6 +6,7 @@ import type { ComponentPropsWithRef, FC } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Search } from 'lucide-react';
 import { FadeIn, Btn, BtnLight } from '@/components/shared/ui';
+import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { CDN, VIDEO_BLOG, VIDEO_BLOG_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import type { ShapedPost } from '@/lib/wp/shape-post';
 
@@ -127,7 +128,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
       <InlineStyles css={BRAND_STYLES} />
 
       <section className="relative h-[55vh] min-h-[420px] flex flex-col justify-end overflow-hidden">
-        <div className="absolute inset-0 bg-[#2d3232]/10 z-10" />
+        <HeroOverlay />
         <video autoPlay loop muted playsInline preload="none" poster={VIDEO_BLOG_POSTER}
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_BLOG} type="video/mp4" />
