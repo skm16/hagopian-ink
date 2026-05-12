@@ -1,0 +1,47 @@
+# Files NOT shipped to Railway / Nixpacks builds.
+# Mirrors .dockerignore — Railway's nixpacks driver respects .railwayignore
+# at the repo root.
+
+.next
+node_modules
+out
+
+# Legacy Vite SPA (Task 20 cleanup, not deployed)
+artifacts
+
+# WordPress source — plugin/theme reference for Task 15, contains binary-ish
+# minified vendor JS that breaks nixpacks UTF-8 file scanner. Never deployed.
+wordpress
+
+# Replit chat upload archive (~68MB, no runtime code)
+attached_assets
+
+# Local dev / OS / IDE
+.git
+.github
+.vscode
+.idea
+.cursor
+.replit
+.replitignore
+replit.md
+.cache
+.local
+.expo
+.expo-shared
+.playwright-mcp
+.sass-cache
+.DS_Store
+Thumbs.db
+
+# Env files (Railway injects real env vars)
+.env
+.env.local
+.env.*.local
+
+# Scratch
+.jab
+screenshots
+
+# Docs
+docs
