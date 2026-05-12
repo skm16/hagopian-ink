@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { jabClient, withTags } from '@/lib/jab/client';
+
+export const dynamic = 'force-dynamic';
+
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';
 import { Nav } from '@/components/shared/Nav';

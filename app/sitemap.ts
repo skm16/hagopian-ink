@@ -3,6 +3,11 @@ import { jabClient, withTags } from '@/lib/jab/client';
 import { getOurWork } from '@/lib/sdk';
 import { fetchPosts } from '@/lib/wp/fetch-posts';
 
+// Render at request time, not build time. The jab client validates
+// WP_URL/WP_USER/WP_APP_PASSWORD at module init, and we don't want a
+// missing/unreachable WordPress to fail the deploy build.
+export const dynamic = 'force-dynamic';
+
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hagopianink.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -35,10 +35,27 @@ globalThis.fetch = (async (input: any, init?: any) => {
   return originalFetch(input, init);
 }) as typeof fetch;
 
-export const jabClient = createClient({
-  wpUrl: required('WP_URL'),
-  user: required('WP_USER'),
-  password: required('WP_APP_PASSWORD'),
+// Lazy-init: env vars are read on first property access, not at module load.
+// This keeps `next build` from crashing when WP_URL isn't in the build
+// environment (we collect page data with `force-dynamic` anyway, but the
+// jab client module is still imported during compilation).
+type JabClient = ReturnType<typeof createClient>;
+let _jabClient: JabClient | null = null;
+function getJabClient(): JabClient {
+  if (!_jabClient) {
+    _jabClient = createClient({
+      wpUrl: required('WP_URL'),
+      user: required('WP_USER'),
+      password: required('WP_APP_PASSWORD'),
+    });
+  }
+  return _jabClient;
+}
+
+export const jabClient = new Proxy({} as JabClient, {
+  get(_target, prop, receiver) {
+    return Reflect.get(getJabClient() as object, prop, receiver);
+  },
 });
 
 export async function withTags<T>(tags: string[], fn: () => Promise<T>): Promise<T> {

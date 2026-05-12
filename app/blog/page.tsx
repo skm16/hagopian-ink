@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { Nav } from '@/components/shared/Nav';
+
+export const dynamic = 'force-dynamic';
+
 import { Footer } from '@/components/shared/Footer';
 import { fetchPosts } from '@/lib/wp/fetch-posts';
 import { BlogListClient } from '@/components/blog/BlogListClient';

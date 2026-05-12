@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { fetchPostBySlug } from '@/lib/wp/fetch-posts';
+
+export const dynamic = 'force-dynamic';
+
 import { shapePost } from '@/lib/wp/shape-post';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';

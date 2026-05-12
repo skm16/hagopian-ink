@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
 import { jabClient, withTags } from '@/lib/jab/client';
+
+// Defer WP fetch until request time so build doesn't depend on CMS being up.
+// ISR still works via withTags() — webhook can invalidate.
+export const dynamic = 'force-dynamic';
+
 import { getOurWork, getWorkType } from '@/lib/sdk';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
