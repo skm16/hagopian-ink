@@ -20,8 +20,61 @@ const motion = {
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
+interface FormState {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
+  service: string;
+  message: string;
+  /** Honeypot — must remain empty for real submissions */
+  website: string;
+}
+
+const INITIAL_FORM: FormState = {
+  name: '',
+  email: '',
+  company: '',
+  phone: '',
+  service: '',
+  message: '',
+  website: '',
+};
+
 export function ContactContent() {
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState<FormState>(INITIAL_FORM);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm(f => ({ ...f, [key]: value }));
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === 'sending') return;
+    setStatus('sending');
+    setErrorMessage(null);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const body = (await res.json().catch(() => null)) as { error?: string } | null;
+        setErrorMessage(body?.error ?? 'Something went wrong. Please email us directly.');
+        setStatus('error');
+        return;
+      }
+      setStatus('success');
+    } catch {
+      setErrorMessage('Network error. Please try again or email us directly.');
+      setStatus('error');
+    }
+  }
+
+  const submitted = status === 'success';
 
   return (
     <div style={{ fontFamily: SANS }}>
@@ -107,27 +160,39 @@ export function ContactContent() {
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-8" style={{ fontFamily: NAV_FONT }}>
                   Send us a message
                 </p>
-                <form className="space-y-5" onSubmit={e => { e.preventDefault(); setSubmitted(true); }}>
-                  {[
-                    { label: 'Your Name',             placeholder: 'Jane Smith',        type: 'text',  required: true },
-                    { label: 'Email Address',          placeholder: 'jane@company.com',  type: 'email', required: true },
-                    { label: 'Company / Organization', placeholder: 'Company name',      type: 'text',  required: false },
-                    { label: 'Phone',                  placeholder: '212-555-0000',      type: 'tel',   required: false },
-                  ].map((field, i) => (
-                    <div key={i}>
+                <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+                  {(
+                    [
+                      { key: 'name',    label: 'Your Name',             placeholder: 'Jane Smith',       type: 'text',  required: true,  autoComplete: 'name' },
+                      { key: 'email',   label: 'Email Address',         placeholder: 'jane@company.com', type: 'email', required: true,  autoComplete: 'email' },
+                      { key: 'company', label: 'Company / Organization', placeholder: 'Company name',     type: 'text',  required: false, autoComplete: 'organization' },
+                      { key: 'phone',   label: 'Phone',                  placeholder: '212-555-0000',     type: 'tel',   required: false, autoComplete: 'tel' },
+                    ] as const
+                  ).map(field => (
+                    <div key={field.key}>
                       <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                         {field.label}{field.required && <span className="text-[#2d3232]/70 ml-1">*</span>}
                       </label>
-                      <input type={field.type} required={field.required}
+                      <input
+                        type={field.type}
+                        required={field.required}
+                        autoComplete={field.autoComplete}
+                        value={form[field.key]}
+                        onChange={e => updateField(field.key, e.target.value)}
                         className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/30 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 transition-colors"
-                        placeholder={field.placeholder} style={{ fontFamily: SANS }} />
+                        placeholder={field.placeholder}
+                        style={{ fontFamily: SANS }}
+                      />
                     </div>
                   ))}
                   <div>
                     <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       Service of Interest
                     </label>
-                    <select className="w-full bg-white border border-[#d4cfc9] text-[#2d3232]/70 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 transition-colors appearance-none"
+                    <select
+                      value={form.service}
+                      onChange={e => updateField('service', e.target.value)}
+                      className="w-full bg-white border border-[#d4cfc9] text-[#2d3232]/70 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 transition-colors appearance-none"
                       style={{ fontFamily: SANS }}>
                       <option value="">Select a service...</option>
                       <option>Brand Identity + Strategy</option>
@@ -142,15 +207,43 @@ export function ContactContent() {
                     <label className="block text-[10px] uppercase tracking-[0.16em] text-[#2d3232]/70 mb-2" style={{ fontFamily: NAV_FONT }}>
                       How Can We Help? <span className="text-[#2d3232]/70">*</span>
                     </label>
-                    <textarea rows={4} required
+                    <textarea
+                      rows={4}
+                      required
+                      value={form.message}
+                      onChange={e => updateField('message', e.target.value)}
                       className="w-full bg-white border border-[#d4cfc9] text-[#2d3232] placeholder-[#2d3232]/30 text-sm px-4 py-3 focus:outline-none focus:border-[#2d3232]/40 resize-none transition-colors"
                       placeholder="Tell us about your project..."
-                      style={{ fontFamily: SANS }} />
+                      style={{ fontFamily: SANS }}
+                    />
                   </div>
-                  <button type="submit"
-                    className="w-full py-4 bg-[#2d3232] text-[#f5f0eb] text-[11px] uppercase tracking-[0.16em] hover:bg-[#3a4040] transition-colors duration-300 mt-4"
+
+                  {/* Honeypot — hidden from humans, bots fill it */}
+                  <div style={{ position: 'absolute', left: '-9999px', height: 0, overflow: 'hidden' }} aria-hidden="true">
+                    <label>
+                      Website
+                      <input
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={form.website}
+                        onChange={e => updateField('website', e.target.value)}
+                      />
+                    </label>
+                  </div>
+
+                  {status === 'error' && errorMessage && (
+                    <p className="text-sm text-red-700 bg-red-50 border border-red-200 px-4 py-3" style={{ fontFamily: SANS }}>
+                      {errorMessage}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="w-full py-4 bg-[#2d3232] text-[#f5f0eb] text-[11px] uppercase tracking-[0.16em] hover:bg-[#3a4040] disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300 mt-4"
                     style={{ fontFamily: NAV_FONT }}>
-                    Send Message
+                    {status === 'sending' ? 'Sending…' : 'Send Message'}
                   </button>
                 </form>
               </>
