@@ -26,11 +26,11 @@ const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const VALUES = [
   { icon: Target,     title: 'Strategy First',                 desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.' },
-  { icon: Gem,        title: 'Craft Without Compromise',        desc: 'We hold our work to exacting standards because the difference between good and great is what clients remember.' },
+  { icon: Gem,        title: 'Craft Without Compromise',        desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.' },
   { icon: Heart,      title: 'Relationships Over Transactions', desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.' },
   { icon: TrendingUp, title: 'Results Are the Measure',         desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.' },
-  { icon: Star,       title: 'Where Strategy Meets Creativity', desc: 'We are woman-owned and creatively driven, with an unapologetic commitment to doing exceptional work.' },
-  { icon: Users,      title: 'Curated Teams, by Design',        desc: 'Other agencies have internal teams. We specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.' },
+  { icon: Star,       title: 'Where Strategy Meets Creativity', desc: 'We are woman-owned and creatively driven, with an unapologetic commitment to doing exceptional work. We lead with intention, high expectations, and a healthy dose of boss-lady energy.' },
+  { icon: Users,      title: 'Curated Teams, by Design',        desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.' },
 ];
 
 const AWARDS = [
@@ -148,13 +148,16 @@ export function AboutContent() {
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
               <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5f0eb]/60 mb-8" style={{ fontFamily: NAV_FONT }}>President &amp; Creative Director</p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                Christina has spent more than two decades partnering with visionary leaders and organizations at pivotal moments of growth, change, and reinvention. A graduate of Carnegie Mellon University's School of Design, she brings both deep creative training and real-world strategic instinct to every engagement.
+                Christina Hagopian has spent more than two decades partnering with visionary leaders and organizations through periods of growth, change, and reinvention, helping them clarify who they are and how they present themselves to the world. A proud graduate of Carnegie Mellon University&apos;s School of Design, she brings deep creative training and seasoned instinct to every engagement.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
-                Known for her hands-on leadership style and sharp creative instincts, she guides brand evolution from strategy through execution across identity, rebranding, websites, and communication systems.
+                Known for her hands-on leadership style and strong creative direction, Christina guides brand evolution from strategy through execution across identity systems, rebrands, websites, and communications. She helps brands find clarity through thoughtful design and creative direction.
+              </p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-5">
+                Christina has led creative initiatives for organizations ranging from mission-driven nonprofits to medtech innovators and global brands including PepsiCo, Lancôme, Audible, Burberry, and Madison Square Garden. She believes great branding isn&apos;t built on trends, but on clarity, alignment, and a strong understanding of audience perception.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed">
-                Christina has led design initiatives for organizations including PepsiCo, Lancome, Audible, Burberry, and Madison Square Garden.
+                Outside the studio, Christina&apos;s creative instincts extend into everyday life. She spends time beachcombing along the shores of Cape Cod, experimenting with ceramics at the pottery wheel, and testing recipes for a family cookbook — pursuits that reflect the same curiosity, craftsmanship, and attention to detail that shape her work.
               </p>
             </div>
           </FadeIn>

@@ -368,14 +368,14 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
               Selected Work
             </p>
             <h1 className="text-5xl md:text-7xl leading-[0.92] text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Design that creates{' '}
-              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>impact.</span>
+              Designs that mean{' '}
+              <span style={{ fontStyle: 'italic', opacity: 0.55 }}>business.</span>
             </h1>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
             className="text-xl text-[#f5f0eb]/70 max-w-md leading-relaxed pb-2">
-            20+ years of brands built to last.
+            Thoughtful creative across brand, digital, and campaign experiences since 2002.
           </motion.p>
         </div>
       </section>
