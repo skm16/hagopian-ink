@@ -8,16 +8,22 @@ const BLACK_NAV = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skm
 //   - fullWidth (col-sm-12): centered image, max-width 800px per design feedback.
 //   - Two-half (col-sm-6 each): forced 50/50 side-by-side; second half drops
 //     STAGGER_OFFSET pixels for the agency-portfolio scattered-device composition.
-//     We intentionally ignore `automaticAlignment` here — even when WP marks it
-//     as `no` (the `.disable-auto-width` class), the raw images are 2000+ px
-//     wide and would never fit the layout at natural size. The 50/50 layout
-//     matches the user's design intent for every variant.
+//
+// Field independence: WP's PHP template renders all three fields together
+// inside one .row when populated — the full-width sits on top, the two halves
+// sit below it. We mirror that: a single block can produce a stacked layout
+// (full-width + paired halves), not just one OR the other.
+//
+// We intentionally ignore `automaticAlignment` — even when WP marks it as
+// `no` (the `.disable-auto-width` class), the raw images are 2000+ px wide
+// and would never fit at natural size. The 50/50 layout is the design intent.
 const FULL_WIDTH_MAX = 800;
 const STAGGER_OFFSET = 80;
 const SHADOW = '0 20px 50px rgba(0,0,0,0.3)';
 
 export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
   const navBarSrc = block.navBar === 'black' ? BLACK_NAV : SILVER_NAV;
+  const hasPair = block.firstPage || block.secondPage;
 
   return (
     <section style={{ background: '#f4f2f2', padding: '90px 0' }}>
@@ -28,6 +34,7 @@ export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
             maxWidth: FULL_WIDTH_MAX,
             margin: '0 auto',
             boxShadow: SHADOW,
+            marginBottom: hasPair ? 60 : 0,
           }}>
             <img
               src={navBarSrc}
@@ -41,7 +48,7 @@ export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
             />
           </div>
         )}
-        {(block.firstPage || block.secondPage) && !block.fullWidth && (
+        {hasPair && (
           <div style={{
             width: '90%',
             margin: '0 auto',
