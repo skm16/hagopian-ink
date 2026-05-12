@@ -106,30 +106,30 @@ export function ExpertiseContent() {
       </section>
 
       {/* BRANDING CHAPTER */}
-      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
-            <SectionLabel light>Brand Identity</SectionLabel>
+            <SectionLabel>Brand Identity</SectionLabel>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Your first impression<br />is everything.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-8">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-8">
               A great brand is more than a logo — it is a complete visual language that communicates your values, attracts your audience, and endures across every medium.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
+            <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '2002', label: 'Founded in New York City' },
                 { n: 'W/O',  label: 'Where strategy meets creativity' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
                 </div>
               ))}
             </div>
-            <BtnLight href="/expertise/brand-identity" external={false}>
+            <Btn href="/expertise/brand-identity" external={false}>
               Explore Brand Identity <ArrowRight className="w-4 h-4" />
-            </BtnLight>
+            </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
             <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
@@ -141,43 +141,43 @@ export function ExpertiseContent() {
       </section>
 
       {/* UX/UI CHAPTER */}
-      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
+            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2022/08/HI_home2_loum.jpg`} alt="UX/UI design work"
-                className="w-full h-full object-cover opacity-80 hover:opacity-95 transition-opacity duration-700" />
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
-            <SectionLabel light>Website Design</SectionLabel>
+            <SectionLabel>Website Design</SectionLabel>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Drive action with<br />clear intention.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-8">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-8">
               We design digital experiences that put the consumer first — from the architecture of your information to the micro-interactions that guide a purchase.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#f5f0eb]/10 pt-8">
+            <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '58%', label: 'increase in unique visitors', client: 'Frette' },
                 { n: '3x',  label: 'increase in online sales',    client: 'MSG Suites' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
-                  <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{s.client}</div>
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[10px] text-[#2d3232]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
-            <BtnLight href="/expertise/ux-ui-design" external={false}>
+            <Btn href="/expertise/ux-ui-design" external={false}>
               Explore UX/UI Design <ArrowRight className="w-4 h-4" />
-            </BtnLight>
+            </Btn>
           </FadeIn>
         </div>
       </section>
 
       {/* EMAIL MARKETING CHAPTER */}
-      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12">
+      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>Email Marketing</SectionLabel>
@@ -215,6 +215,7 @@ export function ExpertiseContent() {
 
       {/* LUXURY + LIFESTYLE */}
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
+        {/* sequence: who+what (#f1efef) → brand (white) → ux/ui (#f1efef) → email (white) → luxury (#f1efef) → health (white) → nonprofit (#f1efef) */}
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
@@ -253,16 +254,16 @@ export function ExpertiseContent() {
       </section>
 
       {/* HEALTH + MEDTECH */}
-      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
+      <section className="bg-white text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
-            <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty: Health + MedTech
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for the future of health.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-12">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-12">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
@@ -271,48 +272,48 @@ export function ExpertiseContent() {
                 { n: '24',    label: 'global locations reached', client: 'Viant Medical' },
                 { n: 'B2B',   label: '+ B2C health brands served' },
               ].map((s, i) => (
-                <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
+                <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
-                  {'client' in s && <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{(s as { client: string }).client}</div>}
+                  <div className="text-[11px] uppercase tracking-[0.12em] text-[#2d3232]/70 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  {'client' in s && <div className="text-[10px] text-[#2d3232]/45" style={{ fontFamily: SANS }}>{(s as { client: string }).client}</div>}
                 </div>
               ))}
             </div>
-            <BtnLight href="/expertise/health-medtech" external={false}>
+            <Btn href="/expertise/health-medtech" external={false}>
               Explore Health + MedTech <ArrowRight className="w-4 h-4" />
-            </BtnLight>
+            </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Health + MedTech brand work"
-                className="w-full h-full object-cover opacity-65" />
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
         </div>
       </section>
 
       {/* NONPROFIT */}
-      <section className="bg-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#3a4040]">
+      <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`} alt="Nonprofit fundraising work"
-                className="w-full h-full object-cover opacity-75" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2d3232]/60 to-transparent" />
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-8 left-8">
-                <div className="text-4xl font-light text-[#f5f0eb] mb-1" style={{ fontFamily: SERIF }}>329%</div>
-                <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>more dollars raised — Montefiore</div>
+                <div className="text-4xl font-light text-white mb-1" style={{ fontFamily: SERIF }}>329%</div>
+                <div className="text-[11px] uppercase tracking-[0.14em] text-white/80" style={{ fontFamily: NAV_FONT }}>more dollars raised — Montefiore</div>
               </div>
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
-            <div className="inline-block bg-white text-[#2d3232] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
+            <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty: Nonprofit Fundraising
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Building bold brands<br />for a new era of impact.
             </h2>
-            <p className="text-lg text-[#f5f0eb]/[0.65] leading-relaxed mb-12">
+            <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-12">
               We help nonprofits build the brands that inspire confidence and the fundraising programs that inspire giving.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
@@ -321,16 +322,16 @@ export function ExpertiseContent() {
                 { n: '180%',   label: 'increase in online donations', client: 'Epilepsy Foundation' },
                 { n: '$22.2M', label: 'raised at Annual Gala',        client: 'Montefiore' },
               ].map((s, i) => (
-                <div key={i} className="border-t border-[#f5f0eb]/15 pt-5">
+                <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
-                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#f5f0eb]/60 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
-                  <div className="text-[10px] text-[#f5f0eb]/45" style={{ fontFamily: SANS }}>{s.client}</div>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[#2d3232]/70 leading-snug mb-1" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+                  <div className="text-[10px] text-[#2d3232]/45" style={{ fontFamily: SANS }}>{s.client}</div>
                 </div>
               ))}
             </div>
-            <BtnLight href="/expertise/nonprofit-fundraising" external={false}>
+            <Btn href="/expertise/nonprofit-fundraising" external={false}>
               Explore Nonprofit Fundraising <ArrowRight className="w-4 h-4" />
-            </BtnLight>
+            </Btn>
           </FadeIn>
         </div>
       </section>
