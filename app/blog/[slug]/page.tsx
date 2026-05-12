@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { fetchPostBySlug } from '@/lib/wp/fetch-posts';
+import { resolvePostBuilderMedia } from '@/lib/wp/resolve-media';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,11 +50,17 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   const shaped = shapePost(data.post);
   const acfRaw = (data.post.acf ?? {}) as Record<string, unknown>;
   const rawBuilder = acfRaw['post_builder'];
+  // Resolve any image fields that came back as integer attachment IDs into
+  // { url, alt } objects so the renderer sees a uniform shape regardless of
+  // how each ACF field group is configured.
+  const resolvedBuilder = Array.isArray(rawBuilder)
+    ? ((await resolvePostBuilderMedia(rawBuilder)) as PostFlexBlock[])
+    : null;
   const acfExtra = {
     journal_post_subtitle: (acfRaw['journal_post_subtitle'] as string | null) ?? null,
     journal_post_banner: acfRaw['journal_post_banner'] as { url?: string; alt?: string } | null,
     featured_image_two: acfRaw['featured_image_two'] as { url?: string; alt?: string } | null,
-    post_builder: Array.isArray(rawBuilder) ? (rawBuilder as PostFlexBlock[]) : null,
+    post_builder: resolvedBuilder,
   };
   return (
     <>
