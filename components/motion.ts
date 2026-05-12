@@ -21,10 +21,12 @@ import {
 import type { ComponentPropsWithRef, FC } from 'react';
 
 type DivMotionProps = ComponentPropsWithRef<'div'> & MotionProps;
+type PMotionProps   = ComponentPropsWithRef<'p'>   & MotionProps;
 
 const motion = {
   ..._motion,
   div: _motion.div as unknown as FC<DivMotionProps>,
+  p:   _motion.p   as unknown as FC<PMotionProps>,
 };
 
 export { motion, AnimatePresence };
