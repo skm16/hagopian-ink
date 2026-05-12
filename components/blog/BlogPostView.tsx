@@ -258,7 +258,7 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
               </p>
 
               <h1 className="text-[32px] md:text-[40px]"
-                style={{ fontFamily: SERIF, fontWeight: 400, lineHeight: '48px', letterSpacing: '1.5px', color: '#000', marginBottom: subtitle ? '20px' : '0' }}>
+                style={{ fontFamily: SERIF, fontWeight: 700, lineHeight: '48px', letterSpacing: '1.5px', color: '#000', marginBottom: subtitle ? '20px' : '0' }}>
                 {post.title}
               </h1>
 
