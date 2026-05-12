@@ -14,6 +14,22 @@ import type { DetailPost, RelatedItem, FlexBlock } from '@/lib/work-detail-types
 
 type Params = Promise<{ slug: string }>;
 
+/**
+ * Many case studies have placeholder Lorem ipsum left over in the WP
+ * content/excerpt field (a legacy of the original theme not displaying
+ * post content). When we surface that placeholder as the case study intro
+ * or SEO description, it leaks visibly. Treat anything starting with
+ * "Lorem ipsum" as empty so those posts render cleanly until WP-side cleanup.
+ */
+function stripPlaceholder(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return '';
+  // Strip HTML before testing — WP excerpts can come back wrapped in <p>.
+  const stripped = trimmed.replace(/<[^>]+>/g, '').trim();
+  if (/^lorem ipsum/i.test(stripped)) return '';
+  return text;
+}
+
 async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related: RelatedItem[] } | null> {
   // Wrap in try/catch so WP outages produce 404 instead of 500.
   let detail: Awaited<ReturnType<typeof getWorksBySlug>>;
@@ -29,9 +45,13 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
 
   const w = detail.our_work;
   const acf = (w.acf ?? {}) as Record<string, unknown>;
-  const subtitle = typeof acf['journal_post_subtitle'] === 'string' ? acf['journal_post_subtitle'] : '';
-  const shortDesc = typeof acf['journal_short_desc'] === 'string' ? acf['journal_short_desc'] : '';
-  const intro = shortDesc || w.excerpt || '';
+  const subtitle = stripPlaceholder(
+    typeof acf['journal_post_subtitle'] === 'string' ? acf['journal_post_subtitle'] : '',
+  );
+  const shortDesc = stripPlaceholder(
+    typeof acf['journal_short_desc'] === 'string' ? acf['journal_short_desc'] : '',
+  );
+  const intro = shortDesc || stripPlaceholder(w.excerpt ?? '') || '';
 
   const rawBlocks = Array.isArray(acf['template_part']) ? (acf['template_part'] as unknown[]) : [];
   const blocks = rawBlocks.map((b) => shapeBlock(b)).filter((b): b is FlexBlock => b !== null);
