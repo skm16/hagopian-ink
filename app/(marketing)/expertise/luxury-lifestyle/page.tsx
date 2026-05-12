@@ -1,6 +1,9 @@
 ﻿import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo/resolve-metadata';
 import { LuxuryLifestyleContent } from '@/components/expertise/LuxuryLifestyleContent';
+import { fetchWorksByExpertiseTag } from '@/lib/wp/fetch-works-by-expertise';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Luxury & Lifestyle',
@@ -8,6 +11,7 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/expertise/luxury-lifestyle',
 });
 
-export default function LuxuryLifestylePage() {
-  return <LuxuryLifestyleContent />;
+export default async function LuxuryLifestylePage() {
+  const featuredWorks = await fetchWorksByExpertiseTag('lifestyle-luxury');
+  return <LuxuryLifestyleContent featuredWorks={featuredWorks} />;
 }

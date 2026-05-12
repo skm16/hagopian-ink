@@ -9,6 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -48,32 +49,6 @@ const STATS = [
   { n: '$22.2M', label: 'Raised at annual gala — Montefiore' },
 ];
 
-const PROJECTS = [
-  {
-    client: 'Montefiore Einstein',
-    category: 'Healthcare Fundraising Design',
-    img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
-    href: '/work/montefiore-healthcare-design',
-  },
-  {
-    client: 'Black Lives Matter Canada',
-    category: 'Email Marketing + Community',
-    img: `${CDN}/2022/08/Work-Thumb_BLMC-724x1024-1-293x414.jpg`,
-    href: '/work/black-lives-matter-canada',
-  },
-  {
-    client: 'Award-Winning Logos',
-    category: 'Nonprofit + Brand Identity',
-    img: `${CDN}/2018/08/Work-Thumb_logos-293x414.jpg`,
-    href: '/work/award-winning-logos',
-  },
-  {
-    client: 'Christopher Street Financial',
-    category: 'Brand Identity + Website',
-    img: `${CDN}/2022/08/Work-Thumb_CSF_2-724x1024-1-293x414.jpg`,
-    href: '/work/christopher-street-financial',
-  },
-];
 
 const PHILOSOPHY = [
   { word: 'Connect.', desc: 'Tell stories that create an emotional bond. Use powerful imagery, human voices, and compelling calls to action — meeting donors where they are.' },
@@ -81,7 +56,7 @@ const PHILOSOPHY = [
   { word: 'Thank.',    desc: 'Show gratitude at every step — on behalf of the organization and the people it serves. Cultivate advocates, not transactions.' },
 ];
 
-export function NonprofitContent() {
+export function NonprofitContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -188,21 +163,7 @@ export function NonprofitContent() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Campaigns that moved people — and dollars</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <Link href={p.href} className="group block">
-                  <div className="overflow-hidden aspect-[293/414]">
-                    <img src={p.img} alt={p.client}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                  </div>
-                  <p className="mt-3 text-[13px] leading-snug" style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}>
-                    {p.client}
-                  </p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
+          <FeaturedWorkGrid works={featuredWorks} />
         </div>
       </section>
 

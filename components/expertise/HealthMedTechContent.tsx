@@ -9,6 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -35,16 +36,7 @@ const STATS = [
   { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
 ];
 
-const PROJECTS = [
-  {
-    client: 'Montefiore Einstein',
-    category: 'Healthcare Fundraising Design',
-    img: `${CDN}/2018/08/Work-Thumb_montefiore-293x414.jpg`,
-    href: '/work/montefiore-healthcare-design',
-  },
-];
-
-export function HealthMedTechContent() {
+export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -129,21 +121,7 @@ export function HealthMedTechContent() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Health + MedTech in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <Link href={p.href} className="group block">
-                  <div className="overflow-hidden aspect-[293/414]">
-                    <img src={p.img} alt={p.client}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                  </div>
-                  <p className="mt-3 text-[13px] leading-snug" style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}>
-                    {p.client}
-                  </p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
+          <FeaturedWorkGrid works={featuredWorks} />
         </div>
       </section>
 

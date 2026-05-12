@@ -9,6 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -29,34 +30,7 @@ const CAPABILITIES = [
   { title: 'Reporting + Optimization',      desc: 'A/B testing, performance reporting, and ongoing refinement to keep open rates climbing.' },
 ];
 
-const PROJECTS = [
-  {
-    client: 'Pepsi',
-    category: 'Fortune 50 Email Marketing',
-    img: `${CDN}/2018/08/Work-Thumb_pepsi-293x414.jpg`,
-    href: '/work/pepsi-email-marketing',
-  },
-  {
-    client: 'Sesame Street',
-    category: 'Mobile Email Design',
-    img: `${CDN}/2018/08/Work-Thumb_sesame-293x414.jpg`,
-    href: '/work/sesame-street-mobile-email',
-  },
-  {
-    client: 'Audible',
-    category: 'Email Marketing + Reactivation',
-    img: `${CDN}/2022/07/Work-Thumb_audible-293x414.jpg`,
-    href: '/work/audible-email-design',
-  },
-  {
-    client: 'Melissa Kaye Jewelry',
-    category: 'Luxury Email Marketing',
-    img: `${CDN}/2018/08/Work-Thumb_melissa-293x414.jpg`,
-    href: '/work/melissa-kaye-luxury-jewelry-email-design',
-  },
-];
-
-export function EmailMarketingContent() {
+export function EmailMarketingContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -145,21 +119,7 @@ export function EmailMarketingContent() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Email programs that deliver</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <Link href={p.href} className="group block">
-                  <div className="overflow-hidden aspect-[293/414]">
-                    <img src={p.img} alt={p.client}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                  </div>
-                  <p className="mt-3 text-[13px] leading-snug" style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}>
-                    {p.client}
-                  </p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
+          <FeaturedWorkGrid works={featuredWorks} />
         </div>
       </section>
 

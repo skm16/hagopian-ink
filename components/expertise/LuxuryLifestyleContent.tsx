@@ -9,6 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { CDN, CLIENT_LOGOS, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -35,39 +36,13 @@ const STATS = [
   { n: '2.93M', label: 'Facebook followers — Lancome House of Color' },
 ];
 
-const PROJECTS = [
-  {
-    client: 'La Perla',
-    category: 'Omnichannel Marketing',
-    img: `${CDN}/2018/08/Work-Thumb_laperla-293x414.jpg`,
-    href: '/work/la-perla-multichannel-campaign-design',
-  },
-  {
-    client: 'Todd + Duncan',
-    category: 'Luxury Brand Identity',
-    img: `${CDN}/2018/08/Work-Thumb_TD-293x414.jpg`,
-    href: '/work/todd-duncan-cashmere-branding-design',
-  },
-  {
-    client: 'Gwynnie Bee',
-    category: 'UX + Email Marketing',
-    img: `${CDN}/2018/08/Work-Thumb_gwynnie-293x414.jpg`,
-    href: '/work/gwynnie-bee-subscription-acquisition-email',
-  },
-  {
-    client: 'Loum Beauty',
-    category: 'Brand + UX Redesign',
-    img: `${CDN}/2022/08/Work-Thumb_loum2-724x1024-1-293x414.jpg`,
-    href: '/work/loumbeauty',
-  },
-];
 
 const LUXURY_LOGOS = CLIENT_LOGOS.filter(l =>
   ['La Perla', 'Lancome', 'Burberry', 'Armani', 'Frette', 'MSG', 'Gwynnie Bee',
    'Aston Martin', 'Conde Nast', 'Estee Lauder'].includes(l.alt)
 );
 
-export function LuxuryLifestyleContent() {
+export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
   return (
     <div className="text-[#f5f0eb]" style={{ fontFamily: SANS }}>
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
@@ -152,21 +127,7 @@ export function LuxuryLifestyleContent() {
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>Luxury + lifestyle in practice</h2>
           </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {PROJECTS.map((p, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <Link href={p.href} className="group block">
-                  <div className="overflow-hidden aspect-[293/414]">
-                    <img src={p.img} alt={p.client}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700" />
-                  </div>
-                  <p className="mt-3 text-[13px] leading-snug" style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}>
-                    {p.client}
-                  </p>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
+          <FeaturedWorkGrid works={featuredWorks} />
         </div>
       </section>
 

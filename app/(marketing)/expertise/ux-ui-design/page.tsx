@@ -1,6 +1,9 @@
 ﻿import type { Metadata } from 'next';
 import { buildMetadata } from '@/lib/seo/resolve-metadata';
 import { UxUiDesignContent } from '@/components/expertise/UxUiDesignContent';
+import { fetchWorksByExpertiseTag } from '@/lib/wp/fetch-works-by-expertise';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = buildMetadata({
   title: 'UX & UI Design',
@@ -8,6 +11,7 @@ export const metadata: Metadata = buildMetadata({
   canonicalPath: '/expertise/ux-ui-design',
 });
 
-export default function UxUiDesignPage() {
-  return <UxUiDesignContent />;
+export default async function UxUiDesignPage() {
+  const featuredWorks = await fetchWorksByExpertiseTag('website-design');
+  return <UxUiDesignContent featuredWorks={featuredWorks} />;
 }
