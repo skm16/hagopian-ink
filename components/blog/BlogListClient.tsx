@@ -184,36 +184,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
             <div className="border-t border-[#2d3232]/10" />
 
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-1 pt-12 pb-4">
-                <button
-                  onClick={() => setPage(p => Math.max(1, p - 1))}
-                  disabled={page === 1}
-                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/70 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
-                  aria-label="Previous page">
-                  <ArrowRight className="w-3.5 h-3.5 rotate-180" />
-                </button>
-                {Array.from({ length: totalPages }, (_, idx) => idx + 1).map(n => (
-                  <button
-                    key={n}
-                    onClick={() => setPage(n)}
-                    className="w-9 h-9 flex items-center justify-center text-[11px] border transition-colors"
-                    style={{
-                      fontFamily: NAV_FONT,
-                      borderColor: page === n ? '#2d3232' : 'rgba(45,50,50,0.15)',
-                      color: page === n ? '#2d3232' : 'rgba(45,50,50,0.40)',
-                      background: page === n ? 'rgba(45,50,50,0.05)' : 'transparent',
-                    }}>
-                    {n}
-                  </button>
-                ))}
-                <button
-                  onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                  disabled={page === totalPages}
-                  className="w-9 h-9 flex items-center justify-center border border-[#2d3232]/15 text-[#2d3232]/70 hover:border-[#2d3232]/40 hover:text-[#2d3232] transition-colors disabled:opacity-25 disabled:cursor-not-allowed"
-                  aria-label="Next page">
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
+              <BlogPagination page={page} totalPages={totalPages} onChange={setPage} />
             )}
           </div>
 
@@ -265,5 +236,99 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
         </FadeIn>
       </section>
     </div>
+  );
+}
+
+/* ─── BlogPagination ──────────────────────────────────────────────
+   Typographic pagination matching the WP original: borderless serif
+   numerals with wide tracking, ellipsis for gaps, a textual "NEXT"
+   link instead of an arrow icon. Mirrors the layout the editor sees
+   on hagopianink.com/blog/.
+   ─────────────────────────────────────────────────────────────── */
+
+function paginationItems(page: number, totalPages: number): Array<number | 'ellipsis'> {
+  // Always show first + last; show current ±1 neighbor; fill gaps with ellipsis.
+  // For small totals (≤7), just show every page — ellipsis adds nothing.
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
+  const items: Array<number | 'ellipsis'> = [];
+  const pages = new Set<number>([1, totalPages, page - 1, page, page + 1]);
+  const sorted = [...pages].filter((n) => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1) items.push('ellipsis');
+    items.push(sorted[i]);
+  }
+  return items;
+}
+
+function BlogPagination({
+  page,
+  totalPages,
+  onChange,
+}: {
+  page: number;
+  totalPages: number;
+  onChange: (p: number) => void;
+}) {
+  const items = paginationItems(page, totalPages);
+  const canNext = page < totalPages;
+
+  return (
+    <nav
+      aria-label="Pagination"
+      className="flex items-center justify-center gap-10 pt-12 pb-4"
+      style={{ fontFamily: SERIF }}
+    >
+      {items.map((item, i) =>
+        item === 'ellipsis' ? (
+          <span
+            key={`ell-${i}`}
+            aria-hidden
+            style={{ fontSize: 20, color: 'rgba(45,50,50,0.45)', letterSpacing: '0.05em' }}
+          >
+            …
+          </span>
+        ) : (
+          <button
+            key={item}
+            onClick={() => onChange(item)}
+            aria-current={page === item ? 'page' : undefined}
+            style={{
+              fontSize: 20,
+              fontWeight: page === item ? 700 : 400,
+              color: page === item ? '#2d3232' : 'rgba(45,50,50,0.55)',
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              cursor: 'pointer',
+              letterSpacing: '0.02em',
+            }}
+            className="hover:!text-[#2d3232] transition-colors"
+          >
+            {item}
+          </button>
+        ),
+      )}
+      <button
+        onClick={() => canNext && onChange(page + 1)}
+        disabled={!canNext}
+        aria-label="Next page"
+        style={{
+          fontFamily: NAV_FONT,
+          fontSize: 13,
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color: canNext ? '#2d3232' : 'rgba(45,50,50,0.3)',
+          background: 'none',
+          border: 'none',
+          padding: 0,
+          cursor: canNext ? 'pointer' : 'not-allowed',
+        }}
+        className="hover:opacity-60 transition-opacity"
+      >
+        Next
+      </button>
+    </nav>
   );
 }
