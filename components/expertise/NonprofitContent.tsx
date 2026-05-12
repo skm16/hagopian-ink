@@ -4,13 +4,13 @@ import React from 'react';
 import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
-import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { BrandsWhoTrustUs } from '@/components/expertise/BrandsWhoTrustUs';
+import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -20,19 +20,6 @@ const motion = {
 };
 
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
-
-// Image placeholders — to be supplied in Task 14
-const LOGO_EPILEPSY  = '/images/logo-epilepsy-foundation.png';
-const LOGO_KOMEN     = '/images/logo-susan-g-komen.png';
-const LOGO_BLM       = '/images/logo-blm.png';
-
-const NONPROFIT_LOGOS = [
-  { src: `${CDN}/2018/09/24_HI_logo_montefiore.png`, alt: 'Montefiore',               small: false },
-  { src: LOGO_EPILEPSY,                               alt: 'Epilepsy Foundation',       small: true  },
-  { src: `${CDN}/2018/09/21_HI_logo_malala.png`,     alt: 'Malala Fund',               small: false },
-  { src: LOGO_KOMEN,                                  alt: 'Susan G. Komen',            small: true  },
-  { src: LOGO_BLM,                                    alt: 'Black Lives Matter Canada', small: true  },
-];
 
 const CAPABILITIES = [
   { title: 'Nonprofit Brand Identity',    desc: 'Clear, credible brand systems that inspire donor confidence and differentiate your mission in a crowded space.' },
@@ -167,23 +154,7 @@ export function NonprofitContent({ featuredWorks = [] }: { featuredWorks?: Featu
         </div>
       </section>
 
-      {/* CLIENT LOGOS */}
-      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-12">
-            <SectionLabel light>Clients We've Served</SectionLabel>
-          </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-10 items-center">
-            {NONPROFIT_LOGOS.map((logo, i) => (
-              <FadeIn key={i} delay={i * 0.08} className="flex items-center justify-center">
-                <img src={logo.src} alt={logo.alt}
-                  className={`object-contain brightness-0 invert opacity-70 w-full ${logo.small ? 'max-h-7' : 'max-h-10'}`}
-                />
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandsWhoTrustUs />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">

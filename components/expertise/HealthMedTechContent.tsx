@@ -4,13 +4,13 @@ import React from 'react';
 import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
-import { CDN, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { BrandsWhoTrustUs } from '@/components/expertise/BrandsWhoTrustUs';
+import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -125,21 +125,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
         </div>
       </section>
 
-      {/* CLIENTS */}
-      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-10">
-            <SectionLabel light>Clients We've Served</SectionLabel>
-          </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Viant Medical', 'P.Volve', 'Montefiore Health System'].map((c, i) => (
-              <FadeIn key={i} delay={i * 0.08} className="border-t border-[#474d4d] pt-5">
-                <p className="text-[15px] text-[#f5f0eb]/70" style={{ fontFamily: SERIF }}>{c}</p>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandsWhoTrustUs />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">

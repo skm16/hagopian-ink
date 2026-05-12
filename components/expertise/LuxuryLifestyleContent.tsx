@@ -4,13 +4,13 @@ import React from 'react';
 import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
-import { CDN, CLIENT_LOGOS, VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { BrandsWhoTrustUs } from '@/components/expertise/BrandsWhoTrustUs';
+import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -36,11 +36,6 @@ const STATS = [
   { n: '2.93M', label: 'Facebook followers — Lancome House of Color' },
 ];
 
-
-const LUXURY_LOGOS = CLIENT_LOGOS.filter(l =>
-  ['La Perla', 'Lancome', 'Burberry', 'Armani', 'Frette', 'MSG', 'Gwynnie Bee',
-   'Aston Martin', 'Conde Nast', 'Estee Lauder'].includes(l.alt)
-);
 
 export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
   return (
@@ -131,22 +126,7 @@ export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?:
         </div>
       </section>
 
-      {/* BRANDS WHO TRUST US */}
-      <section className="bg-[#2d3232] py-16 border-t border-[#3a4040] px-8 md:px-16">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-10">
-            <SectionLabel light>Brands Who Trust Us</SectionLabel>
-          </FadeIn>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-x-10 gap-y-6 items-center">
-            {LUXURY_LOGOS.map((logo, i) => (
-              <div key={i} className="flex items-center justify-center" style={{ width: 80, height: 36 }}>
-                <img src={logo.src} alt={logo.alt}
-                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandsWhoTrustUs />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
