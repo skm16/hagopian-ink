@@ -10,7 +10,7 @@ import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { BrandsWhoTrustUs } from '@/components/expertise/BrandsWhoTrustUs';
-import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, NONPROFIT_LOGOS } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -154,7 +154,7 @@ export function NonprofitContent({ featuredWorks = [] }: { featuredWorks?: Featu
         </div>
       </section>
 
-      <BrandsWhoTrustUs />
+      <BrandsWhoTrustUs logos={NONPROFIT_LOGOS} />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">

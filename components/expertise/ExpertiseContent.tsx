@@ -9,7 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
-import { CDN, VIDEO_EXPERTISE, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { CDN, VIDEO_EXPERTISE, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, PHOTO_LUXURY, PHOTO_MEDTECH } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -76,7 +76,7 @@ export function ExpertiseContent() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-24">
             {INDUSTRIES.map((area, i) => (
-              <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10">
+              <FadeIn key={i} delay={i * 0.06} className="group py-6 border-t-[1.5px] border-[#2d3232]/15 hover:border-t-[3px] hover:border-[#2d3232] pr-10 transition-[border-color,border-width] duration-200 cursor-default">
                 <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{area.industry}</h3>
                 <p className="text-[13px] text-[#2d3232]/70 leading-relaxed">{area.services}</p>
               </FadeIn>
@@ -91,11 +91,11 @@ export function ExpertiseContent() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {DISCIPLINES.map((item, i) => (
-              <FadeIn key={i} delay={i * 0.06} className="py-6 border-t border-[#2d3232]/12 pr-10 group">
+              <FadeIn key={i} delay={i * 0.06} className="group py-6 border-t-[1.5px] border-[#2d3232]/15 hover:border-t-[3px] hover:border-[#2d3232] pr-10 transition-[border-color,border-width] duration-200">
                 <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{item.title}</h3>
                 <p className="text-[13px] text-[#2d3232]/70 leading-relaxed mb-3">{item.desc}</p>
                 <Link href={item.link}
-                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/70 group-hover:text-[#2d3232]/70 transition-colors"
+                  className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/70 group-hover:text-[#2d3232] transition-colors"
                   style={{ fontFamily: NAV_FONT }}>
                   Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
@@ -215,9 +215,14 @@ export function ExpertiseContent() {
 
       {/* LUXURY + LIFESTYLE */}
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
-        {/* sequence: who+what (#f1efef) → brand (white) → ux/ui (#f1efef) → email (white) → luxury (#f1efef) → health (white) → nonprofit (#f1efef) */}
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <FadeIn>
+          <FadeIn dir="right" className="order-2 lg:order-1">
+            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
+              <img src={PHOTO_LUXURY} alt="Luxury brand work"
+                className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-700" />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.2} className="order-1 lg:order-2">
             <div className="inline-block bg-[#2d3232] text-[#f5f0eb] text-[9px] font-bold px-3 py-1.5 uppercase tracking-[0.2em] mb-8" style={{ fontFamily: NAV_FONT }}>
               Specialty: Luxury + Lifestyle
             </div>
@@ -243,12 +248,6 @@ export function ExpertiseContent() {
             <Btn href="/expertise/luxury-lifestyle" external={false}>
               Explore Luxury + Lifestyle <ArrowRight className="w-4 h-4" />
             </Btn>
-          </FadeIn>
-          <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Luxury brand work"
-                className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-700" />
-            </div>
           </FadeIn>
         </div>
       </section>
@@ -285,7 +284,7 @@ export function ExpertiseContent() {
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Health + MedTech brand work"
+              <img src={PHOTO_MEDTECH} alt="Health + MedTech brand work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>

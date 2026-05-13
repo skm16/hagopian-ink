@@ -24,7 +24,16 @@ export const VIDEO_EXPERTISE  = `${WP_MEDIA_UPLOADS}/2026/05/expertise.mp4`;
 export const VIDEO_WORK       = `${WP_MEDIA_UPLOADS}/2026/05/work.mp4`;
 export const VIDEO_BLOG       = `${WP_MEDIA_UPLOADS}/2026/05/blog.mp4`;
 export const VIDEO_POSTER      = `${WP_MEDIA_UPLOADS}/2022/09/contact_still.png`;
-export const PHOTO_CHRISTINA  = `${WP_MEDIA_UPLOADS}/2026/05/christina-hagopian.jpg`;
+export const PHOTO_CHRISTINA      = `${WP_MEDIA_UPLOADS}/2026/05/christina-hagopian.jpg`;
+export const PHOTO_LUXURY         = `${WP_MEDIA_UPLOADS}/2026/05/burberry_luxurylifestyle.jpeg`;
+export const PHOTO_MEDTECH        = `${WP_MEDIA_UPLOADS}/2026/05/aptyx_medtech.jpeg`;
+export const NONPROFIT_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/24_HI_logo_montefiore.webp`,     alt: 'Montefiore' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_epilepsy_foundation.png`,    alt: 'Epilepsy Foundation' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/21_HI_logo_malala.webp`,          alt: 'Malala Fund' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_susan_g_komen.png`,          alt: 'Susan G. Komen' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_blm.png`,                    alt: 'Black Lives Matter' },
+];
 export const VIDEO_BLOG_POSTER = `${WP_MEDIA_UPLOADS}/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg`;
 export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 

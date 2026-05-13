@@ -22,7 +22,7 @@ const TRUST_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
   { src: `${CDN}/2018/09/04_HI_logo_esteelauder.png`, alt: 'Estée Lauder' },
 ];
 
-export function BrandsWhoTrustUs() {
+export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArray<{ src: string; alt: string }> } = {}) {
   return (
     <section className="bg-[#2d3232] py-20 md:py-24 border-t border-[#3a4040] px-8 md:px-16">
       <div className="max-w-[1400px] mx-auto">
@@ -30,7 +30,7 @@ export function BrandsWhoTrustUs() {
           <SectionLabel light>Brands Who Trust Us</SectionLabel>
         </FadeIn>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-14 items-center">
-          {TRUST_LOGOS.map((logo, i) => (
+          {logos.map((logo, i) => (
             <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center min-h-24">
               <img
                 src={logo.src}
