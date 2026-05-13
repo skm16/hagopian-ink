@@ -72,7 +72,7 @@ function Header({ post }: { post: DetailPost }) {
           style={{
             fontFamily: SERIF,
             fontWeight: 700,
-            fontSize: 64,
+            fontSize: 55,
             lineHeight: 1.05,
             color: '#2d3232',
             margin: 0,
@@ -119,7 +119,7 @@ function IntroDeck({ post }: { post: DetailPost }) {
           }}
         >
           {post.subtitle && (
-            <div style={{ flex: '1 1 360px', minWidth: 280 }}>
+            <div style={{ flex: '1 1 calc(50% - 30px)', minWidth: 280 }}>
               <p
                 style={{
                   fontFamily: SERIF,
@@ -136,7 +136,7 @@ function IntroDeck({ post }: { post: DetailPost }) {
             </div>
           )}
           {post.intro && (
-            <div style={{ flex: '1 1 360px', minWidth: 280 }}>
+            <div style={{ flex: '1 1 calc(50% - 30px)', minWidth: 280 }}>
               <p
                 style={{
                   fontFamily: SANS,

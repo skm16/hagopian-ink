@@ -96,7 +96,7 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {CAPABILITIES.map((c, i) => (
-              <FadeIn key={i} delay={i * 0.07} className="border-t border-[#2d3232]/12 pt-7">
+              <FadeIn key={i} delay={i * 0.07} className="border-t-[1.5px] border-[#2d3232]/15 hover:border-t-[3px] hover:border-[#2d3232] transition-[border-color,border-width] duration-200 pt-7">
                 <h3 className="text-lg mb-3 leading-snug" style={{ fontFamily: SERIF, fontWeight: 700 }}>{c.title}</h3>
                 <p className="text-[14px] text-[#2d3232]/70 leading-relaxed">{c.desc}</p>
               </FadeIn>

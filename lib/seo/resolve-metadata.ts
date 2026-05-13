@@ -53,10 +53,24 @@ export function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Returns '' for any text that is placeholder content left over from the
+ * original WP theme — lorem ipsum bodies and the "Read more" link text that
+ * WP appends to auto-generated excerpts when a <!--more--> tag is present.
+ */
+export function stripPlaceholder(text: string): string {
+  const plain = stripHtml(text).trim();
+  if (!plain) return '';
+  if (/lorem ipsum/i.test(plain)) return '';
+  // WP appends "Read more" (sometimes just that) when the full excerpt is lorem.
+  if (/^read more$/i.test(plain)) return '';
+  return text;
+}
+
 export function pickDescription(...candidates: Array<string | null | undefined>): string {
   for (const c of candidates) {
     if (c) {
-      const cleaned = stripHtml(c);
+      const cleaned = stripHtml(stripPlaceholder(c));
       if (cleaned.length > 0) return cleaned;
     }
   }

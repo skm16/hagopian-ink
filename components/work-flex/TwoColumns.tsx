@@ -15,8 +15,8 @@ export function TwoColumns({ block, isFirst }: { block: TwoColumnsBlock; isFirst
   return (
     <section style={{ background: bg, padding: `${padY}px 0` }}>
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
-        <div className="flex flex-col md:flex-row gap-10 items-start">
-          <div className="md:basis-2/3 md:flex-grow-0">
+        <div className="flex flex-col md:flex-row gap-16 items-start">
+          <div className="md:flex-1">
             {block.title && (
               <WpHtml
                 as="h2"
@@ -32,7 +32,7 @@ export function TwoColumns({ block, isFirst }: { block: TwoColumnsBlock; isFirst
               />
             )}
           </div>
-          <div className="md:basis-1/3 md:flex-grow-0">
+          <div className="md:flex-1">
             {block.description && (
               <WpHtml
                 html={block.description}

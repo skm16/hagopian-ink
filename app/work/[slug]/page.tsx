@@ -9,26 +9,10 @@ import { shapeBlock } from '@/lib/wp/shape-work';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { CaseStudyView } from '@/components/work/CaseStudyView';
-import { buildMetadata, pickDescription } from '@/lib/seo/resolve-metadata';
+import { buildMetadata, pickDescription, stripPlaceholder } from '@/lib/seo/resolve-metadata';
 import type { DetailPost, RelatedItem, FlexBlock } from '@/lib/work-detail-types';
 
 type Params = Promise<{ slug: string }>;
-
-/**
- * Many case studies have placeholder Lorem ipsum left over in the WP
- * content/excerpt field (a legacy of the original theme not displaying
- * post content). When we surface that placeholder as the case study intro
- * or SEO description, it leaks visibly. Treat anything starting with
- * "Lorem ipsum" as empty so those posts render cleanly until WP-side cleanup.
- */
-function stripPlaceholder(text: string): string {
-  const trimmed = text.trim();
-  if (!trimmed) return '';
-  // Strip HTML before testing — WP excerpts can come back wrapped in <p>.
-  const stripped = trimmed.replace(/<[^>]+>/g, '').trim();
-  if (/^lorem ipsum/i.test(stripped)) return '';
-  return text;
-}
 
 async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related: RelatedItem[] } | null> {
   // Wrap in try/catch so WP outages produce 404 instead of 500.
@@ -61,7 +45,7 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
     title: w.title,
     featuredImage: w.featured_image?.url ?? null,
     termNames: w.work.map((t) => t.name),
-    tagNames: [],
+    tagNames: (w['expertise-tag'] ?? []).map((t) => t.name),
     subtitle,
     intro,
     blocks,

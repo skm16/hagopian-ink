@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "source": "https://hagopian-ink.local",
-  "fetchedAt": "2026-05-11T14:46:39.293Z",
+  "source": "https://hagopianink.wpengine.com",
+  "fetchedAt": "2026-05-13T14:05:02.292Z",
   "server": {
     "namespace": "mcp",
     "route": "mcp-adapter-default-server"
@@ -203,7 +203,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "full_width_column_wysiwyg",
+                                "enum": [
+                                  "full_width_column_wysiwyg"
+                                ],
                                 "description": "Full Width Column WYSIWYG"
                               },
                               "wysiwyg": {
@@ -229,7 +231,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "2_column_wysiwyg",
+                                "enum": [
+                                  "2_column_wysiwyg"
+                                ],
                                 "description": "2 Column WYSIWYG"
                               },
                               "column_left_content": {
@@ -259,7 +263,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "3_column_wysiwyg",
+                                "enum": [
+                                  "3_column_wysiwyg"
+                                ],
                                 "description": "3 Column WYSIWYG"
                               },
                               "column_left_content": {
@@ -293,7 +299,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "13_pull_quote_23_wysiwyg",
+                                "enum": [
+                                  "13_pull_quote_23_wysiwyg"
+                                ],
                                 "description": "1/3 Pull Quote + 2/3 WYSIWYG"
                               },
                               "pull_quote_left": {
@@ -323,7 +331,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "large_pull_quote",
+                                "enum": [
+                                  "large_pull_quote"
+                                ],
                                 "description": "Large Pull Quote"
                               },
                               "pull_quote": {
@@ -353,7 +363,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "images_side_by_side",
+                                "enum": [
+                                  "images_side_by_side"
+                                ],
                                 "description": "Images Side by Side"
                               },
                               "image_left": {
@@ -479,7 +491,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "image_with_caption",
+                                "enum": [
+                                  "image_with_caption"
+                                ],
                                 "description": "Image with Caption"
                               },
                               "image": {
@@ -878,7 +892,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "full_width_column_wysiwyg",
+                                  "enum": [
+                                    "full_width_column_wysiwyg"
+                                  ],
                                   "description": "Full Width Column WYSIWYG"
                                 },
                                 "wysiwyg": {
@@ -904,7 +920,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "2_column_wysiwyg",
+                                  "enum": [
+                                    "2_column_wysiwyg"
+                                  ],
                                   "description": "2 Column WYSIWYG"
                                 },
                                 "column_left_content": {
@@ -934,7 +952,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "3_column_wysiwyg",
+                                  "enum": [
+                                    "3_column_wysiwyg"
+                                  ],
                                   "description": "3 Column WYSIWYG"
                                 },
                                 "column_left_content": {
@@ -968,7 +988,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "13_pull_quote_23_wysiwyg",
+                                  "enum": [
+                                    "13_pull_quote_23_wysiwyg"
+                                  ],
                                   "description": "1/3 Pull Quote + 2/3 WYSIWYG"
                                 },
                                 "pull_quote_left": {
@@ -998,7 +1020,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "large_pull_quote",
+                                  "enum": [
+                                    "large_pull_quote"
+                                  ],
                                   "description": "Large Pull Quote"
                                 },
                                 "pull_quote": {
@@ -1028,7 +1052,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "images_side_by_side",
+                                  "enum": [
+                                    "images_side_by_side"
+                                  ],
                                   "description": "Images Side by Side"
                                 },
                                 "image_left": {
@@ -1154,7 +1180,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "image_with_caption",
+                                  "enum": [
+                                    "image_with_caption"
+                                  ],
                                   "description": "Image with Caption"
                                 },
                                 "image": {
@@ -1527,7 +1555,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "contact-form",
+                                "enum": [
+                                  "contact-form"
+                                ],
                                 "description": "Contact form"
                               },
                               "title": {
@@ -1612,7 +1642,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "contact-form-global",
+                                "enum": [
+                                  "contact-form-global"
+                                ],
                                 "description": "Contact Form Global"
                               }
                             }
@@ -1626,7 +1658,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "subscription-form-global",
+                                "enum": [
+                                  "subscription-form-global"
+                                ],
                                 "description": "Subscription Form Global"
                               }
                             }
@@ -1640,7 +1674,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "subscription-form",
+                                "enum": [
+                                  "subscription-form"
+                                ],
                                 "description": "Subscription form"
                               },
                               "title": {
@@ -1681,7 +1717,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "our-blog",
+                                "enum": [
+                                  "our-blog"
+                                ],
                                 "description": "Our blog"
                               },
                               "title": {
@@ -1717,7 +1755,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "text-bock",
+                                "enum": [
+                                  "text-bock"
+                                ],
                                 "description": "Text bock"
                               },
                               "title": {
@@ -1769,7 +1809,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "blocks",
+                                "enum": [
+                                  "blocks"
+                                ],
                                 "description": "Blocks"
                               },
                               "background-color": {
@@ -1847,7 +1889,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "our-clients",
+                                "enum": [
+                                  "our-clients"
+                                ],
                                 "description": "Our clients"
                               },
                               "title": {
@@ -1906,7 +1950,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "case-studies",
+                                "enum": [
+                                  "case-studies"
+                                ],
                                 "description": "Case studies"
                               },
                               "case": {
@@ -2028,7 +2074,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "core-values",
+                                "enum": [
+                                  "core-values"
+                                ],
                                 "description": "Core Values"
                               },
                               "title": {
@@ -2065,7 +2113,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "team",
+                                "enum": [
+                                  "team"
+                                ],
                                 "description": "Team"
                               },
                               "title": {
@@ -2113,7 +2163,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "our-publications",
+                                "enum": [
+                                  "our-publications"
+                                ],
                                 "description": "Our publications"
                               },
                               "awards": {
@@ -2172,7 +2224,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "expertise",
+                                "enum": [
+                                  "expertise"
+                                ],
                                 "description": "Expertise"
                               },
                               "title": {
@@ -2276,7 +2330,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "mobile-pages",
+                                "enum": [
+                                  "mobile-pages"
+                                ],
                                 "description": "Mobile pages"
                               },
                               "images": {
@@ -2350,7 +2406,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "our-work",
+                                "enum": [
+                                  "our-work"
+                                ],
                                 "description": "Our Work"
                               },
                               "background_color": {
@@ -2471,7 +2529,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "instagram",
+                                "enum": [
+                                  "instagram"
+                                ],
                                 "description": "Instagram"
                               }
                             }
@@ -2667,7 +2727,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "contact-form",
+                                  "enum": [
+                                    "contact-form"
+                                  ],
                                   "description": "Contact form"
                                 },
                                 "title": {
@@ -2752,7 +2814,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "contact-form-global",
+                                  "enum": [
+                                    "contact-form-global"
+                                  ],
                                   "description": "Contact Form Global"
                                 }
                               }
@@ -2766,7 +2830,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "subscription-form-global",
+                                  "enum": [
+                                    "subscription-form-global"
+                                  ],
                                   "description": "Subscription Form Global"
                                 }
                               }
@@ -2780,7 +2846,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "subscription-form",
+                                  "enum": [
+                                    "subscription-form"
+                                  ],
                                   "description": "Subscription form"
                                 },
                                 "title": {
@@ -2821,7 +2889,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "our-blog",
+                                  "enum": [
+                                    "our-blog"
+                                  ],
                                   "description": "Our blog"
                                 },
                                 "title": {
@@ -2857,7 +2927,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "text-bock",
+                                  "enum": [
+                                    "text-bock"
+                                  ],
                                   "description": "Text bock"
                                 },
                                 "title": {
@@ -2909,7 +2981,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "blocks",
+                                  "enum": [
+                                    "blocks"
+                                  ],
                                   "description": "Blocks"
                                 },
                                 "background-color": {
@@ -2987,7 +3061,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "our-clients",
+                                  "enum": [
+                                    "our-clients"
+                                  ],
                                   "description": "Our clients"
                                 },
                                 "title": {
@@ -3046,7 +3122,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "case-studies",
+                                  "enum": [
+                                    "case-studies"
+                                  ],
                                   "description": "Case studies"
                                 },
                                 "case": {
@@ -3168,7 +3246,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "core-values",
+                                  "enum": [
+                                    "core-values"
+                                  ],
                                   "description": "Core Values"
                                 },
                                 "title": {
@@ -3205,7 +3285,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "team",
+                                  "enum": [
+                                    "team"
+                                  ],
                                   "description": "Team"
                                 },
                                 "title": {
@@ -3253,7 +3335,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "our-publications",
+                                  "enum": [
+                                    "our-publications"
+                                  ],
                                   "description": "Our publications"
                                 },
                                 "awards": {
@@ -3312,7 +3396,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "expertise",
+                                  "enum": [
+                                    "expertise"
+                                  ],
                                   "description": "Expertise"
                                 },
                                 "title": {
@@ -3416,7 +3502,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "mobile-pages",
+                                  "enum": [
+                                    "mobile-pages"
+                                  ],
                                   "description": "Mobile pages"
                                 },
                                 "images": {
@@ -3490,7 +3578,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "our-work",
+                                  "enum": [
+                                    "our-work"
+                                  ],
                                   "description": "Our Work"
                                 },
                                 "background_color": {
@@ -3611,7 +3701,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "instagram",
+                                  "enum": [
+                                    "instagram"
+                                  ],
                                   "description": "Instagram"
                                 }
                               }
@@ -3688,6 +3780,7 @@
                 "slug",
                 "link",
                 "featured_image",
+                "expertise-tag",
                 "work",
                 "acf"
               ],
@@ -3749,6 +3842,42 @@
                     }
                   ]
                 },
+                "expertise-tag": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "id",
+                      "name",
+                      "slug",
+                      "description",
+                      "count",
+                      "parent_id"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "slug": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "count": {
+                        "type": "integer"
+                      },
+                      "parent_id": {
+                        "type": "integer",
+                        "description": "0 for top-level terms; parent term_id otherwise."
+                      }
+                    }
+                  }
+                },
                 "work": {
                   "type": "array",
                   "items": {
@@ -3802,7 +3931,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "header-single-work",
+                                "enum": [
+                                  "header-single-work"
+                                ],
                                 "description": "Header"
                               },
                               "title": {
@@ -3848,7 +3979,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "two-columns-single-work",
+                                "enum": [
+                                  "two-columns-single-work"
+                                ],
                                 "description": "Two columns"
                               },
                               "title": {
@@ -3870,7 +4003,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "views-device-single-work",
+                                "enum": [
+                                  "views-device-single-work"
+                                ],
                                 "description": "Views device"
                               },
                               "computer": {
@@ -4034,7 +4169,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "columns-single-work",
+                                "enum": [
+                                  "columns-single-work"
+                                ],
                                 "description": "Columns"
                               },
                               "column": {
@@ -4070,7 +4207,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "full-image-single-work",
+                                "enum": [
+                                  "full-image-single-work"
+                                ],
                                 "description": "Full image"
                               },
                               "image": {
@@ -4089,7 +4228,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "text-bock-single-work",
+                                "enum": [
+                                  "text-bock-single-work"
+                                ],
                                 "description": "Block text"
                               },
                               "name": {
@@ -4119,7 +4260,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "mobile-pages-single-work",
+                                "enum": [
+                                  "mobile-pages-single-work"
+                                ],
                                 "description": "Mobile pages"
                               },
                               "images": {
@@ -4193,7 +4336,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "desktop-pages",
+                                "enum": [
+                                  "desktop-pages"
+                                ],
                                 "description": "Desktop pages"
                               },
                               "nav_bar": {
@@ -4238,7 +4383,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "contact-form",
+                                "enum": [
+                                  "contact-form"
+                                ],
                                 "description": "Contact form"
                               },
                               "title": {
@@ -4319,7 +4466,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "subscription-form",
+                                "enum": [
+                                  "subscription-form"
+                                ],
                                 "description": "Subscription form"
                               },
                               "title": {
@@ -4360,7 +4509,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "slider",
+                                "enum": [
+                                  "slider"
+                                ],
                                 "description": "Slider"
                               },
                               "images": {
@@ -4389,7 +4540,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "similar-work",
+                                "enum": [
+                                  "similar-work"
+                                ],
                                 "description": "Similar work"
                               }
                             }
@@ -4403,7 +4556,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "our-work",
+                                "enum": [
+                                  "our-work"
+                                ],
                                 "description": "Our Work"
                               },
                               "name_group": {
@@ -4525,7 +4680,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "slider_two_slides",
+                                "enum": [
+                                  "slider_two_slides"
+                                ],
                                 "description": "Slider (two slides on the screen)"
                               },
                               "images": {
@@ -4592,7 +4749,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "gallery",
+                                "enum": [
+                                  "gallery"
+                                ],
                                 "description": "Gallery"
                               },
                               "images": {
@@ -4659,7 +4818,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "contact-form-global",
+                                "enum": [
+                                  "contact-form-global"
+                                ],
                                 "description": "Contact Form Global"
                               }
                             }
@@ -4673,7 +4834,9 @@
                             "properties": {
                               "acf_fc_layout": {
                                 "type": "string",
-                                "const": "subscription-form-global",
+                                "enum": [
+                                  "subscription-form-global"
+                                ],
                                 "description": "Subscription Form Global"
                               }
                             }
@@ -4747,6 +4910,7 @@
                   "slug",
                   "link",
                   "featured_image",
+                  "expertise-tag",
                   "work",
                   "acf"
                 ],
@@ -4808,6 +4972,42 @@
                       }
                     ]
                   },
+                  "expertise-tag": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "id",
+                        "name",
+                        "slug",
+                        "description",
+                        "count",
+                        "parent_id"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "slug": {
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "count": {
+                          "type": "integer"
+                        },
+                        "parent_id": {
+                          "type": "integer",
+                          "description": "0 for top-level terms; parent term_id otherwise."
+                        }
+                      }
+                    }
+                  },
                   "work": {
                     "type": "array",
                     "items": {
@@ -4861,7 +5061,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "header-single-work",
+                                  "enum": [
+                                    "header-single-work"
+                                  ],
                                   "description": "Header"
                                 },
                                 "title": {
@@ -4907,7 +5109,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "two-columns-single-work",
+                                  "enum": [
+                                    "two-columns-single-work"
+                                  ],
                                   "description": "Two columns"
                                 },
                                 "title": {
@@ -4929,7 +5133,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "views-device-single-work",
+                                  "enum": [
+                                    "views-device-single-work"
+                                  ],
                                   "description": "Views device"
                                 },
                                 "computer": {
@@ -5093,7 +5299,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "columns-single-work",
+                                  "enum": [
+                                    "columns-single-work"
+                                  ],
                                   "description": "Columns"
                                 },
                                 "column": {
@@ -5129,7 +5337,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "full-image-single-work",
+                                  "enum": [
+                                    "full-image-single-work"
+                                  ],
                                   "description": "Full image"
                                 },
                                 "image": {
@@ -5148,7 +5358,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "text-bock-single-work",
+                                  "enum": [
+                                    "text-bock-single-work"
+                                  ],
                                   "description": "Block text"
                                 },
                                 "name": {
@@ -5178,7 +5390,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "mobile-pages-single-work",
+                                  "enum": [
+                                    "mobile-pages-single-work"
+                                  ],
                                   "description": "Mobile pages"
                                 },
                                 "images": {
@@ -5252,7 +5466,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "desktop-pages",
+                                  "enum": [
+                                    "desktop-pages"
+                                  ],
                                   "description": "Desktop pages"
                                 },
                                 "nav_bar": {
@@ -5297,7 +5513,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "contact-form",
+                                  "enum": [
+                                    "contact-form"
+                                  ],
                                   "description": "Contact form"
                                 },
                                 "title": {
@@ -5378,7 +5596,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "subscription-form",
+                                  "enum": [
+                                    "subscription-form"
+                                  ],
                                   "description": "Subscription form"
                                 },
                                 "title": {
@@ -5419,7 +5639,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "slider",
+                                  "enum": [
+                                    "slider"
+                                  ],
                                   "description": "Slider"
                                 },
                                 "images": {
@@ -5448,7 +5670,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "similar-work",
+                                  "enum": [
+                                    "similar-work"
+                                  ],
                                   "description": "Similar work"
                                 }
                               }
@@ -5462,7 +5686,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "our-work",
+                                  "enum": [
+                                    "our-work"
+                                  ],
                                   "description": "Our Work"
                                 },
                                 "name_group": {
@@ -5584,7 +5810,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "slider_two_slides",
+                                  "enum": [
+                                    "slider_two_slides"
+                                  ],
                                   "description": "Slider (two slides on the screen)"
                                 },
                                 "images": {
@@ -5651,7 +5879,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "gallery",
+                                  "enum": [
+                                    "gallery"
+                                  ],
                                   "description": "Gallery"
                                 },
                                 "images": {
@@ -5718,7 +5948,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "contact-form-global",
+                                  "enum": [
+                                    "contact-form-global"
+                                  ],
                                   "description": "Contact Form Global"
                                 }
                               }
@@ -5732,7 +5964,9 @@
                               "properties": {
                                 "acf_fc_layout": {
                                   "type": "string",
-                                  "const": "subscription-form-global",
+                                  "enum": [
+                                    "subscription-form-global"
+                                  ],
                                   "description": "Subscription Form Global"
                                 }
                               }
@@ -5839,6 +6073,9 @@
         "show_in_rest": false,
         "mcp": {
           "public": true
+        },
+        "jab": {
+          "taxonomy_slug": "category"
         }
       }
     },
@@ -5917,6 +6154,90 @@
         "show_in_rest": false,
         "mcp": {
           "public": true
+        },
+        "jab": {
+          "taxonomy_slug": "post_tag"
+        }
+      }
+    },
+    {
+      "name": "jab/get-expertise-tags",
+      "label": "Get Expertise Tags",
+      "description": "Retrieves all expertise tags as a flat list of term objects.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hide_empty": {
+            "type": "boolean",
+            "description": "Exclude terms with no published posts.",
+            "default": true
+          },
+          "number": {
+            "type": "integer",
+            "description": "Maximum number of terms to return.",
+            "minimum": 1,
+            "maximum": 500,
+            "default": 100
+          }
+        }
+      },
+      "outputSchema": {
+        "type": "object",
+        "required": [
+          "expertise_tags"
+        ],
+        "properties": {
+          "expertise_tags": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "name",
+                "slug",
+                "description",
+                "count",
+                "parent_id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "parent_id": {
+                  "type": "integer",
+                  "description": "0 for top-level terms; parent term_id otherwise."
+                }
+              }
+            }
+          }
+        }
+      },
+      "meta": {
+        "annotations": {
+          "readonly": null,
+          "destructive": null,
+          "idempotent": null
+        },
+        "show_in_rest": false,
+        "mcp": {
+          "public": true
+        },
+        "jab": {
+          "taxonomy_slug": "expertise-tag"
         }
       }
     },
@@ -5995,6 +6316,9 @@
         "show_in_rest": false,
         "mcp": {
           "public": true
+        },
+        "jab": {
+          "taxonomy_slug": "work"
         }
       }
     },
