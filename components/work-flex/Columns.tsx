@@ -39,16 +39,18 @@ export function Columns({ block }: { block: ColumnsBlock }) {
                 </p>
               )}
               {col.title && (
-                <p style={{
-                  fontFamily: SERIF,
-                  fontStyle: 'italic',
-                  fontSize: 22,
-                  lineHeight: 1.3,
-                  color: '#2d3232',
-                  marginBottom: 14,
-                }}>
-                  {col.title}
-                </p>
+                <WpHtml
+                  as="p"
+                  html={col.title}
+                  style={{
+                    fontFamily: SERIF,
+                    fontStyle: 'italic',
+                    fontSize: 22,
+                    lineHeight: 1.3,
+                    color: '#2d3232',
+                    marginBottom: 14,
+                  }}
+                />
               )}
               {col.description && (
                 <WpHtml

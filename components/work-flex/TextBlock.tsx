@@ -31,17 +31,19 @@ export function TextBlock({ block }: { block: TextBlockBlock }) {
           </p>
         )}
         {block.title && (
-          <h2 style={{
-            fontFamily: SERIF,
-            fontStyle: 'italic',
-            fontSize: 36,
-            lineHeight: 1.2,
-            color: textColor,
-            margin: 0,
-            marginBottom: block.description ? 24 : 0,
-          }}>
-            {block.title}
-          </h2>
+          <WpHtml
+            as="h2"
+            html={block.title}
+            style={{
+              fontFamily: SERIF,
+              fontStyle: 'italic',
+              fontSize: 36,
+              lineHeight: 1.2,
+              color: textColor,
+              margin: 0,
+              marginBottom: block.description ? 24 : 0,
+            }}
+          />
         )}
         {block.description && (
           <WpHtml

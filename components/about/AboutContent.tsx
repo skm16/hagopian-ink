@@ -194,7 +194,7 @@ export function AboutContent() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2">
             {AWARDS.map((a, i) => (
-              <FadeIn key={i} delay={i * 0.04} className="py-5 border-t border-[#2d3232]/12 pr-8">
+              <FadeIn key={i} delay={i * 0.04} className="py-5 border-t border-[#2d3232]/25 pr-8">
                 {a.href ? (
                   <a href={a.href} target="_blank" rel="noopener noreferrer" className="flex items-start justify-between gap-3 group/link">
                     <div className="flex gap-3 items-start">

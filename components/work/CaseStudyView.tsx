@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { renderBlock } from '@/components/work-flex';
-import { WP_HTML_STYLES } from '@/components/work-flex/WpHtml';
+import { WP_HTML_STYLES, WpHtml } from '@/components/work-flex/WpHtml';
 import { FadeIn, BtnLight } from '@/components/shared/ui';
 import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 import type { DetailPost, RelatedItem } from '@/lib/work-detail-types';
@@ -68,7 +68,9 @@ function Header({ post }: { post: DetailPost }) {
           Work
         </Link>
 
-        <h1
+        <WpHtml
+          as="h1"
+          html={post.title}
           style={{
             fontFamily: SERIF,
             fontWeight: 700,
@@ -78,9 +80,8 @@ function Header({ post }: { post: DetailPost }) {
             margin: 0,
             marginBottom: 16,
           }}
-        >
-          {post.title}
-        </h1>
+        />
+
 
         {eyebrow && (
           <p
@@ -120,7 +121,9 @@ function IntroDeck({ post }: { post: DetailPost }) {
         >
           {post.subtitle && (
             <div style={{ flex: '1 1 calc(50% - 30px)', minWidth: 280 }}>
-              <p
+              <WpHtml
+                as="p"
+                html={post.subtitle}
                 style={{
                   fontFamily: SERIF,
                   fontStyle: 'italic',
@@ -130,14 +133,13 @@ function IntroDeck({ post }: { post: DetailPost }) {
                   color: '#2d3232',
                   margin: 0,
                 }}
-              >
-                {post.subtitle}
-              </p>
+              />
             </div>
           )}
           {post.intro && (
             <div style={{ flex: '1 1 calc(50% - 30px)', minWidth: 280 }}>
-              <p
+              <WpHtml
+                html={post.intro}
                 style={{
                   fontFamily: SANS,
                   fontSize: 16,
@@ -145,9 +147,7 @@ function IntroDeck({ post }: { post: DetailPost }) {
                   color: 'rgba(45,50,50,0.85)',
                   margin: 0,
                 }}
-              >
-                {post.intro}
-              </p>
+              />
             </div>
           )}
         </div>

@@ -63,7 +63,7 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 divide-x divide-[#3a4040]">
           {[
             { n: '58%', label: 'Increase in website unique visitors — Frette' },
-            { n: '12K', label: 'New email opt-ins from UX campaign — Frette' },
+            { n: '3x', label: 'Increase in sales, first 5 months of redesign — Madison Square Garden' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-8 text-center">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

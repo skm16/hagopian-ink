@@ -1,6 +1,7 @@
 import React from 'react';
 import type { OurWorkBlock } from '@/lib/work-detail-types';
 import { SERIF, SANS, NAV_FONT } from '@/lib/brand';
+import { WpHtml } from './WpHtml';
 
 // Mirrors _our_work.scss + part-our-work.php. The original uses Paroller.js
 // to scroll text and image at different rates; we render the static layout
@@ -64,7 +65,9 @@ export function OurWork({ block }: { block: OurWorkBlock }) {
               </p>
             )}
             {block.title && (
-              <h2
+              <WpHtml
+                as="h2"
+                html={block.title}
                 style={{
                   fontFamily: SERIF,
                   fontWeight: 400,
@@ -74,12 +77,11 @@ export function OurWork({ block }: { block: OurWorkBlock }) {
                   margin: '0 0 26px',
                   textAlign: 'left',
                 }}
-              >
-                {block.title}
-              </h2>
+              />
             )}
             {block.description && (
-              <p
+              <WpHtml
+                html={block.description}
                 style={{
                   fontFamily: SANS,
                   fontSize: 16,
@@ -87,9 +89,7 @@ export function OurWork({ block }: { block: OurWorkBlock }) {
                   color: 'rgba(45,50,50,0.85)',
                   margin: '0 0 32px',
                 }}
-              >
-                {block.description}
-              </p>
+              />
             )}
             {block.link && (
               <a
@@ -129,14 +129,14 @@ export function OurWork({ block }: { block: OurWorkBlock }) {
                   >
                     <img
                       src={block.image}
-                      alt={block.title || ''}
+                      alt={block.title.replace(/<[^>]+>/g, '') || ''}
                       style={{ maxWidth: '100%', height: 'auto', display: 'inline-block' }}
                     />
                   </a>
                 ) : (
                   <img
                     src={block.image}
-                    alt={block.title || ''}
+                    alt={block.title.replace(/<[^>]+>/g, '') || ''}
                     style={{ maxWidth: '100%', height: 'auto', display: 'inline-block' }}
                   />
                 )}

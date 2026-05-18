@@ -1,4 +1,5 @@
 import type { FlexBlock } from '@/lib/work-detail-types';
+import { normalizeWpHtml } from './normalize-wp-html';
 
 const KNOWN_LAYOUTS = new Set<string>([
   'two-columns-single-work',
@@ -14,7 +15,7 @@ const KNOWN_LAYOUTS = new Set<string>([
 ]);
 
 function asString(v: unknown): string {
-  return typeof v === 'string' ? v : '';
+  return typeof v === 'string' ? normalizeWpHtml(v) : '';
 }
 
 function asImageUrl(v: unknown): string {

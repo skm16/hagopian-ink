@@ -6,6 +6,7 @@ export const dynamic = 'force-dynamic';
 
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';
+import { normalizeWpHtml } from '@/lib/wp/normalize-wp-html';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { CaseStudyView } from '@/components/work/CaseStudyView';
@@ -29,20 +30,24 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
 
   const w = detail.our_work;
   const acf = (w.acf ?? {}) as Record<string, unknown>;
-  const subtitle = stripPlaceholder(
-    typeof acf['journal_post_subtitle'] === 'string' ? acf['journal_post_subtitle'] : '',
+  const subtitle = normalizeWpHtml(
+    stripPlaceholder(
+      typeof acf['journal_post_subtitle'] === 'string' ? acf['journal_post_subtitle'] : '',
+    ),
   );
-  const shortDesc = stripPlaceholder(
-    typeof acf['journal_short_desc'] === 'string' ? acf['journal_short_desc'] : '',
+  const shortDesc = normalizeWpHtml(
+    stripPlaceholder(
+      typeof acf['journal_short_desc'] === 'string' ? acf['journal_short_desc'] : '',
+    ),
   );
-  const intro = shortDesc || stripPlaceholder(w.excerpt ?? '') || '';
+  const intro = shortDesc || normalizeWpHtml(stripPlaceholder(w.excerpt ?? '')) || '';
 
   const rawBlocks = Array.isArray(acf['template_part']) ? (acf['template_part'] as unknown[]) : [];
   const blocks = rawBlocks.map((b) => shapeBlock(b)).filter((b): b is FlexBlock => b !== null);
 
   const post: DetailPost = {
     slug: w.slug,
-    title: w.title,
+    title: normalizeWpHtml(w.title),
     featuredImage: w.featured_image?.url ?? null,
     termNames: w.work.map((t) => t.name),
     tagNames: (w['expertise-tag'] ?? []).map((t) => t.name),
