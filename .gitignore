@@ -18,6 +18,13 @@ next-env.d.ts
 # Playwright MCP local dev logs
 .playwright-mcp/
 
+# Debug screenshots dropped at repo root (e.g. by Playwright MCP during a
+# session). Leading slash anchors to root only — design assets under
+# public/ and artifacts/.../images/ stay trackable.
+/*.png
+/*.jpg
+/*.jpeg
+
 # dependencies
 node_modules
 
