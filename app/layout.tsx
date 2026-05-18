@@ -27,6 +27,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/*
+          Preload the two Didonesque weights that drive every page's H1/H2.
+          Without preload, the browser only discovers these after parsing the
+          CSS (which is after parsing the HTML), causing a flash of system
+          serif. crossOrigin="anonymous" is required for font preloads even
+          when same-origin — without it the browser fetches twice.
+        */}
+        <link
+          rel="preload"
+          href="/fonts/didonesque-roman.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/didonesque-bold.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
         <OrganizationSchema />
         <WebSiteSchema />
       </head>

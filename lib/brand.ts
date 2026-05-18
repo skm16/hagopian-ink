@@ -35,6 +35,9 @@ export const NONPROFIT_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
   { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_blm.png`,                    alt: 'Black Lives Matter' },
 ];
 export const VIDEO_BLOG_POSTER = `${WP_MEDIA_UPLOADS}/2022/08/HI_InkBackground-1_LoopB-mp4.jpeg`;
+// Sackers Gothic Std still lives on the WP server (small, single weight, low
+// priority — fine to remote-load). Didonesque is now wired in
+// app/globals.css from /public/fonts so it doesn't depend on WP uptime.
 export const FONT_BASE_URL = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/fonts';
 
 export const BRAND_STYLES = `
@@ -44,30 +47,6 @@ export const BRAND_STYLES = `
   font-family: 'Sackers Gothic Std';
   src: url('${FONT_BASE_URL}/SackersGothicStd-Medium.otf') format('opentype');
   font-weight: 500; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold-webfont.woff2') format('woff2'),
-       url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold-webfont.woff') format('woff');
-  font-weight: 700; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_display-webfont.woff2') format('woff2'),
-       url('${FONT_BASE_URL}/paulo_goode_-_didonesque_display-webfont.woff') format('woff');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold_italic-webfont.woff2') format('woff2'),
-       url('${FONT_BASE_URL}/paulo_goode_-_didonesque_bold_italic-webfont.woff') format('woff');
-  font-weight: 700; font-style: italic; font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('${FONT_BASE_URL}/paulo_goode_-_didonesque_black-webfont.woff2') format('woff2'),
-       url('${FONT_BASE_URL}/paulo_goode_-_didonesque_black-webfont.woff') format('woff');
-  font-weight: 900; font-style: normal; font-display: swap;
 }
 @keyframes marquee { 0% { transform:translateX(0) } 100% { transform:translateX(-50%) } }
 * { box-sizing: border-box; }
