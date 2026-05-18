@@ -73,7 +73,7 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               A brand is more than a logo.<br />
-              It's a <span style={{ fontStyle: 'italic', opacity: 0.6 }}>promise.</span>
+              It's <span style={{ fontStyle: 'italic', opacity: 0.6 }}>how you look, sound, and feel.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
