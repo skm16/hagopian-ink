@@ -142,7 +142,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
 
           <Link href="/contact"
             className="text-[13px] tracking-[0.1em] uppercase border border-[#f5f0eb]/30 px-5 py-2.5 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300 text-[#f5f0eb]/70 ml-4 cursor-pointer">
-            Get in Touch
+            Contact
           </Link>
         </motion.div>
 
@@ -228,7 +228,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
             <div className="mt-auto pt-10">
               <Link href="/contact" onClick={closeMobile}
                 className="block w-full text-center text-[13px] uppercase tracking-[0.14em] border border-[#f5f0eb]/30 py-4 text-[#f5f0eb]/70 hover:border-[#f5f0eb] hover:text-[#f5f0eb] transition-all duration-300">
-                Get in Touch
+                Contact
               </Link>
             </div>
           </motion.div>
