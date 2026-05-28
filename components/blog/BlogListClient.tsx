@@ -149,12 +149,12 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
 
       <section className="bg-[#f1efef] border-b border-[#2d3232]/8 sticky top-[72px] z-10">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16">
-          <div className="flex items-center gap-0 overflow-x-auto no-scrollbar">
+          <div className="flex flex-wrap items-center gap-0">
             {tabs.map(tab => (
               <button
                 key={tab}
                 onClick={() => setActive(tab)}
-                className="relative shrink-0 px-5 py-5 text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer"
+                className="relative px-5 py-4 md:py-5 text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer"
                 style={{ fontFamily: NAV_FONT, color: active === tab ? '#2d3232' : 'rgba(45,50,50,0.38)' }}>
                 {tab}
                 {active === tab && (

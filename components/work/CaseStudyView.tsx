@@ -43,7 +43,17 @@ export function CaseStudyView({ post, related }: { post: DetailPost; related: Re
    ------------------------------------------------------------------------- */
 
 function Header({ post }: { post: DetailPost }) {
-  const eyebrow = [...post.termNames, ...post.tagNames].join(' · ');
+  // Normalise: map "Branding" → "Brand Identity", then deduplicate case-insensitively.
+  const rawTerms = [...post.termNames, ...post.tagNames];
+  const normalised = rawTerms.map(t => /^branding$/i.test(t.trim()) ? 'Brand Identity' : t);
+  const seen = new Set<string>();
+  const deduped = normalised.filter(t => {
+    const key = t.trim().toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const eyebrow = deduped.join(' · ');
 
   return (
     <section style={{ background: '#f1efef', paddingTop: 110, paddingBottom: 0 }}>

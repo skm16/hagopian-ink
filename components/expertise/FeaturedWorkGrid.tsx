@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/shared/ui';
-import { SANS } from '@/lib/brand';
+import { SANS, NAV_FONT } from '@/lib/brand';
 
 export interface FeaturedWork {
   slug: string;
@@ -30,36 +31,58 @@ export function FeaturedWorkGrid({ works }: { works: FeaturedWork[] }) {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {works.map((w, i) => (
-        <FadeIn key={w.slug} delay={i * 0.1}>
-          <Link href={`/work/${w.slug}`} className="group block">
-            <div className="overflow-hidden aspect-[293/414] bg-[#e0ddd9]">
-              {w.thumbnail && (
-                <img
-                  src={w.thumbnail}
-                  alt={w.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
-                />
-              )}
-            </div>
-            <p
-              className="mt-3 text-[13px] leading-snug"
-              style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}
-            >
-              {w.title}
-            </p>
-            {w.primaryTermName && (
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {works.map((w, i) => (
+          <FadeIn key={w.slug} delay={i * 0.1}>
+            <Link href={`/work/${w.slug}`} className="group block">
+              <div className="overflow-hidden aspect-[293/414] bg-[#e0ddd9]">
+                {w.thumbnail && (
+                  <img
+                    src={w.thumbnail}
+                    alt={w.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                  />
+                )}
+              </div>
               <p
-                className="text-[11px] text-[#2d3232]/55 mt-0.5"
-                style={{ fontFamily: SANS }}
+                className="mt-3 text-[13px] leading-snug"
+                style={{ fontFamily: SANS, fontWeight: 400, color: '#2d3232' }}
               >
-                {w.primaryTermName}
+                {w.title}
               </p>
-            )}
-          </Link>
-        </FadeIn>
-      ))}
-    </div>
+              {w.primaryTermName && (
+                <p
+                  className="text-[11px] text-[#2d3232]/55 mt-0.5"
+                  style={{ fontFamily: SANS }}
+                >
+                  {w.primaryTermName}
+                </p>
+              )}
+            </Link>
+          </FadeIn>
+        ))}
+      </div>
+      <div className="flex justify-end mt-8 border-t border-[#2d3232]/10 pt-6">
+        <Link
+          href="/work"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 6,
+            fontFamily: NAV_FONT,
+            fontSize: 10,
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            color: 'rgba(45,50,50,0.7)',
+            textDecoration: 'none',
+          }}
+          className="hover:text-[#2d3232] transition-colors"
+        >
+          View All Work
+          <ArrowRight style={{ width: 12, height: 12 }} />
+        </Link>
+      </div>
+    </>
   );
 }

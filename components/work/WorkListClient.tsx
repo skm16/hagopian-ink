@@ -39,11 +39,11 @@ interface CardData {
   thumb: string;
 }
 
-function toCard(w: WpWork): CardData {
+function toCard(w: WpWork, sectionLabel?: string): CardData {
   return {
     slug: w.slug,
     client: w.title,
-    category: w.primaryTermName,
+    category: sectionLabel ?? w.primaryTermName,
     thumb: w.thumbnail ?? FALLBACK_THUMB,
   };
 }
@@ -322,8 +322,16 @@ function CategoryNav({ groups }: { groups: Group[] }) {
         transition: 'background 0.35s ease, border-color 0.35s ease',
       }}
     >
-      <div className="px-8 md:px-16 max-w-[1400px] mx-auto" style={{ overflowX: 'auto' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 0, whiteSpace: 'nowrap' }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .cat-nav-grid { display: flex; align-items: center; white-space: nowrap; }
+        @media (max-width: 639px) {
+          .cat-nav-grid { display: grid; grid-template-columns: repeat(2, 1fr); white-space: normal; }
+          .cat-nav-btn { padding: 12px 16px 10px !important; border-bottom: none !important; border-left: 2px solid transparent; }
+          .cat-nav-btn.is-active { border-left-color: currentColor; }
+        }
+      `}} />
+      <div className="px-6 md:px-16 max-w-[1400px] mx-auto" style={{ overflowX: 'auto' }}>
+        <div className="cat-nav-grid" style={{ gap: 0 }}>
           {groups.map((g, i) => {
             const anchor = toAnchor(g.label);
             const isActive = active === anchor;
@@ -337,6 +345,7 @@ function CategoryNav({ groups }: { groups: Group[] }) {
               <button
                 key={anchor}
                 onClick={() => scrollTo(anchor)}
+                className={`cat-nav-btn${isActive ? ' is-active' : ''}`}
                 style={{
                   fontFamily: NAV_FONT,
                   fontSize: '10px',
@@ -350,6 +359,7 @@ function CategoryNav({ groups }: { groups: Group[] }) {
                   cursor: 'pointer',
                   transition: 'color 0.2s ease, border-color 0.2s ease',
                   flexShrink: 0,
+                  textAlign: 'left',
                 }}
                 onMouseEnter={e => {
                   if (!isActive) {
@@ -365,7 +375,8 @@ function CategoryNav({ groups }: { groups: Group[] }) {
                 <span style={{ marginRight: 8, opacity: 0.35 }}>
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                {g.label}
+                <span className="hidden sm:inline">{g.label}</span>
+                <span className="inline sm:hidden">{g.label === 'Multichannel Campaigns' ? 'Multichannel' : g.label}</span>
               </button>
             );
           })}
@@ -417,7 +428,7 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
       {GROUPS.map((group, gi) => {
         const cases = visibleWorks
           .filter(w => w.termSlugs.includes(group.termSlug))
-          .map(toCard);
+          .map(w => toCard(w, group.label));
         if (!cases.length) return null;
         // Alternate light-gray and white. Cards stay white on gray, gray on white,
         // so the card always contrasts subtly against its section.
@@ -452,7 +463,7 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
                     style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
                     {group.label}
                   </h2>
-                  <p className="text-[15px] leading-relaxed max-w-md" style={{ color: mutedColor }}>
+                  <p className="text-[15px] leading-relaxed max-w-md" style={{ color: mutedColor, textWrap: 'balance' } as React.CSSProperties}>
                     {group.desc}
                   </p>
                 </div>

@@ -63,11 +63,11 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 divide-x divide-[#3a4040]">
           {[
             { n: '58%', label: 'Increase in website unique visitors — Frette' },
-            { n: '3x', label: 'Increase in sales, first 5 months of redesign — Madison Square Garden' },
+            { n: '3x', label: 'Increase in sales, first 5 months of redesign —\nMadison Square Garden' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-8 text-center">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#f5f0eb]/60 whitespace-pre-line" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
             </FadeIn>
           ))}
         </div>
@@ -99,7 +99,7 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-14">
             <SectionLabel>Capabilities</SectionLabel>
-            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>What we deliver</h2>
+            <h2 className="text-3xl md:text-4xl" style={{ fontFamily: SERIF, fontWeight: 700 }}>How we can collaborate</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
             {CAPABILITIES.map((c, i) => (
