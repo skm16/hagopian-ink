@@ -22,11 +22,11 @@ const motion = {
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const VALUES = [
-  { icon: Target,     title: 'Strategy First',                 desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.' },
+  { icon: Target,     title: 'Strategy Before Style',          desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.' },
   { icon: Gem,        title: 'Craft Without Compromise',        desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.' },
   { icon: Heart,      title: 'Relationships Over Transactions', desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.' },
   { icon: TrendingUp, title: 'Results Are the Measure',         desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.' },
-  { icon: Star,       title: 'Where Strategy Meets Creativity', desc: 'We are woman-owned and creatively driven, with an unapologetic commitment to doing exceptional work. We lead with intention, high expectations, and a healthy dose of boss-lady energy.' },
+  { icon: Star,       title: 'Women Owned. Creatively Driven.',  desc: 'We are woman-owned and creatively driven, with an unapologetic commitment to doing exceptional work. We lead with intention, high expectations, and a healthy dose of boss-lady energy.' },
   { icon: Users,      title: 'Curated Teams, by Design',        desc: 'Other agencies have internal teams — we specialize in building them. Our network of creative and strategic partners lets us assemble the most effective team for your specific project.' },
 ];
 
