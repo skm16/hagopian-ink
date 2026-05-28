@@ -208,7 +208,7 @@ export function HomeContent() {
           <FadeIn className="max-w-3xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
             <p className="text-lg md:text-xl text-[#2d3232]/70 leading-relaxed">
-              Hagopian Ink creates brand identity, digital design, and creative direction for organizations ready to grow, shift, or sharpen their presence. We work closely with clients to clarify the message, shape the experience, and help the brand move forward with purpose.
+              Hagopian Ink creates brand identity, digital design, and creative direction for organizations ready to grow, shift, or sharpen their presence. We work closely to clarify the message and shape the experience so brands move forward with purpose.
             </p>
           </FadeIn>
 
@@ -295,7 +295,7 @@ export function HomeContent() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                Great work doesn&apos;t need a bloated process or inflated egos. It needs smart questions, honest conversation, decisive leadership, and enough taste to know when something is almost there but not quite right.
+                Great work doesn&apos;t need a layered process or inflated egos. It needs smart questions, honest conversation, and enough taste to know when something is almost there but not quite right.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
                 At Hagopian Ink, we stay close to the work from first conversation to final detail. The result is work with clarity, character, and staying power.
