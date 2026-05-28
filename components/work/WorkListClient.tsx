@@ -463,7 +463,7 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
                     style={{ fontFamily: SERIF, fontWeight: 700, color: textColor }}>
                     {group.label}
                   </h2>
-                  <p className="text-[15px] leading-relaxed max-w-md" style={{ color: mutedColor, textWrap: 'balance' } as React.CSSProperties}>
+                  <p className="text-[15px] leading-relaxed max-w-lg" style={{ color: mutedColor, textWrap: 'balance' } as React.CSSProperties}>
                     {group.desc}
                   </p>
                 </div>
