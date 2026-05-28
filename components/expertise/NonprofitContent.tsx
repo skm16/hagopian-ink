@@ -31,7 +31,6 @@ const CAPABILITIES = [
 ];
 
 const STATS = [
-  { n: '329%',   label: 'More dollars raised — Montefiore' },
   { n: '180%',   label: 'Increase in online donations — Epilepsy Foundation' },
   { n: '$22.2M', label: 'Raised at annual gala — Montefiore' },
 ];
@@ -72,7 +71,7 @@ export function NonprofitContent({ featuredWorks = [] }: { featuredWorks?: Featu
 
       {/* STATS */}
       <section className="bg-[#2d3232] border-b border-[#3a4040]">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-x divide-[#3a4040]">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 divide-x divide-[#3a4040]">
           {STATS.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

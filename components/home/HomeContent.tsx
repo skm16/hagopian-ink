@@ -208,7 +208,7 @@ export function HomeContent() {
           <FadeIn className="max-w-3xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
             <p className="text-lg md:text-xl text-[#2d3232]/70 leading-relaxed">
-              As a trusted partner for brand identity, visual communication, web design, and digital experiences, we combine audience insight with creative thinking to produce thoughtful, concept-driven work. Every project is shaped by a clear understanding of our clients and the people they&apos;re trying to reach.
+              As a strategic partner for brand identity, digital design, and creative direction, Hagopian Ink creates thoughtful, concept-driven work. With a clear understanding of our clients and their audiences, we collaborate closely to help brands express who they are and move forward with purpose.
             </p>
           </FadeIn>
 

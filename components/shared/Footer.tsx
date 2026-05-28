@@ -76,7 +76,6 @@ export function Footer() {
               <a href="tel:2123271445" className="block hover:text-[#f5f0eb] transition-colors">
                 212-327-1445
               </a>
-              <p>Born in NYC · Virtual Worldwide</p>
             </div>
           </div>
         </div>

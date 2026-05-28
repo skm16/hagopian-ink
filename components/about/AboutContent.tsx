@@ -99,7 +99,7 @@ export function AboutContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
             { n: '2002', label: 'Year founded' },
-            { n: 'W/O',  label: 'Where strategy meets creativity' },
+            { n: 'W/O',  label: 'Woman Owned, Creatively Driven.' },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.08} className="border-t-2 border-[#2d3232]/10 pt-6">
               <div className="text-4xl md:text-5xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>

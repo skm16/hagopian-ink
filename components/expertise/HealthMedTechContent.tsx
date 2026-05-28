@@ -32,8 +32,8 @@ const CAPABILITIES = [
 
 const STATS = [
   { n: '6 yrs',  label: 'Viant Medical brand partnership' },
-  { n: '24',     label: 'Global locations reached — Viant Medical' },
-  { n: '49.5%',  label: 'Average open rate achieved — P.Volve' },
+  { n: '12+',    label: 'Companies unified under\none Aptyx brand' },
+  { n: '7',      label: 'Medtech websites developed\nin 5 years' },
 ];
 
 export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: FeaturedWork[] }) {
@@ -53,8 +53,8 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>Health + MedTech</p>
             <h1 className="text-4xl md:text-7xl leading-[0.95] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Medical innovation<br />
-              deserves a brand that <span style={{ fontStyle: 'italic', opacity: 0.55 }}>commands trust.</span>
+              Innovating the brands<br />
+              behind the <span style={{ fontStyle: 'italic', opacity: 0.55 }}>future of health.</span>
             </h1>
             <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups.
@@ -69,7 +69,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
           {STATS.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1} className="py-10 px-6 text-center">
               <div className="text-3xl md:text-4xl mb-2 font-light" style={{ fontFamily: SERIF }}>{s.n}</div>
-              <div className="text-[10px] uppercase tracking-[0.12em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
+              <div className="text-[10px] uppercase tracking-[0.12em] text-[#f5f0eb]/60 whitespace-pre-line" style={{ fontFamily: NAV_FONT }}>{s.label}</div>
             </FadeIn>
           ))}
         </div>

@@ -119,7 +119,7 @@ export function ExpertiseContent() {
             <div className="grid grid-cols-2 gap-6 mb-12 border-t border-[#2d3232]/10 pt-8">
               {[
                 { n: '2002', label: 'Founded in New York City' },
-                { n: 'W/O',  label: 'Where strategy meets creativity' },
+                { n: 'W/O',  label: 'Woman Owned, Creatively Driven.' },
               ].map((s, i) => (
                 <div key={i}>
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -260,16 +260,16 @@ export function ExpertiseContent() {
               Specialty: Health + MedTech
             </div>
             <h2 className="text-3xl md:text-4xl mb-8 leading-[1.02]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Building bold brands<br />for the future of health.
+              Innovating the brands<br />behind the future of health.
             </h2>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-12">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
-                { n: '6 yrs', label: 'brand partnership',       client: 'Viant Medical' },
-                { n: '24',    label: 'global locations reached', client: 'Viant Medical' },
-                { n: 'B2B',   label: '+ B2C health brands served' },
+                { n: '6 yrs', label: 'Viant Medical brand partnership' },
+                { n: '12+',   label: 'Companies unified under one Aptyx brand' },
+                { n: '7',     label: 'Medtech websites developed in 5 years' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>
@@ -298,11 +298,6 @@ export function ExpertiseContent() {
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
               <img src={`${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`} alt="Nonprofit fundraising work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-8 left-8">
-                <div className="text-4xl font-light text-white mb-1" style={{ fontFamily: SERIF }}>329%</div>
-                <div className="text-[11px] uppercase tracking-[0.14em] text-white/80" style={{ fontFamily: NAV_FONT }}>more dollars raised — Montefiore</div>
-              </div>
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">

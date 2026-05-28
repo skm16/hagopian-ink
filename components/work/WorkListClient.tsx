@@ -1,7 +1,7 @@
 ﻿'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from '@/components/motion';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { motion } from '@/components/motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
@@ -84,7 +84,7 @@ function toAnchor(label: string) {
 }
 
 /* ---------------------------------------------------------
-   PROJECT CAROUSEL
+   PROJECT CAROUSEL — 4-up grid, auto-advances on scroll
 --------------------------------------------------------- */
 const PER_PAGE = 4;
 
@@ -101,95 +101,116 @@ interface CarouselProps {
 function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColor, categoryColor }: CarouselProps) {
   const [page, setPage] = useState(0);
   const [dir, setDir] = useState(1);
-  const needsCarousel = cases.length > PER_PAGE;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const inViewRef = useRef(false);
+
   const totalPages = Math.ceil(cases.length / PER_PAGE);
   const visible = cases.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+  const needsPaging = cases.length > PER_PAGE;
 
+  // Start / restart the 4.5s auto-advance interval
+  const startTimer = useCallback(() => {
+    if (!needsPaging) return;
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      if (inViewRef.current) {
+        setDir(1);
+        setPage(p => (p + 1) % totalPages);
+      }
+    }, 4500);
+  }, [needsPaging, totalPages]);
+
+  // Observe when section enters viewport — start timer then, not before
+  useEffect(() => {
+    if (!needsPaging) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        inViewRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) startTimer();
+        else if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => {
+      obs.disconnect();
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [needsPaging, startTimer]);
+
+  // Manual navigation — resets timer so it doesn't jump right after a click
   function go(delta: number) {
     const next = Math.max(0, Math.min(totalPages - 1, page + delta));
     if (next === page) return;
     setDir(delta);
     setPage(next);
+    startTimer(); // reset interval from this point
   }
 
-  const arrowBase: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 40,
-    height: 40,
-    borderRadius: '50%',
-    border: `1px solid ${dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.15)'}`,
-    background: 'transparent',
-    cursor: 'pointer',
-    color: dark ? '#f5f0eb' : '#2d3232',
-    transition: 'background 0.2s ease, border-color 0.2s ease',
-  };
+  const dotColor = (i: number) =>
+    i === page
+      ? (dark ? '#f5f0eb' : '#2d3232')
+      : (dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.18)');
 
   return (
-    <div>
+    <div ref={containerRef}>
       <div className="overflow-hidden">
-        <AnimatePresence initial={false} custom={dir} mode="wait">
-          <motion.div
-            key={page}
-            custom={dir}
-            variants={{
-              enter: (d: number) => ({ x: d > 0 ? '4%' : '-4%', opacity: 0 }),
-              center: { x: 0, opacity: 1 },
-              exit: (d: number) => ({ x: d > 0 ? '-4%' : '4%', opacity: 0 }),
-            }}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.42, ease }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-5"
-          >
-            {visible.map((cs) => (
-              <Link
-                key={cs.slug}
-                href={`/work/${cs.slug}`}
-                className="group block"
-                style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
-              >
-                <div className="overflow-hidden aspect-[293/414]">
-                  <img
-                    src={cs.thumb}
-                    alt={cs.client}
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-5">
-                  <p
-                    className="text-[9px] uppercase tracking-[0.2em] mb-1.5"
-                    style={{ color: categoryColor, fontFamily: NAV_FONT }}
-                  >
-                    {cs.category}
-                  </p>
-                  <h3
-                    className="text-[16px] leading-snug"
-                    style={{ fontFamily: SANS, fontWeight: 400, color: textColor }}
-                  >
-                    {cs.client}
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          key={page}
+          initial={{ x: dir > 0 ? '4%' : '-4%', opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: dir > 0 ? '-4%' : '4%', opacity: 0 }}
+          transition={{ duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-5"
+        >
+          {visible.map((cs) => (
+            <Link
+              key={cs.slug}
+              href={`/work/${cs.slug}`}
+              className="group block"
+              style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
+            >
+              <div className="overflow-hidden aspect-[293/414]">
+                <img
+                  src={cs.thumb}
+                  alt={cs.client}
+                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                />
+              </div>
+              <div className="p-5">
+                <p
+                  className="text-[9px] uppercase tracking-[0.2em] mb-1.5"
+                  style={{ color: categoryColor, fontFamily: NAV_FONT }}
+                >
+                  {cs.category}
+                </p>
+                <h3
+                  className="text-[16px] leading-snug"
+                  style={{ fontFamily: SANS, fontWeight: 400, color: textColor }}
+                >
+                  {cs.client}
+                </h3>
+              </div>
+            </Link>
+          ))}
+        </motion.div>
       </div>
 
-      {needsCarousel && (
+      {needsPaging && (
         <div className="flex items-center justify-between mt-8">
           <div className="flex items-center gap-2">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
-                onClick={() => { setDir(i > page ? 1 : -1); setPage(i); }}
+                onClick={() => go(i - page)}
                 style={{
                   width: i === page ? 20 : 6,
                   height: 6,
                   borderRadius: 3,
-                  background: i === page ? (dark ? '#f5f0eb' : '#2d3232') : (dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.18)'),
+                  background: dotColor(i),
                   border: 'none',
                   cursor: 'pointer',
                   padding: 0,
@@ -199,15 +220,19 @@ function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColo
               />
             ))}
           </div>
-
           <div style={{ display: 'flex', gap: 10 }}>
             <button
               onClick={() => go(-1)}
               disabled={page === 0}
               style={{
-                ...arrowBase,
-                opacity: page === 0 ? 0.3 : 1,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: '50%',
+                border: `1px solid ${dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.15)'}`,
+                background: 'transparent',
                 cursor: page === 0 ? 'default' : 'pointer',
+                color: dark ? '#f5f0eb' : '#2d3232',
+                opacity: page === 0 ? 0.3 : 1,
+                transition: 'opacity 0.2s ease',
               }}
               aria-label="Previous"
             >
@@ -217,9 +242,14 @@ function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColo
               onClick={() => go(1)}
               disabled={page === totalPages - 1}
               style={{
-                ...arrowBase,
-                opacity: page === totalPages - 1 ? 0.3 : 1,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: '50%',
+                border: `1px solid ${dark ? 'rgba(245,240,235,0.2)' : 'rgba(45,50,50,0.15)'}`,
+                background: 'transparent',
                 cursor: page === totalPages - 1 ? 'default' : 'pointer',
+                color: dark ? '#f5f0eb' : '#2d3232',
+                opacity: page === totalPages - 1 ? 0.3 : 1,
+                transition: 'opacity 0.2s ease',
               }}
               aria-label="Next"
             >
