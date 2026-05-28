@@ -62,7 +62,7 @@ export function NonprofitContent({ featuredWorks = [] }: { featuredWorks?: Featu
               Building bold brands<br />
               for a new era of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>impact.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
+            <p className="text-sm md:text-lg text-[#f5f0eb]/80 max-w-2xl leading-snug md:leading-relaxed">
               We help nonprofits build the brands and fundraising programs that connect missions to donors — and donors to results. From quarterly appeals to galas that raised $22M.
             </p>
           </motion.div>

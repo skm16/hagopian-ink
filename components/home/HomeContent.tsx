@@ -1,6 +1,6 @@
 ﻿'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import {
   motion as _motion,
   useScroll,
@@ -46,6 +46,73 @@ interface HomeFormState {
 
 const INITIAL_FORM: HomeFormState = { name: '', email: '', company: '', message: '', website: '' };
 
+/* ─────────────────────────────────────────────
+   Mobile-only auto-advancing service slider
+───────────────────────────────────────────── */
+function ServiceSlider() {
+  const [active, setActive] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const total = SERVICES.length;
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActive(p => (p + 1) % total);
+    }, 4000);
+  }, [total]);
+
+  useEffect(() => {
+    startTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [startTimer]);
+
+  const svc = SERVICES[active];
+
+  return (
+    <div className="block md:hidden">
+      {/* Card */}
+      <div className="flex flex-col group relative bg-white shadow-[0_2px_24px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="p-8 flex flex-col flex-grow">
+          <p className="text-[11px] uppercase tracking-[0.18em] font-semibold mb-4"
+            style={{ color: svc.color, fontFamily: NAV_FONT }}>{svc.name}</p>
+          <h3 className="text-2xl mb-5 leading-snug whitespace-pre-line"
+            style={{ fontFamily: SERIF, fontWeight: 700 }}>{svc.title}</h3>
+          <p className="text-[#2d3232]/70 leading-relaxed mb-6 text-[15px]">{svc.desc}</p>
+          <Link href={svc.link}
+            className="text-[11px] uppercase tracking-[0.14em] flex items-center gap-2 text-[#2d3232]/70 border-b border-[#2d3232]/15 pb-1 self-start mb-8"
+            style={{ fontFamily: NAV_FONT }}>
+            {svc.linkText} <ArrowRight className="w-3 h-3" />
+          </Link>
+          <div className="overflow-hidden bg-[#f1efef]">
+            <img src={svc.img} alt={svc.name} className="w-full h-auto block" />
+          </div>
+        </div>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex items-center justify-center gap-2 mt-6">
+        {SERVICES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setActive(i); startTimer(); }}
+            style={{
+              width: i === active ? 20 : 6,
+              height: 6,
+              borderRadius: 3,
+              background: i === active ? '#2d3232' : 'rgba(45,50,50,0.18)',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              transition: 'width 0.3s ease, background 0.2s ease',
+            }}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }) {
   const flip = i % 2 !== 0;
   const ref = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
@@ -53,12 +120,31 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
     target: ref,
     offset: ['start end', 'end start'],
   });
-  // Text card slides further than the image for a subtle parallax separation
+  // Text card slides further than the image for a subtle parallax separation (desktop only)
   const textY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <FadeIn className="mt-12 md:mt-16 px-6 md:px-10">
-      <div ref={ref} className="relative group max-w-[1400px] mx-auto">
+    <FadeIn className="mt-12 md:mt-16 md:px-10">
+      {/* ── MOBILE: stacked layout ── */}
+      <div className="block md:hidden max-w-[1400px] mx-auto">
+        <div className="overflow-hidden w-full">
+          <img src={cs.img} alt={cs.client}
+            className="w-full h-auto block" />
+        </div>
+        <div className="bg-white px-6 py-7 shadow-[0_4px_40px_rgba(0,0,0,0.08)] mx-4 -mt-8 relative z-10">
+          <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-3" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
+          <h3 className="text-2xl leading-snug mb-3 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
+          <p className="text-[13px] text-[#2d3232]/70 leading-relaxed mb-5">{cs.desc}</p>
+          <Link href={cs.href}
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-[#2d3232]/70 border-b border-[#2d3232]/20 pb-1"
+            style={{ fontFamily: NAV_FONT }}>
+            View Case Study <ArrowRight className="w-3 h-3" />
+          </Link>
+        </div>
+      </div>
+
+      {/* ── DESKTOP: overlapping parallax layout ── */}
+      <div ref={ref} className="hidden md:block relative group max-w-[1400px] mx-auto">
         <div className="overflow-hidden w-full">
           <img src={cs.img} alt={cs.client}
             className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
@@ -67,7 +153,7 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
           style={{ fontFamily: NAV_FONT }}>
           {String(i + 1).padStart(2, '0')}
         </div>
-        <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 w-full md:w-[38%]`}>
+        <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 w-[38%]`}>
           <motion.div
             style={{ y: textY as unknown as number }}
             className="bg-white px-10 py-9 shadow-[0_4px_40px_rgba(0,0,0,0.10)]">
@@ -82,7 +168,7 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
           </motion.div>
         </div>
       </div>
-      <div className="h-28 md:h-32" />
+      <div className="h-8 md:h-32" />
     </FadeIn>
   );
 }
@@ -205,14 +291,18 @@ export function HomeContent() {
       {/* SERVICES BLOCKS */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 md:py-36 px-6 md:px-12">
         <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="max-w-3xl mb-20">
+          <FadeIn className="max-w-2xl mb-20">
             <SectionLabel>Creative Communication</SectionLabel>
             <p className="text-lg md:text-xl text-[#2d3232]/70 leading-relaxed">
               Hagopian Ink creates brand identity, digital design, and creative direction for organizations ready to grow, shift, or sharpen their presence. We work closely to clarify the message and shape the experience so brands move forward with purpose.
             </p>
           </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+          {/* ── MOBILE SLIDER ── */}
+          <ServiceSlider />
+
+          {/* ── DESKTOP GRID ── */}
+          <div className="hidden md:grid grid-cols-3 gap-10 md:gap-8">
             {SERVICES.map((svc, i) => (
               <FadeIn key={i} delay={i * 0.15} className="flex flex-col group relative">
                 <div className="bg-white p-8 flex-grow flex flex-col shadow-[0_2px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_48px_rgba(0,0,0,0.12)] transition-shadow duration-500">
@@ -323,7 +413,7 @@ export function HomeContent() {
                   <span>
                     <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Cecilia Pagkalinawan</span>
                     <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>
-                      VP E-commerce &amp; Direct Marketing<br />Frette Inc &amp; La Perla Fashions Inc.
+                      Digital Marketing Strategist<br />Former VP Marketing, Burberry, La Perla &amp; Frette
                     </span>
                   </span>
                 </cite>

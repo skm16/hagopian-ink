@@ -57,7 +57,7 @@ export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?:
               Where we started.<br />
               The DNA of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything we do.</span>
             </h1>
-            <p className="text-lg text-[#f5f0eb]/80 max-w-2xl leading-relaxed">
+            <p className="text-sm md:text-lg text-[#f5f0eb]/80 max-w-2xl leading-snug md:leading-relaxed">
               Luxury and lifestyle is where Hagopian Ink was born. Since 2002, we have built brands, campaigns, and digital experiences for the world's most discerning consumers.
             </p>
           </motion.div>
@@ -91,7 +91,7 @@ export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?:
               We understand luxury because we have lived inside it since our first day in business. Our clients have included global fashion houses, heritage cashmere labels, fine jewelry brands, beauty innovators, and lifestyle startups.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              From Burberry's first e-commerce website to Todd &amp; Duncan's US market launch, from La Perla's Valentine's Day campaigns to Lancome's viral House of Color activation.
+              From Burberry&apos;s first e-commerce site to Todd &amp; Duncan&apos;s U.S. brand launch, from La Perla&apos;s Valentine&apos;s Day campaigns to Lanc&ocirc;me&apos;s viral House of Color activation, we&apos;ve helped luxury brands create the kind of desire that moves from first impression to lasting loyalty.
             </p>
           </FadeIn>
         </div>

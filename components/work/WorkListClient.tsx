@@ -404,7 +404,7 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
-            className="text-xl text-[#f5f0eb]/70 max-w-md leading-relaxed pb-2">
+            className="text-sm md:text-xl text-[#f5f0eb]/70 max-w-md leading-snug md:leading-relaxed pb-2">
             Thoughtful creative across brand, digital, and campaign experiences since 2002.
           </motion.p>
         </div>

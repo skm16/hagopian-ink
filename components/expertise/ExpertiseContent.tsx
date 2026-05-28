@@ -54,11 +54,11 @@ export function ExpertiseContent() {
         <div className="relative z-20 px-8 md:px-16 pb-16 md:pb-24 max-w-[1400px] mx-auto w-full">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
             <p className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-5" style={{ fontFamily: NAV_FONT }}>What We Do</p>
-            <h1 className="text-5xl md:text-7xl leading-[0.92] mb-8 text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h1 className="text-5xl md:text-7xl leading-[0.92] mb-5 text-white" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Built by design.<br />
               Driven by <span style={{ fontStyle: 'italic', opacity: 0.55 }}>results.</span>
             </h1>
-            <p className="text-xl text-[#f5f0eb]/60 max-w-2xl leading-relaxed">
+            <p className="text-base md:text-xl text-[#f5f0eb]/60 max-w-2xl leading-snug md:leading-relaxed">
               Since 2002, we have combined audience insight, thoughtful creative, and strong design principles to develop work that strengthens perception and supports real business goals.
             </p>
           </motion.div>
@@ -230,7 +230,7 @@ export function ExpertiseContent() {
               Where we started.<br />The DNA of everything<br /><span style={{ fontStyle: 'italic', opacity: 0.6 }}>we do.</span>
             </h2>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed mb-6">
-              Luxury and lifestyle is where Hagopian Ink was born. From Burberry's first e-commerce site to Todd &amp; Duncan's US brand launch, from La Perla's Valentine's Day campaigns to Lancome's viral House of Color activation.
+              Luxury and lifestyle is where Hagopian Ink was born. From Burberry&apos;s first e-commerce site to Todd &amp; Duncan&apos;s U.S. market launch, from La Perla&apos;s Valentine&apos;s Day campaigns to Lanc&ocirc;me&apos;s viral House of Color activation, we&apos;ve helped luxury brands create the kind of desire that moves from first impression to lasting loyalty.
             </p>
             <div className="grid grid-cols-3 gap-6 mb-12">
               {[
@@ -334,7 +334,7 @@ export function ExpertiseContent() {
       <section className="bg-[#2d3232] py-16 md:py-20 px-6 md:px-12 border-t border-[#3a4040]">
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-10">
-            <SectionLabel light>Explore Our Specialties</SectionLabel>
+            <SectionLabel light>Explore What We Can Do Together</SectionLabel>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#424848]">
             {[
