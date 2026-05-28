@@ -110,7 +110,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                     {EXPERTISE_DROPDOWN.services.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
-                        className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                        className={`block py-2 text-[12px] tracking-[0.08em] normal-case hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
                         style={{ fontFamily: SANS }}>
                         {label}
                       </Link>
@@ -121,7 +121,7 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
                     {EXPERTISE_DROPDOWN.industries.map(({ label, path }) => (
                       <Link key={path} href={path}
                         onClick={() => setOpen(false)}
-                        className={`block py-2 text-[12px] tracking-[0.08em] hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
+                        className={`block py-2 text-[12px] tracking-[0.08em] normal-case hover:text-[#f5f0eb] transition-colors duration-200 ${location === path ? 'text-[#f5f0eb]' : 'text-[#f5f0eb]/60'}`}
                         style={{ fontFamily: SANS }}>
                         {label}
                       </Link>

@@ -232,7 +232,9 @@ export function HomeContent() {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
             className="text-[10px] uppercase tracking-[0.22em] text-[#f5f0eb]/60 mb-8"
             style={{ fontFamily: NAV_FONT }}>
-            Evolving the world&apos;s leading brands since 2002
+            Evolving the world&apos;s leading
+            <span className="inline md:hidden"><br /></span>
+            {' '}brands since 2002
           </motion.p>
 
           <motion.h1
@@ -244,7 +246,9 @@ export function HomeContent() {
 
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
             className="text-[1.2rem] md:text-[1.35rem] font-light text-[#f5f0eb]/70 mb-12 leading-relaxed sm:whitespace-nowrap">
-            Brand design and digital experiences that help innovative organizations grow.
+            Brand design and digital experiences{' '}
+            <span className="inline md:hidden"><br /></span>
+            that help innovative organizations grow.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.85 }}
