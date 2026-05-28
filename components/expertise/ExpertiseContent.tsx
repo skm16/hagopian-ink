@@ -145,7 +145,7 @@ export function ExpertiseContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
             <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${CDN}/2022/08/HI_home2_loum.jpg`} alt="UX/UI design work"
+              <img src="https://hagopianink.com/wp-content/uploads/2026/05/Expertise_website.jpg" alt="UX/UI design work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
@@ -206,7 +206,7 @@ export function ExpertiseContent() {
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
             <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${CDN}/2018/09/pepsi-1537458269464-3078.png`} alt="Email marketing work"
+              <img src="https://hagopianink.com/wp-content/uploads/2026/05/expertise_email.jpg" alt="Email marketing work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
@@ -296,7 +296,7 @@ export function ExpertiseContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${CDN}/2022/09/HI_Web_BLM_header-scaled2.jpg`} alt="Nonprofit fundraising work"
+              <img src="https://hagopianink.com/wp-content/uploads/2026/05/expertise_nonprofit.jpg" alt="Nonprofit fundraising work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>

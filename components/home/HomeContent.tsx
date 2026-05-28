@@ -289,16 +289,19 @@ export function HomeContent() {
             <FadeIn>
               <SectionLabel light>Our Approach</SectionLabel>
               <h2 className="text-3xl md:text-5xl leading-[1.05] mb-10" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-                Thoughtful work. Lasting relationships.<br />
-                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>Creative leadership from start to finish.</span>
+                Creative leadership with big thinking<br />
+                <span style={{ fontWeight: 700, fontStyle: 'italic', opacity: 0.5 }}>and sharp instincts.</span>
               </h2>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                When you work with Hagopian Ink, you work directly with the people leading your project - not layers of account management or junior associates. Since 2002, we&apos;ve partnered closely with clients to deliver thoughtful work, clear communication, and creative solutions shaped by insight, experience, and a strong understanding of audience perception.
+                Great work doesn&apos;t need a bloated process or inflated egos. It needs smart questions, honest conversation, decisive leadership, and enough taste to know when something is almost there but not quite right.
+              </p>
+              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
+                At Hagopian Ink, we stay close to the work from first conversation to final detail. The result is work with clarity, character, and staying power.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12">
-                Many of our client relationships span years because strong work is only part of the equation. We&apos;ve maintained five-year retainers with brands like Pepsi and built six-year partnerships with Viant Medical while continuing to grow alongside the clients and organizations we believe in. Trust, reliability, and consistency are what bring clients back.
+                Our relationships span years because strong work is only part of the equation. Trust and consistency allow us to keep growing alongside organizations we believe in.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
