@@ -386,9 +386,9 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
       <style dangerouslySetInnerHTML={{ __html: BRAND_STYLES }} />
 
       {/* VIDEO HERO */}
-      <section className="relative h-[55vh] min-h-[400px] flex flex-col justify-end overflow-hidden">
+      <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
         <HeroOverlay />
-        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
+        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER} disablePictureInPicture x-webkit-airplay="deny" controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_WORK} type="video/mp4" />
         </video>

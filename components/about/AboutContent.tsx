@@ -77,7 +77,7 @@ export function AboutContent() {
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
         <HeroOverlay />
-        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
+        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER} disablePictureInPicture x-webkit-airplay="deny" controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_ABOUT} type="video/mp4" />
         </video>
@@ -114,8 +114,8 @@ export function AboutContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           <FadeIn>
             <SectionLabel light>Our Story</SectionLabel>
-            <h2 className="text-3xl md:text-5xl leading-[1.02] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Twenty-plus years of doing this right.
+            <h2 className="text-3xl md:text-5xl leading-[1.1] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              Twenty-plus years of<br />doing this right.
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>

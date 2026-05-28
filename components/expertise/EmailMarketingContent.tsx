@@ -40,7 +40,7 @@ export function EmailMarketingContent({ featuredWorks = [] }: { featuredWorks?: 
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
         <HeroOverlay />
-        <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
+        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER} disablePictureInPicture x-webkit-airplay="deny" controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_MP4} type="video/mp4" />
         </video>

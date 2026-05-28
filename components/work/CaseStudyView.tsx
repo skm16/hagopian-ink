@@ -47,6 +47,7 @@ function Header({ post }: { post: DetailPost }) {
 
   return (
     <section style={{ background: '#f1efef', paddingTop: 110, paddingBottom: 0 }}>
+      <style dangerouslySetInnerHTML={{ __html: `.cs-title { font-size: 55px; line-height: 1.05; } @media (max-width: 639px) { .cs-title { font-size: 32px; line-height: 1.1; } }` }} />
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
         <Link
           href="/work"
@@ -71,11 +72,10 @@ function Header({ post }: { post: DetailPost }) {
         <WpHtml
           as="h1"
           html={post.title}
+          className="cs-title"
           style={{
             fontFamily: SERIF,
             fontWeight: 700,
-            fontSize: 55,
-            lineHeight: 1.05,
             color: '#2d3232',
             margin: 0,
             marginBottom: 16,
@@ -204,13 +204,8 @@ function RelatedWork({ items }: { items: RelatedItem[] }) {
           </Link>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: 20,
-          }}
-        >
+        <style dangerouslySetInnerHTML={{ __html: `.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; } @media (min-width: 640px) { .related-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; } }` }} />
+        <div className="related-grid">
           {items.map((item) => (
             <Link
               key={item.slug}

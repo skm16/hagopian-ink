@@ -220,7 +220,7 @@ export function HomeContent() {
       {/* HERO */}
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex flex-col justify-center items-center overflow-hidden">
         <motion.div className="absolute inset-0 z-0" style={{ scale: heroScale as unknown as number }}>
-          <video autoPlay loop muted playsInline poster={VIDEO_POSTER}
+          <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER} disablePictureInPicture x-webkit-airplay="deny" controlsList="nodownload nofullscreen noremoteplayback"
             className="w-full h-full object-cover">
             <source src={VIDEO_MP4} type="video/mp4" />
           </video>

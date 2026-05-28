@@ -23,7 +23,7 @@ const ease = [0.21, 0.47, 0.32, 0.98] as const;
 const DISCIPLINES = [
   { title: 'Brand Identity + Positioning',    desc: 'Logo, mark development, brand standards, naming strategy, and visual identity systems that endure.',                       link: '/expertise/brand-identity' },
   { title: 'Omnichannel Campaign Marketing',  desc: 'Integrated campaigns across email, print, digital, and social — strategically connected to your goals.',                   link: '/work' },
-  { title: 'Web Design + Development',        desc: 'UX/UI design for e-commerce and marketing sites — built to convert, easy to manage, and built to last.',                   link: '/expertise/ux-ui-design' },
+  { title: 'Web Design + Development',        desc: 'UX/UI design for e-commerce and marketing sites — built to convert, easy to manage, and designed to last.',                   link: '/expertise/ux-ui-design' },
   { title: 'Email Marketing + Strategy',      desc: 'Welcome series, drip campaigns, win-back flows, segmentation, and acquisition programs that deliver.',                     link: '/expertise/email-marketing' },
   { title: 'Donation + Fundraising Strategy', desc: 'Email, direct mail, and event campaign design for nonprofits — connecting giving to impact.',                              link: '/expertise/nonprofit-fundraising' },
   { title: 'Direct Mail + Print Media',       desc: 'From luxury look-books and annual reports to mailers that stop people in their tracks.',                                   link: '/work' },
@@ -47,7 +47,7 @@ export function ExpertiseContent() {
       {/* VIDEO HERO */}
       <section className="relative h-[70vh] min-h-[540px] flex flex-col justify-end overflow-hidden">
         <HeroOverlay />
-        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER}
+        <video autoPlay loop muted playsInline preload="none" poster={VIDEO_POSTER} disablePictureInPicture x-webkit-airplay="deny" controlsList="nodownload nofullscreen noremoteplayback"
           className="absolute inset-0 w-full h-full object-cover z-0">
           <source src={VIDEO_EXPERTISE} type="video/mp4" />
         </video>
@@ -342,7 +342,7 @@ export function ExpertiseContent() {
               { label: 'Website Design',        sub: 'Services',   path: '/expertise/ux-ui-design',         desc: 'UX/UI, e-commerce & responsive web design built to convert.' },
               { label: 'Email Marketing',       sub: 'Services',   path: '/expertise/email-marketing',      desc: 'Welcome flows, campaigns, automation & list-growth programs.' },
               { label: 'Luxury + Lifestyle',    sub: 'Industries', path: '/expertise/luxury-lifestyle',     desc: 'Fashion, beauty & luxury brand identity, campaigns & e-commerce.' },
-              { label: 'Health + MedTech',      sub: 'Industries', path: '/expertise/health-medtech',       desc: 'Medical device branding, digital health UX & B2B campaigns.' },
+              { label: 'Health + MedTech',      sub: 'Industries', path: '/expertise/health-medtech',       desc: 'Medical device branding, digital health UX, and B2B + B2C campaigns.' },
               { label: 'Nonprofit Fundraising', sub: 'Industries', path: '/expertise/nonprofit-fundraising',desc: 'Donor campaigns, gala design & fundraising strategy.' },
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.07}>
