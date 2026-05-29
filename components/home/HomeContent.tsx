@@ -245,7 +245,7 @@ export function HomeContent() {
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.65 }}
-            className="text-[1.2rem] md:text-[1.35rem] font-light text-[#faf8f5] mb-12 leading-relaxed sm:whitespace-nowrap">
+            className="text-[1.2rem] md:text-[1.35rem] font-light text-[#faf8f5]/85 mb-12 leading-relaxed sm:whitespace-nowrap">
             Brand design and digital experiences{' '}
             <span className="inline md:hidden"><br /></span>
             that help innovative organizations grow.

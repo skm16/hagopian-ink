@@ -141,7 +141,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
-            className="text-sm md:text-xl text-[#faf8f5] max-w-sm leading-snug md:leading-relaxed pb-2">
+            className="text-sm md:text-xl text-[#faf8f5]/85 max-w-sm leading-snug md:leading-relaxed pb-2">
             Branding, design, and digital strategy — the way we see it.
           </motion.p>
         </div>
@@ -155,7 +155,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
                 key={tab}
                 onClick={() => setActive(tab)}
                 className="relative px-5 py-4 md:py-5 text-[10px] uppercase tracking-[0.18em] transition-colors duration-200 cursor-pointer"
-                style={{ fontFamily: NAV_FONT, color: active === tab ? '#2d3232' : 'rgba(45,50,50,0.38)' }}>
+                style={{ fontFamily: NAV_FONT, color: active === tab ? '#2d3232' : 'rgba(45,50,50,0.52)' }}>
                 {tab}
                 {active === tab && (
                   <motion.span layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2d3232]" transition={{ type: 'spring', stiffness: 400, damping: 30 }} />

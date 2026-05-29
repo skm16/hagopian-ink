@@ -336,8 +336,8 @@ function CategoryNav({ groups }: { groups: Group[] }) {
             const anchor = toAnchor(g.label);
             const isActive = active === anchor;
             const textCol = stuck
-              ? (isActive ? '#f5f0eb' : 'rgba(245,240,235,0.45)')
-              : (isActive ? '#2d3232' : 'rgba(45,50,50,0.4)');
+              ? (isActive ? '#f5f0eb' : 'rgba(245,240,235,0.58)')
+              : (isActive ? '#2d3232' : 'rgba(45,50,50,0.54)');
             const borderCol = stuck
               ? (isActive ? '#f5f0eb' : 'transparent')
               : (isActive ? '#2d3232' : 'transparent');
@@ -415,7 +415,7 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
-            className="text-sm md:text-xl text-[#faf8f5] max-w-md leading-snug md:leading-relaxed pb-2">
+            className="text-sm md:text-xl text-[#faf8f5]/85 max-w-md leading-snug md:leading-relaxed pb-2">
             Thoughtful creative across brand, digital, and campaign experiences since 2002.
           </motion.p>
         </div>

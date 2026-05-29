@@ -57,7 +57,7 @@ export function LuxuryLifestyleContent({ featuredWorks = [] }: { featuredWorks?:
               Where we started.<br />
               The DNA of <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything we do.</span>
             </h1>
-            <p className="text-sm md:text-lg text-[#faf8f5] max-w-2xl leading-snug md:leading-relaxed">
+            <p className="text-sm md:text-lg text-[#faf8f5]/85 max-w-2xl leading-snug md:leading-relaxed">
               Luxury and lifestyle is where Hagopian Ink was born. Since 2002, we have built brands, campaigns, and digital experiences for the world's most discerning consumers.
             </p>
           </motion.div>
