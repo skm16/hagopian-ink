@@ -59,7 +59,7 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
               Your first impression<br />
               is <span style={{ fontStyle: 'italic', opacity: 0.55 }}>everything.</span>
             </h1>
-            <p className="text-sm md:text-lg text-[#f5f0eb]/80 max-w-2xl leading-snug md:leading-relaxed">
+            <p className="text-sm md:text-lg text-[#faf8f5] max-w-2xl leading-snug md:leading-relaxed">
               Leave a lasting impact that communicates the essence of your brand. Rise above the competition with award-winning logo and brand development built on strategic insight.
             </p>
           </motion.div>

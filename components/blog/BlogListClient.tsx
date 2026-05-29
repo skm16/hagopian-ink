@@ -141,7 +141,7 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
             </h1>
           </motion.div>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2, ease }}
-            className="text-sm md:text-xl text-[#f5f0eb]/70 max-w-sm leading-snug md:leading-relaxed pb-2">
+            className="text-sm md:text-xl text-[#faf8f5] max-w-sm leading-snug md:leading-relaxed pb-2">
             Branding, design, and digital strategy — the way we see it.
           </motion.p>
         </div>

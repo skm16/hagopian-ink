@@ -56,7 +56,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
               Innovating the brands<br />
               behind the <span style={{ fontStyle: 'italic', opacity: 0.55 }}>future of health.</span>
             </h1>
-            <p className="text-sm md:text-lg text-[#f5f0eb]/80 max-w-2xl leading-snug md:leading-relaxed">
+            <p className="text-sm md:text-lg text-[#faf8f5] max-w-2xl leading-snug md:leading-relaxed">
               We translate complex science and medical innovation into compelling, trustworthy brands — from medical device manufacturers to digital health startups.
             </p>
           </motion.div>

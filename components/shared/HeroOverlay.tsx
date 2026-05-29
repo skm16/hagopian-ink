@@ -18,7 +18,7 @@ export function HeroOverlay() {
       className="absolute inset-0 z-[5] pointer-events-none"
       style={{
         background:
-          'linear-gradient(to bottom, rgba(45,50,50,0.22) 0%, rgba(45,50,50,0.35) 18%, rgba(45,50,50,0.15) 45%, rgba(45,50,50,0) 68%)',
+          'linear-gradient(to bottom, rgba(45,50,50,0.22) 0%, rgba(45,50,50,0.35) 18%, rgba(45,50,50,0.15) 45%, rgba(45,50,50,0.10) 68%, rgba(45,50,50,0.38) 100%)',
       }}
     />
   );
