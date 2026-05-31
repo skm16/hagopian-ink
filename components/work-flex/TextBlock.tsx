@@ -37,7 +37,7 @@ export function TextBlock({ block }: { block: TextBlockBlock }) {
             style={{
               fontFamily: SERIF,
               fontStyle: 'italic',
-              fontSize: 36,
+              fontSize: 26,
               lineHeight: 1.2,
               color: textColor,
               margin: 0,
