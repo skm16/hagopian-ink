@@ -79,8 +79,7 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              Design that earns its place<br />
-              by doing its <span style={{ fontStyle: 'italic', opacity: 0.6 }}>job.</span>
+              Website design that makes <span style={{ fontStyle: 'italic', opacity: 0.6 }}>every click count</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
