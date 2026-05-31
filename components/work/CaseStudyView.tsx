@@ -57,7 +57,7 @@ function Header({ post }: { post: DetailPost }) {
 
   return (
     <section style={{ background: '#f1efef', paddingTop: 110, paddingBottom: 0 }}>
-      <style dangerouslySetInnerHTML={{ __html: `.cs-title { font-size: 55px; line-height: 1.05; } @media (max-width: 639px) { .cs-title { font-size: 32px; line-height: 1.1; } }` }} />
+      <style dangerouslySetInnerHTML={{ __html: `.cs-title { font-size: 47px; line-height: 1.05; } @media (max-width: 639px) { .cs-title { font-size: 28px; line-height: 1.1; } }` }} />
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
         <Link
           href="/work"
@@ -138,7 +138,7 @@ function IntroDeck({ post }: { post: DetailPost }) {
                   fontFamily: SERIF,
                   fontStyle: 'italic',
                   fontWeight: 700,
-                  fontSize: 36,
+                  fontSize: 26,
                   lineHeight: 1.15,
                   color: '#2d3232',
                   margin: 0,

@@ -78,7 +78,7 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
-            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8 max-w-[14ch]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
               Website design that makes <span style={{ fontStyle: 'italic', opacity: 0.6 }}>every click count</span>
             </h2>
           </FadeIn>

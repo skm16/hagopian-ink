@@ -124,7 +124,7 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
   const textY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <FadeIn className="mt-12 md:mt-16 md:px-10">
+    <FadeIn className="mt-10 md:mt-20 px-6 md:px-16">
       {/* ── MOBILE: stacked layout ── */}
       <div className="block md:hidden max-w-[1400px] mx-auto">
         <div className="overflow-hidden w-full">
@@ -143,20 +143,22 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
         </div>
       </div>
 
-      {/* ── DESKTOP: overlapping parallax layout ── */}
-      <div ref={ref} className="hidden md:block relative group max-w-[1400px] mx-auto">
-        <div className="overflow-hidden w-full">
+      {/* ── DESKTOP: full-width image with overlapping card ── */}
+      <div ref={ref} className="hidden md:block relative max-w-[1400px] mx-auto pb-24">
+        <div className="relative group overflow-hidden mx-auto w-[95%]">
           <img src={cs.img} alt={cs.client}
             className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
+          <div className="absolute top-6 right-6 text-[11px] uppercase tracking-[0.22em] text-white/60"
+            style={{ fontFamily: NAV_FONT }}>
+            {String(i + 1).padStart(2, '0')}
+          </div>
         </div>
-        <div className={`absolute top-6 ${flip ? 'left-8' : 'right-8'} text-[11px] uppercase tracking-[0.22em] text-white/60`}
-          style={{ fontFamily: NAV_FONT }}>
-          {String(i + 1).padStart(2, '0')}
-        </div>
-        <div className={`absolute bottom-0 ${flip ? 'right-0' : 'left-0'} translate-y-1/2 w-[38%]`}>
+
+        {/* Text card — floats below image bottom, alternating left / right */}
+        <div className={`absolute bottom-0 ${flip ? 'right-[2.5%]' : 'left-[2.5%]'} w-[480px] z-10`}>
           <motion.div
             style={{ y: textY as unknown as number }}
-            className="bg-white px-10 py-9 shadow-[0_4px_40px_rgba(0,0,0,0.10)]">
+            className="bg-white px-10 py-10 shadow-[0_4px_40px_rgba(0,0,0,0.10)]">
             <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
             <h3 className="text-2xl md:text-3xl leading-snug mb-4 text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>{cs.title}</h3>
             <p className="text-[14px] text-[#2d3232]/70 leading-relaxed mb-6">{cs.desc}</p>
@@ -168,7 +170,7 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
           </motion.div>
         </div>
       </div>
-      <div className="h-8 md:h-32" />
+      <div className="h-8 md:h-24" />
     </FadeIn>
   );
 }
