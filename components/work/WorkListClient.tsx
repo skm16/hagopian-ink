@@ -426,8 +426,20 @@ export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTer
 
       {/* GROUPED PORTFOLIO */}
       {GROUPS.map((group, gi) => {
+        const PINNED: Partial<Record<string, string[]>> = {
+          'design-branding': ['custom-logo-design-brand-identity'],
+        };
+        const pinned = PINNED[group.termSlug] ?? [];
         const cases = visibleWorks
           .filter(w => w.termSlugs.includes(group.termSlug))
+          .sort((a, b) => {
+            const ai = pinned.indexOf(a.slug);
+            const bi = pinned.indexOf(b.slug);
+            if (ai === -1 && bi === -1) return 0;
+            if (ai === -1) return 1;
+            if (bi === -1) return -1;
+            return ai - bi;
+          })
           .map(w => toCard(w, group.label));
         if (!cases.length) return null;
         // Alternate light-gray and white. Cards stay white on gray, gray on white,

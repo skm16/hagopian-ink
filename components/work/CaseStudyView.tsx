@@ -173,7 +173,7 @@ function IntroDeck({ post }: { post: DetailPost }) {
 function RelatedWork({ items }: { items: RelatedItem[] }) {
   return (
     <section style={{ background: '#f1efef', padding: '90px 0' }}>
-      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
+      <div style={{ maxWidth: 1260, margin: '0 auto', padding: '0 32px' }}>
         <div
           style={{
             display: 'flex',

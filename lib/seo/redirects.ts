@@ -111,6 +111,7 @@ export function buildRedirects(): Redirect[] {
   ];
 
   const staticRedirects: Redirect[] = [
+    { source: '/work/award-winning-logos', destination: '/work/custom-logo-design-brand-identity', permanent: true },
     { source: '/case-studies', destination: '/work', permanent: true },
     { source: '/mobile-email-checklist', destination: '/contact', permanent: true },
     { source: '/thank-you-for-joining', destination: '/', permanent: true },

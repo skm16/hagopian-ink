@@ -644,12 +644,12 @@ export const CASE_STUDIES: CaseStudy[] = [
 
   /* ─── AWARD WINNING LOGOS ────────────────────────────── */
   {
-    slug: 'award-winning-logos',
-    client: 'Award Winning Logos & Brand Development',
+    slug: 'custom-logo-design-brand-identity',
+    client: 'Custom Logo Design & Brand Identity',
     category: 'Brand Identity',
     tags: ['Branding', 'Luxury', 'Consumer Goods', 'Nonprofit', 'Technology'],
     tagline: 'Make your mark.',
-    intro: 'What makes a great brand? A distinctive and memorable logo is the cornerstone of your company image. It communicates your core values and attributes and is a visual representation of all the qualities you wish to express. Using type, shape and color, a great logo is your mark on the world — it is bold, simple, expressive, flexible, scalable and clear. This collection is a sample of some of our favorite logo creations.',
+    intro: 'What makes a great brand? It starts with a distinctive, memorable logo, the cornerstone of every strong visual identity. But a great brand is more than a logo. It\'s a full system, developed through a rigorous process to define every element of how you look, sound, and feel. The result is a complete brand vision that rises above the competition and leaves your mark on the world. At Hagopian Ink, our custom logo design and brand identity work always begins with strategy: we use type, shape, and color with intention, crafting marks that are bold, scalable, and unmistakably yours. This collection is a sample of some of our favorite logo and brand identity projects. Your mark could be next.',
     noHero: true,
     hero: `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
     sections: [
