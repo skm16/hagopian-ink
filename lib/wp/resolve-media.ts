@@ -1,4 +1,5 @@
 import 'server-only';
+import { rewriteWpMediaUrl } from './media-url';
 
 interface ResolvedMedia { url: string; alt: string }
 
@@ -29,7 +30,7 @@ async function fetchMediaById(id: number): Promise<ResolvedMedia | null> {
     };
     if (!m.source_url) return null;
     return {
-      url: m.source_url,
+      url: rewriteWpMediaUrl(m.source_url),
       alt: m.alt_text || m.title?.rendered || '',
     };
   } catch {
@@ -43,11 +44,11 @@ async function fetchMediaById(id: number): Promise<ResolvedMedia | null> {
  */
 async function normalizeAcfImage(value: unknown): Promise<ResolvedMedia | null> {
   if (typeof value === 'number') return fetchMediaById(value);
-  if (typeof value === 'string') return value ? { url: value, alt: '' } : null;
+  if (typeof value === 'string') return value ? { url: rewriteWpMediaUrl(value), alt: '' } : null;
   if (value && typeof value === 'object') {
     const v = value as { url?: unknown; alt?: unknown };
     if (typeof v.url === 'string' && v.url) {
-      return { url: v.url, alt: typeof v.alt === 'string' ? v.alt : '' };
+      return { url: rewriteWpMediaUrl(v.url), alt: typeof v.alt === 'string' ? v.alt : '' };
     }
   }
   return null;

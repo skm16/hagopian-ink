@@ -7,6 +7,7 @@ export const dynamic = 'force-dynamic';
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';
 import { normalizeWpHtml } from '@/lib/wp/normalize-wp-html';
+import { rewriteWpMediaUrl } from '@/lib/wp/media-url';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { CaseStudyView } from '@/components/work/CaseStudyView';
@@ -48,7 +49,7 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
   const post: DetailPost = {
     slug: w.slug,
     title: normalizeWpHtml(w.title),
-    featuredImage: w.featured_image?.url ?? null,
+    featuredImage: rewriteWpMediaUrl(w.featured_image?.url ?? null),
     termNames: w.work.map((t) => t.name),
     tagNames: (w['expertise-tag'] ?? []).map((t) => t.name),
     subtitle,
@@ -68,7 +69,7 @@ async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related:
       .map((o) => ({
         slug: o.slug,
         title: o.title,
-        thumbnail: o.featured_image?.url ?? null,
+        thumbnail: rewriteWpMediaUrl(o.featured_image?.url ?? null),
       }));
   } catch (err) {
     console.error(`[/work/${slug}] related fetch failed:`, err);

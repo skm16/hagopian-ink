@@ -1,5 +1,6 @@
 import type { FlexBlock } from '@/lib/work-detail-types';
 import { normalizeWpHtml } from './normalize-wp-html';
+import { rewriteWpMediaUrl } from './media-url';
 
 const KNOWN_LAYOUTS = new Set<string>([
   'two-columns-single-work',
@@ -19,9 +20,9 @@ function asString(v: unknown): string {
 }
 
 function asImageUrl(v: unknown): string {
-  if (typeof v === 'string') return v;
+  if (typeof v === 'string') return rewriteWpMediaUrl(v);
   if (v && typeof v === 'object' && 'url' in v && typeof (v as { url: unknown }).url === 'string') {
-    return (v as { url: string }).url;
+    return rewriteWpMediaUrl((v as { url: string }).url);
   }
   return '';
 }

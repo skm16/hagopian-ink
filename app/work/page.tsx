@@ -6,6 +6,7 @@ import { jabClient, withTags } from '@/lib/jab/client';
 export const dynamic = 'force-dynamic';
 
 import { getOurWork, getWorkType } from '@/lib/sdk';
+import { rewriteWpMediaUrl } from '@/lib/wp/media-url';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { WorkListClient } from '@/components/work/WorkListClient';
@@ -47,7 +48,7 @@ export default async function WorkPage() {
     works = workData.our_work.map((w) => ({
       slug: w.slug,
       title: w.title,
-      thumbnail: w.featured_image?.url ?? null,
+      thumbnail: rewriteWpMediaUrl(w.featured_image?.url ?? null),
       termSlugs: w.work.map((t) => t.slug),
       primaryTermName: w.work[0]?.name ?? '',
     }));
