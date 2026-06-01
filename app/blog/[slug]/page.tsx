@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { fetchPostBySlug } from '@/lib/wp/fetch-posts';
 import { resolvePostBuilderMedia } from '@/lib/wp/resolve-media';
+import { rewriteWpMediaUrl, rewriteWpMediaUrlsInHtml } from '@/lib/wp/media-url';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,10 +57,16 @@ export default async function BlogPostPage({ params }: { params: Params }) {
   const resolvedBuilder = Array.isArray(rawBuilder)
     ? ((await resolvePostBuilderMedia(rawBuilder)) as PostFlexBlock[])
     : null;
+  const rawBanner = acfRaw['journal_post_banner'] as { url?: string; alt?: string } | null;
+  const rawBannerTwo = acfRaw['featured_image_two'] as { url?: string; alt?: string } | null;
   const acfExtra = {
     journal_post_subtitle: (acfRaw['journal_post_subtitle'] as string | null) ?? null,
-    journal_post_banner: acfRaw['journal_post_banner'] as { url?: string; alt?: string } | null,
-    featured_image_two: acfRaw['featured_image_two'] as { url?: string; alt?: string } | null,
+    journal_post_banner: rawBanner
+      ? { ...rawBanner, url: rewriteWpMediaUrl(rawBanner.url) }
+      : null,
+    featured_image_two: rawBannerTwo
+      ? { ...rawBannerTwo, url: rewriteWpMediaUrl(rawBannerTwo.url) }
+      : null,
     post_builder: resolvedBuilder,
   };
   return (
@@ -67,7 +74,7 @@ export default async function BlogPostPage({ params }: { params: Params }) {
       <Nav alwaysVisible />
       <BlogPostView
         post={shaped}
-        content={data.post.content.rendered}
+        content={rewriteWpMediaUrlsInHtml(data.post.content.rendered)}
         related={data.related}
         acfExtra={acfExtra}
       />

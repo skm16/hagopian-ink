@@ -6,9 +6,9 @@ import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
-import { VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, WP_MEDIA_UPLOADS } from '@/lib/brand';
 
-const FALLBACK_THUMB = 'https://cms.hagopianink.com/wp-content/uploads/2022/09/HagopianInk_2022.png';
+const FALLBACK_THUMB = `${WP_MEDIA_UPLOADS}/2022/09/HagopianInk_2022.png`;
 
 const HIDDEN_SLUGS = new Set([
   'viant-medical-brand-campaign',

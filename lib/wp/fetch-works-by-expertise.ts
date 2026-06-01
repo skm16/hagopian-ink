@@ -1,6 +1,7 @@
 import 'server-only';
 import { jabClient, withTags } from '@/lib/jab/client';
 import { getOurWork } from '@/lib/sdk';
+import { rewriteWpMediaUrl } from './media-url';
 
 export interface ExpertiseWork {
   slug: string;
@@ -32,7 +33,7 @@ export async function fetchWorksByExpertiseTag(
     matched.push({
       slug: w.slug,
       title: w.title,
-      thumbnail: w.featured_image?.url ?? null,
+      thumbnail: rewriteWpMediaUrl(w.featured_image?.url ?? null),
       primaryTermName: w.work[0]?.name ?? '',
     });
 

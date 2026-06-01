@@ -1,3 +1,5 @@
+import { rewriteWpMediaUrl } from './media-url';
+
 function decodeHtml(html: string): string {
   return html
     .replace(/<[^>]+>/g, ' ')
@@ -76,7 +78,7 @@ export function shapePost(p: WpApiPostFull): ShapedPost {
     link: p.link,
     categories,
     tags,
-    thumbnail: bannerField?.url ?? thumbnail,
+    thumbnail: rewriteWpMediaUrl(bannerField?.url ?? thumbnail),
     acf: {
       journal_short_title: (acfRaw['journal_short_title'] as string) ?? null,
       journal_short_desc: (acfRaw['journal_short_desc'] as string) ?? null,

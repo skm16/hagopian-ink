@@ -1,4 +1,9 @@
+import { rewriteWpMediaUrl } from '@/lib/wp/media-url';
+
 export function OrganizationSchema() {
+  const logoUrl = rewriteWpMediaUrl(
+    'https://hagopianink.com/wp-content/uploads/2018/08/cropped-logo-1.png',
+  );
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -9,8 +14,8 @@ export function OrganizationSchema() {
       '@type': 'ImageObject',
       inLanguage: 'en-US',
       '@id': 'https://hagopianink.com/#/schema/logo/image/',
-      url: 'https://hagopianink.com/wp-content/uploads/2018/08/cropped-logo-1.png',
-      contentUrl: 'https://hagopianink.com/wp-content/uploads/2018/08/cropped-logo-1.png',
+      url: logoUrl,
+      contentUrl: logoUrl,
       width: 264,
       height: 60,
       caption: 'HAGOPIAN INK',

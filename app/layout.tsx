@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { OrganizationSchema } from '@/components/seo/OrganizationSchema';
 import { WebSiteSchema } from '@/components/seo/WebSiteSchema';
 import { buildMetadata } from '@/lib/seo/resolve-metadata';
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <OrganizationSchema />
         <WebSiteSchema />
+        <GoogleAnalytics />
       </head>
       <body>{children}</body>
     </html>

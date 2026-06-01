@@ -3,15 +3,18 @@
 // to your install internally regardless of how hagopianink.com is mapped.
 export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 
-// Base for newer WP-hosted media (About/Blog hero videos). Defaults to the
-// production-DNS hostname today; after cutover, set NEXT_PUBLIC_WP_MEDIA_BASE_URL
-// to https://cms.hagopianink.com so the front-end stops self-referencing.
-// NEXT_PUBLIC_ inlines the value into the client bundle (the <video> tag is
-// rendered in the browser).
+// Base for WP-hosted media. Resolves to NEXT_PUBLIC_WP_URL (the canonical
+// WP origin — the same value as WP_URL, but exposed to the client bundle),
+// falling back to the legacy NEXT_PUBLIC_WP_MEDIA_BASE_URL for compatibility,
+// then to the WP Engine hostname as a hard default. Post-cutover this MUST
+// NOT be the public site (hagopianink.com) — that would self-reference back
+// to this Next app instead of WP.
 const WP_MEDIA_BASE = (
-  process.env.NEXT_PUBLIC_WP_MEDIA_BASE_URL ?? 'https://hagopianink.com'
+  process.env.NEXT_PUBLIC_WP_URL ??
+  process.env.NEXT_PUBLIC_WP_MEDIA_BASE_URL ??
+  'https://hagopianink.wpengine.com'
 ).replace(/\/$/, '');
-const WP_MEDIA_UPLOADS = `${WP_MEDIA_BASE}/wp-content/uploads`;
+export const WP_MEDIA_UPLOADS = `${WP_MEDIA_BASE}/wp-content/uploads`;
 
 export const LOGO = `${CDN}/2018/08/cropped-logo-1.png`;
 const _BASE = '/'; // Next.js: public/ serves at /
@@ -93,7 +96,7 @@ export const CASE_STUDIES = [
     category: 'Nonprofit Branding',
     title: 'Branding attainable housing',
     desc: 'Turning Cape Cod\'s need for year-round homeownership into a brand built on pride, stability, and possibility',
-    img: 'https://hagopianink.com/wp-content/uploads/2026/05/HI_case1_cornerstone.jpg',
+    img: `${WP_MEDIA_UPLOADS}/2026/05/HI_case1_cornerstone.jpg`,
     href: '/work/cornerstone-homes',
   },
   {
@@ -102,7 +105,7 @@ export const CASE_STUDIES = [
     category: 'Medtech Branding',
     title: 'Unifying a medtech innovator',
     desc: 'Transforming a global medtech partner into a bold industry leader built for impact',
-    img: 'https://hagopianink.com/wp-content/uploads/2026/05/HI_home2_aptyx3.jpg',
+    img: `${WP_MEDIA_UPLOADS}/2026/05/HI_home2_aptyx3.jpg`,
     href: '/work/aptyx',
   },
   {

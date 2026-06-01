@@ -9,7 +9,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
-import { CDN, VIDEO_EXPERTISE, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, PHOTO_LUXURY, PHOTO_MEDTECH } from '@/lib/brand';
+import { CDN, VIDEO_EXPERTISE, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, PHOTO_LUXURY, PHOTO_MEDTECH, WP_MEDIA_UPLOADS } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -145,7 +145,7 @@ export function ExpertiseContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
             <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src="https://hagopianink.com/wp-content/uploads/2026/05/Expertise_website.jpg" alt="UX/UI design work"
+              <img src={`${WP_MEDIA_UPLOADS}/2026/05/Expertise_website.jpg`} alt="UX/UI design work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
@@ -206,7 +206,7 @@ export function ExpertiseContent() {
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
             <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src="https://hagopianink.com/wp-content/uploads/2026/05/expertise_email.jpg" alt="Email marketing work"
+              <img src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_email.jpg`} alt="Email marketing work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
@@ -296,7 +296,7 @@ export function ExpertiseContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src="https://hagopianink.com/wp-content/uploads/2026/05/expertise_nonprofit.jpg" alt="Nonprofit fundraising work"
+              <img src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_nonprofit.jpg`} alt="Nonprofit fundraising work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </FadeIn>
