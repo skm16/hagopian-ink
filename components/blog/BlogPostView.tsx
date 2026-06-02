@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { FadeIn, Btn } from '@/components/shared/ui';
 import { SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
@@ -123,7 +124,18 @@ function ImageWithCaption({ block }: { block: Extract<PostFlexBlock, { acf_fc_la
   return (
     <div style={blockPadding(block.padding)}>
       <figure>
-        <img src={block.image.url} alt={block.image.alt ?? ''} className="w-full h-auto block" />
+        {/* ACF Image returns only url/alt — no intrinsic dims. 1200x800 is a
+            representative 3:2 placeholder so the browser reserves CLS-free
+            space; height: auto lets the actual image override on load. */}
+        <Image
+          src={block.image.url}
+          alt={block.image.alt ?? ''}
+          width={1200}
+          height={800}
+          sizes="(min-width: 881px) 881px, 100vw"
+          style={{ width: '100%', height: 'auto' }}
+          className="block"
+        />
         {block.caption && <figcaption className="post-img-caption" style={{ fontFamily: SANS }}>{block.caption}</figcaption>}
       </figure>
     </div>
@@ -131,11 +143,37 @@ function ImageWithCaption({ block }: { block: Extract<PostFlexBlock, { acf_fc_la
 }
 
 function ImagesSideBySide({ block }: { block: Extract<PostFlexBlock, { acf_fc_layout: 'images_side_by_side' }> }) {
+  // Each image occupies ~half the 881px content column on desktop.
+  const sideSizes = "(min-width: 881px) 440px, 100vw";
   return (
     <div style={blockPadding(block.padding)}>
       <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-        {block.image_left?.url && <div className="flex-1"><img src={block.image_left.url} alt={block.image_left.alt ?? ''} className="w-full h-auto block" /></div>}
-        {block.image_right?.url && <div className="flex-1"><img src={block.image_right.url} alt={block.image_right.alt ?? ''} className="w-full h-auto block" /></div>}
+        {block.image_left?.url && (
+          <div className="flex-1">
+            <Image
+              src={block.image_left.url}
+              alt={block.image_left.alt ?? ''}
+              width={600}
+              height={400}
+              sizes={sideSizes}
+              style={{ width: '100%', height: 'auto' }}
+              className="block"
+            />
+          </div>
+        )}
+        {block.image_right?.url && (
+          <div className="flex-1">
+            <Image
+              src={block.image_right.url}
+              alt={block.image_right.alt ?? ''}
+              width={600}
+              height={400}
+              sizes={sideSizes}
+              style={{ width: '100%', height: 'auto' }}
+              className="block"
+            />
+          </div>
+        )}
       </div>
       {block.caption && <p className="text-[13px] text-[#2d3232]/60 mt-3 leading-relaxed" style={{ fontFamily: SANS }}>{block.caption}</p>}
     </div>
@@ -277,15 +315,28 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
         {bannerUrl && (
           <section className="bg-white pb-2">
             <FadeIn className="max-w-[1024px] mx-auto px-6 md:px-12 mb-4">
-              <img
+              <Image
                 src={bannerUrl}
                 alt={bannerAlt}
-                className="w-full h-auto block"
+                width={1024}
+                height={683}
+                sizes="(min-width: 1024px) 928px, 100vw"
+                style={{ width: '100%', height: 'auto' }}
+                className="block"
+                priority
               />
             </FadeIn>
             {bannerTwoUrl && (
               <FadeIn className="max-w-[1024px] mx-auto px-6 md:px-12">
-                <img src={bannerTwoUrl} alt={bannerTwoAlt} className="w-full h-auto block" />
+                <Image
+                  src={bannerTwoUrl}
+                  alt={bannerTwoAlt}
+                  width={1024}
+                  height={683}
+                  sizes="(min-width: 1024px) 928px, 100vw"
+                  style={{ width: '100%', height: 'auto' }}
+                  className="block"
+                />
               </FadeIn>
             )}
           </section>
@@ -320,8 +371,15 @@ export function BlogPostView({ post, content, related, acfExtra }: BlogPostViewP
                   <FadeIn key={rel.slug} delay={i * 0.07}>
                     <Link href={`/blog/${rel.slug}`} className="group block">
                       {rel.thumbnail && (
-                        <div className="overflow-hidden aspect-[8/5] bg-[#e7e3de] mb-5">
-                          <img src={rel.thumbnail} alt={rel.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+                        <div className="relative overflow-hidden aspect-[8/5] bg-[#e7e3de] mb-5">
+                          <Image
+                            src={rel.thumbnail}
+                            alt={rel.title}
+                            fill
+                            sizes="(min-width: 940px) 442px, 100vw"
+                            style={{ objectFit: 'cover' }}
+                            className="group-hover:scale-[1.03] transition-transform duration-700"
+                          />
                         </div>
                       )}
                       <h4 className="text-lg leading-tight group-hover:opacity-55 transition-opacity duration-300" style={{ fontFamily: SERIF, fontWeight: 700 }}>
