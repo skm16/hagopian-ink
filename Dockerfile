@@ -20,6 +20,26 @@ COPY public ./public
 COPY scripts ./scripts
 COPY next.config.ts tsconfig.json tailwind.config.ts postcss.config.mjs ./
 
+# Build-time env vars. Railway passes service variables as --build-arg, but
+# the Dockerfile must declare each ARG it wants to receive. Without these,
+# the build runs without WP credentials, jab/fetchPosts soft-fail to [], and
+# every prerendered listing + the sitemap ship with empty data. They'd only
+# refill on the first manual revalidate after each deploy.
+ARG WP_URL
+ARG WP_USER
+ARG WP_APP_PASSWORD
+ARG NEXT_PUBLIC_WP_URL
+ARG NEXT_PUBLIC_WP_MEDIA_BASE_URL
+ARG NEXT_PUBLIC_SITE_URL
+ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+ENV WP_URL=$WP_URL \
+    WP_USER=$WP_USER \
+    WP_APP_PASSWORD=$WP_APP_PASSWORD \
+    NEXT_PUBLIC_WP_URL=$NEXT_PUBLIC_WP_URL \
+    NEXT_PUBLIC_WP_MEDIA_BASE_URL=$NEXT_PUBLIC_WP_MEDIA_BASE_URL \
+    NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+    NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID
+
 ENV NEXT_BUILD_STANDALONE=1
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
