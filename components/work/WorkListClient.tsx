@@ -104,7 +104,7 @@ function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColo
   const visible = cases.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
   const needsPaging = cases.length > PER_PAGE;
 
-  // Start / restart the 4.5s auto-advance interval
+  // Start / restart the 6.5s auto-advance interval
   const startTimer = useCallback(() => {
     if (!needsPaging) return;
     if (timerRef.current) clearInterval(timerRef.current);
@@ -113,7 +113,7 @@ function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColo
         setDir(1);
         setPage(p => (p + 1) % totalPages);
       }
-    }, 4500);
+    }, 6500);
   }, [needsPaging, totalPages]);
 
   // Observe when section enters viewport — start timer then, not before

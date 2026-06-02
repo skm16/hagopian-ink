@@ -87,7 +87,7 @@ export function UxUiDesignContent({ featuredWorks = [] }: { featuredWorks?: Feat
               We design digital experiences that feel effortless for users and perform powerfully for businesses. Every layout, every flow, every interaction is grounded in the goal: clarity, conversion, and brand alignment.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              From luxury fashion e-commerce to B2B lead-generation sites, we have designed digital properties that reduced friction, deepened engagement, and converted more browsers into buyers.
+              From luxury fashion e-commerce to B2B lead-generation sites, we have designed digital experiences that reduced friction, deepened engagement, and converted more browsers into buyers.
             </p>
           </FadeIn>
         </div>

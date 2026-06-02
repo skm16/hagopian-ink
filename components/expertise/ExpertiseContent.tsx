@@ -31,12 +31,12 @@ const DISCIPLINES = [
 ];
 
 const INDUSTRIES = [
-  { industry: 'Luxury + Lifestyle',          services: 'Brand identity, omnichannel campaigns, UX design' },
-  { industry: 'Fashion + Beauty',            services: 'E-commerce design, email marketing, brand strategy' },
-  { industry: 'Medical + Wellness',          services: 'Brand positioning, campaign design, print + digital' },
-  { industry: 'Community + Nonprofit',       services: 'Donor engagement, fundraising strategy, brand identity' },
-  { industry: 'Technology + Energy',         services: 'Brand evolution, digital marketing, web design' },
-  { industry: 'Entertainment + Hospitality', services: 'Campaign marketing, email strategy, brand identity' },
+  { industry: 'Luxury + Lifestyle',          services: 'Brand identity, omnichannel campaigns, UX design',          link: '/expertise/luxury-lifestyle' },
+  { industry: 'Fashion + Beauty',            services: 'E-commerce design, email marketing, brand strategy',         link: '/expertise/luxury-lifestyle' },
+  { industry: 'Medical + Wellness',          services: 'Brand positioning, campaign design, print + digital',        link: '/expertise/health-medtech' },
+  { industry: 'Community + Nonprofit',       services: 'Donor engagement, fundraising strategy, brand identity',     link: '/expertise/nonprofit-fundraising' },
+  { industry: 'Technology + Energy',         services: 'Brand evolution, digital marketing, web design',             link: '/expertise/health-medtech' },
+  { industry: 'Entertainment + Hospitality', services: 'Campaign marketing, email strategy, brand identity',         link: '/expertise/luxury-lifestyle' },
 ];
 
 export function ExpertiseContent() {
@@ -77,9 +77,14 @@ export function ExpertiseContent() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-24">
             {INDUSTRIES.map((area, i) => (
-              <FadeIn key={i} delay={i * 0.06} className="group py-6 border-t-[1.5px] border-[#2d3232]/15 hover:border-t-[3px] hover:border-[#2d3232] pr-10 transition-[border-color,border-width] duration-200 cursor-default">
-                <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{area.industry}</h3>
-                <p className="text-[13px] text-[#2d3232]/70 leading-relaxed">{area.services}</p>
+              <FadeIn key={i} delay={i * 0.06} className="group py-6 border-t-[1.5px] border-[#2d3232]/15 hover:border-t-[3px] hover:border-[#2d3232] pr-10 transition-[border-color,border-width] duration-200">
+                <Link href={area.link} className="block">
+                  <h3 className="text-[17px] font-semibold text-[#2d3232] leading-snug mb-1" style={{ fontFamily: SERIF }}>{area.industry}</h3>
+                  <p className="text-[13px] text-[#2d3232]/70 leading-relaxed mb-3">{area.services}</p>
+                  <span className="text-[10px] uppercase tracking-[0.14em] flex items-center gap-1.5 text-[#2d3232]/70 group-hover:text-[#2d3232] transition-colors" style={{ fontFamily: NAV_FONT }}>
+                    Learn more <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </Link>
               </FadeIn>
             ))}
           </div>
@@ -261,7 +266,7 @@ export function ExpertiseContent() {
               {[
                 { n: '30%',   label: "increase in Valentine's Day sales", client: 'La Perla' },
                 { n: '12K',   label: 'new email opt-ins',                 client: 'Frette' },
-                { n: '2.93M', label: 'Facebook followers',                client: 'Lancome' },
+                { n: '2.93M', label: 'Facebook followers',                client: 'Lancôme' },
               ].map((s, i) => (
                 <div key={i} className="border-t border-[#2d3232]/15 pt-5">
                   <div className="text-3xl mb-1" style={{ fontFamily: SERIF }}>{s.n}</div>

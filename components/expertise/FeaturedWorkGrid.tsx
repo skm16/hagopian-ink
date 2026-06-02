@@ -32,8 +32,8 @@ export function FeaturedWorkGrid({ works }: { works: FeaturedWork[] }) {
   }
 
   return (
-    <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="max-w-[1300px]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {works.map((w, i) => (
           <FadeIn key={w.slug} delay={i * 0.1}>
             <Link href={`/work/${w.slug}`} className="group block">
@@ -68,6 +68,7 @@ export function FeaturedWorkGrid({ works }: { works: FeaturedWork[] }) {
         ))}
       </div>
       <div className="flex justify-end mt-8 border-t border-[#2d3232]/10 pt-6">
+
         <Link
           href="/work"
           style={{
@@ -87,6 +88,6 @@ export function FeaturedWorkGrid({ works }: { works: FeaturedWork[] }) {
           <ArrowRight style={{ width: 12, height: 12 }} />
         </Link>
       </div>
-    </>
+    </div>
   );
 }

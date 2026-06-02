@@ -33,7 +33,7 @@ const CAPABILITIES = [
 const STATS = [
   { n: '30%',   label: "Increase in Valentine's Day sales — La Perla" },
   { n: '3x',    label: 'Increase in online sales, 5 months — MSG Suites' },
-  { n: '2.93M', label: 'Facebook followers — Lancome House of Color' },
+  { n: '2.93M', label: 'Facebook followers — Lancôme House of Color' },
 ];
 
 
