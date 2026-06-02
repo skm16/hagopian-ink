@@ -2,21 +2,15 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { jabClient, withTags } from '@/lib/jab/client';
 
-// ISR: known case-study slugs are prebuilt at build time; new slugs published
-// after deploy still SSR + cache on first request (dynamicParams: true).
+// ISR with SSR-on-first-hit (no generateStaticParams). Build-time prerendering
+// of all 19+ case studies in parallel was overwhelming WP Engine's MCP layer
+// (100+ simultaneous session init handshakes -> "Server did not return
+// Mcp-Session-Id header on initialize"). At runtime, MCP session reuse and
+// natural request pacing avoid this. First visitor of each URL pays a
+// one-time SSR cost; subsequent requests get cached HTML.
+//
 // Webhook flushes 'works' + work-<slug> tags on every WP save.
 export const revalidate = 3600;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  try {
-    const { our_work } = await withTags(['works'], () => getOurWork(jabClient));
-    return our_work.map((w) => ({ slug: w.slug }));
-  } catch (err) {
-    console.warn('[work/[slug]] generateStaticParams: WP unreachable at build, falling back to on-demand SSR:', err);
-    return [];
-  }
-}
 
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';

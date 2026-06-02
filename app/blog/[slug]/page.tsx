@@ -1,26 +1,18 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { fetchPosts, fetchPostBySlug } from '@/lib/wp/fetch-posts';
+import { fetchPostBySlug } from '@/lib/wp/fetch-posts';
 import { resolvePostBuilderMedia } from '@/lib/wp/resolve-media';
 import { rewriteWpMediaUrl, rewriteWpMediaUrlsInHtml } from '@/lib/wp/media-url';
 
-// ISR: known slugs are prebuilt; new slugs (post published after deploy) SSR
-// on first request and cache for 1 hour. Webhook flushes 'posts' + post-<slug>
-// tags on every WP save for near-instant editor feedback.
+// ISR with SSR-on-first-hit (no generateStaticParams). Build-time prerender
+// of 85+ posts in parallel was hitting WP Engine 504 timeouts (one slow REST
+// call was enough to fail the entire build). Runtime SSR with natural request
+// pacing handles per-post fetches reliably. First visitor of each URL pays
+// a one-time SSR cost; subsequent requests get cached HTML.
+//
+// Webhook flushes 'posts' + post-<slug> tags on every WP save for near-instant
+// editor feedback.
 export const revalidate = 3600;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  try {
-    const posts = await fetchPosts(['posts']);
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch (err) {
-    // Build-time WP outage — return empty list. dynamicParams: true above
-    // means every request still SSRs and caches, just without prebuilt pages.
-    console.warn('[blog/[slug]] generateStaticParams: WP unreachable at build, falling back to on-demand SSR:', err);
-    return [];
-  }
-}
 
 import { shapePost } from '@/lib/wp/shape-post';
 import { Nav } from '@/components/shared/Nav';
