@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Search } from 'lucide-react';
 import { FadeIn, Btn, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
@@ -67,9 +68,15 @@ function PostCard({ post, i }: { post: WpPost; i: number }) {
   const reversed = i % 2 !== 0;
   const inner = (
     <div className={`flex flex-col md:flex-row items-start gap-8 group${reversed ? ' md:flex-row-reverse' : ''}`}>
-      <div className="w-full md:w-[40%] shrink-0 overflow-hidden bg-[#e7e3de] aspect-[8/5]">
-        <img src={post.img} alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
+      <div className="relative w-full md:w-[40%] shrink-0 overflow-hidden bg-[#e7e3de] aspect-[8/5]">
+        <Image
+          src={post.img}
+          alt={post.title}
+          fill
+          sizes="(min-width: 1024px) 480px, 100vw"
+          style={{ objectFit: 'cover' }}
+          className="group-hover:scale-[1.03] transition-transform duration-700"
+        />
       </div>
       <div className="flex-1 flex flex-col justify-center">
         <p className="text-[9px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-3" style={{ fontFamily: NAV_FONT }}>
@@ -206,8 +213,14 @@ export function BlogListClient({ posts: rawPosts }: { posts: ShapedPost[] }) {
 
             <FadeIn delay={0.1} className="bg-white/[0.65] border border-[#e0ddd8] p-8 shadow-[0_24px_70px_rgba(45,50,50,0.06)]">
               <h2 className="text-3xl mb-6 leading-none" style={{ fontFamily: SERIF, fontWeight: 700 }}>About Us</h2>
-              <div className="aspect-[3/2] overflow-hidden mb-7 bg-[#e7e3de]">
-                <img src={`${CDN}/2018/11/blog-about-us.png`} alt="Hagopian Ink studio materials" className="w-full h-full object-cover" />
+              <div className="relative aspect-[3/2] overflow-hidden mb-7 bg-[#e7e3de]">
+                <Image
+                  src={`${CDN}/2018/11/blog-about-us.png`}
+                  alt="Hagopian Ink studio materials"
+                  fill
+                  sizes="360px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
               <p className="text-[10px] uppercase tracking-[0.2em] text-[#2d3232]/70 mb-4" style={{ fontFamily: NAV_FONT }}>Make your mark</p>
               <p className="text-[14px] leading-relaxed text-[#2d3232]/70 mb-6">

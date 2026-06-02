@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import type { MobilePagesBlock } from '@/lib/work-detail-types';
 
 const PHONE_PNG = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/3252351.png';
@@ -95,9 +96,16 @@ export function MobilePages({ block }: { block: MobilePagesBlock }) {
                 background: '#fff',
               }}
             >
-              <img
+              {/* loading="eager" because slides are positioned off-screen via
+                  translateX; IntersectionObserver wouldn't trigger lazy load
+                  until the user scrolls/advances, causing a flicker. */}
+              <Image
                 src={src}
                 alt=""
+                width={SCREEN_W}
+                height={SCREEN_H}
+                sizes={`${SCREEN_W}px`}
+                loading="eager"
                 style={{
                   width: SCREEN_W,
                   height: SCREEN_H,

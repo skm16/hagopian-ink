@@ -19,6 +19,10 @@ const config: NextConfig = {
       { protocol: 'https', hostname: 'hagopianink.wpenginepowered.com' },
       { protocol: 'https', hostname: 'hagopianink.com' },
     ],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 768, 1024, 1280, 1536, 1920],
+    imageSizes: [16, 32, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 31,
   },
   async redirects() {
     return buildRedirects();

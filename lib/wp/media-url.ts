@@ -22,10 +22,14 @@ const PUBLIC_HOSTS = new Set([
 ]);
 
 function wpBase(): URL | null {
+  // `||` + `.trim()` (not `??`) so an empty/whitespace-only env value falls
+  // through. Empty NEXT_PUBLIC_WP_URL otherwise wins the coalesce and
+  // new URL('') throws → wpBase returns null → media URLs aren't rewritten →
+  // the public hagopianink.com host stays in WP-returned URLs and self-loops.
   const raw =
-    process.env.NEXT_PUBLIC_WP_URL ??
-    process.env.WP_URL ??
-    'https://hagopianink.wpengine.com';
+    process.env.NEXT_PUBLIC_WP_URL?.trim() ||
+    process.env.WP_URL?.trim() ||
+    'https://hagopianink.wpenginepowered.com';
   try {
     return new URL(raw);
   } catch {

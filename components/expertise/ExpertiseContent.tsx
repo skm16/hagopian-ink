@@ -5,6 +5,7 @@ import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -132,9 +133,15 @@ export function ExpertiseContent() {
             </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
-              <img src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`} alt="Brand identity work"
-                className="w-full h-full object-cover opacity-75 hover:opacity-90 transition-opacity duration-700" />
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#343a3a]">
+              <Image
+                src={`${CDN}/2022/08/HI_case1_JosephRobert.jpg`}
+                alt="Brand identity work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="opacity-75 hover:opacity-90 transition-opacity duration-700"
+              />
             </div>
           </FadeIn>
         </div>
@@ -144,9 +151,15 @@ export function ExpertiseContent() {
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${WP_MEDIA_UPLOADS}/2026/05/Expertise_website.jpg`} alt="UX/UI design work"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
+              <Image
+                src={`${WP_MEDIA_UPLOADS}/2026/05/Expertise_website.jpg`}
+                alt="UX/UI design work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
@@ -205,9 +218,15 @@ export function ExpertiseContent() {
             </Btn>
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_email.jpg`} alt="Email marketing work"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
+              <Image
+                src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_email.jpg`}
+                alt="Email marketing work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </FadeIn>
         </div>
@@ -217,9 +236,15 @@ export function ExpertiseContent() {
       <section className="bg-[#f1efef] text-[#2d3232] py-28 md:py-44 px-6 md:px-12 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
-            <div className="aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={PHOTO_LUXURY} alt="Luxury brand work"
-                className="w-full h-full object-cover opacity-85 hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
+              <Image
+                src={PHOTO_LUXURY}
+                alt="Luxury brand work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="opacity-85 hover:opacity-100 transition-opacity duration-700"
+              />
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">
@@ -284,8 +309,14 @@ export function ExpertiseContent() {
           </FadeIn>
           <FadeIn delay={0.2} dir="left">
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={PHOTO_MEDTECH} alt="Health + MedTech brand work"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <Image
+                src={PHOTO_MEDTECH}
+                alt="Health + MedTech brand work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </FadeIn>
         </div>
@@ -296,8 +327,14 @@ export function ExpertiseContent() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn dir="right" className="order-2 lg:order-1">
             <div className="relative aspect-[1/1] max-w-[80%] overflow-hidden bg-[#e0ddd9]">
-              <img src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_nonprofit.jpg`} alt="Nonprofit fundraising work"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <Image
+                src={`${WP_MEDIA_UPLOADS}/2026/05/expertise_nonprofit.jpg`}
+                alt="Nonprofit fundraising work"
+                fill
+                sizes="(min-width: 1024px) 560px, 80vw"
+                style={{ objectFit: 'cover' }}
+                className="hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </FadeIn>
           <FadeIn delay={0.2} className="order-1 lg:order-2">

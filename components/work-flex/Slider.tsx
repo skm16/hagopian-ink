@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import type { SliderBlock } from '@/lib/work-detail-types';
 
 export function Slider({ block }: { block: SliderBlock }) {
@@ -25,10 +26,17 @@ export function Slider({ block }: { block: SliderBlock }) {
     >
       <div style={{ position: 'relative', overflow: 'hidden' }}>
         {images.map((src, i) => (
-          <img
+          // loading="eager" since non-active slides are display:none — Next/Image's
+          // IntersectionObserver wouldn't trigger lazy load until the slider advances,
+          // causing a visible blank on every slide change.
+          <Image
             key={i}
             src={src}
             alt=""
+            width={1170}
+            height={780}
+            sizes="100vw"
+            loading="eager"
             style={{
               display: i === idx ? 'block' : 'none',
               width: '100%',

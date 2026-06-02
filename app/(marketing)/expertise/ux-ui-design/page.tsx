@@ -3,7 +3,9 @@ import { buildMetadata } from '@/lib/seo/resolve-metadata';
 import { UxUiDesignContent } from '@/components/expertise/UxUiDesignContent';
 import type { FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 
-export const dynamic = 'force-dynamic';
+// Pure-static page (FEATURED is hardcoded), but mark revalidate to allow
+// editor-tagged purges later without re-deploying.
+export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: 'UX & UI Design',

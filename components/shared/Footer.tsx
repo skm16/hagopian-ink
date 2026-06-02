@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Linkedin, Facebook } from 'lucide-react';
 import { NAV_FONT, SANS } from '@/lib/brand';
 
@@ -17,7 +18,14 @@ export function Footer() {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <img src={logoSrc} alt="Hagopian Ink" className="h-7 w-auto opacity-90 mb-6" />
+            <Image
+              src={logoSrc}
+              alt="Hagopian Ink"
+              width={200}
+              height={60}
+              sizes="200px"
+              className="h-7 w-auto opacity-90 mb-6"
+            />
             <p className="text-[13px] text-[#f5f0eb]/60 leading-relaxed mb-6" style={{ fontFamily: SANS }}>
               A creative studio for brand design and digital experiences. Born in NYC, operating worldwide.
             </p>

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Nav } from '@/components/shared/Nav';
 
-export const dynamic = 'force-dynamic';
+// ISR — webhook revalidates the 'posts' tag on every WP save; the 1-hour TTL
+// is a safety net in case the webhook ever fails to deliver.
+export const revalidate = 3600;
 
 import { Footer } from '@/components/shared/Footer';
 import { fetchPosts } from '@/lib/wp/fetch-posts';

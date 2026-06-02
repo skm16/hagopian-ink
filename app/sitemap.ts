@@ -3,10 +3,11 @@ import { jabClient, withTags } from '@/lib/jab/client';
 import { getOurWork } from '@/lib/sdk';
 import { fetchPosts } from '@/lib/wp/fetch-posts';
 
-// Render at request time, not build time. The jab client validates
-// WP_URL/WP_USER/WP_APP_PASSWORD at module init, and we don't want a
-// missing/unreachable WordPress to fail the deploy build.
-export const dynamic = 'force-dynamic';
+// ISR: prebuild at build time, refresh hourly as a backstop. The /api/revalidate
+// webhook flushes the 'sitemap' tag on every WP content change, so editors see
+// new posts/works in the sitemap within seconds of publishing. The try/catch
+// blocks below keep build-time WP outages from failing the deploy.
+export const revalidate = 3600;
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hagopianink.com';
 

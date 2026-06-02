@@ -4,20 +4,11 @@
 
 /*
   Didonesque (Paulo Goode foundry) — served from /public/fonts/.
-  Wiring all weights so case study titles, hero headlines, and editorial
-  pull quotes never fall back to "Times New Roman" (which on some systems
-  renders as a narrow condensed face that looks nothing like the design).
 
   Weight map:
     400 → Roman / Italic               (body serif, mid-size headings)
     500 → Medium / Medium Italic       (sub-headings)
     700 → Bold / Bold Italic           (display H1/H2, emphasis)
-    900 → Black / Black Italic         (heavy display)
-
-  Display, Poster, and Condensed variants are NOT wired by default — they
-  are stylistic alternates intended for hero treatments, not body type.
-  If a designer needs them, register additional families (e.g.
-  "Didonesque Display") rather than overloading the main family.
 
   font-display: swap → render fallback text immediately, swap in
   Didonesque when it arrives. Prevents invisible-text flash (FOIT).
@@ -62,41 +53,6 @@
   font-family: 'Didonesque';
   src: url('/fonts/didonesque-bold-italic.otf') format('opentype');
   font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('/fonts/didonesque-black.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque';
-  src: url('/fonts/didonesque-black-italic.otf') format('opentype');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/*
-  Didonesque Display — a separate family for true display sizes (60px+).
-  Register it as its own family so designers opt in explicitly via
-  fontFamily: 'Didonesque Display' rather than getting it accidentally
-  from a weight match on the main family.
-*/
-@font-face {
-  font-family: 'Didonesque Display';
-  src: url('/fonts/didonesque-display.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Didonesque Display';
-  src: url('/fonts/didonesque-display-italic.otf') format('opentype');
-  font-weight: 400;
   font-style: italic;
   font-display: swap;
 }

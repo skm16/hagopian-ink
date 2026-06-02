@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from '@/components/motion';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { VIDEO_WORK, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, WP_MEDIA_UPLOADS } from '@/lib/brand';
@@ -24,12 +25,6 @@ interface WpWork {
   thumbnail: string | null;
   termSlugs: string[];
   primaryTermName: string;
-}
-
-interface WpTerm {
-  slug: string;
-  name: string;
-  count: number;
 }
 
 interface CardData {
@@ -173,11 +168,14 @@ function ProjectCarousel({ cases, dark, cardBg, cardBorder, textColor, mutedColo
               className="group block"
               style={{ background: cardBg, border: `1px solid ${cardBorder}` }}
             >
-              <div className="overflow-hidden aspect-[293/414]">
-                <img
+              <div className="relative overflow-hidden aspect-[293/414]">
+                <Image
                   src={cs.thumb}
                   alt={cs.client}
-                  className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                  fill
+                  sizes="(min-width: 768px) 320px, 50vw"
+                  style={{ objectFit: 'cover' }}
+                  className="group-hover:scale-[1.04] transition-transform duration-700"
                 />
               </div>
               <div className="p-5">
@@ -389,7 +387,7 @@ function CategoryNav({ groups }: { groups: Group[] }) {
 /* ---------------------------------------------------------
    WORK LIST CLIENT
 --------------------------------------------------------- */
-export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTerm[] }) {
+export function WorkListClient({ works }: { works: WpWork[] }) {
   const visibleWorks = works.filter(w => !HIDDEN_SLUGS.has(w.slug));
 
   return (

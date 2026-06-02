@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '@/components/shared/ui';
 import { SANS, NAV_FONT } from '@/lib/brand';
@@ -36,12 +37,15 @@ export function FeaturedWorkGrid({ works }: { works: FeaturedWork[] }) {
         {works.map((w, i) => (
           <FadeIn key={w.slug} delay={i * 0.1}>
             <Link href={`/work/${w.slug}`} className="group block">
-              <div className="overflow-hidden aspect-[293/414] bg-[#e0ddd9]">
+              <div className="relative overflow-hidden aspect-[293/414] bg-[#e0ddd9]">
                 {w.thumbnail && (
-                  <img
+                  <Image
                     src={w.thumbnail}
                     alt={w.title}
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                    fill
+                    sizes="(min-width: 768px) 320px, 50vw"
+                    style={{ objectFit: 'cover' }}
+                    className="group-hover:scale-[1.04] transition-transform duration-700"
                   />
                 )}
               </div>

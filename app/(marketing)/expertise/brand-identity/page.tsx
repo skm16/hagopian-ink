@@ -4,7 +4,10 @@ import { BrandIdentityContent } from '@/components/expertise/BrandIdentityConten
 import { fetchWorksByExpertiseTag } from '@/lib/wp/fetch-works-by-expertise';
 import type { FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 
-export const dynamic = 'force-dynamic';
+// ISR — webhook flushes the works tag on save; fetchWorksByExpertiseTag
+// soft-fails to [] on WP outage, so build-time outages produce a hardcoded-
+// pinned-only grid rather than failing the deploy.
+export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: 'Brand Identity',

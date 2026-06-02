@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { FadeIn, SectionLabel } from '@/components/shared/ui';
 import { CDN } from '@/lib/brand';
 
@@ -32,11 +33,22 @@ export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArra
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-14 items-center">
           {logos.map((logo, i) => (
             <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center min-h-24">
-              <img
+              <Image
                 src={logo.src}
                 alt={logo.alt}
+                width={135}
+                height={90}
+                sizes="135px"
                 className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                style={{ maxWidth: 135 * (logo.scale ?? 1), maxHeight: 90 * (logo.scale ?? 1) }}
+                // width/height: 'auto' is required for next/image — the width/height
+                // props set explicit CSS pixel dimensions otherwise. The scale
+                // multiplier (from main) tunes individual logos that need it.
+                style={{
+                  maxWidth: 135 * (logo.scale ?? 1),
+                  maxHeight: 90 * (logo.scale ?? 1),
+                  width: 'auto',
+                  height: 'auto',
+                }}
               />
             </FadeIn>
           ))}

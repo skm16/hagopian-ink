@@ -2,7 +2,15 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { jabClient, withTags } from '@/lib/jab/client';
 
-export const dynamic = 'force-dynamic';
+// ISR with SSR-on-first-hit (no generateStaticParams). Build-time prerendering
+// of all 19+ case studies in parallel was overwhelming WP Engine's MCP layer
+// (100+ simultaneous session init handshakes -> "Server did not return
+// Mcp-Session-Id header on initialize"). At runtime, MCP session reuse and
+// natural request pacing avoid this. First visitor of each URL pays a
+// one-time SSR cost; subsequent requests get cached HTML.
+//
+// Webhook flushes 'works' + work-<slug> tags on every WP save.
+export const revalidate = 3600;
 
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';
@@ -17,16 +25,13 @@ import type { DetailPost, RelatedItem, FlexBlock } from '@/lib/work-detail-types
 type Params = Promise<{ slug: string }>;
 
 async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related: RelatedItem[] } | null> {
-  // Wrap in try/catch so WP outages produce 404 instead of 500.
-  let detail: Awaited<ReturnType<typeof getWorksBySlug>>;
-  try {
-    detail = await withTags([`work-${slug}`, 'works'], () =>
-      getWorksBySlug(jabClient, { slug }),
-    );
-  } catch (err) {
-    console.error(`[/work/${slug}] WP fetch failed:`, err);
-    return null;
-  }
+  // Let fetch errors propagate. Catching and returning null here would cause
+  // notFound() to fire on transient WP errors, which Next caches as a 404
+  // forever (until manual revalidation). Throwing instead produces a 500
+  // that Next won't cache and will retry on the next request.
+  const detail = await withTags([`work-${slug}`, 'works'], () =>
+    getWorksBySlug(jabClient, { slug }),
+  );
   if (!detail.our_work) return null;
 
   const w = detail.our_work;

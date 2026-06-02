@@ -21,6 +21,7 @@ const motion = {
   p:   _motion.p   as unknown as FC<PMotion>,
 };
 import Link from 'next/link';
+import Image from 'next/image';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
@@ -84,7 +85,14 @@ function ServiceSlider() {
             {svc.linkText} <ArrowRight className="w-3 h-3" />
           </Link>
           <div className="overflow-hidden bg-[#f1efef]">
-            <img src={svc.img} alt={svc.name} className="w-full h-auto block" />
+            <Image
+              src={svc.img}
+              alt={svc.name}
+              width={800}
+              height={600}
+              sizes="(min-width: 768px) 0px, 100vw"
+              className="w-full h-auto block"
+            />
           </div>
         </div>
       </div>
@@ -128,8 +136,15 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
       {/* ── MOBILE: stacked layout ── */}
       <div className="block md:hidden max-w-[1400px] mx-auto">
         <div className="overflow-hidden w-full">
-          <img src={cs.img} alt={cs.client}
-            className="w-full h-auto block" />
+          <Image
+            src={cs.img}
+            alt={cs.client}
+            width={1400}
+            height={933}
+            sizes="(min-width: 768px) 0px, 100vw"
+            className="w-full h-auto block"
+            priority={i === 0}
+          />
         </div>
         <div className="bg-white px-6 py-7 shadow-[0_4px_40px_rgba(0,0,0,0.08)] mx-4 -mt-8 relative z-10">
           <p className="text-[10px] uppercase tracking-[0.18em] text-[#2d3232]/70 mb-3" style={{ fontFamily: NAV_FONT }}>{cs.category}</p>
@@ -146,8 +161,15 @@ function CaseStudyItem({ cs, i }: { cs: typeof CASE_STUDIES[number]; i: number }
       {/* ── DESKTOP: full-width image with overlapping card ── */}
       <div ref={ref} className="hidden md:block relative max-w-[1400px] mx-auto pb-24">
         <div className="relative group overflow-hidden mx-auto w-[95%]">
-          <img src={cs.img} alt={cs.client}
-            className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]" />
+          <Image
+            src={cs.img}
+            alt={cs.client}
+            width={1400}
+            height={933}
+            sizes="(min-width: 1400px) 1330px, 95vw"
+            className="w-full h-auto block transition-transform duration-1000 group-hover:scale-[1.03]"
+            priority={i === 0}
+          />
           <div className="absolute top-6 right-6 text-[11px] uppercase tracking-[0.22em] text-white/60"
             style={{ fontFamily: NAV_FONT }}>
             {String(i + 1).padStart(2, '0')}
@@ -285,9 +307,15 @@ export function HomeContent() {
           <div className="flex items-center w-max gap-14" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 138, height: 78 }}>
-                <img src={logo.src} alt={logo.alt}
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={138}
+                  height={78}
+                  sizes="138px"
                   style={logo.small ? { maxWidth: '80%', maxHeight: '80%' } : undefined}
-                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
+                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             ))}
           </div>
@@ -321,8 +349,14 @@ export function HomeContent() {
                     {svc.linkText} <ArrowRight className="w-3 h-3" />
                   </Link>
                   <div className="overflow-hidden bg-[#f1efef]">
-                    <img src={svc.img} alt={svc.name}
-                      className="w-full h-auto block group-hover:scale-105 transition-transform duration-700" />
+                    <Image
+                      src={svc.img}
+                      alt={svc.name}
+                      width={800}
+                      height={600}
+                      sizes="(min-width: 1400px) 440px, (min-width: 768px) 30vw, 0px"
+                      className="w-full h-auto block group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
                 </div>
                 <motion.div
@@ -336,9 +370,12 @@ export function HomeContent() {
                     className="w-full h-full flex items-center justify-center bg-[#bfbab2] shadow-[0_4px_18px_rgba(0,0,0,0.08)]"
                     style={{ borderRadius: '0 50% 50% 50%', transform: 'rotate(45deg)' }}
                   >
-                    <img
+                    <Image
                       src={svc.icon}
                       alt=""
+                      width={64}
+                      height={64}
+                      sizes="64px"
                       className="object-contain opacity-90"
                       style={{
                         width: svc.iconSize,
@@ -415,7 +452,14 @@ export function HomeContent() {
                   &ldquo;Hagopian Ink is a boutique shop that provides the personal touch while executing big agency ideas.&rdquo;
                 </blockquote>
                 <cite className="not-italic flex items-center gap-4">
-                  <img src={ceciliaHeadshot} alt="Cecilia Pagkalinawan" className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20" />
+                  <Image
+                    src={ceciliaHeadshot}
+                    alt="Cecilia Pagkalinawan"
+                    width={64}
+                    height={64}
+                    sizes="64px"
+                    className="w-16 h-16 rounded-full object-cover border border-[#f5f0eb]/20"
+                  />
                   <span>
                     <span className="block text-[#f5f0eb] text-sm font-semibold tracking-wide mb-1">Cecilia Pagkalinawan</span>
                     <span className="block text-[10px] uppercase tracking-[0.14em] text-[#f5f0eb]/60" style={{ fontFamily: NAV_FONT }}>

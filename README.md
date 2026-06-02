@@ -1,5 +1,7 @@
 # Hagopian Ink — Site
 
+<!-- staging: pre-production branch for QA before merging to main -->
+
 Next.js 15 (App Router, Turbopack) + React 19 RC + Tailwind. Content is sourced from a headless WordPress install at `hagopianink.wpengine.com` via the auto-generated [`jab`](https://github.com/skm/wp-headless-kit) SDK in `lib/sdk/`.
 
 ## Dev
