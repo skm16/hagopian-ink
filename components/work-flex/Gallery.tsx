@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import type { GalleryBlock } from '@/lib/work-detail-types';
 
 // Mirrors part-gallery.php + _gallery.scss: each tile is 25% wide (4 columns) at
@@ -22,18 +23,18 @@ export function Gallery({ block }: { block: GalleryBlock }) {
           <div
             key={i}
             style={{
+              position: 'relative',
               width: '100%',
               height: '40vh',
               overflow: 'hidden',
             }}
           >
-            <img
+            <Image
               src={src}
               alt={`Gallery image ${i + 1}`}
+              fill
+              sizes="25vw"
               style={{
-                display: 'block',
-                width: '100%',
-                height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center',
               }}

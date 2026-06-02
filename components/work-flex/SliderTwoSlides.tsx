@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import type { SliderTwoSlidesBlock } from '@/lib/work-detail-types';
 
 // Mirrors part-slider_two_slides.php (owl-carousel: 2 items visible, loop, 3s autoplay).
@@ -70,9 +71,14 @@ export function SliderTwoSlides({ block }: { block: SliderTwoSlidesBlock }) {
               flexShrink: 0,
             }}
           >
-            <img
+            {/* loading="eager" since slides are positioned off-screen via translateX. */}
+            <Image
               src={src}
               alt=""
+              width={800}
+              height={600}
+              sizes="50vw"
+              loading="eager"
               style={{ display: 'block', width: '100%', height: 'auto' }}
             />
           </div>

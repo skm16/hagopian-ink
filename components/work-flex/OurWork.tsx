@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import type { OurWorkBlock } from '@/lib/work-detail-types';
 import { SERIF, SANS, NAV_FONT } from '@/lib/brand';
 import { WpHtml } from './WpHtml';
@@ -127,16 +128,22 @@ export function OurWork({ block }: { block: OurWorkBlock }) {
                     target={block.link.target || undefined}
                     rel={block.link.target === '_blank' ? 'noopener noreferrer' : undefined}
                   >
-                    <img
+                    <Image
                       src={block.image}
                       alt={block.title.replace(/<[^>]+>/g, '') || ''}
+                      width={800}
+                      height={600}
+                      sizes="(min-width: 1170px) 683px, (min-width: 768px) 58vw, 100vw"
                       style={{ maxWidth: '100%', height: 'auto', display: 'inline-block' }}
                     />
                   </a>
                 ) : (
-                  <img
+                  <Image
                     src={block.image}
                     alt={block.title.replace(/<[^>]+>/g, '') || ''}
+                    width={800}
+                    height={600}
+                    sizes="(min-width: 1170px) 683px, (min-width: 768px) 58vw, 100vw"
                     style={{ maxWidth: '100%', height: 'auto', display: 'inline-block' }}
                   />
                 )}

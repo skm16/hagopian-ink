@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import type { DesktopPagesBlock } from '@/lib/work-detail-types';
 
 const SILVER_NAV = 'https://hagopianink.wpenginepowered.com/wp-content/themes/skmframework/assets/public/img/silver-nav-bar.png';
@@ -36,14 +37,20 @@ export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
             boxShadow: SHADOW,
             marginBottom: hasPair ? 60 : 0,
           }}>
-            <img
+            <Image
               src={navBarSrc}
               alt=""
+              width={800}
+              height={32}
+              sizes="(min-width: 800px) 800px, 100vw"
               style={{ display: 'block', width: '100%', height: 'auto' }}
             />
-            <img
+            <Image
               src={block.fullWidth}
               alt=""
+              width={800}
+              height={600}
+              sizes="(min-width: 800px) 800px, 100vw"
               style={{ display: 'block', width: '100%', height: 'auto' }}
             />
           </div>
@@ -60,14 +67,20 @@ export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
             {block.firstPage && (
               <div style={{ flex: '1 1 0', minWidth: 0 }}>
                 <div style={{ boxShadow: SHADOW }}>
-                  <img
+                  <Image
                     src={navBarSrc}
                     alt=""
+                    width={800}
+                    height={32}
+                    sizes="(min-width: 1170px) 510px, 45vw"
                     style={{ display: 'block', width: '100%', height: 'auto' }}
                   />
-                  <img
+                  <Image
                     src={block.firstPage}
                     alt=""
+                    width={800}
+                    height={600}
+                    sizes="(min-width: 1170px) 510px, 45vw"
                     style={{ display: 'block', width: '100%', height: 'auto' }}
                   />
                 </div>
@@ -80,14 +93,20 @@ export function DesktopPages({ block }: { block: DesktopPagesBlock }) {
                 marginTop: block.firstPage ? STAGGER_OFFSET : 0,
               }}>
                 <div style={{ boxShadow: SHADOW }}>
-                  <img
+                  <Image
                     src={navBarSrc}
                     alt=""
+                    width={800}
+                    height={32}
+                    sizes="(min-width: 1170px) 510px, 45vw"
                     style={{ display: 'block', width: '100%', height: 'auto' }}
                   />
-                  <img
+                  <Image
                     src={block.secondPage}
                     alt=""
+                    width={800}
+                    height={600}
+                    sizes="(min-width: 1170px) 510px, 45vw"
                     style={{ display: 'block', width: '100%', height: 'auto' }}
                   />
                 </div>
