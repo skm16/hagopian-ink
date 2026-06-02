@@ -431,10 +431,10 @@ export function HomeContent() {
                 Great work doesn&apos;t need a layered process or inflated egos. It needs smart questions, honest conversation, and enough taste to know when something is almost there but not quite right.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                At Hagopian Ink, we stay close to the work from first conversation to final detail. The result is work with clarity, character, and staying power.
+                At Hagopian Ink, we stay close to the work from first conversation to final detail. We shape strategy, guide creative direction, and refine the design along the way. The result is work with character and staying power.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12">
-                Our relationships span years because strong work is only part of the equation. Trust and consistency allow us to keep growing alongside organizations we believe in.
+                Our relationships span years because trust and consistency allow us to keep growing alongside organizations we believe in.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
