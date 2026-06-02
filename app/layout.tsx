@@ -28,6 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* Overlap DNS/TLS handshake to the WP origin with HTML parsing. */}
+        <link rel="preconnect" href="https://hagopianink.wpenginepowered.com" />
+        <link rel="dns-prefetch" href="https://hagopianink.wpenginepowered.com" />
         {/*
           Preload the two Didonesque weights that drive every page's H1/H2.
           Without preload, the browser only discovers these after parsing the

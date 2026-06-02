@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { renderBlock } from '@/components/work-flex';
 import { WP_HTML_STYLES, WpHtml } from '@/components/work-flex/WpHtml';
@@ -223,17 +224,14 @@ function RelatedWork({ items }: { items: RelatedItem[] }) {
               style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}
             >
               <FadeIn>
-                <div style={{ aspectRatio: '293 / 414', overflow: 'hidden', background: '#fff' }}>
+                <div style={{ position: 'relative', aspectRatio: '293 / 414', overflow: 'hidden', background: '#fff' }}>
                   {item.thumbnail && (
-                    <img
+                    <Image
                       src={item.thumbnail}
                       alt={item.title}
-                      style={{
-                        display: 'block',
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
+                      fill
+                      sizes="(min-width: 1260px) 305px, (min-width: 640px) 25vw, 50vw"
+                      style={{ objectFit: 'cover' }}
                     />
                   )}
                 </div>
