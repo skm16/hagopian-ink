@@ -71,9 +71,8 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <FadeIn>
             <SectionLabel>What We Do</SectionLabel>
-            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              A brand is more than a logo.<br />
-              It's <span style={{ fontStyle: 'italic', opacity: 0.6 }}>how you look, sound, and feel.</span>
+            <h2 className="text-3xl md:text-4xl leading-[1.05] mb-8 max-w-sm" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              A brand is more than a logo. It's <span style={{ fontStyle: 'italic', opacity: 0.6 }}>how you look, sound, and feel.</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -121,8 +120,8 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
         <div className="max-w-[1400px] mx-auto">
           <FadeIn className="mb-16">
             <SectionLabel>How We Begin</SectionLabel>
-            <h2 className="text-3xl md:text-4xl leading-[1.05]" style={{ fontFamily: SERIF, fontWeight: 700 }}>
-              How can we begin your<br />new brand development?
+            <h2 className="text-3xl md:text-4xl leading-[1.05] max-w-md" style={{ fontFamily: SERIF, fontWeight: 700 }}>
+              How can we begin your new brand development?
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-x-8">
