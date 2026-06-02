@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   ...buildMetadata({
     title: 'Branding Agency NYC | Branding, UX Design, Email Marketing',
     description:
-      'Hagopian Ink provides unparalleled branding, UX design & email marketing services for your brand. Contact us to discuss your branding today.',
+      'Hagopian Ink is a boutique design agency born in NYC specializing in brand identity, UX design, and email marketing. 20+ years helping innovative organizations grow.',
     ogTitle: 'HagopianInk.com',
     ogDescription:
-      'Creative campaigns that drive results. Increasing value through branding, UX design & email marketing.',
+      'Hagopian Ink is a boutique design agency born in NYC specializing in brand identity, UX design, and email marketing. 20+ years helping innovative organizations grow.',
     canonicalPath: '/',
   }),
 };
