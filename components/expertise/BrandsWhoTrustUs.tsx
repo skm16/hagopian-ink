@@ -10,7 +10,7 @@ import { CDN } from '@/lib/brand';
  * Row 1: La Perla · Lancôme · Burberry · Armani Exchange · Frette
  * Row 2: Madison Square Garden · Mercedes-Benz · Aston Martin · Condé Nast · Estée Lauder
  */
-const TRUST_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
+const TRUST_LOGOS: ReadonlyArray<{ src: string; alt: string; scale?: number }> = [
   { src: `${CDN}/2018/09/09_HI_logo_laperla.png`,     alt: 'La Perla' },
   { src: `${CDN}/2018/09/02_HI_logo_lancome.png`,     alt: 'Lancôme' },
   { src: `${CDN}/2018/09/06_HI_logo_burberry.png`,    alt: 'Burberry' },
@@ -23,7 +23,7 @@ const TRUST_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
   { src: `${CDN}/2018/09/04_HI_logo_esteelauder.png`, alt: 'Estée Lauder' },
 ];
 
-export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArray<{ src: string; alt: string }> } = {}) {
+export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArray<{ src: string; alt: string; scale?: number }> } = {}) {
   return (
     <section className="bg-[#2d3232] py-20 md:py-24 border-t border-[#3a4040] px-8 md:px-16">
       <div className="max-w-[1400px] mx-auto">
@@ -40,7 +40,15 @@ export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArra
                 height={90}
                 sizes="135px"
                 className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                style={{ maxWidth: 135, maxHeight: 90, width: 'auto', height: 'auto' }}
+                // width/height: 'auto' is required for next/image — the width/height
+                // props set explicit CSS pixel dimensions otherwise. The scale
+                // multiplier (from main) tunes individual logos that need it.
+                style={{
+                  maxWidth: 135 * (logo.scale ?? 1),
+                  maxHeight: 90 * (logo.scale ?? 1),
+                  width: 'auto',
+                  height: 'auto',
+                }}
               />
             </FadeIn>
           ))}

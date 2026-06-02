@@ -12,7 +12,7 @@ export function Columns({ block }: { block: ColumnsBlock }) {
   const justify = count === 1 ? 'center' : 'flex-start';
 
   return (
-    <section style={{ background: '#ffffff', padding: '90px 0' }}>
+    <section style={{ background: '#ffffff' }} className="py-10 md:py-[90px]">
       <div style={{ maxWidth: 1170, margin: '0 auto', padding: '0 15px' }}>
         <div style={{
           width: `${widthPct}%`,

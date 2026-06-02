@@ -12,22 +12,12 @@ export function Gallery({ block }: { block: GalleryBlock }) {
 
   return (
     <section style={{ background: '#ffffff' }}>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 0,
-        }}
-      >
+      <style dangerouslySetInnerHTML={{ __html: `.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; } @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } } .gallery-cell { position: relative; width: 100%; height: 30vw; overflow: hidden; } @media (min-width: 640px) { .gallery-cell { height: 40vh; } }` }} />
+      <div className="gallery-grid">
         {images.map((src, i) => (
           <div
             key={i}
-            style={{
-              position: 'relative',
-              width: '100%',
-              height: '40vh',
-              overflow: 'hidden',
-            }}
+            className="gallery-cell"
           >
             <Image
               src={src}

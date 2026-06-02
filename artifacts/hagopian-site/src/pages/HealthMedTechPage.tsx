@@ -114,7 +114,7 @@ export function HealthMedTechPage() {
               Health and medical innovation brands face a unique challenge: they must communicate both scientific authority and human empathy, often to very different audiences simultaneously. Clinicians, executives, patients, and investors all need to believe in the same brand — but for very different reasons.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              We understand the regulatory sensitivities, the B2B sales cycles, and the consumer trust dynamics that define this space. Our 6-year partnership with Viant Medical — spanning 24 global locations and multiple campaign platforms — is a testament to what sustained, strategic brand investment can achieve.
+              We understand the regulatory sensitivities, the B2B sales cycles, and the consumer trust dynamics that define this space. Across multi-year partnerships with medical manufacturers, care platforms, hospital systems, and health nonprofits, we've seen firsthand what strategic branding can achieve.
             </p>
           </FadeIn>
         </div>

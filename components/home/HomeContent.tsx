@@ -484,13 +484,10 @@ export function HomeContent() {
           </FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-0 border-t border-l border-[#424848]">
             {[
-              { n: '1,030%', label: 'email list growth in 6 months',      client: 'P.Volve' },
               { n: '49.5%',  label: 'average open rate achieved',          client: 'P.Volve' },
               { n: '$56K',   label: 'new sales from email automations',    client: 'Cannadips, 4 months' },
               { n: '12K',    label: 'new email opt-ins',                   client: 'Frette "Escape to Italy"' },
-              { n: '58%',    label: 'increase in website unique visitors', client: 'Frette campaign' },
               { n: '300%',   label: 'increase in signup conversion',       client: 'Gwynnie Bee' },
-              { n: '329%',   label: 'more dollars raised',                 client: 'Montefiore' },
               { n: '180%',   label: 'increase in online donations',        client: 'Epilepsy Foundation' },
               { n: '$22.2M', label: 'raised at annual gala',               client: 'Montefiore' },
             ].map((s, i) => (
