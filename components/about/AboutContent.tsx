@@ -4,6 +4,7 @@ import React from 'react';
 import { motion as _motion, type MotionProps } from 'framer-motion';
 import type { ComponentPropsWithRef, FC } from 'react';
 import { ArrowRight, ArrowUpRight, Target, Gem, Heart, TrendingUp, Star, Users, Trophy, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, BtnLight } from '@/components/shared/ui';
@@ -138,8 +139,14 @@ export function AboutContent() {
           <FadeIn className="mb-16"><SectionLabel light>Leadership</SectionLabel></FadeIn>
           <FadeIn className="flex flex-col md:flex-row gap-12 md:gap-20 items-start">
             <div className="shrink-0">
-              <img src={PHOTO_CHRISTINA} alt="Christina Hagopian, President and Creative Director"
-                className="w-48 md:w-56 aspect-square object-cover object-top" />
+              <Image
+                src={PHOTO_CHRISTINA}
+                alt="Christina Hagopian, President and Creative Director"
+                width={224}
+                height={224}
+                sizes="(min-width: 768px) 224px, 192px"
+                className="w-48 md:w-56 aspect-square object-cover object-top"
+              />
             </div>
             <div className="flex-1 max-w-2xl">
               <h3 className="text-3xl md:text-4xl mb-1 leading-tight" style={{ fontFamily: SERIF, fontWeight: 700 }}>Christina Hagopian</h3>
@@ -308,9 +315,15 @@ export function AboutContent() {
           <div className="flex items-center w-max gap-14" style={{ animation: 'marquee 60s linear infinite' }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="shrink-0 flex items-center justify-center" style={{ width: 138, height: 78 }}>
-                <img src={logo.src} alt={logo.alt}
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={138}
+                  height={78}
+                  sizes="138px"
                   style={logo.small ? { maxWidth: '80%', maxHeight: '80%' } : undefined}
-                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300" />
+                  className="max-w-full max-h-full object-contain brightness-0 invert opacity-75 hover:opacity-100 transition-opacity duration-300"
+                />
               </div>
             ))}
           </div>

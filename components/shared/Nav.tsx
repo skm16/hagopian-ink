@@ -3,6 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from '@/components/motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { NAV_FONT, SANS } from '@/lib/brand';
@@ -70,7 +71,17 @@ export function Nav({ alwaysVisible = false }: { alwaysVisible?: boolean }) {
       }`}>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
           <Link href="/" onClick={closeMobile}>
-            <img src={logoSrc} alt="Hagopian Ink" className="h-11 w-auto cursor-pointer" />
+            {/* Nav renders on every page — priority lifts the logo into the
+                initial preload set so it never delays first paint. */}
+            <Image
+              src={logoSrc}
+              alt="Hagopian Ink"
+              width={200}
+              height={60}
+              sizes="200px"
+              priority
+              className="h-11 w-auto cursor-pointer"
+            />
           </Link>
         </motion.div>
 
