@@ -2,7 +2,21 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { jabClient, withTags } from '@/lib/jab/client';
 
-export const dynamic = 'force-dynamic';
+// ISR: known case-study slugs are prebuilt at build time; new slugs published
+// after deploy still SSR + cache on first request (dynamicParams: true).
+// Webhook flushes 'works' + work-<slug> tags on every WP save.
+export const revalidate = 3600;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  try {
+    const { our_work } = await withTags(['works'], () => getOurWork(jabClient));
+    return our_work.map((w) => ({ slug: w.slug }));
+  } catch (err) {
+    console.warn('[work/[slug]] generateStaticParams: WP unreachable at build, falling back to on-demand SSR:', err);
+    return [];
+  }
+}
 
 import { getWorksBySlug, getOurWork } from '@/lib/sdk';
 import { shapeBlock } from '@/lib/wp/shape-work';
