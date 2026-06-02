@@ -6,13 +6,19 @@ export const CDN = 'https://hagopianink.wpenginepowered.com/wp-content/uploads';
 // Base for WP-hosted media. Resolves to NEXT_PUBLIC_WP_URL (the canonical
 // WP origin — the same value as WP_URL, but exposed to the client bundle),
 // falling back to the legacy NEXT_PUBLIC_WP_MEDIA_BASE_URL for compatibility,
-// then to the WP Engine hostname as a hard default. Post-cutover this MUST
-// NOT be the public site (hagopianink.com) — that would self-reference back
-// to this Next app instead of WP.
+// then to the cutover-safe WPE load-balancer hostname as a hard default.
+// Post-cutover this MUST NOT be the public site (hagopianink.com) — that
+// would self-reference back to this Next app instead of WP.
+//
+// Uses `||` (not `??`) + `.trim()` so an empty / whitespace-only env value
+// falls through to the fallback. With `??`, an empty NEXT_PUBLIC_WP_URL
+// (e.g. from a Docker ARG that wasn't supplied) wins the coalesce, leaving
+// WP_MEDIA_BASE = '' and producing relative `/wp-content/...` URLs that
+// next/image then tries to load from the Next origin and 404s on.
 const WP_MEDIA_BASE = (
-  process.env.NEXT_PUBLIC_WP_URL ??
-  process.env.NEXT_PUBLIC_WP_MEDIA_BASE_URL ??
-  'https://hagopianink.wpengine.com'
+  process.env.NEXT_PUBLIC_WP_URL?.trim() ||
+  process.env.NEXT_PUBLIC_WP_MEDIA_BASE_URL?.trim() ||
+  'https://hagopianink.wpenginepowered.com'
 ).replace(/\/$/, '');
 export const WP_MEDIA_UPLOADS = `${WP_MEDIA_BASE}/wp-content/uploads`;
 
