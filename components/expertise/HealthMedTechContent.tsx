@@ -10,7 +10,19 @@ import { FadeIn, SectionLabel, Btn } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
 import { FeaturedWorkGrid, type FeaturedWork } from '@/components/expertise/FeaturedWorkGrid';
 import { BrandsWhoTrustUs } from '@/components/expertise/BrandsWhoTrustUs';
-import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
+import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, WP_MEDIA_UPLOADS } from '@/lib/brand';
+
+const HEALTH_LOGOS: ReadonlyArray<{ src: string; alt: string; scale?: number }> = [
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/24_HI_logo_montefiore.webp`,    alt: 'Montefiore',     scale: 1.05 },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_epilepsy_foundation.png`,   alt: 'Epilepsy Foundation' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_susan_g_komen.png`,         alt: 'Susan G. Komen' },
+  { src: '/images/client-logos/logo-aptyx.png',                        alt: 'Aptyx' },
+  { src: '/images/client-logos/logo-recovery-plus.png',                alt: 'RecoveryPlus',   scale: 1.05 },
+  { src: '/images/client-logos/norwood-medical-logo.png',              alt: 'Norwood Medical' },
+  { src: '/images/client-logos/logo-viant.png',                        alt: 'Viant Medical' },
+  { src: '/images/client-logos/logo_persante.png',                     alt: 'Persante',       scale: 1.05 },
+  { src: '/images/client-logos/Logo_Biomerics.png',                    alt: 'Biomerics' },
+];
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
 type DivMotion = ComponentPropsWithRef<'div'> & MotionProps;
@@ -90,7 +102,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
               Health and medical innovation brands face a unique challenge: they must communicate both scientific authority and human empathy, often to very different audiences simultaneously.
             </p>
             <p className="text-lg text-[#2d3232]/70 leading-relaxed">
-              We understand the regulatory sensitivities, the B2B sales cycles, and the consumer trust dynamics that define this space. Our 6-year partnership with Viant Medical — spanning 24 global locations — is a testament to what sustained, strategic brand investment can achieve.
+              We understand the regulatory sensitivities, the B2B sales cycles, and the consumer trust dynamics that define this space. Across multi-year partnerships with medical manufacturers, care platforms, hospital systems, and health nonprofits, we've seen firsthand what strategic branding can achieve.
             </p>
           </FadeIn>
         </div>
@@ -125,7 +137,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
         </div>
       </section>
 
-      <BrandsWhoTrustUs />
+      <BrandsWhoTrustUs logos={HEALTH_LOGOS} />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">
