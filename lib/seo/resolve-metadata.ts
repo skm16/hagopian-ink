@@ -3,7 +3,7 @@ import { rewriteWpMediaUrl } from '@/lib/wp/media-url';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hagopianink.com';
 const DEFAULT_OG = rewriteWpMediaUrl(
-  'https://hagopianink.com/wp-content/uploads/2022/09/home_screenshot.jpg',
+  'https://cms.hagopianink.com/wp-content/uploads/2026/06/Screenshot-2026-06-02-at-5.07.38-PM-scaled.png',
 );
 
 export interface MetaInput {
