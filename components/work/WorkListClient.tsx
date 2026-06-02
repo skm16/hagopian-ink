@@ -27,12 +27,6 @@ interface WpWork {
   primaryTermName: string;
 }
 
-interface WpTerm {
-  slug: string;
-  name: string;
-  count: number;
-}
-
 interface CardData {
   slug: string;
   client: string;
@@ -393,7 +387,7 @@ function CategoryNav({ groups }: { groups: Group[] }) {
 /* ---------------------------------------------------------
    WORK LIST CLIENT
 --------------------------------------------------------- */
-export function WorkListClient({ works, terms }: { works: WpWork[]; terms: WpTerm[] }) {
+export function WorkListClient({ works }: { works: WpWork[] }) {
   const visibleWorks = works.filter(w => !HIDDEN_SLUGS.has(w.slug));
 
   return (
