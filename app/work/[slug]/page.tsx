@@ -31,16 +31,13 @@ import type { DetailPost, RelatedItem, FlexBlock } from '@/lib/work-detail-types
 type Params = Promise<{ slug: string }>;
 
 async function loadCaseStudy(slug: string): Promise<{ post: DetailPost; related: RelatedItem[] } | null> {
-  // Wrap in try/catch so WP outages produce 404 instead of 500.
-  let detail: Awaited<ReturnType<typeof getWorksBySlug>>;
-  try {
-    detail = await withTags([`work-${slug}`, 'works'], () =>
-      getWorksBySlug(jabClient, { slug }),
-    );
-  } catch (err) {
-    console.error(`[/work/${slug}] WP fetch failed:`, err);
-    return null;
-  }
+  // Let fetch errors propagate. Catching and returning null here would cause
+  // notFound() to fire on transient WP errors, which Next caches as a 404
+  // forever (until manual revalidation). Throwing instead produces a 500
+  // that Next won't cache and will retry on the next request.
+  const detail = await withTags([`work-${slug}`, 'works'], () =>
+    getWorksBySlug(jabClient, { slug }),
+  );
   if (!detail.our_work) return null;
 
   const w = detail.our_work;

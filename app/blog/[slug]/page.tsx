@@ -30,19 +30,15 @@ import { buildMetadata, pickDescription } from '@/lib/seo/resolve-metadata';
 
 type Params = Promise<{ slug: string }>;
 
-// Wrap fetch so WP outages produce a 404 (via null return) instead of 500.
-async function safeFetchPost(slug: string) {
-  try {
-    return await fetchPostBySlug(slug);
-  } catch (err) {
-    console.error(`[/blog/${slug}] WP fetch failed:`, err);
-    return null;
-  }
-}
+// fetchPostBySlug returns null when WP returns an empty result (real 404).
+// We intentionally let other errors propagate — catching them and returning
+// null would cause notFound() to fire on transient errors, which Next caches
+// as 404 forever (until manual revalidation). Throwing produces an uncached
+// 500 that Next will retry on next request.
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
-  const data = await safeFetchPost(slug);
+  const data = await fetchPostBySlug(slug);
   if (!data) return buildMetadata({ title: 'Blog' });
   const shaped = shapePost(data.post);
   const description = pickDescription(
@@ -62,7 +58,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function BlogPostPage({ params }: { params: Params }) {
   const { slug } = await params;
-  const data = await safeFetchPost(slug);
+  const data = await fetchPostBySlug(slug);
   if (!data) notFound();
   const shaped = shapePost(data.post);
   const acfRaw = (data.post.acf ?? {}) as Record<string, unknown>;
