@@ -136,7 +136,7 @@ export function BrandIdentityContent({ featuredWorks = [] }: { featuredWorks?: F
         </div>
       </section>
 
-      <BrandsWhoTrustUs />
+      <BrandsWhoTrustUs baseWidth={160} baseHeight={88} />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">

@@ -137,7 +137,7 @@ export function HealthMedTechContent({ featuredWorks = [] }: { featuredWorks?: F
         </div>
       </section>
 
-      <BrandsWhoTrustUs logos={HEALTH_LOGOS} />
+      <BrandsWhoTrustUs logos={HEALTH_LOGOS} baseWidth={118} baseHeight={66} />
 
       {/* CTA */}
       <section className="bg-[#f1efef] text-[#2d3232] py-24 px-8 text-center border-t border-[#e0ddd9]">

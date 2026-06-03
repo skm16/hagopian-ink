@@ -23,7 +23,17 @@ const TRUST_LOGOS: ReadonlyArray<{ src: string; alt: string; scale?: number }> =
   { src: `${CDN}/2018/09/04_HI_logo_esteelauder.png`, alt: 'Estée Lauder' },
 ];
 
-export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArray<{ src: string; alt: string; scale?: number }> } = {}) {
+export function BrandsWhoTrustUs({
+  logos = TRUST_LOGOS,
+  baseWidth = 138,
+  baseHeight = 78,
+}: {
+  logos?: ReadonlyArray<{ src: string; alt: string; scale?: number }>;
+  /** Max pixel width for each logo (before per-logo scale). Default matches homepage marquee (138). */
+  baseWidth?: number;
+  /** Max pixel height for each logo (before per-logo scale). Default matches homepage marquee (78). */
+  baseHeight?: number;
+} = {}) {
   return (
     <section className="bg-[#2d3232] py-20 md:py-24 border-t border-[#3a4040] px-8 md:px-16">
       <div className="max-w-[1400px] mx-auto">
@@ -36,16 +46,13 @@ export function BrandsWhoTrustUs({ logos = TRUST_LOGOS }: { logos?: ReadonlyArra
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={135}
-                height={90}
-                sizes="135px"
+                width={baseWidth}
+                height={baseHeight}
+                sizes={`${baseWidth}px`}
                 className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                // width/height: 'auto' is required for next/image — the width/height
-                // props set explicit CSS pixel dimensions otherwise. The scale
-                // multiplier (from main) tunes individual logos that need it.
                 style={{
-                  maxWidth: 135 * (logo.scale ?? 1),
-                  maxHeight: 90 * (logo.scale ?? 1),
+                  maxWidth: baseWidth * (logo.scale ?? 1),
+                  maxHeight: baseHeight * (logo.scale ?? 1),
                   width: 'auto',
                   height: 'auto',
                 }}
