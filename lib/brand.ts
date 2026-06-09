@@ -36,10 +36,10 @@ export const VIDEO_POSTER      = `${WP_MEDIA_UPLOADS}/2022/09/contact_still.png`
 export const PHOTO_CHRISTINA      = `${WP_MEDIA_UPLOADS}/2026/05/christina-hagopian.jpg`;
 export const PHOTO_LUXURY         = `${WP_MEDIA_UPLOADS}/2026/05/burberry_luxurylifestyle.jpeg`;
 export const PHOTO_MEDTECH        = `${WP_MEDIA_UPLOADS}/2026/05/aptyx_medtech.jpeg`;
-export const NONPROFIT_LOGOS: ReadonlyArray<{ src: string; alt: string }> = [
-  { src: `${WP_MEDIA_UPLOADS}/2026/05/24_HI_logo_montefiore.webp`,     alt: 'Montefiore' },
+export const NONPROFIT_LOGOS: ReadonlyArray<{ src: string; alt: string; scale?: number }> = [
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/24_HI_logo_montefiore.webp`,     alt: 'Montefiore',         scale: 1.4 },
   { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_epilepsy_foundation.png`,    alt: 'Epilepsy Foundation' },
-  { src: `${WP_MEDIA_UPLOADS}/2026/05/21_HI_logo_malala.webp`,          alt: 'Malala Fund' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/21_HI_logo_malala.webp`,          alt: 'Malala Fund',        scale: 1.4 },
   { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_susan_g_komen.png`,          alt: 'Susan G. Komen' },
   { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_blm.png`,                    alt: 'Black Lives Matter' },
 ];

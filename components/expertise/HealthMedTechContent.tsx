@@ -14,8 +14,8 @@ import { VIDEO_MP4, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES, WP_MEDIA_
 
 const HEALTH_LOGOS: ReadonlyArray<{ src: string; alt: string; scale?: number }> = [
   { src: `${WP_MEDIA_UPLOADS}/2026/05/24_HI_logo_montefiore.webp`,    alt: 'Montefiore',     scale: 1.05 },
-  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_epilepsy_foundation.png`,   alt: 'Epilepsy Foundation' },
-  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_susan_g_komen.png`,         alt: 'Susan G. Komen' },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_epilepsy_foundation.png`,   alt: 'Epilepsy Foundation', scale: 0.7 },
+  { src: `${WP_MEDIA_UPLOADS}/2026/05/logo_susan_g_komen.png`,         alt: 'Susan G. Komen',      scale: 0.7 },
   { src: '/images/client-logos/logo-aptyx.png',                        alt: 'Aptyx' },
   { src: '/images/client-logos/logo-recovery-plus.png',                alt: 'RecoveryPlus',   scale: 1.05 },
   { src: '/images/client-logos/norwood-medical-logo.png',              alt: 'Norwood Medical' },

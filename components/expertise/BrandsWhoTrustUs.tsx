@@ -42,21 +42,17 @@ export function BrandsWhoTrustUs({
         </FadeIn>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-14 items-center">
           {logos.map((logo, i) => (
-            <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center min-h-24">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={baseWidth}
-                height={baseHeight}
-                sizes={`${baseWidth}px`}
-                className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  maxWidth: baseWidth * (logo.scale ?? 1),
-                  maxHeight: baseHeight * (logo.scale ?? 1),
-                  width: 'auto',
-                  height: 'auto',
-                }}
-              />
+            <FadeIn key={logo.alt} delay={i * 0.05} className="flex items-center justify-center">
+              <div style={{ width: baseWidth * (logo.scale ?? 1), height: baseHeight * (logo.scale ?? 1) }} className="flex items-center justify-center shrink-0">
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={baseWidth}
+                  height={baseHeight}
+                  sizes={`${baseWidth}px`}
+                  className="object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300 w-full h-full"
+                />
+              </div>
             </FadeIn>
           ))}
         </div>
