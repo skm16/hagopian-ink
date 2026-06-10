@@ -649,7 +649,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'Brand Identity',
     tags: ['Branding', 'Luxury', 'Consumer Goods', 'Nonprofit', 'Technology'],
     tagline: 'Make your mark.',
-    intro: 'What makes a great brand? It starts with a distinctive, memorable logo, the cornerstone of every strong visual identity. But a great brand is more than a logo. It\'s a full system, developed through a rigorous process to define every element of how you look, sound, and feel. The result is a complete brand vision that rises above the competition and leaves your mark on the world. At Hagopian Ink, our custom logo design and brand identity work always begins with strategy: we use type, shape, and color with intention, crafting marks that are bold, scalable, and unmistakably yours. This collection is a sample of some of our favorite logo and brand identity projects. Your mark could be next.',
+    intro: 'What makes a great brand? It starts with a distinctive, memorable logo — the cornerstone of every strong visual identity. But a great brand is more than a logo. It\'s a full system built on strategy: clear brand pillars, a message that resonates with your audience, and a mark that\'s legally distinct, built to scale, and consistent in every team member\'s hands. At Hagopian Ink, we map out that thinking before we start designing — so every decision has a reason, and your brand has a foundation that is uniquely yours. This collection is a sample of some of our favorite logo and brand identity projects. Your mark could be next.',
     noHero: true,
     hero: `${CDN}/2018/08/HI-Web_Logos_pepsi.jpg`,
     sections: [
