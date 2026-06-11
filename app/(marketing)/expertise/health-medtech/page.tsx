@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: 'Health & MedTech',
-  description: 'Design for health and MedTech brands — clear communication of complex science, patient-first UX.',
+  description: 'Brand identity design and UX for health and MedTech companies — medical device manufacturers, digital health platforms, and life science innovators. Women-owned boutique branding agency.',
   canonicalPath: '/expertise/health-medtech',
 });
 

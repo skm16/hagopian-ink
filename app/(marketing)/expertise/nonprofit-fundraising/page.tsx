@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: 'Nonprofit Fundraising',
-  description: 'Branding and email campaigns for nonprofit fundraising — galas, year-end campaigns, donor cultivation.',
+  description: 'Nonprofit brand identity design, gala and event design, donor email campaigns, and fundraising appeals — built to connect missions to donors and drive results. Women-owned branding agency.',
   canonicalPath: '/expertise/nonprofit-fundraising',
 });
 

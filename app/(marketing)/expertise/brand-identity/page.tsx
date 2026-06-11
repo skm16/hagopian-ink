@@ -11,7 +11,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
   title: 'Brand Identity',
-  description: 'Brand identity design for ambitious brands — logos, visual systems, brand strategy.',
+  description: 'Nonprofit brand identity design, luxury branding, and health company visual systems — logos, brand standards, and complete identity systems built to last. Women-owned boutique agency, 20+ years.',
   canonicalPath: '/expertise/brand-identity',
 });
 

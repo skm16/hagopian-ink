@@ -15,7 +15,7 @@ import { buildMetadata } from '@/lib/seo/resolve-metadata';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Work',
-  description: 'Selected case studies and creative work from Hagopian Ink.',
+  description: 'Brand identity design, logo design, and marketing work from Hagopian Ink — nonprofits, luxury brands, health and MedTech companies. 20+ years of marks and campaigns built on design and execution.',
   canonicalPath: '/work',
 });
 

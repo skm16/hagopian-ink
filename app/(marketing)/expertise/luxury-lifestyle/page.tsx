@@ -8,8 +8,8 @@ import { fetchWorksByExpertiseTag } from '@/lib/wp/fetch-works-by-expertise';
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Luxury & Lifestyle',
-  description: 'Premium branding and email design for luxury and lifestyle brands — Burberry, Frette, La Perla, and more.',
+  title: 'Luxury Branding & Lifestyle Design',
+  description: 'Luxury brand identity design, campaigns, and email marketing for fashion, beauty, and lifestyle brands — La Perla, Frette, Burberry, and more. Women-owned boutique branding agency.',
   canonicalPath: '/expertise/luxury-lifestyle',
 });
 

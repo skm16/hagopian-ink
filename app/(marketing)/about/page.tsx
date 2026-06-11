@@ -4,7 +4,7 @@ import { AboutContent } from '@/components/about/AboutContent';
 
 export const metadata: Metadata = buildMetadata({
   title: 'About',
-  description: 'Hagopian Ink is a women-owned creative agency in NYC specializing in branding, UX design, and email marketing.',
+  description: 'Women-owned since 2002. Hagopian Ink is a boutique branding agency specializing in brand identity design, web design, and email marketing for nonprofits, luxury brands, and health companies.',
   canonicalPath: '/about',
 });
 

@@ -10,16 +10,16 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hagopianink.com';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Branding Agency NYC | Branding, UX Design, Email Marketing',
+    default: 'Women-Owned Boutique Branding Agency | Brand Identity, UX Design, Email Marketing',
     template: '%s | Hagopian Ink',
   },
   ...buildMetadata({
-    title: 'Branding Agency NYC | Branding, UX Design, Email Marketing',
+    title: 'Women-Owned Boutique Branding Agency | Brand Identity, UX Design, Email Marketing',
     description:
-      'Hagopian Ink is a boutique design agency born in NYC specializing in brand identity, UX design, and email marketing. 20+ years helping innovative organizations grow.',
+      'Hagopian Ink is a women-owned boutique branding agency with 20+ years designing and building brand identity, UX, and email marketing for nonprofits, luxury brands, and health innovators.',
     ogTitle: 'HagopianInk.com',
     ogDescription:
-      'Hagopian Ink is a boutique design agency born in NYC specializing in brand identity, UX design, and email marketing. 20+ years helping innovative organizations grow.',
+      'Hagopian Ink is a women-owned boutique branding agency with 20+ years designing and building brand identity, UX, and email marketing for nonprofits, luxury brands, and health innovators.',
     canonicalPath: '/',
   }),
 };
