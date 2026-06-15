@@ -24,7 +24,7 @@ const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const VALUES = [
   { icon: Target,     title: 'Strategy Before Style',          desc: 'Every project begins with deep listening. We learn your business, your audience, and your competition before a single pixel is placed.' },
-  { icon: Gem,        title: 'Craft Without Compromise',        desc: 'We hold our work to exacting standards — because the difference between good and great is what clients remember.' },
+  { icon: Gem,        title: 'Craft Without Compromise',        desc: 'We hold our work to exacting standards because attention to detail is what makes good work turn into great work.' },
   { icon: Heart,      title: 'Relationships Over Transactions', desc: 'Our longest client relationships span a decade or more. We build trust through transparency, reliability, and genuine investment in your success.' },
   { icon: TrendingUp, title: 'Results Are the Measure',         desc: 'Beautiful work is a given. Work that drives enrollment, donations, conversions, and loyalty is the goal.' },
   { icon: Star,       title: 'Women Owned. Creatively Driven.',  desc: 'We are woman-owned and creatively driven, with an unapologetic commitment to doing exceptional work. We lead with intention, high expectations, and a healthy dose of boss-lady energy.' },
