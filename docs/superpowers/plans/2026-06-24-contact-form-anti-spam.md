@@ -650,3 +650,15 @@ Not code — record here so it isn't lost:
 **Placeholder scan:** No TBD/TODO; every code step shows complete code. ✓
 
 **Type consistency:** `checkRateLimit`/`getClientIp`/`resetRateLimit` signatures identical across Task 1 definition and Task 3 consumption. `turnstileToken` named consistently in route type (Task 3), client state and POST body (Task 4). `<Turnstile>` prop names (`onVerify`/`onExpire`/`resetSignal`) identical in Task 2 definition and Task 4 usage. ✓
+
+---
+
+## Post-Implementation Addendum
+
+**Tasks 1–5 shipped as planned** (merged to `main`, commit `4dc5b77`). One unplanned follow-up task was needed after deploy:
+
+### Task 6 (unplanned): Wire Turnstile into the homepage form
+
+The plan covered only `ContactContent.tsx`. A second form on the homepage ([components/home/HomeContent.tsx](../../../components/home/HomeContent.tsx)) also POSTs to `/api/contact` and was missed. After the Turnstile secret went live in Railway, the server began enforcing and rejected the tokenless homepage submissions (`400 "Verification failed"`). Fixed by applying the same four changes as Task 4 (import `<Turnstile>`, add token + reset state, send `turnstileToken`, reset in `finally`, render the widget). Merged to `main` as commit `0ec1630`.
+
+See the **Post-implementation amendments** section of the [design spec](../specs/2026-06-24-contact-form-anti-spam-design.md) for the full root-cause writeup and the three tracked (still-open) follow-ups.

@@ -15,6 +15,8 @@ The contact form already submits to a real backend:
 - **Form UI:** [components/contact/ContactContent.tsx](../../../components/contact/ContactContent.tsx) — client component, POSTs JSON to `/api/contact`.
 - **Route handler:** [app/api/contact/route.ts](../../../app/api/contact/route.ts) — validates, then sends email via **Resend**.
 
+> **Scope correction (post-deploy):** This design was written assuming `ContactContent.tsx` was the *only* form posting to `/api/contact`. It is not — the homepage ([components/home/HomeContent.tsx](../../../components/home/HomeContent.tsx)) has a second contact form hitting the same endpoint. It was missed during brainstorming and only surfaced after the Turnstile secret went live (the fail-open path masked it until then). Both forms are now protected. See the **Post-implementation amendments** section at the bottom. **Any new form that POSTs to `/api/contact` must render `<Turnstile>` and send `turnstileToken`, or it will be rejected.**
+
 The `artifacts/` directory (Express server, React-Router pages) is the dead Replit port and is **out of scope** — it is not built into the Docker image (see [Dockerfile](../../../Dockerfile)).
 
 ### Existing protection (keep as-is)
@@ -148,3 +150,29 @@ RATE_LIMIT_WINDOW_MS=600000
 - Rate limit: **5 / 10 min / IP** ✓
 - Turnstile: **managed / invisible** mode ✓
 - Turnstile keys unset → **fail open** for local dev ✓
+
+---
+
+## Post-implementation amendments
+
+Recorded after the feature shipped and the Turnstile keys went live in Railway.
+
+### 1. Homepage form coverage gap (fixed)
+
+The original design assumed `ContactContent.tsx` was the only consumer of `/api/contact`. The homepage form ([components/home/HomeContent.tsx](../../../components/home/HomeContent.tsx)) is a second consumer and was not wired with the widget. While the Turnstile secret was unset, `verifyTurnstile` failed *open*, so the homepage form worked and the gap was invisible. Once the secret was set, the server enforced and rejected every tokenless homepage submission with `400 "Verification failed."`
+
+**Fix:** the shared `<Turnstile>` component was wired into the homepage form identically to the contact form (render widget, send `turnstileToken`, reset in `finally`). Verified by grep that these are the **only two** components posting to `/api/contact`.
+
+**Operational rule going forward:** any new form that POSTs to `/api/contact` MUST render `<Turnstile>` and include `turnstileToken` in the body. The endpoint fails closed when the secret is set, so an unprotected form will be rejected in production.
+
+### 2. Spec inaccuracy corrected
+
+The rate limiter was described as "self-cleaning" such that the in-memory Map "cannot grow unbounded." This is technically inaccurate: pruning only happens for the key being checked on each call, so an IP that submits **once** and never returns leaves a stale entry that is never revisited or deleted. Memory grows with the count of *distinct* IPs ever seen (kilobytes/year at this site's volume — negligible, but the invariant as originally stated was wrong). See follow-up #2 below.
+
+### 3. Tracked follow-ups (non-blocking, not yet implemented)
+
+From the final whole-branch review; the user chose to ship and track these rather than block the merge:
+
+1. **Harden env parsing** ([route.ts:20-21](../../../app/api/contact/route.ts)) — a non-numeric value like `RATE_LIMIT_MAX=abc` yields `NaN`, and `length >= NaN` is always false, silently disabling the limiter. Add a `Number.isFinite` guard.
+2. **Map prune for one-shot IPs** ([lib/rate-limit.ts](../../../lib/rate-limit.ts)) — on the allow-path, `store.delete(key)` when the pruned timestamp list is empty, so the Map truly self-prunes (makes amendment #2's invariant true).
+3. **Turnstile idle-expiry refresh** ([Turnstile.tsx:43](../../../components/contact/Turnstile.tsx)) — a token auto-expires (~300s); the `expired-callback` clears it but doesn't mint a fresh one, so a user idle >5 min then submitting gets one rejection + auto-reset. Call `turnstile.reset` in the expired/error handler.
