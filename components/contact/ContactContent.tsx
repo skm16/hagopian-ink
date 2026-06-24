@@ -8,6 +8,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { Turnstile } from '@/components/contact/Turnstile';
 import { VIDEO_CONTACT, VIDEO_POSTER, SERIF, SANS, NAV_FONT, BRAND_STYLES } from '@/lib/brand';
 
 // Typed wrappers to fix React 19 / framer-motion className inference gap
@@ -46,6 +47,8 @@ export function ContactContent() {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileReset, setTurnstileReset] = useState(0);
 
   function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm(f => ({ ...f, [key]: value }));
@@ -60,7 +63,7 @@ export function ContactContent() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       if (!res.ok) {
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
@@ -72,6 +75,9 @@ export function ContactContent() {
     } catch {
       setErrorMessage('Network error. Please try again or email us directly.');
       setStatus('error');
+    } finally {
+      setTurnstileToken('');
+      setTurnstileReset((n) => n + 1);
     }
   }
 
@@ -232,6 +238,12 @@ export function ContactContent() {
                       />
                     </label>
                   </div>
+
+                  <Turnstile
+                    onVerify={setTurnstileToken}
+                    onExpire={() => setTurnstileToken('')}
+                    resetSignal={turnstileReset}
+                  />
 
                   {status === 'error' && errorMessage && (
                     <p className="text-sm text-red-700 bg-red-50 border border-red-200 px-4 py-3" style={{ fontFamily: SANS }}>
