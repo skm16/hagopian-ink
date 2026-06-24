@@ -17,8 +17,8 @@ interface ContactSubmission {
 
 const RECIPIENT = process.env.CONTACT_TO_EMAIL ?? 'info@HagopianInk.com';
 const SENDER = process.env.CONTACT_FROM_EMAIL ?? 'onboarding@resend.dev';
-const RATE_LIMIT_MAX = Number(process.env.RATE_LIMIT_MAX ?? 5);
-const RATE_LIMIT_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS ?? 600_000);
+const RATE_LIMIT_MAX = Number(process.env.RATE_LIMIT_MAX || 5);
+const RATE_LIMIT_WINDOW_MS = Number(process.env.RATE_LIMIT_WINDOW_MS || 600_000);
 const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY;
 
 function isValidEmail(value: string): boolean {
