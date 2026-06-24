@@ -26,6 +26,7 @@ import { Nav } from '@/components/shared/Nav';
 import { Footer } from '@/components/shared/Footer';
 import { FadeIn, SectionLabel, Btn, BtnLight } from '@/components/shared/ui';
 import { HeroOverlay } from '@/components/shared/HeroOverlay';
+import { Turnstile } from '@/components/contact/Turnstile';
 import {
   CDN, LOGO, VIDEO_MP4, VIDEO_POSTER,
   SERIF, SANS, NAV_FONT, BRAND_STYLES,
@@ -206,6 +207,8 @@ export function HomeContent() {
   const [form, setForm] = useState<HomeFormState>(INITIAL_FORM);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileReset, setTurnstileReset] = useState(0);
   const submitted = status === 'success';
 
   function updateField<K extends keyof HomeFormState>(key: K, value: HomeFormState[K]) {
@@ -221,7 +224,7 @@ export function HomeContent() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken }),
       });
       if (!res.ok) {
         const body = (await res.json().catch(() => null)) as { error?: string } | null;
@@ -233,6 +236,9 @@ export function HomeContent() {
     } catch {
       setErrorMessage('Network error. Please try again or email us directly.');
       setStatus('error');
+    } finally {
+      setTurnstileToken('');
+      setTurnstileReset((n) => n + 1);
     }
   }
 
@@ -593,6 +599,12 @@ export function HomeContent() {
                         />
                       </label>
                     </div>
+
+                    <Turnstile
+                      onVerify={setTurnstileToken}
+                      onExpire={() => setTurnstileToken('')}
+                      resetSignal={turnstileReset}
+                    />
 
                     {status === 'error' && errorMessage && (
                       <p className="text-sm text-red-200 bg-red-900/30 border border-red-700/40 px-4 py-3" style={{ fontFamily: SANS }}>
