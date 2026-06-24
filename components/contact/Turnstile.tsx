@@ -53,7 +53,7 @@ export function Turnstile({ onVerify, onExpire, resetSignal }: TurnstileProps) {
         strategy="afterInteractive"
         onLoad={renderWidget}
       />
-      <div ref={containerRef} onLoad={renderWidget} />
+      <div ref={containerRef} />
     </>
   );
 }
