@@ -99,6 +99,18 @@ export interface OurWorkBlock {
   background: 'gradient' | 'white' | 'plain';
 }
 
+export interface FullWidthVideoBlock {
+  acf_fc_layout: 'full-width-video';
+  videoMp4: string;                  // Resolved URL of the mp4 (ACF sub-field `video_mp4`). '' when unset.
+  posterImage: string | null;        // Resolved URL of the poster (ACF sub-field `poster_image`).
+}
+
+export interface TwoImagesSideBySideBlock {
+  acf_fc_layout: 'two-images-side-by-side';
+  imageLeft: string | null;          // Resolved URL (ACF sub-field `image_left`).
+  imageRight: string | null;         // Resolved URL (ACF sub-field `image_right`).
+}
+
 export type FlexBlock =
   | TwoColumnsBlock
   | ColumnsBlock
@@ -109,7 +121,9 @@ export type FlexBlock =
   | SliderBlock
   | SliderTwoSlidesBlock
   | GalleryBlock
-  | OurWorkBlock;
+  | OurWorkBlock
+  | FullWidthVideoBlock
+  | TwoImagesSideBySideBlock;
 
 export type FlexLayout = FlexBlock['acf_fc_layout'];
 
@@ -124,4 +138,6 @@ export const KNOWN_LAYOUTS: ReadonlyArray<FlexLayout> = [
   'slider_two_slides',
   'gallery',
   'our-work',
+  'full-width-video',
+  'two-images-side-by-side',
 ];

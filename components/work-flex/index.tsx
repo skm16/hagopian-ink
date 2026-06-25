@@ -10,6 +10,8 @@ import { Slider } from './Slider';
 import { SliderTwoSlides } from './SliderTwoSlides';
 import { Gallery } from './Gallery';
 import { OurWork } from './OurWork';
+import { FullWidthVideo } from './FullWidthVideo';
+import { TwoImagesSideBySide } from './TwoImagesSideBySide';
 
 export function renderBlock(
   block: FlexBlock,
@@ -37,5 +39,9 @@ export function renderBlock(
       return <Gallery key={key} block={block} />;
     case 'our-work':
       return <OurWork key={key} block={block} />;
+    case 'full-width-video':
+      return <FullWidthVideo key={key} block={block} />;
+    case 'two-images-side-by-side':
+      return <TwoImagesSideBySide key={key} block={block} />;
   }
 }

@@ -13,6 +13,8 @@ const KNOWN_LAYOUTS = new Set<string>([
   'slider_two_slides',
   'gallery',
   'our-work',
+  'full-width-video',
+  'two-images-side-by-side',
 ]);
 
 function asString(v: unknown): string {
@@ -149,6 +151,21 @@ export function shapeBlock(raw: unknown): FlexBlock | null {
         background,
       };
     }
+    case 'full-width-video':
+      // ACF sub-fields: video_mp4 (file/url → uri string), poster_image (image → uri string).
+      // Route through asImageUrl so the CMS host is rewritten to the headless media host.
+      return {
+        acf_fc_layout: 'full-width-video',
+        videoMp4: asImageUrl(r.video_mp4),
+        posterImage: asImageUrl(r.poster_image) || null,
+      };
+    case 'two-images-side-by-side':
+      // ACF sub-fields: image_left, image_right (both image → uri string).
+      return {
+        acf_fc_layout: 'two-images-side-by-side',
+        imageLeft: asImageUrl(r.image_left) || null,
+        imageRight: asImageUrl(r.image_right) || null,
+      };
     default:
       return null;
   }

@@ -41,6 +41,25 @@ rm -rf "app/[[...slug]]"
 
 (Or convert the optional catch-all `[[...slug]]` → required catch-all `[...slug]` if a fallback proxy is ever needed again. Today it isn't.)
 
+## Adding a new ACF flex layout (work `template_part`)
+
+Work case studies render an ACF **flexible-content** field (`template_part`, ACF group `group_5b7d67f9254f1`) where each block is a *layout* (e.g. `slider`, `gallery`, `our-work`). There is **no codegen** for these — a new CMS layout must be wired by hand through four spots, each of which **silently renders nothing** for an unknown layout (fail-closed). To add a layout `my-layout`:
+
+1. **Discover its sub-fields from the CMS** (no WP export needed). The jab MCP adapter exposes a generic introspection tool; its ability schema enumerates every `template_part` layout with sub-field names/types:
+   ```
+   tools/call → mcp-adapter-get-ability-info  { ability_name: "jab/get-works-by-slug" }
+   ```
+   The returned `output_schema` lists each layout's `acf_fc_layout` enum + sub-field `name`/`type`/`format`. (ACF image/file fields come back as `string format=uri`.) MCP handshake first: `initialize` → read `mcp-session-id` from the **response headers** → `notifications/initialized` → echo `Mcp-Session-Id` on every call.
+2. **Type** — add an interface + extend the `FlexBlock` union + add the slug to `KNOWN_LAYOUTS` in [lib/work-detail-types.ts](lib/work-detail-types.ts). This is the single source of truth both the server and components import.
+3. **Server shape** — add the slug to `KNOWN_LAYOUTS` and a `case` in `shapeBlock()` in [lib/wp/shape-work.ts](lib/wp/shape-work.ts). Route every image/media URL through `asImageUrl()` so the CMS host is rewritten to the headless media host (skipping it leaks `cms.hagopianink.com` URLs into the frontend).
+4. **Component + dispatch** — create `components/work-flex/MyLayout.tsx` and register a `case` in [components/work-flex/index.tsx](components/work-flex/index.tsx) `renderBlock`.
+
+Verify with `npm run typecheck` (the discriminated union catches any of the four spots disagreeing). For styling, the original WP theme is the source of truth — read the layout's `part-*.php` + `_*.scss` under `wordpress/themes/skmframework/`. **Caveat:** the newest layouts (`full-width-video`, `two-images-side-by-side`) have **no** theme partial/SCSS — only the ACF field def — so match their design from the CMS-rendered output, not the theme.
+
+> ⚠️ **`two-images-side-by-side` is an asymmetric logo + photo block**, not two equal images. Left (`image_left`) = logo, 45%, contained & capped (max 250×350), centered. Right (`image_right`) = photo, 55%, rendered at **intrinsic size** so its natural height drives the flex row (the logo cell stretches to match). Do **not** use `next/image fill` on the photo — `fill` has no intrinsic height, so the logo wrongly drives a short row and the photo collapses.
+
+> Note: editing `wordpress/themes/skmframework/acf-json/*.json` only mirrors the field def for git-based environment sync — it does **not** push to the CMS (ACF loads from the DB). The functional headless wiring is entirely steps 2–4 above.
+
 ## Architecture notes
 
 - **`app/`** — Next.js App Router. `(marketing)` is a route group for the main marketing pages (about, contact, expertise, legal).
