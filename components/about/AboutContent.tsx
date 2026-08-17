@@ -55,6 +55,7 @@ const ARTICLES = [
   { pub: 'Carnegie Mellon University',title: 'Christina Hagopian — Inked for Success',                        href: 'https://www.cmu.edu/homepage/society/2013/winter/inked-for-success.shtml' },
   { pub: 'Target Marketing / AdWeek', title: 'Focus on Responsive Email to Grow Your E-Commerce Business',    href: 'https://www.adweek.com/performance-marketing/focus-responsive-email-grow-your-e-commerce-business/' },
   { pub: 'Luxury Daily',              title: '6 tips to maximize the potential of luxury email campaigns',     href: 'https://www.luxurydaily.com/6-tips-to-maximize-the-potential-of-luxury-email-campaigns/' },
+  { pub: 'Watson Weekly',             title: 'AI Replaces Average Design, Not Designers. Christina Hagopian on What Branding Really Is', href: 'https://www.youtube.com/watch?v=QtVgNx2A2OI' },
 ];
 
 const MEDIUM = [
