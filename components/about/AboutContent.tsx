@@ -66,7 +66,6 @@ const PROMOTIONS = [
   { title: 'Marble and Foil Stamped Business Cards', pub: 'UnderConsideration / For Print Only', href: 'https://www.underconsideration.com/fpo/archives/2017/03/hagopian-ink-business-cards.php' },
   { title: 'Mayan New Year, It is Not the End of the World', pub: 'UnderConsideration / For Print Only', href: 'https://www.underconsideration.com/fpo/archives/2013/06/its-not-the-end-of-the-world-122112-mayan-promo.php' },
   { title: 'Summer and Winter Solstice', pub: 'UnderConsideration / For Print Only', href: 'https://www.underconsideration.com/fpo/archives/2012/02/hagopian-ink-summer-and-winter-solstice-card.php' },
-  { title: 'Very Creative Examples of Holiday Cards That Will Make Anyone Feel More Special', pub: 'TopDesignMag.com', href: 'http://www.topdesignmag.com/very-creative-examples-of-holiday-cards-that-will-make-anyone-feel-more-special/' },
 ];
 
 export function AboutContent() {
