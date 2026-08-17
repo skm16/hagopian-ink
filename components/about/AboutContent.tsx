@@ -51,11 +51,11 @@ const BOOKS = [
 ];
 
 const ARTICLES = [
+  { pub: 'Watson Weekly',             title: 'AI Replaces Average Design, Not Designers. Christina Hagopian on What Branding Really Is', href: 'https://www.youtube.com/watch?v=QtVgNx2A2OI' },
   { pub: 'Forbes',                    title: 'How We Learned The Real Secrets To Effective Email Marketing',  href: 'https://www.forbes.com/sites/entrepreneursorganization/2017/12/04/how-we-learned-the-real-secrets-to-effective-email-marketing/#51d5496f2ee9' },
   { pub: 'Carnegie Mellon University',title: 'Christina Hagopian — Inked for Success',                        href: 'https://www.cmu.edu/homepage/society/2013/winter/inked-for-success.shtml' },
   { pub: 'Target Marketing / AdWeek', title: 'Focus on Responsive Email to Grow Your E-Commerce Business',    href: 'https://www.adweek.com/performance-marketing/focus-responsive-email-grow-your-e-commerce-business/' },
   { pub: 'Luxury Daily',              title: '6 tips to maximize the potential of luxury email campaigns',     href: 'https://www.luxurydaily.com/6-tips-to-maximize-the-potential-of-luxury-email-campaigns/' },
-  { pub: 'Watson Weekly',             title: 'AI Replaces Average Design, Not Designers. Christina Hagopian on What Branding Really Is', href: 'https://www.youtube.com/watch?v=QtVgNx2A2OI' },
 ];
 
 const MEDIUM = [
@@ -228,30 +228,6 @@ export function AboutContent() {
         </div>
       </section>
 
-      {/* BOOKS */}
-      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
-        <div className="max-w-[1400px] mx-auto">
-          <FadeIn className="mb-14">
-            <SectionLabel>In Print</SectionLabel>
-            <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3">
-            {BOOKS.map((b, i) => (
-              <FadeIn key={i} delay={i * 0.1} className="py-8 border-t border-[#2d3232]/12 flex flex-col pr-8">
-                <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
-                {b.subtitle && <p className="text-[13px] text-[#2d3232]/70 mb-3 leading-snug">{b.subtitle}</p>}
-                {b.authors  && <p className="text-[13px] text-[#2d3232]/70 mb-0.5">{b.authors}</p>}
-                <p className="text-[13px] text-[#2d3232]/70 mb-5">{b.publisher}</p>
-                <a href={b.href} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/70 hover:text-[#2d3232]/80 transition-colors mt-auto">
-                  View on Amazon <ExternalLink className="w-3 h-3" />
-                </a>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ARTICLES */}
       <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
         <div className="max-w-[1400px] mx-auto">
@@ -300,6 +276,30 @@ export function AboutContent() {
                 ))}
               </div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* BOOKS */}
+      <section className="bg-[#f1efef] py-24 md:py-36 px-8 md:px-16 border-t border-[#e0ddd9]">
+        <div className="max-w-[1400px] mx-auto">
+          <FadeIn className="mb-14">
+            <SectionLabel>In Print</SectionLabel>
+            <h2 className="text-3xl md:text-4xl text-[#2d3232]" style={{ fontFamily: SERIF, fontWeight: 700 }}>Books &amp; publications.</h2>
+          </FadeIn>
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            {BOOKS.map((b, i) => (
+              <FadeIn key={i} delay={i * 0.1} className="py-8 border-t border-[#2d3232]/12 flex flex-col pr-8">
+                <p className="text-[15px] font-semibold text-[#2d3232] leading-snug mb-1">{b.title}</p>
+                {b.subtitle && <p className="text-[13px] text-[#2d3232]/70 mb-3 leading-snug">{b.subtitle}</p>}
+                {b.authors  && <p className="text-[13px] text-[#2d3232]/70 mb-0.5">{b.authors}</p>}
+                <p className="text-[13px] text-[#2d3232]/70 mb-5">{b.publisher}</p>
+                <a href={b.href} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[13px] text-[#2d3232]/70 hover:text-[#2d3232]/80 transition-colors mt-auto">
+                  View on Amazon <ExternalLink className="w-3 h-3" />
+                </a>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
