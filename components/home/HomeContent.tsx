@@ -270,7 +270,7 @@ export function HomeContent() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.45, ease }}
             className="leading-[0.95] md:leading-[0.88] mb-10 tracking-[-0.01em] text-white"
-            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.75rem, 9.25vw, 8.5rem)' }}>
+            style={{ fontFamily: SERIF, fontWeight: 700, fontSize: 'clamp(3.5rem, 8.75vw, 7.75rem)' }}>
             Make your mark.
           </motion.h1>
 
