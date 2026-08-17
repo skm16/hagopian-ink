@@ -434,13 +434,10 @@ export function HomeContent() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                Great work doesn&apos;t need a layered process or inflated egos. It needs smart questions, honest conversation, and enough taste to know when something is almost there but not quite right.
-              </p>
-              <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-10">
-                At Hagopian Ink, we stay close to the work from first conversation to final detail. We shape strategy, guide creative direction, and refine the design along the way. The result is work with character and staying power.
+                Great creative work starts with asking the right questions and fully understanding the organization behind the challenge. From there, we help shape the direction and turn strong thinking into distinctive, beautiful design.
               </p>
               <p className="text-lg text-[#f5f0eb]/60 leading-relaxed mb-12">
-                Our relationships span years because trust and consistency allow us to keep growing alongside organizations we believe in.
+                We stay closely involved from first conversation to final detail, bringing experienced creative leadership every step of the way.
               </p>
             </FadeIn>
             <FadeIn delay={0.3}>
