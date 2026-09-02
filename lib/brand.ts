@@ -163,7 +163,7 @@ export const SERVICES = [
   {
     name: 'Email Marketing',
     color: '#4e5c5e',
-    title: 'Harness the power of\nyour email sends.',
+    title: 'Harness the power of your email sends.',
     desc: "Flawless aesthetics and messaging increase conversions and create brand loyalty. See why Fortune 50 companies trust us with their email programs year after year.",
     link: '/expertise/email-marketing',
     linkText: 'View email marketing',
