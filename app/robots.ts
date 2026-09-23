@@ -15,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
     process.env.SITE_INDEXABLE === 'true';
   return {
     rules: isProduction
-      ? [{ userAgent: '*', allow: '/', disallow: '/api/' }]
+      ? [{ userAgent: '*', allow: '/', disallow: ['/api/', '/review/'] }]
       : [{ userAgent: '*', disallow: '/' }],
     sitemap: `${SITE}/sitemap.xml`,
   };

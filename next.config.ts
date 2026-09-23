@@ -30,6 +30,15 @@ const config: NextConfig = {
   async rewrites() {
     return buildRewrites();
   },
+  async headers() {
+    // Private client review pages must never be indexed or cached by crawlers.
+    return [
+      {
+        source: '/review/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }],
+      },
+    ];
+  },
 };
 
 export default config;

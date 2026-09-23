@@ -144,6 +144,10 @@ export function buildRedirects(): Redirect[] {
 
 export function buildRewrites(): Rewrite[] {
   return [
+    // Private client review pages: static HTML in public/review/<slug>/index.html,
+    // served at the clean URL /review/<slug>. Slugs carry a random token so the
+    // link is unguessable; pages are noindex (see headers in next.config.ts).
+    { source: '/review/:slug', destination: '/review/:slug/index.html' },
     { source: '/feed', destination: `${CMS_HOST}/feed` },
     { source: '/feed/atom', destination: `${CMS_HOST}/feed/atom` },
     { source: '/comments/feed', destination: `${CMS_HOST}/comments/feed` },
